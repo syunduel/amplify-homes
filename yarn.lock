@@ -4026,6 +4026,13 @@
     "schema-utils" "^3.0.0"
     "source-map" "^0.7.3"
 
+"@psychedelic/plug-connect@^0.1.4":
+  "integrity" "sha512-pbqf0WigqUKLg+keFcrEv7MDzd+kA5W5HuB+NKlaGr9IHEfZGD16/l4R5//ZyQ2JXjQHD54JfTOKk8RN+HqqvQ=="
+  "resolved" "https://npm.pkg.github.com/download/@psychedelic/plug-connect/0.1.4/96dc1f300a0e4dee1322469d11845bdf0997738db6e6ac0a3fc200a1139b49cf"
+  "version" "0.1.4"
+  dependencies:
+    "@stitches/react" "^0.2.3"
+
 "@radix-ui/number@0.1.0":
   "integrity" "sha512-rpf6QiOWLHAkM4FEMYu9i+5Jr8cKT893+R4mPpcdsy4LD7omr9JfdOqj/h/xPA5+EcVrpMMlU6rrRYpUB5UI8g=="
   "resolved" "https://registry.npmjs.org/@radix-ui/number/-/number-0.1.0.tgz"
@@ -4617,6 +4624,11 @@
   "version" "8.1.0"
   dependencies:
     "@sinonjs/commons" "^1.7.0"
+
+"@stitches/react@^0.2.3":
+  "integrity" "sha512-RDVn89kW0R/M4q4TdYvsJ7nckFndzRWGGFJnEHbIH9flOpahtNdPsrxVSsZSjFpxeVqCoOxKujlQjiyRrec1VA=="
+  "resolved" "https://registry.npmjs.org/@stitches/react/-/react-0.2.5.tgz"
+  "version" "0.2.5"
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   "integrity" "sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ=="
@@ -12702,7 +12714,7 @@
     "invariant" "^2.2.4"
     "tslib" "^2.0.0"
 
-"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.8 || ^17.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.1", "react@^17.0.2", "react@>= 16", "react@>= 16.7.0", "react@>= 16.8.0", "react@>=16", "react@>=16.3.0", "react@>=16.8", "react@>=17.0.0", "react@17.0.2":
+"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.8 || ^17.0", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.1", "react@^17.0.2", "react@>= 16", "react@>= 16.3.0", "react@>= 16.7.0", "react@>= 16.8.0", "react@>=16", "react@>=16.3.0", "react@>=16.8", "react@>=17.0.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"

@@ -6,6 +6,8 @@ import { useMoralis } from "react-moralis";
 import Dressup from "./routes/dressup";
 import CollectionList from './routes/collectionList';
 
+import PlugConnect from '@psychedelic/plug-connect';
+
 function App() {
 
 
@@ -98,6 +100,14 @@ function App() {
   <div className="App">
     <BrowserRouter>
       {dispNavBar()}
+
+      <PlugConnect
+        whitelist={['unssi-hiaaa-aaaah-qcmya-cai']}
+        onConnectCallback={() => 
+          window.ic.plug.agent.getPrincipal().then(result => console.log(`getPrincipal: ${result}`))
+        }
+      />
+
       <Routes>
         <Route path="/" element={<CollectionList />} />
         <Route path="/dressup/" element={<Dressup />} />
