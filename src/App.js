@@ -103,9 +103,18 @@ function App() {
 
       <PlugConnect
         whitelist={['unssi-hiaaa-aaaah-qcmya-cai']}
-        onConnectCallback={() => 
-          window.ic.plug.agent.getPrincipal().then(result => console.log(`getPrincipal: ${result}`))
-        }
+        onConnectCallback={() => {
+
+          window.ic.plug.agent.getPrincipal().then(result => 
+            console.log(`getPrincipal: ${result}`)
+          );
+
+          window.ic.plug.requestBalance().then(result => {
+            const balance = result[0].value;
+            console.log(result);
+            console.log(`Plug balance: ${balance}`);
+          });
+        }}
       />
 
       <Routes>
