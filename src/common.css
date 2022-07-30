@@ -19,6 +19,30 @@ button:hover {
   transition: box-shadow ease-in-out .2s;
 }
 
+/* Header */
+.nav-bar {
+  width: auto!important;
+}
+/* Footer */
+.footer-bar {
+  width: auto!important;
+}
+.footer-bar > .amplify-flex {
+  width: 100%;
+}
+.footer-bar > .amplify-flex > .amplify-flex:first-child {
+  width: 100%!important;
+  padding: 40px 20px!important;
+  border-bottom: 1px solid #8B8281;
+}
+.footer-bar > .amplify-flex > .amplify-flex:first-child > .amplify-flex {
+  flex: 1;
+}
+.footer-bar > .amplify-flex > .amplify-flex:last-child {
+  padding-left: 20px!important;
+  padding-right: 20px!important;
+}
+
 .collection {
   margin: 0;
   font-size: 30px;
