@@ -137,7 +137,7 @@ function setProps(serverRoot, nowEthNft, targetChain, targetAddress) {
     }
 
     // 画像を時前サーバーから取得する
-    if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "CNP") {
+    if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "CNP" || nowEthNft.symbol === "VLCNP") {
         // 何故か読み込めない時があったので、画像はうちのS3に置いてある。
         let nowImageName = nowEthNft.token_id;
         // LAGとLAGMの画像ファイル名は4桁固定の0パディング

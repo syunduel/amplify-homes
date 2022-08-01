@@ -22,6 +22,12 @@ export default function CollectionList() {
             address: "0x845a007d9f283614f403a24e3eb3455f720559ca",
             url: "https://opensea.io/collection/cryptoninjapartners",
         },
+        {
+            name: "Very long CNP",
+            chain: "Eth",
+            address: "0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e",
+            url: "https://opensea.io/collection/very-long-cnp",
+        },
     ];
 
     return (

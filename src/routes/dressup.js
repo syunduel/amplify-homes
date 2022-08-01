@@ -98,7 +98,7 @@ export default function Dressup(props) {
       console.log(event.target);
       // event.target.className = "select";
 
-      if (event.target.value == null || event.target.value == undefined) {
+      if (event.target.value === null || event.target.value === undefined) {
         return;
       }
 
@@ -112,7 +112,7 @@ export default function Dressup(props) {
       console.log("getImageUrl");
       console.log(selectedEthNFT);
 
-      if (value == null || value == "" || value == "none" || value == "None") {
+      if (value === null || value === "" || value === "none" || value === "None") {
         return "none";
       } else {
 
@@ -131,7 +131,7 @@ export default function Dressup(props) {
     }
 
     const getImageFullUrl = (value) => {
-      if (value == null || value == "" || value == "none") {
+      if (value === null || value === "" || value === "none") {
         return noneUrl;
       } else {
         console.log(value);
@@ -246,7 +246,7 @@ export default function Dressup(props) {
                 <dd>
                   <ButtonGroup aria-label="Background-btn" style={{flexWrap: 'wrap'}} onClick={onClickBackground}>
                     <button value="none">none</button>
-                    {selectedEthNFT != null && (selectedEthNFT.symbol == "LAG" || selectedEthNFT.symbol == "LAGM") &&
+                    {selectedEthNFT !== null && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM") &&
                       <>
                         <button value={selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/background/"+(selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background)+".png"}>{selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background? selectedAttributes.background.replace("_", " "): ""}</button>
                         <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
@@ -257,7 +257,7 @@ export default function Dressup(props) {
                         <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats6730.png">AstarCats6730</button>
                       </>
                     }
-                    {selectedEthNFT != null && selectedEthNFT.symbol == "CNP" &&
+                    {selectedEthNFT !== null && (selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP") &&
                       <>
                         <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_001.png">Standard01</button>
                         <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_002.png">Standard02</button>
@@ -279,6 +279,12 @@ export default function Dressup(props) {
                         <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_008.png">Choppy sea08</button>
                         <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_009.png">Choppy sea09</button>
                         <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_010.png">Choppy sea10</button>
+                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
+                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Pink Pinstripe.png">Pink Pinstripe</button>
+                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Violet Pinstripe.png">Violet Pinstripe</button>
+                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats1139.png">AstarCats1139</button>
+                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats2377.png">AstarCats2377</button>
+                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats6730.png">AstarCats6730</button>
                       </>
                     }
                   </ButtonGroup>
