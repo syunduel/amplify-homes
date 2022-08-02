@@ -28,6 +28,12 @@ export default function CollectionList() {
             address: "0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e",
             url: "https://opensea.io/collection/very-long-cnp",
         },
+        {
+            name: "MediaDAO Friends Nagoya",
+            chain: "Eth",
+            address: "0xa63116b507ab035f8db0b56c7c1405208dd00df4",
+            url: "https://opensea.io/collection/mediadao-friends-nagoya",
+        },
     ];
 
     return (
