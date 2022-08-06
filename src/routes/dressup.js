@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEthNFT } from '../api/evmnft';
 import { ButtonGroup } from '@aws-amplify/ui-react';
 import html2canvas from "html2canvas";
 
-export default function Dressup(props) {
+export default function Dressup() {
 
   console.log("Dressup start");
-  console.log(props);
 
-    const query = new URLSearchParams(useLocation().search);
-    const selectedChain = query.get('token_chain');
-    const selectedNftAddress = query.get('token_address');
-    const selectedTokenId = query.get('token_id');
+    const {tokenChain, tokenAddress, tokenId} = useParams();
+    console.log('tokenChain : ' + tokenChain);
+    console.log('tokenAddress : ' + tokenAddress);
+    console.log('tokenId : ' + tokenId);
 
-    const selectedEthNFT = useEthNFT(selectedChain, selectedNftAddress, selectedTokenId);
-
+    let selectedChain = tokenChain
+    if (tokenChain === "ethereum") {
+      selectedChain = "Eth";
+    } else if (selectedChain === "matic") {
+      selectedChain = "Polygon"
+    }
+    const selectedNftAddress = tokenAddress;
+    const selectedTokenId = tokenId;
+    console.log('selectedChain : ' + selectedChain);
     console.log('selectedNftAddress : ' + selectedNftAddress);
     console.log('selectedTokenId : ' + selectedTokenId);
+
+    const selectedEthNFT = useEthNFT(selectedChain, selectedNftAddress, selectedTokenId);
     console.log(selectedEthNFT);
 
     const [selectedAttributes, setSelectedAttributes] = useState([]);

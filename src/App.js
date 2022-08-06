@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect } from 'react';
 import { NavBar, MarketingFooter } from './ui-components'
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useMoralis } from "react-moralis";
 import Dressup from "./routes/dressup";
 import CollectionList from './routes/collectionList';
@@ -50,7 +50,7 @@ function App() {
   const logIn = async () => {
     if (!isAuthenticated) {
 
-      await authenticate({signingMessage: "Log in using Moralis" })
+      await authenticate({signingMessage: "Please log in to dress up your NFT." })
         .then(function (user) {
           console.log("logged in user:", user);
           console.log(user.get("ethAddress"));
@@ -100,7 +100,7 @@ function App() {
       {dispNavBar()}
       <Routes>
         <Route path="/" element={<CollectionList />} />
-        <Route path="/dressup/" element={<Dressup />} />
+        <Route path="/dressup/:tokenChain/:tokenAddress/:tokenId" element={<Dressup />} />
       </Routes>
     </BrowserRouter>
 
