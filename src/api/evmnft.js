@@ -119,12 +119,7 @@ export default function useEthNFTs(targetChain, targetAddress) {
 
     return [ethNFTs, isLoaded];
 
-    function getMoraliImageUri(ipfsUri) {
-        // console.log(ipfsUri);
-        let returnStr = "https://gateway.moralisipfs.com/ipfs/" + ipfsUri.substring(7);
-        // console.log(returnStr);
-        return returnStr;
-    }
+
 
 }
 
@@ -147,12 +142,23 @@ function setProps(serverRoot, nowEthNft, targetChain, targetAddress) {
         nowEthNft.moralisImageUri = `${serverRoot}${targetChain}/${nowEthNft.symbol}_${targetAddress}/pics/${nowImageName}.png`
         
     } else {
-        nowEthNft.moralisImageUri = nowEthNft.metadata.image;
+        if (nowEthNft.metadata.image !== undefined && nowEthNft.metadata.image !== "" && nowEthNft.metadata.image.indexOf("ipfs://") === 0) {
+            nowEthNft.moralisImageUri = getMoraliImageUri(nowEthNft.metadata.image);
+        } else {
+            nowEthNft.moralisImageUri = nowEthNft.metadata.image;
+        }
     }
 
     console.log(nowEthNft.moralisImageUri);
 
     return nowEthNft;
+}
+
+export function getMoraliImageUri(ipfsUri) {
+    // console.log(ipfsUri);
+    let returnStr = "https://gateway.moralisipfs.com/ipfs/" + ipfsUri.substring(7);
+    // console.log(returnStr);
+    return returnStr;
 }
 
 export function useEthNFT(targetChain, targetAddress, targetTokenId) {
