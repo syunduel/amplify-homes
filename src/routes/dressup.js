@@ -115,7 +115,7 @@ export default function Dressup() {
       setDressUpPic01Url(nowDressUpPicBackgroundUrl);
     }
 
-    const onClickSamp = (event) => {
+    const onClickWord = (event) => {
 
       console.log(event.target);
       // event.target.className = "select";
@@ -124,9 +124,9 @@ export default function Dressup() {
         return;
       }
 
-      const nowDressUpPicStampUrl = getImageFullUrl(event.target.value);
-      console.log(nowDressUpPicStampUrl);
-      setDressUpPic12Url(nowDressUpPicStampUrl);
+      const nowDressUpPicWordUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicWordUrl);
+      setDressUpPic12Url(nowDressUpPicWordUrl);
     }
 
     const getImageUrl = (selectedEthNFT, type, value) => {
@@ -264,9 +264,9 @@ export default function Dressup() {
             </div>
             <div class="card__dress-up--option">
             <dl>
-                <dt>Stamp</dt>
+                <dt>Word</dt>
                 <dd>
-                  <ButtonGroup aria-label="Stamp-btn" style={{flexWrap: 'wrap'}} onClick={onClickSamp}>
+                  <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickWord}>
                     <button value="none">none</button>
                     <button value="original/parts/dialogue/dialogue_gm.png">GM</button>
                     <button value="original/parts/dialogue/dialogue_gn.png">GN</button>
