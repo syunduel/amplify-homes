@@ -28,6 +28,9 @@ export default function useEthNFTs(targetChain, targetAddress) {
                 return
             }
 
+            console.log("targetChain : " + targetChain);
+            console.log("targetAddress : " + targetAddress);
+
             // MoralisからNFTの一覧を取得する
             const response = await Web3Api.account.getNFTsForContract({
                 chain: targetChain,
