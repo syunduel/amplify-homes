@@ -30,7 +30,7 @@ export default function Dressup() {
 
     const [selectedAttributes, setSelectedAttributes] = useState([]);
 
-    const partsBaseUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/";
+    const partsBaseUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/";
     const noneUrl = "/none.png"
 
     const [dressUpPic01Url, setDressUpPic01Url] = useState(noneUrl);
@@ -111,8 +111,22 @@ export default function Dressup() {
       }
 
       const nowDressUpPicBackgroundUrl = getImageFullUrl(event.target.value);
-      console.log(dressUpPic01Url);
+      console.log(nowDressUpPicBackgroundUrl);
       setDressUpPic01Url(nowDressUpPicBackgroundUrl);
+    }
+
+    const onClickSamp = (event) => {
+
+      console.log(event.target);
+      // event.target.className = "select";
+
+      if (event.target.value === null || event.target.value === undefined) {
+        return;
+      }
+
+      const nowDressUpPicStampUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicStampUrl);
+      setDressUpPic12Url(nowDressUpPicStampUrl);
     }
 
     const getImageUrl = (selectedEthNFT, type, value) => {
@@ -133,7 +147,7 @@ export default function Dressup() {
           }
         }
         // const imageUrl = `Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png`;
-        const imageUrl = `${selectedEthNFT.chain}/${selectedEthNFT.symbol}_${selectedEthNFT.token_address}/parts/${type}/${colorPath}${value}.png`;
+        const imageUrl = `collection/${selectedEthNFT.chain}/${selectedEthNFT.symbol}_${selectedEthNFT.token_address}/parts/${type}/${colorPath}${value}.png`;
         return imageUrl;
       }
     }
@@ -249,6 +263,19 @@ export default function Dressup() {
               }
             </div>
             <div class="card__dress-up--option">
+            <dl>
+                <dt>Stamp</dt>
+                <dd>
+                  <ButtonGroup aria-label="Stamp-btn" style={{flexWrap: 'wrap'}} onClick={onClickSamp}>
+                    <button value="none">none</button>
+                    <button value="original/parts/dialogue/dialogue_gm.png">GM</button>
+                    <button value="original/parts/dialogue/dialogue_gn.png">GN</button>
+                    <button value="original/parts/dialogue/dialogue_congrats.png">Congrats</button>
+                    <button value="original/parts/dialogue/dialogue_why.png">why?</button>
+                    <button value="original/parts/dialogue/dialogue_biglove.png">BIG LOVE</button>
+                  </ButtonGroup>
+                </dd>
+              </dl>
               <dl>
                 <dt>Background</dt>
                 <dd>
@@ -262,32 +289,32 @@ export default function Dressup() {
                     {selectedEthNFT !== null
                         && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN") &&
                       <>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Pink Pinstripe.png">Pink Pinstripe</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Violet Pinstripe.png">Violet Pinstripe</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats1139.png">AstarCats1139</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats2377.png">AstarCats2377</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats6730.png">AstarCats6730</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_001.png">Standard01</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_002.png">Standard02</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_003.png">Standard03</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_004.png">Standard04</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_005.png">Standard05</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_006.png">Standard06</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_007.png">Standard07</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_008.png">Standard08</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_009.png">Standard09</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_010.png">Standard10</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_001.png">Choppy sea01</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_002.png">Choppy sea02</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_003.png">Choppy sea03</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_004.png">Choppy sea04</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_005.png">Choppy sea05</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_006.png">Choppy sea06</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_007.png">Choppy sea07</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_008.png">Choppy sea08</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_009.png">Choppy sea09</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_010.png">Choppy sea10</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Pink Pinstripe.png">Pink Pinstripe</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Violet Pinstripe.png">Violet Pinstripe</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats1139.png">AstarCats1139</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats2377.png">AstarCats2377</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats6730.png">AstarCats6730</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_001.png">Standard01</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_002.png">Standard02</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_003.png">Standard03</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_004.png">Standard04</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_005.png">Standard05</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_006.png">Standard06</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_007.png">Standard07</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_008.png">Standard08</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_009.png">Standard09</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_010.png">Standard10</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_001.png">Choppy sea01</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_002.png">Choppy sea02</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_003.png">Choppy sea03</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_004.png">Choppy sea04</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_005.png">Choppy sea05</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_006.png">Choppy sea06</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_007.png">Choppy sea07</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_008.png">Choppy sea08</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_009.png">Choppy sea09</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_010.png">Choppy sea10</button>
                       </>
                     }
                   </ButtonGroup>
