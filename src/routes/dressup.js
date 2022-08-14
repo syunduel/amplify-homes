@@ -283,7 +283,7 @@ export default function Dressup() {
                     <button value="none">none</button>
                     {selectedEthNFT !== null && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM") &&
                       <>
-                        <button value={selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/background/"+(selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background)+".png"}>{selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background? selectedAttributes.background.replace("_", " "): ""}</button>
+                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/background/"+(selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background)+".png"}>{selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background? selectedAttributes.background.replace("_", " "): ""}</button>
                       </>
                     }
                     {selectedEthNFT !== null
