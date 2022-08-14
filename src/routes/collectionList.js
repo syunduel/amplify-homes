@@ -34,6 +34,18 @@ export default function CollectionList() {
             address: "0xa63116b507ab035f8db0b56c7c1405208dd00df4",
             url: "https://opensea.io/collection/mediadao-friends-nagoya",
         },
+        {
+            name: "Other NFTs (Ethereum chain) (beta version)",
+            chain: "Eth",
+            address: "",
+            url: "",
+        },
+        {
+            name: "Other NFTs (Polygon chain) (beta version)",
+            chain: "Polygon",
+            address: "",
+            url: "",
+        },
     ];
 
     return (

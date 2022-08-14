@@ -32,10 +32,18 @@ export default function useEthNFTs(targetChain, targetAddress) {
             console.log("targetAddress : " + targetAddress);
 
             // MoralisからNFTの一覧を取得する
-            const response = await Web3Api.account.getNFTsForContract({
-                chain: targetChain,
-                token_address: targetAddress,
-            });
+            let response = null;
+
+            if (targetAddress !== "") {
+                response = await Web3Api.account.getNFTsForContract({
+                    chain: targetChain,
+                    token_address: targetAddress,
+                });
+            } else {
+                response = await Web3Api.account.getNFTs({
+                    chain: targetChain,
+                });
+            }
 
             console.log("fetchEthNFTs NFTs");
             console.log(response);
@@ -58,6 +66,10 @@ export default function useEthNFTs(targetChain, targetAddress) {
     
                 console.log(`nowEthNft.metadata token_id: ${nowEthNft.token_id}`);
                 console.log(nowEthNft.symbol);
+
+                if (targetAddress === "" & (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "CNP" || nowEthNft.symbol === "VLCNP" || nowEthNft.symbol === "MDFN")) {
+                    continue;
+                }
 
                 // metadataを自前サーバーから取得する
                 if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM") {
@@ -134,7 +146,7 @@ function setProps(serverRoot, nowEthNft, targetChain, targetAddress) {
         nowEthNft.itemName = `${nowEthNft.symbol}_${nowEthNft.token_id}`;
     }
 
-    // 画像を時前サーバーから取得する
+    // 画像を自前サーバーから取得する
     if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "CNP" || nowEthNft.symbol === "VLCNP" || nowEthNft.symbol === "MDFN") {
         // 何故か読み込めない時があったので、画像はうちのS3に置いてある。
         let nowImageName = nowEthNft.token_id;
@@ -145,7 +157,9 @@ function setProps(serverRoot, nowEthNft, targetChain, targetAddress) {
         nowEthNft.moralisImageUri = `${serverRoot}${targetChain}/${nowEthNft.symbol}_${targetAddress}/pics/${nowImageName}.png`
         
     } else {
-        if (nowEthNft.metadata.image !== undefined && nowEthNft.metadata.image !== "" && nowEthNft.metadata.image.indexOf("ipfs://") === 0) {
+        if (nowEthNft.metadata == undefined) {
+            nowEthNft.moralisImageUri = "/none.png";
+        } else if (nowEthNft.metadata.image !== undefined && nowEthNft.metadata.image !== "" && nowEthNft.metadata.image.indexOf("ipfs://") === 0) {
             nowEthNft.moralisImageUri = getMoraliImageUri(nowEthNft.metadata.image);
         } else {
             nowEthNft.moralisImageUri = nowEthNft.metadata.image;

@@ -54,10 +54,14 @@ export default function Dressup() {
       const nowSelectedAttributes = {};
 
       if (selectedEthNFT != null) {
-        for (var i = 0; i < selectedEthNFT.metadata.attributes.length; i++) {
-          const attribute = selectedEthNFT.metadata.attributes[i];
-          nowSelectedAttributes[attribute.trait_type] = attribute.value;
-        };
+
+        if (selectedEthNFT.metadata !== null && selectedEthNFT.metadata !== undefined
+              && selectedEthNFT.metadata.attributes !== null && selectedEthNFT.metadata.attributes !== undefined) {
+          for (var i = 0; i < selectedEthNFT.metadata.attributes.length; i++) {
+            const attribute = selectedEthNFT.metadata.attributes[i];
+            nowSelectedAttributes[attribute.trait_type] = attribute.value;
+          };
+        }
 
         // console.log("selectedEthNFT");
         // console.log(selectedEthNFT);
