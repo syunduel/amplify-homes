@@ -255,7 +255,7 @@ export default function Dressup() {
               <Link to={`/`} class="back-link">←Change NFT</Link>
               <h1 class="card__dress-up--title">Outfit Room</h1>
             </div>
-            <button onClick={onClickExport}>↓ Download</button>
+            <button onClick={onClickExport}>↓ Download (PC only)</button>
           </div>
           <div class="card__dress-up--change">
             <div class="card__dress-up--image">
