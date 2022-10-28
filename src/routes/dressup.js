@@ -325,6 +325,16 @@ export default function Dressup() {
                   </ButtonGroup>
                 </dd>
               </dl>
+              {selectedEthNFT !== null && selectedEthNFT.symbol === "DIVER" &&
+                <dl>
+                  <dt>Hat</dt>
+                  <dd>
+                    <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickAccessory}>
+                      <button value="collection/Eth/DIVER_0x11C3e2C4329dF91F65a16612De90077498Cfa6CA/extraparts/hat/Halloween Pumpkin.png">Halloween Pumpkin</button>
+                    </ButtonGroup>
+                  </dd>
+                </dl>
+              }
               {selectedEthNFT !== null && selectedEthNFT.symbol === "LAG" &&
                 <dl>
                   <dt>Accessory</dt>
