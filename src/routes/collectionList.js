@@ -29,6 +29,12 @@ export default function CollectionList() {
             url: "https://opensea.io/collection/very-long-cnp",
         },
         {
+            name: "Tokyo Alternative Girls",
+            chain: "Eth",
+            address: "0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6",
+            url: "https://opensea.io/collection/tokyo-alternative-girls",
+        },
+        {
             name: "MediaDAO Friends Nagoya",
             chain: "Eth",
             address: "0xa63116b507ab035f8db0b56c7c1405208dd00df4",

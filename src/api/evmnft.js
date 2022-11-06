@@ -105,6 +105,11 @@ export default function useEthNFTs(targetChain, targetAddress) {
                             nowEthNft.metadata = JSON.parse(JSON.stringify(nowEthNft.metadata));
                         }
 
+                        if (targetAddress === "0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6") {
+                            nowEthNft.symbol = "TAG";
+                            nowEthNft.name = "Tokyo Alternative Girls";
+                        }
+
                         console.log("nowEthNft.metadata");
                         console.log(nowEthNft.metadata);
 
@@ -147,13 +152,14 @@ function setProps(serverRoot, nowEthNft, targetChain, targetAddress) {
     }
 
     // 画像を自前サーバーから取得する
-    if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "CNP" || nowEthNft.symbol === "VLCNP" || nowEthNft.symbol === "MDFN") {
+    if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "CNP" || nowEthNft.symbol === "VLCNP" || nowEthNft.symbol === "MDFN" || nowEthNft.symbol === "TAG") {
         // 何故か読み込めない時があったので、画像はうちのS3に置いてある。
         let nowImageName = nowEthNft.token_id;
         // LAGとLAGMの画像ファイル名は4桁固定の0パディング
         if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM") {
             nowImageName = nowImageName.padStart(4, '0');
         }
+
         nowEthNft.moralisImageUri = `${serverRoot}${targetChain}/${nowEthNft.symbol}_${targetAddress}/pics/${nowImageName}.png`
         
     } else {
