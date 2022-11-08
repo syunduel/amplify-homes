@@ -19,7 +19,7 @@ export default function useEthNFTs(targetChain, targetAddress) {
     const [ethNFTs, setEthNFTs] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    const serverRoot = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/";
+    const serverRoot = "https://d36cvhzmz2m7pb.cloudfront.net/v1/collection/";
 
     useEffect(() => {
         const getNFTs = async () => {
@@ -105,7 +105,7 @@ export default function useEthNFTs(targetChain, targetAddress) {
                             nowEthNft.metadata = JSON.parse(JSON.stringify(nowEthNft.metadata));
                         }
 
-                        if (targetAddress === "0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6") {
+                        if (nowEthNft.token_address.toLowerCase() === "0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6") {
                             nowEthNft.symbol = "TAG";
                             nowEthNft.name = "Tokyo Alternative Girls";
                         }
@@ -160,7 +160,7 @@ function setProps(serverRoot, nowEthNft, targetChain, targetAddress) {
             nowImageName = nowImageName.padStart(4, '0');
         }
 
-        nowEthNft.moralisImageUri = `${serverRoot}${targetChain}/${nowEthNft.symbol}_${targetAddress}/pics/${nowImageName}.png`
+        nowEthNft.moralisImageUri = `${serverRoot}${targetChain}/${nowEthNft.symbol}_${nowEthNft.token_address.toLowerCase()}/pics/${nowImageName}.png`
         
     } else {
         if (nowEthNft.metadata == undefined) {
