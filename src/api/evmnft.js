@@ -19,7 +19,7 @@ export default function useEthNFTs(targetChain, targetAddress) {
     const [ethNFTs, setEthNFTs] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    const serverRoot = "https://d36cvhzmz2m7pb.cloudfront.net/v1/collection/";
+    const serverRoot = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/";
 
     useEffect(() => {
         const getNFTs = async () => {

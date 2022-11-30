@@ -30,7 +30,7 @@ export default function Dressup() {
 
     const [selectedAttributes, setSelectedAttributes] = useState([]);
 
-    const partsBaseUrl = "https://d36cvhzmz2m7pb.cloudfront.net/v1/";
+    const partsBaseUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/";
     const noneUrl = "/none.png"
 
     const [dressUpPic01Url, setDressUpPic01Url] = useState(noneUrl);
@@ -163,9 +163,9 @@ export default function Dressup() {
 
       var nowDressUpPicFaceUrl;
       if (nowDressUpPicBodyUrl.match("White")) {
-        nowDressUpPicFaceUrl = "https://d36cvhzmz2m7pb.cloudfront.net/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/base_white.png";
+        nowDressUpPicFaceUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/base_white.png";
       } else {
-        nowDressUpPicFaceUrl = "https://d36cvhzmz2m7pb.cloudfront.net/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/baes_sun.png";
+        nowDressUpPicFaceUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/baes_sun.png";
       }
       console.log(nowDressUpPicFaceUrl);
       setDressUpPic05Url(nowDressUpPicFaceUrl);
