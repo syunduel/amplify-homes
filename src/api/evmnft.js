@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useMoralis, useMoralisWeb3Api } from "react-moralis";
 import axios from "axios";
 
-export default function useEthNFTs(targetChain, targetAddress) {
+export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
     console.log("useEthNFTs start");
 
@@ -18,6 +18,7 @@ export default function useEthNFTs(targetChain, targetAddress) {
 
     const [ethNFTs, setEthNFTs] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [total, setTotal] = useState(0);
 
     const serverRoot = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/";
 
@@ -28,6 +29,14 @@ export default function useEthNFTs(targetChain, targetAddress) {
                 return
             }
 
+
+            let selectedChain = targetChain
+            if (targetChain === "ethereum") {
+              selectedChain = "Eth";
+            } else if (targetChain === "matic") {
+              selectedChain = "Polygon"
+            }
+
             console.log("targetChain : " + targetChain);
             console.log("targetAddress : " + targetAddress);
 
@@ -36,12 +45,13 @@ export default function useEthNFTs(targetChain, targetAddress) {
 
             if (targetAddress !== "") {
                 response = await Web3Api.account.getNFTsForContract({
-                    chain: targetChain,
+                    chain: selectedChain,
                     token_address: targetAddress,
+                    // limit: limit,
                 });
             } else {
                 response = await Web3Api.account.getNFTs({
-                    chain: targetChain,
+                    chain: selectedChain,
                 });
             }
 
@@ -59,6 +69,11 @@ export default function useEthNFTs(targetChain, targetAddress) {
             let nowEthNFTs = [];
     
             for (let i = 0; i < response.result.length; i++) {
+
+                if (limit <= i) {
+                    break;
+                }
+
                 let nowEthNft = response.result[i];
                 // console.log(nowEthNft.token_address);
 
@@ -74,7 +89,7 @@ export default function useEthNFTs(targetChain, targetAddress) {
                 // metadataを自前サーバーから取得する
                 if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM") {
 
-                    const metadataRes = await axios.get(`${serverRoot}${targetChain}/${nowEthNft.symbol}_${targetAddress}/token-uri/${nowEthNft.token_id}.json`);
+                    const metadataRes = await axios.get(`${serverRoot}${selectedChain}/${nowEthNft.symbol}_${targetAddress}/token-uri/${nowEthNft.token_id}.json`);
 
                     console.log("axios.get");
                     console.log(metadataRes.data);
@@ -88,7 +103,7 @@ export default function useEthNFTs(targetChain, targetAddress) {
                     console.log("nowEthNft.metadata");
                     console.log(nowEthNft.metadata);
 
-                    nowEthNft = setProps(serverRoot, nowEthNft, targetChain, targetAddress);
+                    nowEthNft = setProps(serverRoot, nowEthNft, selectedChain, targetAddress);
                     // console.log(`nowEthNft.symbol: ${nowEthNft.symbol}`);
 
                     console.log(nowEthNft.itemName);
@@ -113,7 +128,7 @@ export default function useEthNFTs(targetChain, targetAddress) {
                         console.log("nowEthNft.metadata");
                         console.log(nowEthNft.metadata);
 
-                        nowEthNft = setProps(serverRoot, nowEthNft, targetChain, targetAddress);
+                        nowEthNft = setProps(serverRoot, nowEthNft, selectedChain, targetAddress);
 
                         console.log(nowEthNft.itemName);
                         console.log(nowEthNft.moralisImageUri);
@@ -126,20 +141,20 @@ export default function useEthNFTs(targetChain, targetAddress) {
 
             setEthNFTs(nowEthNFTs);
             setIsLoaded(true);
+            setTotal(response.total);
 
             console.log("this is return");
             console.log(ethNFTs);
             console.log("isLoaded " + isLoaded);
-            return [ethNFTs, isLoaded];
+
+            return [ethNFTs, isLoaded, total];
         }
 
         getNFTs();
 
     }, [isInitialized, isAuthenticated, user])
 
-    return [ethNFTs, isLoaded];
-
-
+    return [ethNFTs, isLoaded, total];
 
 }
 
@@ -186,7 +201,7 @@ export function getMoraliImageUri(ipfsUri) {
 
 export function useEthNFT(targetChain, targetAddress, targetTokenId) {
 
-    const [ethNFTs, isLoaded] = useEthNFTs(targetChain, targetAddress);
+    const [ethNFTs, isLoaded] = useEthNFTs(targetChain, targetAddress, 100);
 
     for (let i = 0; i < ethNFTs.length; i++) {
         let nowEthNft = ethNFTs[i];

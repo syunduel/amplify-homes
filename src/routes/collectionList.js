@@ -1,58 +1,22 @@
 import NFTList from './nftList';
-
+import {collectionData} from '../data/collectionData';
 
 export default function CollectionList() {
 
-    const targetEvmNFTs = [
-        {
-            name: "Love Addicted Girls",
-            chain: "Eth",
-            address: "0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2",
-            url: "https://opensea.io/collection/love-addicted-girls",
-        },
-        {
-            name: "Love Addicted Girls Memories",
-            chain: "Polygon",
-            address: "0x1a4041cce1aea5fff82e13780d1b1f522a047ef9",
-            url: "https://opensea.io/collection/love-addicted-girls-memories",
-        },
-        {
-            name: "CryptoNinja Partners",
-            chain: "Eth",
-            address: "0x845a007d9f283614f403a24e3eb3455f720559ca",
-            url: "https://opensea.io/collection/cryptoninjapartners",
-        },
-        {
-            name: "Very long CNP",
-            chain: "Eth",
-            address: "0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e",
-            url: "https://opensea.io/collection/very-long-cnp",
-        },
-        {
-            name: "Tokyo Alternative Girls",
-            chain: "Eth",
-            address: "0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6",
-            url: "https://opensea.io/collection/tokyo-alternative-girls",
-        },
-        {
-            name: "MediaDAO Friends Nagoya",
-            chain: "Eth",
-            address: "0xa63116b507ab035f8db0b56c7c1405208dd00df4",
-            url: "https://opensea.io/collection/mediadao-friends-nagoya",
-        },
-        {
-            name: "Other NFTs (Ethereum chain) (beta version)",
-            chain: "Eth",
-            address: "",
-            url: "",
-        },
-        {
-            name: "Other NFTs (Polygon chain) (beta version)",
-            chain: "Polygon",
-            address: "",
-            url: "",
-        },
-    ];
+    let targetEvmNFTs = [];
+    // Love Addicted Girls
+    targetEvmNFTs.push(collectionData["ethereum_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2"]);
+    // Love Addicted Girls Memories
+    targetEvmNFTs.push(collectionData["matic_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9"]);
+    // CryptoNinja Partners
+    targetEvmNFTs.push(collectionData["ethereum_0x845a007d9f283614f403a24e3eb3455f720559ca"]);
+    // Very long CNP
+    targetEvmNFTs.push(collectionData["ethereum_0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e"]);
+    // Tokyo Alternative Girls
+    targetEvmNFTs.push(collectionData["ethereum_0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6"]);
+    // MediaDAO Friends Nagoya
+    targetEvmNFTs.push(collectionData["ethereum_0xa63116b507ab035f8db0b56c7c1405208dd00df4"]);
+
 
     return (
         <>
@@ -62,15 +26,10 @@ export default function CollectionList() {
             </div>
 
             {targetEvmNFTs.map((nowTargetEvmNFT) => (
-                <div key={nowTargetEvmNFT.address}>
+                <div key={`${nowTargetEvmNFT.chain}_${nowTargetEvmNFT.address}`}>
                     {NFTList(nowTargetEvmNFT)}
                 </div>
             ))}
-
-            <div className="mv" key={'mv3'} style={{marginTop: '8em'}}>
-                <p>Dress Up NFT is currently in beta version.</p>
-                <p>Please contact <a href='https://twitter.com/syunduel'>shunichiro(@syunduel)</a> to report bugs, request improvements, or discuss adding collections.</p>
-            </div>
 
         </>
     );
