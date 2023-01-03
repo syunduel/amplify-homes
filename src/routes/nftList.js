@@ -39,7 +39,18 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
 
     return (
         <>
-            <div className="collection">{collectionName}</div>
+            <div className="collection">
+                {dispCollectionLink &&
+                    <Link to={`/collection/${collectionInfo.chain}/${collectionInfo.address}/`} style={{textDecoration: 'none'}}>
+                        {collectionName}
+                    </Link>
+                }
+                {!dispCollectionLink &&
+                    <div>
+                        {collectionName}
+                    </div>
+                }
+            </div>
             <div className="mv" key={collectionInfo.address} style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '1em'}}>
                 {nfts !== undefined && nfts.map((ethNFT) => (
                     <div class="card-list">
@@ -61,18 +72,9 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
                 ))}
                 {dispCollectionLink && nfts !== undefined && nfts.length > 0 &&
                     <Link to={`/collection/${collectionInfo.chain}/${collectionInfo.address}`} style={{textDecoration: 'none'}}>
-                        <CardNFT
-                            CardNFT={{
-                                key: collectionInfo.address,
-                                token_address: collectionInfo.address,
-                                collection_name: "View Collection Page",
-                                name: "",
-                                image: "/none.png",
-                            }}
-                            height="368px"
-                            width="300px"
-                            margin="10px 10px 10px 10px"
-                             />
+                        <div style={{height: '368px', width: '300px', margin: '10px' ,display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            View Collection Page
+                        </div>
                     </Link>
                 }
             </div>

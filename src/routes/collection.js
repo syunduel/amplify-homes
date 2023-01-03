@@ -26,7 +26,7 @@ export default function Collection() {
     return (
         <>
             <div className="mv" key={'mv1'}>
-                <p className="catch-copy">{collectionName}</p>
+                <p className="catch-copy">Collection</p>
                 <p>You can change your NFT clothes. First, select the NFT you want to dress up.</p>
             </div>
 

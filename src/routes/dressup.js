@@ -317,6 +317,12 @@ export default function Dressup() {
                 <dd>
                   <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickWord}>
                     <button value="none">none</button>
+                    <button value="original/parts/dialogue/dialogue_akeome.png">あけおめ</button>
+                    <button value="original/parts/dialogue/dialogue_newyear.png">NewYear</button>
+                    <button value="original/parts/dialogue/dialogue_kingashinen.png">謹賀新年</button>
+                    <button value="original/parts/dialogue/dialogue_goodluck.png">GoodLuck</button>
+                    <button value="original/parts/dialogue/dialogue_taiyoro.png">対よろ</button>
+                    <button value="original/parts/dialogue/dialogue_taiari.png">対あり</button>
                     <button value="original/parts/dialogue/dialogue_gm.png">GM</button>
                     <button value="original/parts/dialogue/dialogue_gn.png">GN</button>
                     <button value="original/parts/dialogue/dialogue_congrats.png">Congrats</button>
