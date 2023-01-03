@@ -40,16 +40,7 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
     return (
         <>
             <div className="collection">
-                {dispCollectionLink &&
-                    <Link to={`/collection/${collectionInfo.chain}/${collectionInfo.address}/`} style={{textDecoration: 'none'}}>
-                        {collectionName}
-                    </Link>
-                }
-                {!dispCollectionLink &&
-                    <div>
-                        {collectionName}
-                    </div>
-                }
+                {collectionName}
             </div>
             <div className="mv" key={collectionInfo.address} style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '1em'}}>
                 {nfts !== undefined && nfts.map((ethNFT) => (
