@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import useEthNFTs from '../api/evmnft';
 
 
-export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLink = true) {
+export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLink = true, setLovePower = () => {}) {
 
     const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
 
     // const [name, chain, address, url] = params;
 
-    const [nfts, isLoaded] = useEthNFTs(collectionInfo.chain, collectionInfo.address, dispLimit);
+    const [nfts, isLoaded, total] = useEthNFTs(collectionInfo.chain, collectionInfo.address, dispLimit);
 
     let collectionName = "";
     if (collectionInfo.name !== undefined) {
@@ -19,6 +19,13 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
     } else if (nfts !== undefined && nfts.length > 0) {
         collectionName = nfts[0].name;
     }
+
+    useEffect(() => {
+
+        if (total > 0) {
+            setLovePower( total);
+        }
+    }, [total]);
 
     console.log("NFTList " + collectionName);
     console.log(nfts);

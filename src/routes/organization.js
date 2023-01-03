@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import {organizationData} from '../data/organizationData';
 import {collectionData} from '../data/collectionData';
@@ -18,16 +19,22 @@ export default function Organization() {
     }
     console.log("targetEvmNFTs", targetEvmNFTs);
 
+    const[lovePower, setLovePower] = useState(0);
+
+    const calcLovePower = (_lovePower) => {
+        setLovePower(lovePower + _lovePower);
+    }
+
     return (
         <>
             <div className="mv" key={'mv1'}>
                 <p className="catch-copy">{targetOrganization.name}</p>
-                <p>You can change your NFT clothes. First, select the NFT you want to dress up.</p>
+                <p>Your {targetOrganization.name} love power : {lovePower} lp</p>
             </div>
 
             {targetEvmNFTs.map((nowTargetEvmNFT) => (
                 <div key={nowTargetEvmNFT.address}>
-                    {NFTList(nowTargetEvmNFT, 3)}
+                    {NFTList(nowTargetEvmNFT, 3, true, calcLovePower)}
                 </div>
             ))}
 

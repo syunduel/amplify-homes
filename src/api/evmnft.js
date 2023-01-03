@@ -18,6 +18,7 @@ export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
     const [ethNFTs, setEthNFTs] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [total, setTotal] = useState(0);
 
     const serverRoot = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/";
 
@@ -46,7 +47,7 @@ export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 response = await Web3Api.account.getNFTsForContract({
                     chain: selectedChain,
                     token_address: targetAddress,
-                    limit: limit,
+                    // limit: limit,
                 });
             } else {
                 response = await Web3Api.account.getNFTs({
@@ -68,6 +69,11 @@ export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
             let nowEthNFTs = [];
     
             for (let i = 0; i < response.result.length; i++) {
+
+                if (limit <= i) {
+                    break;
+                }
+
                 let nowEthNft = response.result[i];
                 // console.log(nowEthNft.token_address);
 
@@ -135,20 +141,20 @@ export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
             setEthNFTs(nowEthNFTs);
             setIsLoaded(true);
+            setTotal(response.total);
 
             console.log("this is return");
             console.log(ethNFTs);
             console.log("isLoaded " + isLoaded);
-            return [ethNFTs, isLoaded];
+
+            return [ethNFTs, isLoaded, total];
         }
 
         getNFTs();
 
     }, [isInitialized, isAuthenticated, user])
 
-    return [ethNFTs, isLoaded];
-
-
+    return [ethNFTs, isLoaded, total];
 
 }
 
