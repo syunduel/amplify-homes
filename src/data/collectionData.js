@@ -59,4 +59,11 @@ export const collectionData = {
         address: "0xa63116b507ab035f8db0b56c7c1405208dd00df4",
         url: "https://opensea.io/collection/mediadao-friends-nagoya",
     },
+    ethereum_0x3F457a3FD454B711867670846e7Cc525B249b5B6 : {
+        name: "ODENPETS",
+        chain: "ethereum",
+        address: "0x3F457a3FD454B711867670846e7Cc525B249b5B6",
+        url: "https://opensea.io/collection/odenpets",
+    },
+
 };
