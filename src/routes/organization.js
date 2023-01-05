@@ -29,11 +29,11 @@ export default function Organization() {
         <>
             <div className="mv" key={'mv1'}>
                 <p className="catch-copy">{targetOrganization.name}</p>
-                <p>Your {targetOrganization.name} love power : {lovePower} lp</p>
+                <p>Your {targetOrganization.name} love power（β） : {lovePower} lp</p>
             </div>
 
             {targetEvmNFTs.map((nowTargetEvmNFT) => (
-                <div key={nowTargetEvmNFT.address}>
+                <div key={nowTargetEvmNFT.chain + "_" + nowTargetEvmNFT.address}>
                     {NFTList(nowTargetEvmNFT, 3, true, calcLovePower)}
                 </div>
             ))}
