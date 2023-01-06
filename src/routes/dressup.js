@@ -1,28 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEthNFT } from '../api/evmnft';
 import { ButtonGroup } from '@aws-amplify/ui-react';
 import html2canvas from "html2canvas";
 
-export default function Dressup(props) {
+export default function Dressup() {
 
   console.log("Dressup start");
-  console.log(props);
 
-    const query = new URLSearchParams(useLocation().search);
-    const selectedChain = query.get('token_chain');
-    const selectedNftAddress = query.get('token_address');
-    const selectedTokenId = query.get('token_id');
+    const {tokenChain, tokenAddress, tokenId} = useParams();
+    console.log('tokenChain : ' + tokenChain);
+    console.log('tokenAddress : ' + tokenAddress);
+    console.log('tokenId : ' + tokenId);
 
-    const selectedEthNFT = useEthNFT(selectedChain, selectedNftAddress, selectedTokenId);
-
+    let selectedChain = tokenChain
+    if (tokenChain === "ethereum") {
+      selectedChain = "Eth";
+    } else if (selectedChain === "matic") {
+      selectedChain = "Polygon"
+    }
+    const selectedNftAddress = tokenAddress;
+    const selectedTokenId = tokenId;
+    console.log('selectedChain : ' + selectedChain);
     console.log('selectedNftAddress : ' + selectedNftAddress);
     console.log('selectedTokenId : ' + selectedTokenId);
+
+    const selectedEthNFT = useEthNFT(selectedChain, selectedNftAddress, selectedTokenId);
     console.log(selectedEthNFT);
 
     const [selectedAttributes, setSelectedAttributes] = useState([]);
 
-    const partsBaseUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/";
+    const partsBaseUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/";
     const noneUrl = "/none.png"
 
     const [dressUpPic01Url, setDressUpPic01Url] = useState(noneUrl);
@@ -46,10 +54,14 @@ export default function Dressup(props) {
       const nowSelectedAttributes = {};
 
       if (selectedEthNFT != null) {
-        for (var i = 0; i < selectedEthNFT.metadata.attributes.length; i++) {
-          const attribute = selectedEthNFT.metadata.attributes[i];
-          nowSelectedAttributes[attribute.trait_type] = attribute.value;
-        };
+
+        if (selectedEthNFT.metadata !== null && selectedEthNFT.metadata !== undefined
+              && selectedEthNFT.metadata.attributes !== null && selectedEthNFT.metadata.attributes !== undefined) {
+          for (var i = 0; i < selectedEthNFT.metadata.attributes.length; i++) {
+            const attribute = selectedEthNFT.metadata.attributes[i];
+            nowSelectedAttributes[attribute.trait_type] = attribute.value;
+          };
+        }
 
         // console.log("selectedEthNFT");
         // console.log(selectedEthNFT);
@@ -98,13 +110,66 @@ export default function Dressup(props) {
       console.log(event.target);
       // event.target.className = "select";
 
-      if (event.target.value == null || event.target.value == undefined) {
+      if (event.target.value === null || event.target.value === undefined) {
         return;
       }
 
       const nowDressUpPicBackgroundUrl = getImageFullUrl(event.target.value);
-      console.log(dressUpPic01Url);
+      console.log(nowDressUpPicBackgroundUrl);
       setDressUpPic01Url(nowDressUpPicBackgroundUrl);
+    }
+
+    const onClickWord = (event) => {
+
+      console.log(event.target);
+      // event.target.className = "select";
+
+      if (event.target.value === null || event.target.value === undefined) {
+        return;
+      }
+
+      const nowDressUpPicWordUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicWordUrl);
+      setDressUpPic12Url(nowDressUpPicWordUrl);
+    }
+
+    const onClickAccessory = (event) => {
+
+      console.log(event.target);
+      // event.target.className = "select";
+
+      if (event.target.value === null || event.target.value === undefined) {
+        return;
+      }
+
+      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicAccessoryUrl);
+      setDressUpPic10Url(nowDressUpPicAccessoryUrl);
+
+    }
+
+    const onClickBody = (event) => {
+
+      console.log(event.target);
+      // event.target.className = "select";
+
+      if (event.target.value === null || event.target.value === undefined) {
+        return;
+      }
+
+      const nowDressUpPicBodyUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicBodyUrl);
+      setDressUpPic04Url(nowDressUpPicBodyUrl);
+
+      var nowDressUpPicFaceUrl;
+      if (nowDressUpPicBodyUrl.match("White")) {
+        nowDressUpPicFaceUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/base_white.png";
+      } else {
+        nowDressUpPicFaceUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/baes_sun.png";
+      }
+      console.log(nowDressUpPicFaceUrl);
+      setDressUpPic05Url(nowDressUpPicFaceUrl);
+      
     }
 
     const getImageUrl = (selectedEthNFT, type, value) => {
@@ -112,7 +177,7 @@ export default function Dressup(props) {
       console.log("getImageUrl");
       console.log(selectedEthNFT);
 
-      if (value == null || value == "" || value == "none" || value == "None") {
+      if (value === null || value === "" || value === "none" || value === "None") {
         return "none";
       } else {
 
@@ -125,13 +190,13 @@ export default function Dressup(props) {
           }
         }
         // const imageUrl = `Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png`;
-        const imageUrl = `${selectedEthNFT.chain}/${selectedEthNFT.symbol}_${selectedEthNFT.token_address}/parts/${type}/${colorPath}${value}.png`;
+        const imageUrl = `collection/${selectedEthNFT.chain}/${selectedEthNFT.symbol}_${selectedEthNFT.token_address}/parts/${type}/${colorPath}${value}.png`;
         return imageUrl;
       }
     }
 
     const getImageFullUrl = (value) => {
-      if (value == null || value == "" || value == "none") {
+      if (value === null || value === "" || value === "none") {
         return noneUrl;
       } else {
         console.log(value);
@@ -163,7 +228,9 @@ export default function Dressup(props) {
     
     const onClickExport = () => {
       // 画像に変換する component の id を指定
-      const target = document.getElementById("dress-up-window");
+      var target = document.getElementById("dress-up-window");
+      target.style.width = "1000px";
+      target.style.height = "1000px";
       const area = target.getBoundingClientRect();
 
       html2canvas(target, {
@@ -180,6 +247,10 @@ export default function Dressup(props) {
         const targetImgUri = canvas.toDataURL("img/png");
         saveAsImage(targetImgUri);
       });
+
+      target.style.width = "400px";
+      target.style.height = "400px";
+
     }
     
   return (
@@ -190,7 +261,7 @@ export default function Dressup(props) {
               <Link to={`/`} class="back-link">←Change NFT</Link>
               <h1 class="card__dress-up--title">Outfit Room</h1>
             </div>
-            <button onClick={onClickExport}>↓ Download</button>
+            <button onClick={onClickExport}>↓ Download (PC only)</button>
           </div>
           <div class="card__dress-up--change">
             <div class="card__dress-up--image">
@@ -242,75 +313,127 @@ export default function Dressup(props) {
             </div>
             <div class="card__dress-up--option">
               <dl>
+                <dt>Word</dt>
+                <dd>
+                  <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickWord}>
+                    <button value="none">none</button>
+                    <button value="original/parts/dialogue/dialogue_akeome.png">あけおめ</button>
+                    <button value="original/parts/dialogue/dialogue_newyear.png">NewYear</button>
+                    <button value="original/parts/dialogue/dialogue_kingashinen.png">謹賀新年</button>
+                    <button value="original/parts/dialogue/dialogue_goodluck.png">GoodLuck</button>
+                    <button value="original/parts/dialogue/dialogue_taiyoro.png">対よろ</button>
+                    <button value="original/parts/dialogue/dialogue_taiari.png">対あり</button>
+                    <button value="original/parts/dialogue/dialogue_gm.png">GM</button>
+                    <button value="original/parts/dialogue/dialogue_gn.png">GN</button>
+                    <button value="original/parts/dialogue/dialogue_congrats.png">Congrats</button>
+                    <button value="original/parts/dialogue/dialogue_why.png">why?</button>
+                    <button value="original/parts/dialogue/dialogue_biglove.png">BIG LOVE</button>
+                    <button value="original/parts/dialogue/dialogue_arigatou.png">ありがとう</button>
+                    <button value="original/parts/dialogue/dialogue_arigatougozaimasu.png">ありがとうございます</button>
+                    <button value="original/parts/dialogue/dialogue_hello.png">Hello</button>
+                    <button value="original/parts/dialogue/dialogue_lgtm.png">LGTM</button>
+                    <button value="original/parts/dialogue/dialogue_otsukaresama.png">お疲れさま</button>
+                    <button value="original/parts/dialogue/dialogue_yoroshikuonegaishimasu.png">よろしくお願いします</button>
+                  </ButtonGroup>
+                </dd>
+              </dl>
+              {selectedEthNFT !== null && selectedEthNFT.symbol === "DIVER" &&
+                <dl>
+                  <dt>Hat</dt>
+                  <dd>
+                    <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickAccessory}>
+                      <button value="collection/Eth/DIVER_0x11C3e2C4329dF91F65a16612De90077498Cfa6CA/extraparts/hat/Halloween Pumpkin.png">Halloween Pumpkin</button>
+                    </ButtonGroup>
+                  </dd>
+                </dl>
+              }
+              {selectedEthNFT !== null && selectedEthNFT.symbol === "LAG" &&
+                <dl>
+                  <dt>Accessory</dt>
+                  <dd>
+                    <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickAccessory}>
+                    <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Cat Ears Hat.png">Cat Ears Hat</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Vampire Crown.png">Vampire Crown</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Wolf Ears.png">Wolf Ears</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Bunny Blue.png">Bunny Blue</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Bunny Red.png">Bunny Red</button>
+                    </ButtonGroup>
+                  </dd>
+                </dl>
+              }
+              {selectedEthNFT !== null && selectedEthNFT.symbol === "LAG" &&
+                <dl>
+                  <dt>Body</dt>
+                  <dd>
+                    <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickBody}>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Santa Claus Sun.png">Santa Claus Sun</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Santa Claus White.png">Santa Claus White</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Star Witch Sun.png">Star Witch Sun</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Star Witch White.png">Star Witch White</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Wolf Sun.png">Wolf Sun</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Wolf White.png">Wolf White</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Reverse Bunny Sun.png">Reverse Bunny Sun</button>
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Reverse Bunny White.png">Reverse Bunny White</button>
+                    </ButtonGroup>
+                  </dd>
+                </dl>
+              }
+              <dl>
                 <dt>Background</dt>
                 <dd>
                   <ButtonGroup aria-label="Background-btn" style={{flexWrap: 'wrap'}} onClick={onClickBackground}>
-                    <button value="none">none</button>
-                    {selectedEthNFT != null && (selectedEthNFT.symbol == "LAG" || selectedEthNFT.symbol == "LAGM") &&
+                    {selectedEthNFT !== null
+                          && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN") &&
+                        <>
+                          <button value="none">none</button>
+                        </>
+                      }
+
+                    {selectedEthNFT !== null && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM") &&
                       <>
-                        <button value={selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/background/"+(selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background)+".png"}>{selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background? selectedAttributes.background.replace("_", " "): ""}</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Pink Pinstripe.png">Pink Pinstripe</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Violet Pinstripe.png">Violet Pinstripe</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats1139.png">AstarCats1139</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats2377.png">AstarCats2377</button>
-                        <button value="Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats6730.png">AstarCats6730</button>
+                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/background/"+(selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background)+".png"}>{selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background? selectedAttributes.background.replace("_", " "): ""}</button>
                       </>
                     }
-                    {selectedEthNFT != null && selectedEthNFT.symbol == "CNP" &&
+                    {selectedEthNFT !== null
+                        && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "TAG") &&
                       <>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_001.png">Standard01</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_002.png">Standard02</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_003.png">Standard03</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_004.png">Standard04</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_005.png">Standard05</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_006.png">Standard06</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_007.png">Standard07</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_008.png">Standard08</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_009.png">Standard09</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_010.png">Standard10</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_001.png">Choppy sea01</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_002.png">Choppy sea02</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_003.png">Choppy sea03</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_004.png">Choppy sea04</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_005.png">Choppy sea05</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_006.png">Choppy sea06</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_007.png">Choppy sea07</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_008.png">Choppy sea08</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_009.png">Choppy sea09</button>
-                        <button value="Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_010.png">Choppy sea10</button>
+                        <button value="collection/Eth/TAG_0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6/parts/background/TAG.png">TAG</button>
+                        <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Halloween Orange.png">Halloween Orange</button>
+                        <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Halloween Purple.png">Halloween Purple</button>
+                        <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Sparkling Snow Blue.png">Sparkling Snow Blue</button>
+                        <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Sparkling Snow Pink.png">Sparkling Snow Pink</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Pink Pinstripe.png">Pink Pinstripe</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Violet Pinstripe.png">Violet Pinstripe</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats1139.png">AstarCats1139</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats2377.png">AstarCats2377</button>
+                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats6730.png">AstarCats6730</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_001.png">Standard01</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_002.png">Standard02</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_003.png">Standard03</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_004.png">Standard04</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_005.png">Standard05</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_006.png">Standard06</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_007.png">Standard07</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_008.png">Standard08</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_009.png">Standard09</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_010.png">Standard10</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_001.png">Choppy sea01</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_002.png">Choppy sea02</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_003.png">Choppy sea03</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_004.png">Choppy sea04</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_005.png">Choppy sea05</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_006.png">Choppy sea06</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_007.png">Choppy sea07</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_008.png">Choppy sea08</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_009.png">Choppy sea09</button>
+                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_010.png">Choppy sea10</button>
                       </>
                     }
                   </ButtonGroup>
                 </dd>
               </dl>
-              {/* <dl>
-                <dt>Body</dt>
-                <dd>
-                  <button>Casual Brown</button>
-                  <button class="select">Casual Brown</button>
-                  <button>Autumn Kimono</button>
-                  <button>Festival Kimono</button>
-                </dd>
-              </dl>
-              <dl>
-                <dt>Face</dt>
-                <dd>
-                  <button class="select">Puple Gal</button>
-                </dd>
-              </dl>
-              <dl>
-                <dt>Hair</dt>
-                <dd>
-                  <button>Straight</button>
-                  <button class="select">Blue Pigtails</button>
-                  <button>Bun</button>
-                  <button>Wavy</button>
-                  <button>[R]Black Pigtails</button>
-                  <button>[R]Cafe Girl2</button>
-                  <button>Foo</button>
-                </dd>
-              </dl> */}
             </div>
           </div>
         </div>

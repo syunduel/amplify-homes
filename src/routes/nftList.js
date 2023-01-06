@@ -5,15 +5,34 @@ import { Link } from "react-router-dom";
 import useEthNFTs from '../api/evmnft';
 
 
-export default function NFTList(params) {
+export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLink = true, setLovePower = () => {}) {
 
     const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
 
     // const [name, chain, address, url] = params;
 
-    const [nfts, isLoaded] = useEthNFTs(params.chain, params.address);
+    const [nfts, isLoaded, total] = useEthNFTs(collectionInfo.chain, collectionInfo.address, dispLimit);
 
-    console.log("NFTList " + params.name);
+    let collectionName = "";
+    if (collectionInfo.name !== undefined) {
+        collectionName = collectionInfo.name
+    } else if (nfts !== undefined && nfts.length > 0) {
+        collectionName = nfts[0].name;
+    }
+
+    useEffect(() => {
+
+        let collectionPoints = 1;
+        if (collectionInfo.point !== undefined) {
+            collectionPoints = collectionInfo.point
+        };
+
+        if (total > 0) {
+            setLovePower(collectionPoints * total);
+        }
+    }, [total]);
+
+    console.log("NFTList " + collectionName);
     console.log(nfts);
     console.log("NFTList isLagLoaded " + isLoaded);
 
@@ -24,15 +43,17 @@ export default function NFTList(params) {
     }
 
     return (
-        <>
-            <div className="collection">{params.name}</div>
-            <div className="mv" key={params.address} style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '1em'}}>
+        <div key={collectionInfo.chain + "_" + collectionInfo.address}>
+            <div className="collection">
+                {collectionName}
+            </div>
+            <div className="mv" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '1em'}}>
                 {nfts !== undefined && nfts.map((ethNFT) => (
-                    <div class="card-list">
-                        <Link to={`/dressup/?token_chain=${ethNFT.chain}&token_address=${ethNFT.token_address}&token_id=${ethNFT.token_id}`} style={{textDecoration: 'none'}}>
+                    <div class="card-list" key={ethNFT.chain + "_" + ethNFT.token_address + "_" + ethNFT.token_id}>
+                        <Link to={`/dressup/${collectionInfo.chain}/${ethNFT.token_address}/${ethNFT.token_id}`} style={{textDecoration: 'none'}}>
                             <CardNFT
                                 CardNFT={{
-                                    key: ethNFT.token_hash,
+                                    key: "CardNFT" + "_" + ethNFT.chain + "_" + ethNFT.token_address + "_" + ethNFT.token_id,
                                     token_address: ethNFT.token_address,
                                     collection_name: ethNFT.name,
                                     name: ethNFT.itemName,
@@ -45,23 +66,30 @@ export default function NFTList(params) {
                         </Link>
                     </div>
                 ))}
+                {dispCollectionLink && nfts !== undefined && nfts.length > 0 &&
+                    <Link to={`/collection/${collectionInfo.chain}/${collectionInfo.address}`} style={{textDecoration: 'none'}}>
+                        <div style={{height: '368px', width: '300px', margin: '10px' ,display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            View Collection Page
+                        </div>
+                    </Link>
+                }
             </div>
             {!isAuthenticated &&
-                <div className="mv" style={{marginBottom: "50px"}} key={params.address + '-a'}>
+                <div className="mv" style={{marginBottom: "50px"}}>
                     <p>First of all, please connect to the wallet.</p>
                 </div>
             }
             {isAuthenticated && !isLoaded &&
-                <div className="mv" style={{marginBottom: "50px"}} key={params.address + '-b'}>
+                <div className="mv" style={{marginBottom: "50px"}}>
                     <p>Now loading the NFT you have...</p>
                 </div>
             }
             {isAuthenticated && isLoaded && nfts.length === 0 &&
-                <div className="mv" style={{marginBottom: "50px"}} key={params.address + '-c'}>
-                    <p>{params.name} NFT not found.</p>
-                    <p>To enjoy the dress up, please purchase <a href={params.url}>{params.name}</a> first.</p>
+                <div className="mv" style={{marginBottom: "50px"}}>
+                    <p>{collectionInfo.name} NFT not found.</p>
+                    <p>To enjoy the dress up, please purchase <a href={collectionInfo.url}>{collectionInfo.name}</a> first.</p>
                 </div>
             }
-        </>
+        </div>
     );
   }
