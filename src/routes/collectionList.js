@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import NFTList from './nftList';
+import NFTTopList from './nftTopList';
 import {collectionData} from '../data/collectionData';
 
 export default function CollectionList() {
@@ -25,45 +25,50 @@ export default function CollectionList() {
 
     return (
         <>
-            <div className="mv" key={'mv1'}>
-                <p className="catch-copy">Let's dress up your NFT</p>
+            <div className="page-head" key={'mv1'}>
+                <p className="title--primary">Let's dress up your NFT</p>
                 <p>You can change your NFT clothes. First, select the NFT you want to dress up.</p>
             </div>
 
-            <div className="collection">
+            <h2 className="title title--secondary">
                 Organization（β）
-            </div>
+            </h2>
 
-            <div className="mv" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '1em'}}>
-                <div>
+            <ul className="organization">
+                <li>
                     <Link to={`/organization/SoudanNFT/`} style={{textDecoration: 'none'}}>
-                        <div style={{height: '50px', width: '300px', margin: '10px' ,display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <div>
                             SoudanNFT
                         </div>
                     </Link>
-                </div>
-                <div>
+                </li>
+                <li>
                     <Link to={`/organization/ODENDAO/`} style={{textDecoration: 'none'}}>
-                        <div style={{height: '50px', width: '300px', margin: '10px' ,display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <div>
                             ODENDAO
                         </div>
                     </Link>
-                </div>
-                <div>
+                </li>
+                <li>
                     <Link to={`/organization/Tokyo-Alternative-Girls/`} style={{textDecoration: 'none'}}>
-                        <div style={{height: '50px', width: '300px', margin: '10px' ,display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                        <div>
                             Tokyo Alternative Girls
                         </div>
                     </Link>
-                </div>
-            </div>
+                </li>
+            </ul>
 
+            <h2 className="title title--secondary">
+                Collection
+            </h2>
+
+            <div className="top-nft">
             {targetEvmNFTs.map((nowTargetEvmNFT) => (
                 <div key={`${nowTargetEvmNFT.chain}_${nowTargetEvmNFT.address}`}>
-                    {NFTList(nowTargetEvmNFT)}
+                    {NFTTopList(nowTargetEvmNFT)}
                 </div>
             ))}
-
+            </div>
         </>
     );
   }
