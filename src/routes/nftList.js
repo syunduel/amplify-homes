@@ -62,7 +62,7 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
                                 height="368px"
                                 width="300px"
                                 margin="10px 10px 10px 10px"
-                                overrides={ethNFT.symbol !== "LAG" && cardNFTOverrides} />
+                                overrides={cardNFTOverrides} />
                         </Link>
                     </div>
                 ))}

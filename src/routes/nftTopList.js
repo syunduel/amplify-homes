@@ -3,6 +3,7 @@ import { useMoralis } from "react-moralis";
 import { CardNFT } from '../ui-components'
 import { Link } from "react-router-dom";
 import useEthNFTs from '../api/evmnft';
+import {organizationData} from '../data/organizationData';
 
 
 export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollectionLink = true, setLovePower = () => {}) {
@@ -61,10 +62,11 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
                                     collection_name: ethNFT.name,
                                     name: ethNFT.itemName,
                                     image: ethNFT.moralisImageUri,
+                                    width: '180px',
                                 }}
                                 height="180px"
                                 width="180px"
-                                overrides={ethNFT.symbol !== "LAG" && cardNFTOverrides} />
+                                overrides={cardNFTOverrides} />
                         </Link>
                     </div>
                 ))}
@@ -86,13 +88,23 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
                 </div>
             }
 
-          <div className="top-nft__organization">by
-            <span className="top-nft__organization-name">
-              <Link to={`/organization/SoudanNFT/`}>
-                  SoudanNFT
-              </Link>
-            </span>
-          </div>
+            {collectionInfo.organization !== undefined &&
+                <div className="top-nft__organization">by
+                    <span className="top-nft__organization-name">
+                        <Link to={`/organization/${collectionInfo.organization}/`}>
+                        {organizationData[collectionInfo.organization].name}
+                        </Link>
+                    </span>
+                </div>
+            }
+            {collectionInfo.organization == undefined &&
+                <div className="top-nft__organization">
+                    <span className="top-nft__organization-name">
+                        Organization unregistered
+                    </span>
+                </div>
+            }
+
         </div>
     );
   }
