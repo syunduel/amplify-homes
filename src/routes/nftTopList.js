@@ -36,6 +36,8 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
     const cardNFTOverrides = {
         "image": {
           crossOrigin: "anonymous",
+          width: "180px",
+          height: "",
         },
     }
 
@@ -62,7 +64,6 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
                                     collection_name: ethNFT.name,
                                     name: ethNFT.itemName,
                                     image: ethNFT.moralisImageUri,
-                                    width: '180px',
                                 }}
                                 height="180px"
                                 width="180px"
