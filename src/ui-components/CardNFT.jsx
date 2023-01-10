@@ -99,7 +99,9 @@ export default function CardNFT(props) {
           objectFit="cover"
           position="relative"
           padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
+          whiteSpace="nowrap"
+          textOverflow="ellipsis"
+          overflow="hidden"
           children={CardNFT?.name}
           {...getOverrideProps(overrides, "token name")}
         ></Text>

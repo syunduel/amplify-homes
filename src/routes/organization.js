@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import {organizationData} from '../data/organizationData';
 import {collectionData} from '../data/collectionData';
-import NFTList from './nftList';
+import NFTTopList from './nftTopList';
 
 
 export default function Organization() {
@@ -27,16 +27,20 @@ export default function Organization() {
 
     return (
         <>
-            <div className="mv" key={'mv1'}>
-                <p className="catch-copy">{targetOrganization.name}</p>
-                <p>Your {targetOrganization.name} love power（β） : {lovePower} lp</p>
+            <div className="page-head" key={'mv1'}>
+                <p className="title--primary">{targetOrganization.name}</p>
+                <p className="love-power">
+                  Your {targetOrganization.name} love power（β） : <span className="love-power__num">{lovePower}</span> lp
+                </p>
             </div>
 
+            <div className="top-nft">
             {targetEvmNFTs.map((nowTargetEvmNFT) => (
                 <div key={nowTargetEvmNFT.chain + "_" + nowTargetEvmNFT.address}>
-                    {NFTList(nowTargetEvmNFT, 3, true, calcLovePower)}
+                    {NFTTopList(nowTargetEvmNFT, 3, true, calcLovePower)}
                 </div>
             ))}
+            </div>
 
         </>
     );
