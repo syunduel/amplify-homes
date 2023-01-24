@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from "react-router-dom";
-import { useEthNFT } from '../api/evmnft';
+import { useEthNFT, useEthNFTs } from '../api/evmnft';
 import { ButtonGroup } from '@aws-amplify/ui-react';
 import html2canvas from "html2canvas";
+import {serverData} from '../data/serverData';
+import {collectionData} from '../data/collectionData';
+
 
 export default function Dressup() {
 
@@ -28,9 +31,26 @@ export default function Dressup() {
     const selectedEthNFT = useEthNFT(selectedChain, selectedNftAddress, selectedTokenId);
     console.log(selectedEthNFT);
 
+    const collectionInfo = collectionData[tokenChain + "_" + selectedNftAddress];
+    console.log('collectionInfo', collectionInfo);
+
+    let partsNFTInfo;
+    let nowPartsChain;
+    let nowPartsAddress;
+    if (collectionInfo !== undefined && collectionInfo.parts !== undefined) {
+      partsNFTInfo = collectionInfo.parts;
+      nowPartsChain = partsNFTInfo.chain;
+      nowPartsAddress = partsNFTInfo.address;
+    }
+    console.log("nowPartsChain", nowPartsChain);
+    const [partsNFTs, isPartsNFTsLoaded] = useEthNFTs(nowPartsChain, nowPartsAddress, 100);
+    console.log("partsNFTs", partsNFTs);
+
+
+
     const [selectedAttributes, setSelectedAttributes] = useState([]);
 
-    const partsBaseUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/";
+    const serverRoot = serverData.serverRoot;
     const noneUrl = "/none.png"
 
     const [dressUpPic01Url, setDressUpPic01Url] = useState(noneUrl);
@@ -105,6 +125,36 @@ export default function Dressup() {
 
     }, [selectedEthNFT]);
 
+    const getPartsButton = (position) => {
+      // console.log("partsNFT", partsNFTs);
+      let returnValue = [];
+      if (partsNFTs !== undefined && isPartsNFTsLoaded) {
+        for (let i = 0; i < partsNFTs.length; i++) {
+          const nowPartsNFT = partsNFTs[i];
+          const nowPartsAttributes = nowPartsNFT.metadata.attributes;
+          let nowPartsPosition = "";
+          let nowPartsName = "";
+          let nowPartsAbbreviation = "";
+          nowPartsAttributes.forEach(element => {
+            if (element.trait_type === "Position") {
+              nowPartsPosition = element.value;
+            } else if (element.trait_type === "Partsname") {
+              nowPartsName = element.value;
+            } else if (element.trait_type === "Abbreviation") {
+              nowPartsAbbreviation = element.value;
+            }
+          });
+          if (position.toUpperCase() == nowPartsPosition.toUpperCase()) {
+            const buttonValue = "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/" + nowPartsPosition + "/" + nowPartsName+ ".png";
+
+            returnValue.push(<button value={buttonValue}>{nowPartsAbbreviation}</button>);
+          }
+        }
+      }
+      // console.log("getPartsButton", returnValue);
+      return returnValue;
+    }
+
     const onClickBackground = (event) => {
 
       console.log(event.target);
@@ -163,9 +213,9 @@ export default function Dressup() {
 
       var nowDressUpPicFaceUrl;
       if (nowDressUpPicBodyUrl.match("White")) {
-        nowDressUpPicFaceUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/base_white.png";
+        nowDressUpPicFaceUrl = serverRoot + "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/base_white.png";
       } else {
-        nowDressUpPicFaceUrl = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/baes_sun.png";
+        nowDressUpPicFaceUrl = serverRoot + "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/parts/face/baes_sun.png";
       }
       console.log(nowDressUpPicFaceUrl);
       setDressUpPic05Url(nowDressUpPicFaceUrl);
@@ -198,9 +248,10 @@ export default function Dressup() {
     const getImageFullUrl = (value) => {
       if (value === null || value === "" || value === "none") {
         return noneUrl;
+      } else if(value.startsWith("http")) {
+        return value;
       } else {
-        console.log(value);
-        return partsBaseUrl + value;
+        return serverRoot + value;
       }
     }
 
@@ -252,7 +303,7 @@ export default function Dressup() {
       target.style.height = "400px";
 
     }
-    
+
   return (
       <>
         <div class="card card__dress-up">
@@ -268,9 +319,7 @@ export default function Dressup() {
               {selectedEthNFT != null &&
                 <>
                   <div id="dress-up-window" width="400" height="400">
-                    {/* <img className="dress-up-pic" src={`${selectedEthNFT.moralisImageUri}`} /> */}
                     <img className="dress-up-pic-base" src="/none.png"/>
-                    {/* <img className="dress-up-pic" src="https://love-addicted-girls-test.s3.ap-northeast-3.amazonaws.com/gen-res/LAG/parts/background/%5BR%5DBlue+Pinstripe2.png" /> */}
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic01Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic02Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic03Url} />
@@ -317,6 +366,7 @@ export default function Dressup() {
                 <dd>
                   <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickWord}>
                     <button value="none">none</button>
+                    {getPartsButton("Word")}
                     <button value="original/parts/dialogue/dialogue_akeome.png">あけおめ</button>
                     <button value="original/parts/dialogue/dialogue_newyear.png">NewYear</button>
                     <button value="original/parts/dialogue/dialogue_kingashinen.png">謹賀新年</button>
@@ -342,6 +392,7 @@ export default function Dressup() {
                   <dt>Hat</dt>
                   <dd>
                     <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickAccessory}>
+                      {getPartsButton("Hat")}
                       <button value="collection/Eth/DIVER_0x11C3e2C4329dF91F65a16612De90077498Cfa6CA/extraparts/hat/Halloween Pumpkin.png">Halloween Pumpkin</button>
                     </ButtonGroup>
                   </dd>
@@ -352,7 +403,8 @@ export default function Dressup() {
                   <dt>Accessory</dt>
                   <dd>
                     <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickAccessory}>
-                    <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Cat Ears Hat.png">Cat Ears Hat</button>
+                      {getPartsButton("Accessory")}
+                      <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Cat Ears Hat.png">Cat Ears Hat</button>
                       <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Vampire Crown.png">Vampire Crown</button>
                       <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Wolf Ears.png">Wolf Ears</button>
                       <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/accessory/Bunny Blue.png">Bunny Blue</button>
@@ -366,6 +418,7 @@ export default function Dressup() {
                   <dt>Body</dt>
                   <dd>
                     <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickBody}>
+                      {getPartsButton("Body")}
                       <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Santa Claus Sun.png">Santa Claus Sun</button>
                       <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Santa Claus White.png">Santa Claus White</button>
                       <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/body/Star Witch Sun.png">Star Witch Sun</button>
@@ -387,13 +440,16 @@ export default function Dressup() {
                         <>
                           <button value="none">none</button>
                         </>
-                      }
+                    }
 
                     {selectedEthNFT !== null && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM") &&
                       <>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/background/"+(selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background)+".png"}>{selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background? selectedAttributes.background.replace("_", " "): ""}</button>
                       </>
                     }
+
+                    {getPartsButton("Background")}
+
                     {selectedEthNFT !== null
                         && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "TAG") &&
                       <>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useMoralis } from "react-moralis";
 import { CardNFT } from '../ui-components'
 import { Link } from "react-router-dom";
-import useEthNFTs from '../api/evmnft';
+import { useEthNFTs } from '../api/evmnft';
 import {organizationData} from '../data/organizationData';
 
 

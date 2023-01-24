@@ -2,8 +2,10 @@ import { ConsoleLogger } from '@aws-amplify/core';
 import React, { useState, useEffect } from 'react';
 import { useMoralis, useMoralisWeb3Api } from "react-moralis";
 import axios from "axios";
+import {serverData} from '../data/serverData';
 
-export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
+
+export function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
     console.log("useEthNFTs start");
 
@@ -20,7 +22,7 @@ export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [total, setTotal] = useState(0);
 
-    const serverRoot = "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/";
+    const serverCollectionRoot = serverData.serverCollectionRoot;
 
     useEffect(() => {
         const getNFTs = async () => {
@@ -89,7 +91,7 @@ export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 // metadataを自前サーバーから取得する
                 if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM") {
 
-                    const metadataRes = await axios.get(`${serverRoot}${selectedChain}/${nowEthNft.symbol}_${targetAddress}/token-uri/${nowEthNft.token_id}.json`);
+                    const metadataRes = await axios.get(`${serverCollectionRoot}${selectedChain}/${nowEthNft.symbol}_${targetAddress}/token-uri/${nowEthNft.token_id}.json`);
 
                     console.log("axios.get");
                     console.log(metadataRes.data);
@@ -103,7 +105,7 @@ export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
                     console.log("nowEthNft.metadata");
                     console.log(nowEthNft.metadata);
 
-                    nowEthNft = setProps(serverRoot, nowEthNft, selectedChain, targetAddress);
+                    nowEthNft = setProps(serverCollectionRoot, nowEthNft, selectedChain, targetAddress);
                     // console.log(`nowEthNft.symbol: ${nowEthNft.symbol}`);
 
                     console.log(nowEthNft.itemName);
@@ -128,7 +130,7 @@ export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
                         console.log("nowEthNft.metadata");
                         console.log(nowEthNft.metadata);
 
-                        nowEthNft = setProps(serverRoot, nowEthNft, selectedChain, targetAddress);
+                        nowEthNft = setProps(serverCollectionRoot, nowEthNft, selectedChain, targetAddress);
 
                         console.log(nowEthNft.itemName);
                         console.log(nowEthNft.moralisImageUri);
@@ -158,7 +160,7 @@ export default function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
 }
 
-function setProps(serverRoot, nowEthNft, targetChain, targetAddress) {
+function setProps(serverCollectionRoot, nowEthNft, targetChain, targetAddress) {
 
     if (nowEthNft.metadata !== null && nowEthNft.metadata.name !== undefined) {
         nowEthNft.itemName = nowEthNft.metadata.name;
@@ -175,7 +177,7 @@ function setProps(serverRoot, nowEthNft, targetChain, targetAddress) {
             nowImageName = nowImageName.padStart(4, '0');
         }
 
-        nowEthNft.moralisImageUri = `${serverRoot}${targetChain}/${nowEthNft.symbol}_${nowEthNft.token_address.toLowerCase()}/pics/${nowImageName}.png`
+        nowEthNft.moralisImageUri = `${serverCollectionRoot}${targetChain}/${nowEthNft.symbol}_${nowEthNft.token_address.toLowerCase()}/pics/${nowImageName}.png`
         
     } else {
         if (nowEthNft.metadata == undefined) {

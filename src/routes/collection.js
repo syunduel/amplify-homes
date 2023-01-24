@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useMoralis } from "react-moralis";
-import useEthNFTs from '../api/evmnft';
+import { useEthNFTs } from '../api/evmnft';
 import NFTList from './nftList';
 
 
