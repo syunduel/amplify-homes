@@ -6,6 +6,11 @@ export const collectionData = {
         url: "https://opensea.io/collection/love-addicted-girls",
         point: 9,
         organization: 'SoudanNFT',
+        parts: {
+            chain: 'goerli',
+            address: '0x12202283F7548F9B3d9B382D1b377Eb4F72CDDfD',
+            baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/',
+        },
     },
     ethereum_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9 : {
         name: "AstarPrince",
@@ -45,6 +50,14 @@ export const collectionData = {
         address: "0xe95f39b74e52de3aa5c651006d1fce328aff6d82",
         url: "https://opensea.io/ja/collection/soudannft-drops",
         point: 3,
+        organization: 'SoudanNFT',
+    },
+    goerli_0x12202283F7548F9B3d9B382D1b377Eb4F72CDDfD :{
+        name: "LAGParts",
+        chain: "goerli",
+        address: "0x12202283F7548F9B3d9B382D1b377Eb4F72CDDfD",
+        url: "https://testnets.opensea.io/collection/lagparts-v4",
+        point: 1,
         organization: 'SoudanNFT',
     },
     ethereum_0x845a007d9f283614f403a24e3eb3455f720559ca : {
