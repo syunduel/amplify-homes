@@ -52,10 +52,10 @@ export const collectionData = {
         point: 3,
         organization: 'SoudanNFT',
     },
-    goerli_0x12202283F7548F9B3d9B382D1b377Eb4F72CDDfD :{
+    goerli_0x9f0727ee5288046461c6727ab1b01adfbe4b340b :{
         name: "LAGParts",
         chain: "goerli",
-        address: "0x12202283F7548F9B3d9B382D1b377Eb4F72CDDfD",
+        address: "0x9f0727ee5288046461c6727ab1b01adfbe4b340b",
         url: "https://testnets.opensea.io/collection/lagparts-v4",
         point: 1,
         organization: 'SoudanNFT',
