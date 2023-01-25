@@ -122,4 +122,11 @@ export const collectionData = {
         address: "0xa63116b507ab035f8db0b56c7c1405208dd00df4",
         url: "https://opensea.io/collection/mediadao-friends-nagoya",
     },
+    ethereum_0x32edd2f7437665af088347791521f454831aaa29 : {
+        name: "ShikibuWorld",
+        chain: "ethereum",
+        address: "0x32edd2f7437665af088347791521f454831aaa29",
+        url: "https://opensea.io/collection/shikibu-world",
+
+    }
 };
