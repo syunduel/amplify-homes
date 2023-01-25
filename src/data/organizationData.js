@@ -8,7 +8,7 @@ export const organizationData = {
             "ethereum_0xd1113831c6e44392473721851222251591e445a0",  // LAG art at Foundation
             "matic_0x37a7ee87f7c3e5ca52462acaf2635d33cf1dc641",     // LAG Badges
             "matic_0xe95f39b74e52de3aa5c651006d1fce328aff6d82",     // SoudanNFT Drops
-            "goerli_0x12202283F7548F9B3d9B382D1b377Eb4F72CDDfD",    // LAGParts
+            "goerli_0x9f0727ee5288046461c6727ab1b01adfbe4b340b",    // LAGParts
         ],
     },
     ODENDAO : {
