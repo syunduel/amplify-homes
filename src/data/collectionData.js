@@ -8,7 +8,7 @@ export const collectionData = {
         organization: 'SoudanNFT',
         parts: {
             chain: 'goerli',
-            address: '0x12202283F7548F9B3d9B382D1b377Eb4F72CDDfD',
+            address: '0x9f0727ee5288046461c6727ab1b01adfbe4b340b',
             baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/',
         },
     },
