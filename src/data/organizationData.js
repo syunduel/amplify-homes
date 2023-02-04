@@ -35,6 +35,7 @@ export const organizationData = {
             "matic_0xa8052745d8b87e1fe9ec0cbb8989ba3a3505fe1c",     // BlueChip NewYear2023 Soulbound NFT
             "matic_0x34514bcb004d4e1243a2a2882daacf063b0130a0",     // chibi character Banner
             "ethereum_0x9f1f8d8d5a91f19524ea7e4412ddad2419d4bafd",  // BUSON Pass
+            "matic_0x1639ffbdf00ab11fc0acb13a82d173cd3bbc2960",     // CharaDaoStoreSbt1st
         ],
     },
     "Neo-Tokyo-Punks" : {
