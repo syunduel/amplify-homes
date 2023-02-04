@@ -1,4 +1,7 @@
 export const collectionData = {
+    //
+    // SoudanNFT
+    //
     ethereum_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2 :{
         name: "Love Addicted Girls",
         chain: "ethereum",
@@ -60,6 +63,9 @@ export const collectionData = {
         point: 1,
         organization: 'SoudanNFT',
     },
+    //
+    // CryptoNinja
+    //
     ethereum_0x845a007d9f283614f403a24e3eb3455f720559ca : {
         name: "CryptoNinja Partners",
         chain: "ethereum",
@@ -72,6 +78,9 @@ export const collectionData = {
         address: "0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e",
         url: "https://opensea.io/collection/very-long-cnp",
     },
+    //
+    // ODENDAO
+    //
     ethereum_0x3F457a3FD454B711867670846e7Cc525B249b5B6 : {
         name: "ODENPETS",
         chain: "ethereum",
@@ -86,6 +95,9 @@ export const collectionData = {
         url: "https://opensea.io/collection/odenpets-memory",
         organization: 'ODENDAO',
     },
+    //
+    // Tokyo Alternative Girls
+    //
     ethereum_0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6 : {
         name: "Tokyo Alternative Girls",
         chain: "ethereum",
@@ -110,23 +122,230 @@ export const collectionData = {
         point: 3,
         organization: 'Tokyo-Alternative-Girls',
     },
+    //
+    // Dreamin' Divers Project
+    //
     ethereum_0x11c3e2c4329df91f65a16612de90077498cfa6ca : {
         name: "Dreamin' Divers Project -Cheers!-",
         chain: "ethereum",
         address: "0x11c3e2c4329df91f65a16612de90077498cfa6ca",
         url: "https://opensea.io/collection/dreamindivers-cheers",
     },
+    //
+    // Character-DAO
+    //
+    ethereum_0x32edd2f7437665af088347791521f454831aaa29 : {
+        name: "ShikibuWorld",
+        chain: "ethereum",
+        address: "0x32edd2f7437665af088347791521f454831aaa29",
+        url: "https://opensea.io/collection/shikibu-world",
+        organization: 'Character-DAO',
+    },
+    ethereum_0x5aa876e4df67c24ff4108ad0c7b8efae4a95a9c2 : {
+        name: "Blue Chibi Members | BCM",
+        chain: "ethereum",
+        address: "0x5aa876e4df67c24ff4108ad0c7b8efae4a95a9c2",
+        url: "https://opensea.io/collection/bluechibimembers",
+        organization: 'Character-DAO',
+    },
+    matic_0xa8052745d8b87e1fe9ec0cbb8989ba3a3505fe1c : {
+        name: "BlueChip NewYear2023 Soulbound NFT",
+        chain: "matic",
+        address: "0xa8052745d8b87e1fe9ec0cbb8989ba3a3505fe1c",
+        url: "https://opensea.io/collection/bluechipnewyear2023sbt",
+        organization: 'Character-DAO',
+    },
+    matic_0x34514bcb004d4e1243a2a2882daacf063b0130a0 : {
+        name: "chibi character Banner",
+        chain: "matic",
+        address: "0x34514bcb004d4e1243a2a2882daacf063b0130a0",
+        url: "https://opensea.io/collection/chibi-character-banner",
+        organization: 'Character-DAO',
+    },
+    matic_0x336f94101c183fb8f928d8eb843d8054f9e18d67 : {
+        name: "NewYear2023",
+        chain: "matic",
+        address: "0x336f94101c183fb8f928d8eb843d8054f9e18d67",
+        url: "https://opensea.io/collection/newyear2023-1",
+        organization: 'Character-DAO',
+    },
+    ethereum_0x9f1f8d8d5a91f19524ea7e4412ddad2419d4bafd : {
+        name: "BUSON Pass",
+        chain: "ethereum",
+        address: "0x9f1f8d8d5a91f19524ea7e4412ddad2419d4bafd",
+        url: "https://opensea.io/collection/buson-pass",
+        organization: 'Character-DAO',
+    },
+    //
+    // Neo Tokyo Punks
+    //
+    ethereum_0xa65ba71d653f62c64d97099b58d25a955eb374a0 : {
+        name: "Neo Tokyo Punks",
+        chain: "ethereum",
+        address: "0xa65ba71d653f62c64d97099b58d25a955eb374a0",
+        url: "https://opensea.io/collection/neo-tokyo-punks-nft",
+        organization: 'Neo-Tokyo-Punks',
+    },
+    ethereum_0xa025b8e75353b6d27baadb537b7682836b284215 : {
+        name: "GUILD-XX COSPLAY PUNKS",
+        chain: "ethereum",
+        address: "0xa025b8e75353b6d27baadb537b7682836b284215",
+        url: "https://opensea.io/collection/guild-xx-cosplay-punks",
+        organization: 'Neo-Tokyo-Punks',
+    },
+        
+    //
+    // Otaku Culture Studio
+    //
+    ethereum_0x9f6d1234f654c5bd691ba0b056be80fe3fe3a240 : {
+        name: "NFT OCS Collection #1 Drifting Home",
+        chain: "ethereum",
+        address: "0x9f6d1234f654c5bd691ba0b056be80fe3fe3a240",
+        url: "https://opensea.io/collection/hyoryu-danchi-otaku-culture-studio",
+        organization: 'Otaku-Culture-Studio',
+    },
+    ethereum_0x55151a3d420a0d4e7bb489b892ea213578008090 : {
+        name: "NFT OCS Collection #2 COBRA",
+        chain: "ethereum",
+        address: "0x55151a3d420a0d4e7bb489b892ea213578008090",
+        url: "https://opensea.io/collection/cobra-otaku-culture-studio",
+        organization: 'Otaku-Culture-Studio',
+    },
+    ethereum_0xc08081ff27a1ff971a9150901e8fb2926bc04ef8 : {
+        name: "NFT OCS Collection #3 BAKI HANMA",
+        chain: "ethereum",
+        address: "0xc08081ff27a1ff971a9150901e8fb2926bc04ef8",
+        url: "https://opensea.io/collection/nft-ocs-collection-3-baki-hanma",
+        organization: 'Otaku-Culture-Studio',
+    },
+
+
+    //
+    // ASAGI
+    //
+    ethereum_0xdd510ce28dfd085d9cf58f5402ca6d63985e83c0 : {
+        name: "ASAGI - WAKA",
+        chain: "ethereum",
+        address: "0xdd510ce28dfd085d9cf58f5402ca6d63985e83c0",
+        url: "https://opensea.io/collection/asagi-waka",
+        organization: 'ASAGI',
+    },
+    ethereum_0xcb5f557aa24186bb9af08e17a802c9a288a94d83 : {
+        name: "ASAGITAMA",
+        chain: "ethereum",
+        address: "0xcb5f557aa24186bb9af08e17a802c9a288a94d83",
+        url: "https://opensea.io/collection/guild-xx-cosplay-punks",
+        organization: 'ASAGI',
+    },
+    
+    //
+    // N3 Labs
+    //
+    ethereum_0x81d8e220a6240d1b6dc42d13ed7e0316aa89f265 : {
+        name: "Flower Lolita Collections",
+        chain: "ethereum",
+        address: "0x81d8e220a6240d1b6dc42d13ed7e0316aa89f265",
+        url: "https://opensea.io/collection/flowerlolita-collections",
+        organization: 'N3-Labs',
+    },
+    ethereum_0xf2665d9fb3a0ad17a7454da077bec9cc159f644a : {
+        name: "Chibi Lolita Collection",
+        chain: "ethereum",
+        address: "0xf2665d9fb3a0ad17a7454da077bec9cc159f644a",
+        url: "https://opensea.io/collection/chibi-lolita-collection",
+        organization: 'N3-Labs',
+    },
+
+    //
+    // MONKEYS
+    //
+    matic_0x53830746df8e79cc0cb31416d4b66c7e5ab43391 : {
+        name: "Samurai Monkeys By BHM",
+        chain: "matic",
+        address: "0x53830746df8e79cc0cb31416d4b66c7e5ab43391",
+        url: "https://opensea.io/collection/samurai-monkeys",
+        organization: 'MONKEYS',
+    },
+    ethereum_0x7fa162d3d44fe8d30e344cc000493da7cb6c6fbb : {
+        name: "Neo Samurai Monkeys",
+        chain: "ethereum",
+        address: "0x7fa162d3d44fe8d30e344cc000493da7cb6c6fbb",
+        url: "https://opensea.io/collection/neo-samurai-monkeys",
+        organization: 'MONKEYS',
+    },
+    ethereum_0x42286371a693594f4cafb88bfe63faecf81830db : {
+        name: "NSM FUSION",
+        chain: "ethereum",
+        address: "0x42286371a693594f4cafb88bfe63faecf81830db",
+        url: "https://opensea.io/collection/nsm-fuse",
+        organization: 'MONKEYS',
+    },
+    ethereum_0x75afa588cc4e97736bf51e3bb542252fbd6b879f : {
+        name: "KURENAI -HOOZUKI-",
+        chain: "ethereum",
+        address: "0x75afa588cc4e97736bf51e3bb542252fbd6b879f",
+        url: "https://opensea.io/collection/kurenai-hoozuki-",
+        organization: 'MONKEYS',
+    },
+    
+    //
+    // METAIDOL
+    //
+    ethereum_0xc059477e8b3f93c86de0e8e05cbd020020ea9a52 : {
+        name: "MetaIdol",
+        chain: "ethereum",
+        address: "0xc059477e8b3f93c86de0e8e05cbd020020ea9a52",
+        url: "https://opensea.io/collection/metaidol",
+        organization: 'MetaIdol',
+    },
+    ethereum_0x3ee85d2170dfa16735a4a1331e6cb77c49bb84a2 : {
+        name: "MetaIdol Extra",
+        chain: "ethereum",
+        address: "0x3ee85d2170dfa16735a4a1331e6cb77c49bb84a2",
+        url: "https://opensea.io/collection/metaidol-extra",
+        organization: 'MetaIdol',
+    },
+    ethereum_0x5c3a257117cbe7ee383911f62e8d71757f7dd211 : {
+        name: "MetaIdol Limited",
+        chain: "ethereum",
+        address: "0x5c3a257117cbe7ee383911f62e8d71757f7dd211",
+        url: "https://opensea.io/collection/metaidol-limited",
+        organization: 'MetaIdol',
+    },
+    
+    //
+    // Bride Girls Collection
+    //
+    ethereum_0x2e98069b38c4d8e5c5d995f3fb78d0407fb8b154 : {
+        name: "Bride Girls Collection",
+        chain: "ethereum",
+        address: "0x2e98069b38c4d8e5c5d995f3fb78d0407fb8b154",
+        url: "https://opensea.io/collection/bride-girls-collection",
+        organization: 'Bride-Girls-Collection',
+    },
+    ethereum_0x227b95320cba8242b4ce0f23a08d4e2c35735664 : {
+        name: "Bride Girls Collection-Summer-",
+        chain: "ethereum",
+        address: "0x227b95320cba8242b4ce0f23a08d4e2c35735664",
+        url: "https://opensea.io/collection/metaidol-extra",
+        organization: 'Bride-Girls-Collection',
+    },
+    matic_0x2f2b2c4a3375274cb412a5e4cc0680bfc4ca3bca : {
+        name: "Bride Girls Memorys",
+        chain: "matic",
+        address: "0x2f2b2c4a3375274cb412a5e4cc0680bfc4ca3bca",
+        url: "https://opensea.io/collection/bride-girls-memorys",
+        organization: 'Bride-Girls-Collection',
+    },
+
+    //
+    // MediaDAO
+    //
     ethereum_0xa63116b507ab035f8db0b56c7c1405208dd00df4 : {
         name: "MediaDAO Friends Nagoya",
         chain: "ethereum",
         address: "0xa63116b507ab035f8db0b56c7c1405208dd00df4",
         url: "https://opensea.io/collection/mediadao-friends-nagoya",
     },
-    ethereum_0x32edd2f7437665af088347791521f454831aaa29 : {
-        name: "ShikibuWorld",
-        chain: "ethereum",
-        address: "0x32edd2f7437665af088347791521f454831aaa29",
-        url: "https://opensea.io/collection/shikibu-world",
 
-    }
 };
