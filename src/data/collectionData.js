@@ -176,6 +176,13 @@ export const collectionData = {
         url: "https://opensea.io/collection/buson-pass",
         organization: 'Character-DAO',
     },
+    matic_0x1639ffbdf00ab11fc0acb13a82d173cd3bbc2960 : {
+        name: "CharaDaoStoreSbt1st",
+        chain: "matic",
+        address: "0x1639ffbdf00ab11fc0acb13a82d173cd3bbc2960",
+        url: "https://opensea.io/collection/charadaostoresbt1st",
+        organization: 'Character-DAO',
+    },
     //
     // Neo Tokyo Punks
     //
