@@ -89,6 +89,12 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
                 </div>
             }
 
+            <div class="top-nft__bottom">
+              <ul class="top-nft__tag">
+                <li>Ethereum</li>
+                <li>ERC721</li>
+                <li>official</li>
+              </ul>
             {collectionInfo.organization !== undefined &&
                 <div className="top-nft__organization">by
                     <span className="top-nft__organization-name">
@@ -105,6 +111,7 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
                     </span>
                 </div>
             }
+            </div>
 
         </div>
     );

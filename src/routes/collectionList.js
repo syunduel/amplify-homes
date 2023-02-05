@@ -66,8 +66,6 @@ export default function CollectionList() {
                 <li><Link to={`/organization/Neo-Tokyo-Punks/`} style={{textDecoration: 'none'}}>
                     <div>Neo Tokyo Punks</div>
                 </Link></li>
-            </ul>
-            <ul className="organization">
                 <li><Link to={`/organization/Otaku-Culture-Studio/`} style={{textDecoration: 'none'}}>
                     <div>Otaku Culture Studio</div>
                 </Link></li>
@@ -80,8 +78,6 @@ export default function CollectionList() {
                 <li><Link to={`/organization/N3-Labs/`} style={{textDecoration: 'none'}}>
                     <div>N3 Labs</div>
                 </Link></li>
-            </ul>
-            <ul className="organization">
                 <li><Link to={`/organization/MONKEYS/`} style={{textDecoration: 'none'}}>
                     <div>MONKEYS</div>
                 </Link></li>
