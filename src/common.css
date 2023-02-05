@@ -137,6 +137,7 @@ button:hover {
 .top-nft__list {
   display: flex;
   column-gap: 18px;
+  row-gap: 12px;
 }
 .top-nft__list-item img {
   transition: transform .5s ease;
@@ -165,6 +166,25 @@ button:hover {
 }
 .top-nft__organization-name {
   padding-left: 4px;
+}
+@media screen and (max-width:500px) {
+  .top-nft {
+    display: block;
+  }
+  .top-nft > div {
+    margin-bottom: 18px;
+  }
+  .top-nft__collection {
+    min-width: auto;
+  }
+  .top-nft__head {
+    flex-flow: column;
+    margin-bottom: 6px;
+  }
+  .top-nft__list {
+    flex-flow: column;
+    margin: 0 auto;
+  }
 }
 
 /* collection */
