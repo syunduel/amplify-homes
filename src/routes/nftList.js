@@ -32,9 +32,16 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
         }
     }, [total]);
 
-    console.log("NFTList " + collectionName);
-    console.log(nfts);
-    console.log("NFTList isLagLoaded " + isLoaded);
+    const getTag = () => {
+        let returnValue = [];
+        if (collectionInfo.tag !== undefined && collectionInfo.tag.length > 0) {
+          for (let i = 0; i < collectionInfo.tag.length; i++) {
+            const nowTag = collectionInfo.tag[i];
+            returnValue.push(<li>{nowTag}</li>);
+          }
+        }
+        return returnValue;
+    }
 
     const cardNFTOverrides = {
         "image": {
@@ -47,6 +54,13 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
             <div className="collection">
                 {collectionName}
             </div>
+            <div className="page-head" key={'mv1'}>
+                <ul class="tag">
+                    <li>{collectionInfo.chain}</li>
+                    {getTag()}
+                </ul>
+            </div>
+
             <div className="mv" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '1em'}}>
                 {nfts !== undefined && nfts.map((ethNFT) => (
                     <div class="card-list" key={ethNFT.chain + "_" + ethNFT.token_address + "_" + ethNFT.token_id}>

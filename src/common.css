@@ -75,21 +75,26 @@ button:hover {
 .organization {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  column-gap: 18px;
+  justify-content: flex-start;
+  column-gap: 6px;
+  row-gap: 12px;
   margin: 18px 18px 42px;
 }
 .organization li {
   flex: 1;
+  flex-grow: initial;
 }
 .organization a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 6px 12px;
   border-radius: 20px;
   background: #fff;
   box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   color: #393231;
   transition: box-shadow ease-in-out .2s;
 }
@@ -114,7 +119,7 @@ button:hover {
   justify-content: space-between;
   flex-direction: column;
   min-width: 600px;
-  min-height: 280px;
+  height: 100%;
   padding: 12px 18px;
   border-radius: 20px;
   background: rgb(255 255 255 / 60%);
@@ -132,6 +137,7 @@ button:hover {
 .top-nft__list {
   display: flex;
   column-gap: 18px;
+  row-gap: 12px;
 }
 .top-nft__list-item img {
   transition: transform .5s ease;
@@ -154,12 +160,43 @@ button:hover {
   box-shadow: 0 0 12px rgba(0, 0, 0, .2);
   transition: box-shadow ease-in-out .2s;
 }
-.top-nft__organization {
+.top-nft__bottom {
+  display: flex;
+  justify-content: space-between;
   margin-top: 6px;
+  font-size: 14px;
+}
+.top-nft__tag {
+  display: flex;
+  column-gap: 4px;
+}
+.top-nft__tag li:not(:last-child)::after {
+  content: ",";
+}
+.top-nft__organization {
   text-align: right;
 }
 .top-nft__organization-name {
   padding-left: 4px;
+}
+@media screen and (max-width:500px) {
+  .top-nft {
+    display: block;
+  }
+  .top-nft > div {
+    margin-bottom: 18px;
+  }
+  .top-nft__collection {
+    min-width: auto;
+  }
+  .top-nft__head {
+    flex-flow: column;
+    margin-bottom: 6px;
+  }
+  .top-nft__list {
+    flex-flow: column;
+    margin: 0 auto;
+  }
 }
 
 /* collection */
@@ -168,6 +205,33 @@ button:hover {
   font-size: 30px;
   font-weight: bold;
   color: #393231;
+}
+
+/* tag */
+.tag {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 6px;
+  margin: 6px 18px 0 30px;
+}
+.tag li {
+	position: relative;
+	display: inline-block;
+	margin-right: 18px;
+	padding: 6px 6px 6px 2px;
+	line-height: 1;
+  border-radius: 0 3px 3px 0;
+	background-color: #fff;
+}
+.tag li::before {
+	position: absolute;
+	top: 0;
+	left: -12px;
+	content: '';
+	border-width: 14px 12px 14px 0;
+	border-style: solid;
+	border-color: transparent #fff transparent transparent;
 }
 
 /* card-list */

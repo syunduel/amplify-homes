@@ -21,6 +21,11 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
         collectionName = nfts[0].name;
     }
 
+    let contractType = "";
+    if (nfts !== undefined && nfts.length > 0) {
+        contractType = nfts[0].contract_type;
+    }
+
     useEffect(() => {
 
         let collectionPoints = 1;
@@ -32,6 +37,17 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
             setLovePower(collectionPoints * total);
         }
     }, [total]);
+
+    const getTag = () => {
+        let returnValue = [];
+        if (collectionInfo.tag !== undefined && collectionInfo.tag.length > 0) {
+          for (let i = 0; i < collectionInfo.tag.length; i++) {
+            const nowTag = collectionInfo.tag[i];
+            returnValue.push(<li>{nowTag}</li>);
+          }
+        }
+        return returnValue;
+    }
 
     const cardNFTOverrides = {
         "image": {
@@ -89,6 +105,11 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
                 </div>
             }
 
+            <div class="top-nft__bottom">
+              <ul class="top-nft__tag">
+                <li>{collectionInfo.chain}</li>
+                {getTag()}
+              </ul>
             {collectionInfo.organization !== undefined &&
                 <div className="top-nft__organization">by
                     <span className="top-nft__organization-name">
@@ -105,6 +126,7 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
                     </span>
                 </div>
             }
+            </div>
 
         </div>
     );
