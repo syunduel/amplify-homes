@@ -75,21 +75,26 @@ button:hover {
 .organization {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  column-gap: 18px;
+  justify-content: flex-start;
+  column-gap: 6px;
+  row-gap: 12px;
   margin: 18px 18px 42px;
 }
 .organization li {
   flex: 1;
+  flex-grow: initial;
 }
 .organization a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 6px 12px;
   border-radius: 20px;
   background: #fff;
   box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   color: #393231;
   transition: box-shadow ease-in-out .2s;
 }
