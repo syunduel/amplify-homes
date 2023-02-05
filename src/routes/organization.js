@@ -29,11 +29,6 @@ export default function Organization() {
         <>
             <div className="page-head" key={'mv1'}>
                 <p className="title--primary">{targetOrganization.name}</p>
-                <ul class="tag">
-                  <li>Ethereum</li>
-                  <li>ERC721</li>
-                  <li>official</li>
-                </ul>
                 {lovePower > 0 &&
                 <p className="love-power">
                   Your {targetOrganization.name} love power（β） : <span className="love-power__num">{lovePower}</span> lp

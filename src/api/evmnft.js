@@ -57,8 +57,7 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 });
             }
 
-            console.log("fetchEthNFTs NFTs");
-            console.log(response);
+            console.log("fetchEthNFTs NFTs", response);
     
             // console.log("response.result");
             // console.log(response.result);
