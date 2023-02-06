@@ -16,14 +16,14 @@ export default function Dressup() {
     console.log('tokenAddress : ' + tokenAddress);
     console.log('tokenId : ' + tokenId);
 
-    let selectedChain = tokenChain
-    if (tokenChain === "ethereum") {
+    let selectedChain = tokenChain.replace(/[^0-9a-z]/g, '');
+    if (selectedChain === "ethereum") {
       selectedChain = "Eth";
     } else if (selectedChain === "matic") {
       selectedChain = "Polygon"
     }
-    const selectedNftAddress = tokenAddress;
-    const selectedTokenId = tokenId;
+    const selectedNftAddress = tokenAddress.replace(/[^0-9a-z]/g, '');
+    const selectedTokenId = tokenId.replace(/[^0-9a-z]/g, '');
     console.log('selectedChain : ' + selectedChain);
     console.log('selectedNftAddress : ' + selectedNftAddress);
     console.log('selectedTokenId : ' + selectedTokenId);
@@ -31,7 +31,7 @@ export default function Dressup() {
     const selectedEthNFT = useEthNFT(selectedChain, selectedNftAddress, selectedTokenId);
     console.log(selectedEthNFT);
 
-    const collectionInfo = collectionData[tokenChain + "_" + selectedNftAddress];
+    const collectionInfo = collectionData[tokenChain.replace(/[^0-9a-z]/g, '') + "_" + selectedNftAddress];
     console.log('collectionInfo', collectionInfo);
 
     let partsNFTInfo;

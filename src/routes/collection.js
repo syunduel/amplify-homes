@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useMoralis } from "react-moralis";
 import { useEthNFTs } from '../api/evmnft';
+import {collectionData} from '../data/collectionData';
 import NFTList from './nftList';
 
 
@@ -10,18 +11,14 @@ export default function Collection() {
     console.log('tokenChain : ' + tokenChain);
     console.log('tokenAddress : ' + tokenAddress);
 
-    const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
-    const [nfts, isLoaded] = useEthNFTs(tokenChain, tokenAddress);
+    let targetEvmNFT = {};
 
-    let collectionName = "";
-    if (nfts !== undefined && nfts.length > 0) {
-        collectionName = nfts[0].name;
+    if (collectionData[tokenChain + "_" + tokenAddress] !== undefined) {
+        targetEvmNFT = collectionData[tokenChain + "_" + tokenAddress];
+    } else {
+        targetEvmNFT.chain = tokenChain.replace(/[^0-9a-z]/g, '');
+        targetEvmNFT.address = tokenAddress.replace(/[^0-9a-z]/g, '');
     }
-
-    let targetEvmNFT = [];
-    targetEvmNFT.chain = tokenChain;
-    targetEvmNFT.address = tokenAddress;
-    targetEvmNFT.name = collectionName;
 
     return (
         <>
