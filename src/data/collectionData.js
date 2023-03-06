@@ -251,6 +251,14 @@ export const collectionData = {
         url: "https://opensea.io/collection/nft-ocs-collection-3-baki-hanma",
         organization: 'Otaku-Culture-Studio',
     },
+    goerli_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593 : {
+        name: "MAIDSAN",
+        chain: "goerli",
+        tag: ["ERC721"],
+        address: "0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593",
+        url: "https://opensea.io/collection/maidsan",
+        organization: 'Otaku-Culture-Studio',
+    },
 
 
     //
