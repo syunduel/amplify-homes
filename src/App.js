@@ -110,7 +110,7 @@ function App() {
 
     <div className="mv" key={'mv3'} style={{marginTop: '8em'}}>
         <p>Dress Up NFT is currently in beta version.</p>
-        <p>Please contact <a href='https://twitter.com/IchiroTech'>Shunichiro(@IchiroTech)</a> to report bugs, request improvements, or discuss adding collections.</p>
+        <p>Please contact <a href='https://twitter.com/IchiroTech'>Ichiro(@IchiroTech)</a> to report bugs, request improvements, or discuss adding collections.</p>
     </div>
 
     <MarketingFooter width={"100vw"}  className="footer-bar" />
