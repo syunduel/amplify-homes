@@ -52,7 +52,7 @@ function App() {
   const logIn = async () => {
     if (!isAuthenticated) {
 
-      await authenticate({signingMessage: "Please log in to dress up your NFT." })
+      await authenticate({signingMessage: "Welcome to DressUpNFT! Please log in to dress up your NFT!" })
         .then(function (user) {
           console.log("logged in user:", user);
           console.log(user.get("ethAddress"));
