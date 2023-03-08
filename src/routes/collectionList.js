@@ -25,8 +25,6 @@ export default function CollectionList() {
     targetEvmNFTs.push(collectionData["ethereum_0x11c3e2c4329df91f65a16612de90077498cfa6ca"]);
     // Neo Tokyo Punks
     targetEvmNFTs.push(collectionData["ethereum_0xa65ba71d653f62c64d97099b58d25a955eb374a0"]);
-    // NFT OCS Collection #1 Drifting Home
-    targetEvmNFTs.push(collectionData["ethereum_0x9f6d1234f654c5bd691ba0b056be80fe3fe3a240"]);
     // ASAGI
     targetEvmNFTs.push(collectionData["ethereum_0xdd510ce28dfd085d9cf58f5402ca6d63985e83c0"]);
     // Flower Lolita Collections

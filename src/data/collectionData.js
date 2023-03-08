@@ -258,6 +258,7 @@ export const collectionData = {
         address: "0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593",
         url: "https://opensea.io/collection/maidsan",
         organization: 'Otaku-Culture-Studio',
+        copyright : "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Copyright/copyright.png",
     },
 
 

@@ -11,6 +11,8 @@ export default function Dressup() {
 
   console.log("Dressup start");
 
+  const wait = async (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
     const {tokenChain, tokenAddress, tokenId} = useParams();
     console.log('tokenChain : ' + tokenChain);
     console.log('tokenAddress : ' + tokenAddress);
@@ -71,6 +73,8 @@ export default function Dressup() {
     const [dressUpPic14Url, setDressUpPic14Url] = useState(noneUrl);
     const [dressUpPic15Url, setDressUpPic15Url] = useState(noneUrl);
     const [dressUpPic16Url, setDressUpPic16Url] = useState(noneUrl);
+    const [dressUpPicCopyrightUrl, setDressUpPicCopyrightUrl] = useState(noneUrl);
+    const [dressUpPicCopyrightDisp, setDressUpPicCopyrightDisp] = useState(false);
     const [dressUpPicVailStyle, setDressUpPicVailStyle] = useState({backgroundColor: 'lightgray'});
     const [dressUpPicSpin, setDressUpPicSpin] = useState("sk-cube-grid");
 
@@ -137,6 +141,12 @@ export default function Dressup() {
           // LAGとLAGM以外の場合、元の画像をそのまま入れる
           setDressUpPic02Url(selectedEthNFT.moralisImageUri);
         }
+
+        // DownloadするときだけCopyrightをセットする
+        if (collectionInfo !== undefined && collectionInfo.copyright !== undefined) {
+          setDressUpPicCopyrightUrl(collectionInfo.copyright);
+        }
+
 
         // パーツがパラパラ表示されるのを防ぐために灰色にしておいたヴェールを2秒後に透明にする
         // パーツ画像が全部ロードされたのを検知してやりたかったが、難しかったので固定の秒数で暫定対応
@@ -333,11 +343,18 @@ export default function Dressup() {
       }
     }
     
-    const onClickExport = () => {
+    const onClickExport = async() => {
+
+      // DownloadするときだけCopyrightをセットする
+      setDressUpPicCopyrightDisp(true);
+
+      await wait(500);
+
       // 画像に変換する component の id を指定
       var target = document.getElementById("dress-up-window");
       target.style.width = "1000px";
       target.style.height = "1000px";
+
       const area = target.getBoundingClientRect();
 
       html2canvas(target, {
@@ -354,6 +371,9 @@ export default function Dressup() {
         const targetImgUri = canvas.toDataURL("img/png");
         saveAsImage(targetImgUri);
       });
+
+      // Downloadが終わったらCopyrightを削除する
+      setDressUpPicCopyrightDisp(false);
 
       target.style.width = "400px";
       target.style.height = "400px";
@@ -392,6 +412,7 @@ export default function Dressup() {
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic14Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic15Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic16Url} />
+                    <img id="dress-up-pic-copyright" className={dressUpPicCopyrightDisp? "dress-up-pic": "dress-up-pic-hidden"} crossOrigin='anonymous' src={dressUpPicCopyrightUrl} />
                     <div id="dress-up-pic-vail" width="400" height="400" className='dress-up-pic' style={dressUpPicVailStyle} />
                     <div id="dress-up-spin" className={dressUpPicSpin}>
                       <div className="sk-cube sk-cube1"></div>
