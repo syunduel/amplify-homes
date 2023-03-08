@@ -5,7 +5,7 @@ export const collectionData = {
     ethereum_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2 :{
         name: "Love Addicted Girls",
         chain: "ethereum",
-        tag: ["ERC721"],
+        tag: ["ERC721", "DressUP"],
         address: "0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2",
         url: "https://opensea.io/collection/love-addicted-girls",
         point: 9,
@@ -252,9 +252,9 @@ export const collectionData = {
         organization: 'Otaku-Culture-Studio',
     },
     goerli_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593 : {
-        name: "MAIDSAN",
+        name: "メイド3.0 / MAID-SAN",
         chain: "goerli",
-        tag: ["ERC721"],
+        tag: ["ERC721", "DressUP"],
         address: "0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593",
         url: "https://opensea.io/collection/maidsan",
         organization: 'Otaku-Culture-Studio',

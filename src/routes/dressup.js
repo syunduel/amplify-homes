@@ -500,7 +500,7 @@ export default function Dressup() {
                     <dd>
                       <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanClothes}>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Clothes/"+(selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes)+".png"}>{selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes? selectedAttributes.Clothes.replace("_", " "): ""}</button>
-                        {getPartsButton("MaidsanClothes")}
+                        {getPartsButton("Clothes")}
                         <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse.png">Ami-chan blouse</button>
                       </ButtonGroup>
                     </dd>
@@ -510,7 +510,7 @@ export default function Dressup() {
                     <dd>
                       <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanHairAccessory}>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Hair accessory/"+(selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"])+".png"}>{selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"].replace("_", " "): ""}</button>
-                        {getPartsButton("MaidsanHairAccessory")}
+                        {getPartsButton("Hair Accessory")}
                         <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Hair%20accessory/Ami-chan%20hairpin.png">Ami-chan hairpin</button>
                       </ButtonGroup>
                     </dd>
@@ -520,7 +520,7 @@ export default function Dressup() {
                     <dd>
                       <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanMoeProp}>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Moe prop/"+(selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"])+".png"}>{selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"].replace("_", " "): ""}</button>
-                        {getPartsButton("MaidsanMoeProp")}
+                        {getPartsButton("Moe Prop")}
                         <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Moe%20prop/Ami-chan%20mascot.png">Ami-chan mascot</button>
                       </ButtonGroup>
                     </dd>

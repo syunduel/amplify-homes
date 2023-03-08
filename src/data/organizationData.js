@@ -51,6 +51,7 @@ export const organizationData = {
             "ethereum_0x9f6d1234f654c5bd691ba0b056be80fe3fe3a240",  // NFT OCS Collection #1 Drifting Home
             "ethereum_0x55151a3d420a0d4e7bb489b892ea213578008090",  // NFT OCS Collection #2 COBRA
             "ethereum_0xc08081ff27a1ff971a9150901e8fb2926bc04ef8",  // NFT OCS Collection #3 BAKI HANMA
+            "goerli_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593",    // メイド3.0 / MAID-SAN
         ],
     },
     "ASAGI" : {
