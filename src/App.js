@@ -36,6 +36,9 @@ function App() {
     "logo-openSea": {
       className: "ext-link",
     },
+    "hamburger-menu": {
+      className: "hamburger-menu",
+    },
   };
 
   useEffect(() => {

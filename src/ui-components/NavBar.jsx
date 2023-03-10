@@ -21,13 +21,14 @@ export default function NavBar(props) {
     <Flex
       gap="40px"
       direction="row"
-      width="1440px"
-      justifyContent="center"
+      justifyContent="space-between"
       alignItems="center"
       position="relative"
-      padding="24px 32px 24px 32px"
       {...rest}
       {...getOverrideProps(overrides, "NavBar")}
+    >
+    <Flex
+      class="nav-bar__inner"
     >
       <Flex
         gap="2px"
@@ -56,116 +57,135 @@ export default function NavBar(props) {
         ></Image>
       </Flex>
       <Flex
-        gap="30px"
-        direction="row"
-        width="593px"
-        alignItems="center"
-        grow="1"
-        basis="593px"
-        height="30px"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "NavBarMenuLeft")}
+        class="nav-bar__menu"
+        id="js-nav"
       >
-        <Twitter
-          width="30px"
-          height="24.68px"
-          shrink="0"
-          overflow="hidden"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "logo-twitter")}
-        ></Twitter>
-        <Discord
-          width="30px"
-          height="23.24px"
-          shrink="0"
-          overflow="hidden"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "logo-discord")}
-        ></Discord>
-        <OpenSea
-          width="30px"
+        <Flex
+          gap="30px"
+          direction="row"
+          alignItems="center"
+          grow="1"
+          basis="593px"
           height="30px"
-          shrink="0"
-          overflow="hidden"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "logo-openSea")}
-        ></OpenSea>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="700"
-          color="rgba(0,0,0,1)"
-          lineHeight="30px"
-          textAlign="left"
-          display="flex"
-          direction="column"
-          justifyContent="flex-start"
-          shrink="0"
+          {...getOverrideProps(overrides, "NavBarMenuLeft")}
+        >
+          <Twitter
+            width="30px"
+            height="24.68px"
+            shrink="0"
+            overflow="hidden"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            {...getOverrideProps(overrides, "logo-twitter")}
+          ></Twitter>
+          <Discord
+            width="30px"
+            height="23.24px"
+            shrink="0"
+            overflow="hidden"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            {...getOverrideProps(overrides, "logo-discord")}
+          ></Discord>
+          <OpenSea
+            width="30px"
+            height="30px"
+            shrink="0"
+            overflow="hidden"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            {...getOverrideProps(overrides, "logo-openSea")}
+          ></OpenSea>
+          <Text
+            fontFamily="Inter"
+            fontSize="20px"
+            fontWeight="700"
+            color="rgba(0,0,0,1)"
+            lineHeight="30px"
+            textAlign="left"
+            display="flex"
+            direction="column"
+            justifyContent="flex-start"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="        "
+            {...getOverrideProps(overrides, "Text")}
+          ></Text>
+        </Flex>
+        <Flex
+          gap="24px"
+          direction="row"
+          justifyContent="flex-end"
+          alignItems="center"
+          grow="1"
+          basis="593px"
+          height="40px"
           position="relative"
           padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="        "
-          {...getOverrideProps(overrides, "Text")}
-        ></Text>
+          {...getOverrideProps(overrides, "NavBarMenuRight")}
+        >
+          <Button
+            display="flex"
+            gap="0"
+            direction="row"
+            width="fit-content"
+            justifyContent="center"
+            alignItems="center"
+            shrink="0"
+            height="42px"
+            position="relative"
+            border="1px SOLID rgba(244,232,231,1)"
+            borderRadius="21px"
+            padding="8px 16px 8px 16px"
+            backgroundColor="rgba(255,255,255,1)"
+            size="default"
+            isDisabled={false}
+            variation="default"
+            children="Logout"
+            {...getOverrideProps(overrides, "LogoutButton")}
+          ></Button>
+          <Button
+            display="flex"
+            gap="0"
+            direction="row"
+            width="fit-content"
+            justifyContent="center"
+            alignItems="center"
+            shrink="0"
+            height="42px"
+            position="relative"
+            border="1px SOLID rgba(244,232,231,1)"
+            borderRadius="21px"
+            padding="8px 16px 8px 16px"
+            backgroundColor="rgba(255,255,255,1)"
+            size="default"
+            isDisabled={false}
+            variation="default"
+            children="Connect your wallet"
+            {...getOverrideProps(overrides, "LoginButton")}
+          ></Button>
+        </Flex>
       </Flex>
-      <Flex
-        gap="24px"
-        direction="row"
-        width="593px"
-        justifyContent="flex-end"
-        alignItems="center"
-        grow="1"
-        basis="593px"
-        height="40px"
+      <Button
+        id="js-hamburger"
+        class="hamburger-menu"
+        width="30px"
+        height="30px"
+        shrink="0"
+        overflow="hidden"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "NavBarMenuRight")}
+        {...getOverrideProps(overrides, "hamburger-menu")}
       >
-        <Button
-          display="flex"
-          gap="0"
-          direction="row"
-          width="fit-content"
-          justifyContent="center"
-          alignItems="center"
-          shrink="0"
-          height="42px"
-          position="relative"
-          border="1px SOLID rgba(244,232,231,1)"
-          borderRadius="21px"
-          padding="8px 16px 8px 16px"
-          backgroundColor="rgba(255,255,255,1)"
-          size="default"
-          isDisabled={false}
-          variation="default"
-          children="Logout"
-          {...getOverrideProps(overrides, "LogoutButton")}
-        ></Button>
-        <Button
-          display="flex"
-          gap="0"
-          direction="row"
-          width="fit-content"
-          justifyContent="center"
-          alignItems="center"
-          shrink="0"
-          height="42px"
-          position="relative"
-          border="1px SOLID rgba(244,232,231,1)"
-          borderRadius="21px"
-          padding="8px 16px 8px 16px"
-          backgroundColor="rgba(255,255,255,1)"
-          size="default"
-          isDisabled={false}
-          variation="default"
-          children="Connect your wallet"
-          {...getOverrideProps(overrides, "LoginButton")}
-        ></Button>
-      </Flex>
+        <Flex></Flex>
+        <Flex></Flex>
+        <Flex></Flex>
+      </Button>
+    </Flex>
     </Flex>
   );
 }
