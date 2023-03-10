@@ -28,27 +28,39 @@ export default function Dressup() {
     }
     const selectedNftAddress = tokenAddress.replace(/[^0-9a-z]/g, '');
     const selectedTokenId = tokenId.replace(/[^0-9a-z]/g, '');
-    console.log('selectedChain : ' + selectedChain);
-    console.log('selectedNftAddress : ' + selectedNftAddress);
-    console.log('selectedTokenId : ' + selectedTokenId);
+    // console.log('selectedChain : ' + selectedChain);
+    // console.log('selectedNftAddress : ' + selectedNftAddress);
+    // console.log('selectedTokenId : ' + selectedTokenId);
 
     const selectedEthNFT = useEthNFT(selectedChain, selectedNftAddress, selectedTokenId);
-    console.log(selectedEthNFT);
+    // console.log(selectedEthNFT);
 
     const collectionInfo = collectionData[tokenChain.replace(/[^0-9a-z]/g, '') + "_" + selectedNftAddress];
-    console.log('collectionInfo', collectionInfo);
+    // console.log('collectionInfo', collectionInfo);
 
-    let partsNFTInfo;
-    let nowPartsChain;
-    let nowPartsAddress;
-    if (collectionInfo !== undefined && collectionInfo.parts !== undefined) {
-      partsNFTInfo = collectionInfo.parts;
-      nowPartsChain = partsNFTInfo.chain;
-      nowPartsAddress = partsNFTInfo.address;
+    let partsNFTInfo0;
+    let nowPartsChain0;
+    let nowPartsAddress0;
+    if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[0] !== undefined) {
+      partsNFTInfo0 = collectionInfo.parts[0];
+      console.log("partsNFTInfo0", partsNFTInfo0);
+      nowPartsChain0 = partsNFTInfo0.chain;
+      nowPartsAddress0 = partsNFTInfo0.address;
     }
-    console.log("nowPartsChain", nowPartsChain);
-    const [partsNFTs, isPartsNFTsLoaded] = useEthNFTs(nowPartsChain, nowPartsAddress, 100);
-    console.log("partsNFTs", partsNFTs);
+    const [partsNFTs0, isPartsNFTsLoaded0] = useEthNFTs(nowPartsChain0, nowPartsAddress0, 100);
+    console.log("partsNFTs0", partsNFTs0);
+
+    let partsNFTInfo1;
+    let nowPartsChain1;
+    let nowPartsAddress1;
+    if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[1] !== undefined) {
+      partsNFTInfo1 = collectionInfo.parts[1];
+      console.log("partsNFTInfo1", partsNFTInfo1);
+      nowPartsChain1 = partsNFTInfo1.chain;
+      nowPartsAddress1 = partsNFTInfo1.address;
+    }
+    const [partsNFTs1, isPartsNFTsLoaded1] = useEthNFTs(nowPartsChain1, nowPartsAddress1, 100);
+    console.log("partsNFTs1", partsNFTs1);
 
 
 
@@ -161,32 +173,51 @@ export default function Dressup() {
 
     const getPartsButton = (position) => {
       // console.log("partsNFT", partsNFTs);
-      let returnValue = [];
-      if (partsNFTs !== undefined && isPartsNFTsLoaded) {
-        for (let i = 0; i < partsNFTs.length; i++) {
-          const nowPartsNFT = partsNFTs[i];
-          const nowPartsAttributes = nowPartsNFT.metadata.attributes;
-          let nowPartsPosition = "";
-          let nowPartsName = "";
-          let nowPartsAbbreviation = "";
-          nowPartsAttributes.forEach(element => {
-            if (element.trait_type === "Position") {
-              nowPartsPosition = element.value;
-            } else if (element.trait_type === "Partsname") {
-              nowPartsName = element.value;
-            } else if (element.trait_type === "Abbreviation") {
-              nowPartsAbbreviation = element.value;
-            }
-          });
-          if (position.toUpperCase() == nowPartsPosition.toUpperCase()) {
-            const buttonValue = "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/" + nowPartsPosition + "/" + nowPartsName+ ".png";
 
-            returnValue.push(<button value={buttonValue}>{nowPartsAbbreviation}</button>);
+      let partsButtons0 = [];
+      if (partsNFTs0 !== undefined && isPartsNFTsLoaded0) {
+        partsButtons0 = createPartsButton(position, partsNFTs0);
+      }
+
+      let partsButtons1 = [];
+      if (partsNFTs1 !== undefined && isPartsNFTsLoaded1) {
+        partsButtons1 = createPartsButton(position, partsNFTs1);
+      }
+
+      const partsButtons = [
+        ...partsButtons0,
+        ...partsButtons1,
+      ]
+
+      // console.log("getPartsButton", partsButtons);
+      return partsButtons;
+    }
+
+    const createPartsButton = (position, partsNFTs) => {
+      let partsButtons = [];
+      for (let i = 0; i < partsNFTs.length; i++) {
+        const nowPartsNFT = partsNFTs[i];
+        const nowPartsAttributes = nowPartsNFT.metadata.attributes;
+        let nowPartsPosition = "";
+        let nowPartsName = "";
+        let nowPartsAbbreviation = "";
+        nowPartsAttributes.forEach(element => {
+          if (element.trait_type === "Position") {
+            nowPartsPosition = element.value;
+          } else if (element.trait_type === "Partsname") {
+            nowPartsName = element.value;
+          } else if (element.trait_type === "Abbreviation") {
+            nowPartsAbbreviation = element.value;
           }
+        });
+        if (position.toUpperCase() == nowPartsPosition.toUpperCase()) {
+          const buttonValue = "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/" + nowPartsPosition + "/" + nowPartsName+ ".png";
+
+          partsButtons.push(<button value={buttonValue}>{nowPartsAbbreviation}</button>);
         }
       }
-      // console.log("getPartsButton", returnValue);
-      return returnValue;
+      console.log("createPartsButton", partsButtons);
+      return partsButtons;
     }
 
     const onClickBackground = (event) => {
@@ -522,7 +553,10 @@ export default function Dressup() {
                       <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanClothes}>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Clothes/"+(selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes)+".png"}>{selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes? selectedAttributes.Clothes.replace("_", " "): ""}</button>
                         {getPartsButton("Clothes")}
-                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse.png">Ami-chan blouse</button>
+                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse_black.png">blouse_black</button>
+                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse_blue.png">blouse_blue</button>
+                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse_white.png">blouse_white</button>
+                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse_red.png">blouse_red</button>
                       </ButtonGroup>
                     </dd>
                   </dl>
