@@ -37,6 +37,8 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
               selectedChain = "Eth";
             } else if (targetChain === "matic") {
               selectedChain = "Polygon"
+            } else if (targetChain === "goerli") {
+                selectedChain = "Goerli"
             }
 
             console.log("targetChain : " + targetChain);
@@ -88,7 +90,8 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 }
 
                 // metadataを自前サーバーから取得する
-                if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM") {
+                if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "MAIDSAN") {
+                    console.log("MAIDSAN")
 
                     const metadataRes = await axios.get(`${serverCollectionRoot}${selectedChain}/${nowEthNft.symbol}_${targetAddress}/token-uri/${nowEthNft.token_id}.json`);
 

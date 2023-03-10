@@ -48,8 +48,8 @@ export default function MarketingFooter(props) {
         left="60px"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="© 2022 SoudanNFT"
-        {...getOverrideProps(overrides, "\u00A9 2022 SoudanNFT")}
+        children="© 2023 DressUpNFT"
+        {...getOverrideProps(overrides, "\u00A9 2023 DressUpNFT")}
       ></Text>
       <Flex
         gap="50px"
