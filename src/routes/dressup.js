@@ -406,8 +406,8 @@ export default function Dressup() {
       // Downloadが終わったらCopyrightを削除する
       setDressUpPicCopyrightDisp(false);
 
-      target.style.width = "400px";
-      target.style.height = "400px";
+      target.style.width = "";
+      target.style.height = "";
 
     }
 

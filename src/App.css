@@ -32,9 +32,21 @@
   cursor: pointer;
 }
 
-#dress-up-window {
-  position: relative;
-  display: flex;
+/*　画面サイズが700pxまではここを読み込む　*/
+@media screen and (max-width:700px) {
+  #dress-up-window {
+    position: relative;
+    display: flex;
+  }
+}
+
+/*　画面サイズが700pxからはここを読み込む　*/
+@media screen and (min-width:700px) {
+  #dress-up-window {
+    position: relative;
+    display: flex;
+    width: 400px;
+  }
 }
 
 .dress-up-pic-base {
