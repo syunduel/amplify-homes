@@ -107,12 +107,12 @@ export default function Dressup() {
 
         // console.log("selectedEthNFT");
         // console.log(selectedEthNFT);
- 
+
         // console.log("nowSelectedAttributes");
         // console.log(nowSelectedAttributes);
         setSelectedAttributes(nowSelectedAttributes);
         selectedEthNFT.attributes = nowSelectedAttributes;
-        
+
         if (selectedEthNFT.symbol === "LAG") {
           setDressUpPic01Url(getImageFullUrl(getImageUrl(selectedEthNFT, "background", nowSelectedAttributes.background)));
           setDressUpPic02Url(getImageFullUrl(getImageUrl(selectedEthNFT, "effect", nowSelectedAttributes.effect)));
@@ -284,7 +284,7 @@ export default function Dressup() {
       }
       console.log(nowDressUpPicFaceUrl);
       setDressUpPic05Url(nowDressUpPicFaceUrl);
-      
+
     }
 
     const onClickMaidsanClothes = (event) => {
@@ -317,7 +317,7 @@ export default function Dressup() {
       setDressUpPic13Url(nowDressUpPicAccessoryUrl);
     }
 
-    
+
 
     const getImageUrl = (selectedEthNFT, type, value) => {
 
@@ -354,26 +354,26 @@ export default function Dressup() {
 
     const saveAsImage = uri => {
       const downloadLink = document.createElement("a");
-    
+
       if (typeof downloadLink.download === "string") {
         downloadLink.href = uri;
-    
+
         // ファイル名
         downloadLink.download = "dressup.png";
-    
+
         // Firefox では body の中にダウンロードリンクがないといけないので一時的に追加
         document.body.appendChild(downloadLink);
-    
+
         // ダウンロードリンクが設定された a タグをクリック
         downloadLink.click();
-    
+
         // Firefox 対策で追加したリンクを削除しておく
         document.body.removeChild(downloadLink);
       } else {
         window.open(uri);
       }
     }
-    
+
     const onClickExport = async() => {
 
       // DownloadするときだけCopyrightをセットする
@@ -406,8 +406,8 @@ export default function Dressup() {
       // Downloadが終わったらCopyrightを削除する
       setDressUpPicCopyrightDisp(false);
 
-      target.style.width = "400px";
-      target.style.height = "400px";
+      target.style.width = "";
+      target.style.height = "";
 
     }
 
@@ -444,7 +444,7 @@ export default function Dressup() {
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic15Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic16Url} />
                     <img id="dress-up-pic-copyright" className={dressUpPicCopyrightDisp? "dress-up-pic": "dress-up-pic-hidden"} crossOrigin='anonymous' src={dressUpPicCopyrightUrl} />
-                    <div id="dress-up-pic-vail" width="400" height="400" className='dress-up-pic' style={dressUpPicVailStyle} />
+                    <div id="dress-up-pic-vail" className='dress-up-pic' style={dressUpPicVailStyle} />
                     <div id="dress-up-spin" className={dressUpPicSpin}>
                       <div className="sk-cube sk-cube1"></div>
                       <div className="sk-cube sk-cube2"></div>
@@ -457,7 +457,7 @@ export default function Dressup() {
                       <div className="sk-cube sk-cube9"></div>
                     </div>
                   </div>
-                  
+
                   <p class="card__dress-up--pj">{`${selectedEthNFT.name}`}</p>
                   <p class="card__dress-up--no">{`${selectedEthNFT.itemName}`}</p>
                 </>

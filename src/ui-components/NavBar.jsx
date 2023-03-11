@@ -31,6 +31,7 @@ export default function NavBar(props) {
       class="nav-bar__inner"
     >
       <Flex
+        class="logo"
         gap="2px"
         direction="row"
         width="fit-content"
@@ -116,76 +117,80 @@ export default function NavBar(props) {
             {...getOverrideProps(overrides, "Text")}
           ></Text>
         </Flex>
-        <Flex
-          gap="24px"
-          direction="row"
-          justifyContent="flex-end"
-          alignItems="center"
-          grow="1"
-          basis="593px"
-          height="40px"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "NavBarMenuRight")}
-        >
-          <Button
-            display="flex"
-            gap="0"
-            direction="row"
-            width="fit-content"
-            justifyContent="center"
-            alignItems="center"
-            shrink="0"
-            height="42px"
-            position="relative"
-            border="1px SOLID rgba(244,232,231,1)"
-            borderRadius="21px"
-            padding="8px 16px 8px 16px"
-            backgroundColor="rgba(255,255,255,1)"
-            size="default"
-            isDisabled={false}
-            variation="default"
-            children="Logout"
-            {...getOverrideProps(overrides, "LogoutButton")}
-          ></Button>
-          <Button
-            display="flex"
-            gap="0"
-            direction="row"
-            width="fit-content"
-            justifyContent="center"
-            alignItems="center"
-            shrink="0"
-            height="42px"
-            position="relative"
-            border="1px SOLID rgba(244,232,231,1)"
-            borderRadius="21px"
-            padding="8px 16px 8px 16px"
-            backgroundColor="rgba(255,255,255,1)"
-            size="default"
-            isDisabled={false}
-            variation="default"
-            children="Connect your wallet"
-            {...getOverrideProps(overrides, "LoginButton")}
-          ></Button>
-        </Flex>
       </Flex>
-      <Button
-        id="js-hamburger"
-        class="hamburger-menu"
-        width="30px"
-        height="30px"
-        shrink="0"
-        overflow="hidden"
+      <Flex
+        gap="24px"
+        direction="row"
+        justifyContent="flex-end"
+        alignItems="center"
+        grow="1"
+        basis="593px"
+        height="40px"
         position="relative"
         padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "hamburger-menu")}
+        {...getOverrideProps(overrides, "NavBarMenuRight")}
       >
-        <Flex></Flex>
-        <Flex></Flex>
-        <Flex></Flex>
-      </Button>
-    </Flex>
+        <Button
+          display="flex"
+          gap="0"
+          direction="row"
+          width="fit-content"
+          justifyContent="center"
+          alignItems="center"
+          shrink="0"
+          height="42px"
+          position="relative"
+          border="1px SOLID rgba(244,232,231,1)"
+          borderRadius="21px"
+          padding="8px 16px 8px 16px"
+          backgroundColor="rgba(255,255,255,1)"
+          size="default"
+          isDisabled={false}
+          variation="default"
+          children="Logout"
+          {...getOverrideProps(overrides, "LogoutButton")}
+        ></Button>
+        <Button
+          display="flex"
+          gap="0"
+          direction="row"
+          width="fit-content"
+          justifyContent="center"
+          alignItems="center"
+          shrink="0"
+          height="42px"
+          position="relative"
+          border="1px SOLID rgba(244,232,231,1)"
+          borderRadius="21px"
+          padding="8px 16px 8px 16px"
+          backgroundColor="rgba(255,255,255,1)"
+          size="default"
+          isDisabled={false}
+          variation="default"
+          children="Connect your wallet"
+          {...getOverrideProps(overrides, "LoginButton")}
+        ></Button>
+      </Flex>
+      <Flex
+        class="hamburger-menu__wrap"
+      >
+        <Button
+          id="js-hamburger"
+          class="hamburger-menu"
+          width="20px"
+          height="22px"
+          shrink="0"
+          overflow="hidden"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "hamburger-menu")}
+        >
+          <Flex></Flex>
+          <Flex></Flex>
+          <Flex></Flex>
+        </Button>
+      </Flex>
+    </Flex>      
     </Flex>
   );
 }
