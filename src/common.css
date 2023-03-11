@@ -12,7 +12,6 @@ a:hover {
 }
 
 button {
-  height: 40px;
   width: 180px;
   padding: 6px;
   border-radius: 20px;
@@ -391,6 +390,7 @@ button:hover {
 .card__dress-up--header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 6px;
 }
 .back-link {
@@ -469,6 +469,9 @@ button:hover {
     padding: 12px;
     border-radius: 0;
   }
+  .card__dress-up--header {
+    flex-wrap: wrap;
+  }
   .card__dress-up--header button {
     width: auto;
     font-size: 14px;
@@ -478,7 +481,6 @@ button:hover {
   }
   .card__dress-up--image {
     min-width: auto;
-
   }
 }
 
