@@ -10,11 +10,13 @@ export const collectionData = {
         url: "https://opensea.io/collection/love-addicted-girls",
         point: 9,
         organization: 'SoudanNFT',
-        parts: {
-            chain: 'goerli',
-            address: '0x9f0727ee5288046461c6727ab1b01adfbe4b340b',
-            baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/',
-        },
+        parts: [
+            {
+                chain: 'goerli',
+                address: '0x9f0727ee5288046461c6727ab1b01adfbe4b340b',
+                baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/',
+            },
+        ],
     },
     ethereum_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9 : {
         name: "AstarPrince",
