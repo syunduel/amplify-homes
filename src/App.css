@@ -35,7 +35,6 @@
 #dress-up-window {
   position: relative;
   display: flex;
-  width: 400px;
 }
 
 .dress-up-pic-base {

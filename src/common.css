@@ -404,10 +404,10 @@ button:hover {
 }
 .card__dress-up--change {
   display: flex;
+  gap: 24px;
 }
 .card__dress-up--image {
   min-width: 400px;
-  margin: 0 30px 30px 0;
 }
 .dress-up-window {
   overflow: hidden;
@@ -461,6 +461,24 @@ button:hover {
     justify-content: center;
   }
 }
+@media screen and (max-width:700px) {
+  .card__dress-up {
+    margin: 0;
+    padding: 12px;
+    border-radius: 0;
+  }
+  .card__dress-up--header button {
+    width: auto;
+    font-size: 14px;
+  }
+  .card__dress-up--title {
+    font-size: 28px;
+  }
+  .card__dress-up--image {
+    min-width: auto;
+
+  }
+}
 
 
 /* spinkit */
@@ -468,7 +486,6 @@ button:hover {
   position: absolute;
   width: 400px;
   height: 400px;
-  margin: 2px 2px;
 }
 
 .sk-cube-grid .sk-cube {
