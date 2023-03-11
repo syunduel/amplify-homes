@@ -77,11 +77,26 @@ button:hover {
   .amplify-flex.nav-bar {
     height: 86px;
   }
+  .logo {
+    height: auto!important;
+  }
+  .logo > img {
+    width: 80px!important;
+    height: auto!important;
+  }
   .nav-bar .nav-bar__inner {
-    position: relative;
-    top: 0;
-    left: 0;
+    gap:  8px;
+    padding: 6px 12px 18px 6px;
     z-index: 9;
+  }
+  .nav-bar button {
+    height: auto!important;
+    font-size: 12px;
+    padding: 6px 8px!important;
+  }
+  .nav-bar .nav-bar__menu + .amplify-flex {
+    gap: 6px!important;
+    flex-basis: auto!important;
   }
   .nav-bar .nav-bar__menu {
     position: fixed;
@@ -110,10 +125,15 @@ button:hover {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
-
+  }
+  .nav-bar .hamburger-menu__wrap {
+    width: 20px;
+    padding: 0!important;
   }
   .nav-bar .hamburger-menu {
     display: block;
+    height: 22px!important;
+    padding: 0!important;
     background: transparent;
     border-radius: 0;
     z-index: 9;
@@ -133,7 +153,7 @@ button:hover {
     top: 0;
   }
   .nav-bar .hamburger-menu div:nth-child(2) {
-    margin: 8px 0;
+    margin: 6px 0;
   }
   .nav-bar .hamburger-menu div:nth-child(3) {
     top: 0;
@@ -141,20 +161,21 @@ button:hover {
   /* ハンバーガーメニュークリック後のスタイル */
   .nav-bar .hamburger-menu.active {
     position: fixed!important;
-    right: 30px;
+    top: 30px;
+    right: 12px;
   }
   .nav-bar .hamburger-menu.active {
     transform: translateX(0);
   }
   .nav-bar .hamburger-menu.active div:nth-child(1) {
-    top: 5px;
+    top: 4px;
     transform: rotate(45deg);
   }
   .nav-bar .hamburger-menu.active div:nth-child(2) {
     opacity: 0;
   }
   .nav-bar .hamburger-menu.active div:nth-child(3) {
-    top: -13px;
+    top: -11px;
     transform: rotate(-45deg);
   }
 }
