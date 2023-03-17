@@ -18,7 +18,8 @@ export default function Dressup() {
     console.log('tokenAddress : ' + tokenAddress);
     console.log('tokenId : ' + tokenId);
 
-    let selectedChain = tokenChain.replace(/[^0-9a-z]/g, '');
+    let targetChain = tokenChain.replace(/[^0-9a-z]/g, '');
+    let selectedChain = targetChain;
     if (selectedChain === "ethereum") {
       selectedChain = "Eth";
     } else if (selectedChain === "matic") {
@@ -32,7 +33,7 @@ export default function Dressup() {
     // console.log('selectedNftAddress : ' + selectedNftAddress);
     // console.log('selectedTokenId : ' + selectedTokenId);
 
-    const selectedEthNFT = useEthNFT(selectedChain, selectedNftAddress, selectedTokenId);
+    const selectedEthNFT = useEthNFT(targetChain, selectedNftAddress, selectedTokenId);
     // console.log(selectedEthNFT);
 
     const collectionInfo = collectionData[tokenChain.replace(/[^0-9a-z]/g, '') + "_" + selectedNftAddress];
@@ -132,7 +133,7 @@ export default function Dressup() {
           setDressUpPic04Url(getImageFullUrl(getImageUrl(selectedEthNFT, "face", nowSelectedAttributes.Face)));
           setDressUpPic05Url(getImageFullUrl(getImageUrl(selectedEthNFT, "fronthair", nowSelectedAttributes.Hair)));
 
-        } else if (selectedEthNFT.symbol === "MAIDSAN") {
+        } else if (selectedEthNFT.symbol === "OCSMD3") {
           setDressUpPic01Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe space", nowSelectedAttributes["Moe space"])));
           setDressUpPic02Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe frame", nowSelectedAttributes["Moe frame"])));
           setDressUpPic03Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe bonus3", nowSelectedAttributes["Moe bonus3"])));
@@ -337,7 +338,7 @@ export default function Dressup() {
           }
         }
         // const imageUrl = `Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png`;
-        const imageUrl = `collection/${selectedEthNFT.chain}/${selectedEthNFT.symbol}_${selectedEthNFT.token_address}/parts/${type}/${colorPath}${value}.png`;
+        const imageUrl = `collection/${selectedChain}/${selectedEthNFT.symbol}_${selectedEthNFT.token_address}/parts/${type}/${colorPath}${value}.png`;
         return imageUrl;
       }
     }
@@ -545,7 +546,7 @@ export default function Dressup() {
               }
 
               {/* OCS */}
-              {selectedEthNFT !== null && selectedEthNFT.symbol === "MAIDSAN" &&
+              {selectedEthNFT !== null && selectedEthNFT.symbol === "OCSMD3" &&
                 <>
                   <dl>
                     <dt>Clothes</dt>
@@ -553,10 +554,10 @@ export default function Dressup() {
                       <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanClothes}>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Clothes/"+(selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes)+".png"}>{selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes? selectedAttributes.Clothes.replace("_", " "): ""}</button>
                         {getPartsButton("Clothes")}
-                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse_black.png">Ami blouse-black</button>
-                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse_blue.png">Ami blouse-blue</button>
-                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse_white.png">Ami blouse-white</button>
-                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Clothes/Ami-chan%20blouse_red.png">Ami blouse-red</button>
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_black.png">Ami blouse-black</button>
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_blue.png">Ami blouse-blue</button>
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_white.png">Ami blouse-white</button>
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_red.png">Ami blouse-red</button>
                       </ButtonGroup>
                     </dd>
                   </dl>
@@ -566,7 +567,7 @@ export default function Dressup() {
                       <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanHairAccessory}>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Hair accessory/"+(selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"])+".png"}>{selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"].replace("_", " "): ""}</button>
                         {getPartsButton("Hair Accessory")}
-                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Hair%20accessory/Ami-chan%20hairpin.png">Ami-chan hairpin</button>
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Hair%20accessory/Ami-chan%20hairpin.png">Ami-chan hairpin</button>
                       </ButtonGroup>
                     </dd>
                   </dl>
@@ -576,7 +577,7 @@ export default function Dressup() {
                       <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanMoeProp}>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Moe prop/"+(selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"])+".png"}>{selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"].replace("_", " "): ""}</button>
                         {getPartsButton("Moe Prop")}
-                        <button value="collection/Goerli/MAIDSAN_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593/extraparts/Moe%20prop/Ami-chan%20mascot.png">Ami-chan mascot</button>
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Moe%20prop/Ami-chan%20mascot.png">Ami-chan mascot</button>
                       </ButtonGroup>
                     </dd>
                   </dl>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useMoralis, useMoralisWeb3Api } from "react-moralis";
 import axios from "axios";
 import {serverData} from '../data/serverData';
+import {collectionData} from '../data/collectionData';
 
 
 export function useEthNFTs(targetChain, targetAddress, limit = 1) {
@@ -32,6 +33,9 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
             }
 
 
+            console.log("targetChain : " + targetChain);
+            console.log("targetAddress : " + targetAddress);
+
             let selectedChain = targetChain
             if (targetChain === "ethereum") {
               selectedChain = "Eth";
@@ -40,9 +44,6 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
             } else if (targetChain === "goerli") {
                 selectedChain = "Goerli"
             }
-
-            console.log("targetChain : " + targetChain);
-            console.log("targetAddress : " + targetAddress);
 
             // MoralisからNFTの一覧を取得する
             let response = null;
@@ -69,6 +70,21 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 return [ethNFTs, true];
             }
 
+            const collectionInfo = collectionData[targetChain + "_" + targetAddress];
+            console.log("collectionInfo", targetChain + "_" + targetAddress, collectionInfo);
+
+            let metadataHead = "";
+            let metadataTail = "";
+            if (collectionInfo !== undefined) {
+                if (collectionInfo.metadataHead !== undefined) {
+                    metadataHead = collectionInfo.metadataHead;
+                }
+                if (collectionInfo.metadataTail !== undefined) {
+                    metadataTail = collectionInfo.metadataTail;
+                }
+            }
+
+
             let nowEthNFTs = [];
     
             for (let i = 0; i < response.result.length; i++) {
@@ -89,11 +105,14 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                     continue;
                 }
 
-                // metadataを自前サーバーから取得する
-                if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "MAIDSAN") {
-                    console.log("MAIDSAN")
+                
+                // metadataを独自サーバーから取得する
+                if (metadataHead !== "") {
 
-                    const metadataRes = await axios.get(`${serverCollectionRoot}${selectedChain}/${nowEthNft.symbol}_${targetAddress}/token-uri/${nowEthNft.token_id}.json`);
+                    let metadataURL = `${metadataHead}${nowEthNft.token_id}${metadataTail}`;
+                    console.log("metadataURL", metadataURL);
+
+                    const metadataRes = await axios.get(metadataURL);
 
                     console.log("axios.get");
                     console.log(metadataRes.data);

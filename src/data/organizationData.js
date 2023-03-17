@@ -48,7 +48,7 @@ export const organizationData = {
     "Otaku-Culture-Studio" : {
         name : "Otaku Culture Studio",
         collections : [
-            "goerli_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593",    // メイド3.0 / MAID-SAN
+            "ethereum_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12",    // メイド3.0 / MAID-SAN
         ],
     },
     "ASAGI" : {

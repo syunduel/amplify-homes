@@ -11,8 +11,8 @@ export default function CollectionList() {
     targetEvmNFTs.push(collectionData["matic_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9"]);
     // ODENPETS
     targetEvmNFTs.push(collectionData["ethereum_0x3F457a3FD454B711867670846e7Cc525B249b5B6"])
-    // MAIDSAN
-    targetEvmNFTs.push(collectionData["goerli_0x8d6e56b5d9c33b4f1cc379d81388c5f2ce458593"])
+    // OCSMD3
+    targetEvmNFTs.push(collectionData["ethereum_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12"])
     // ShikibuWorld
     targetEvmNFTs.push(collectionData["ethereum_0x32edd2f7437665af088347791521f454831aaa29"])
     // CryptoNinja Partners
