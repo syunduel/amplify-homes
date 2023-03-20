@@ -21,15 +21,17 @@ export default function NavBar(props) {
     <Flex
       gap="40px"
       direction="row"
-      width="1440px"
-      justifyContent="center"
+      justifyContent="space-between"
       alignItems="center"
       position="relative"
-      padding="24px 32px 24px 32px"
       {...rest}
       {...getOverrideProps(overrides, "NavBar")}
     >
+    <Flex
+      class="nav-bar__inner"
+    >
       <Flex
+        class="logo"
         gap="2px"
         direction="row"
         width="fit-content"
@@ -56,66 +58,69 @@ export default function NavBar(props) {
         ></Image>
       </Flex>
       <Flex
-        gap="30px"
-        direction="row"
-        width="593px"
-        alignItems="center"
-        grow="1"
-        basis="593px"
-        height="30px"
-        position="relative"
-        padding="0px 0px 0px 0px"
-        {...getOverrideProps(overrides, "NavBarMenuLeft")}
+        class="nav-bar__menu"
+        id="js-nav"
       >
-        <Twitter
-          width="30px"
-          height="24.68px"
-          shrink="0"
-          overflow="hidden"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "logo-twitter")}
-        ></Twitter>
-        <Discord
-          width="30px"
-          height="23.24px"
-          shrink="0"
-          overflow="hidden"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "logo-discord")}
-        ></Discord>
-        <OpenSea
-          width="30px"
+        <Flex
+          gap="30px"
+          direction="row"
+          alignItems="center"
+          grow="1"
+          basis="593px"
           height="30px"
-          shrink="0"
-          overflow="hidden"
           position="relative"
           padding="0px 0px 0px 0px"
-          {...getOverrideProps(overrides, "logo-openSea")}
-        ></OpenSea>
-        <Text
-          fontFamily="Inter"
-          fontSize="20px"
-          fontWeight="700"
-          color="rgba(0,0,0,1)"
-          lineHeight="30px"
-          textAlign="left"
-          display="flex"
-          direction="column"
-          justifyContent="flex-start"
-          shrink="0"
-          position="relative"
-          padding="0px 0px 0px 0px"
-          whiteSpace="pre-wrap"
-          children="        "
-          {...getOverrideProps(overrides, "Text")}
-        ></Text>
+          {...getOverrideProps(overrides, "NavBarMenuLeft")}
+        >
+          <Twitter
+            width="30px"
+            height="24.68px"
+            shrink="0"
+            overflow="hidden"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            {...getOverrideProps(overrides, "logo-twitter")}
+          ></Twitter>
+          <Discord
+            width="30px"
+            height="23.24px"
+            shrink="0"
+            overflow="hidden"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            {...getOverrideProps(overrides, "logo-discord")}
+          ></Discord>
+          <OpenSea
+            width="30px"
+            height="30px"
+            shrink="0"
+            overflow="hidden"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            {...getOverrideProps(overrides, "logo-openSea")}
+          ></OpenSea>
+          <Text
+            fontFamily="Inter"
+            fontSize="20px"
+            fontWeight="700"
+            color="rgba(0,0,0,1)"
+            lineHeight="30px"
+            textAlign="left"
+            display="flex"
+            direction="column"
+            justifyContent="flex-start"
+            shrink="0"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="        "
+            {...getOverrideProps(overrides, "Text")}
+          ></Text>
+        </Flex>
       </Flex>
       <Flex
         gap="24px"
         direction="row"
-        width="593px"
         justifyContent="flex-end"
         alignItems="center"
         grow="1"
@@ -166,6 +171,26 @@ export default function NavBar(props) {
           {...getOverrideProps(overrides, "LoginButton")}
         ></Button>
       </Flex>
+      <Flex
+        class="hamburger-menu__wrap"
+      >
+        <Button
+          id="js-hamburger"
+          class="hamburger-menu"
+          width="20px"
+          height="22px"
+          shrink="0"
+          overflow="hidden"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          {...getOverrideProps(overrides, "hamburger-menu")}
+        >
+          <Flex></Flex>
+          <Flex></Flex>
+          <Flex></Flex>
+        </Button>
+      </Flex>
+    </Flex>      
     </Flex>
   );
 }

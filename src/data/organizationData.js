@@ -48,9 +48,7 @@ export const organizationData = {
     "Otaku-Culture-Studio" : {
         name : "Otaku Culture Studio",
         collections : [
-            "ethereum_0x9f6d1234f654c5bd691ba0b056be80fe3fe3a240",  // NFT OCS Collection #1 Drifting Home
-            "ethereum_0x55151a3d420a0d4e7bb489b892ea213578008090",  // NFT OCS Collection #2 COBRA
-            "ethereum_0xc08081ff27a1ff971a9150901e8fb2926bc04ef8",  // NFT OCS Collection #3 BAKI HANMA
+            "ethereum_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12",    // メイド3.0 / MAID-SAN
         ],
     },
     "ASAGI" : {

@@ -11,6 +11,8 @@ export default function CollectionList() {
     targetEvmNFTs.push(collectionData["matic_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9"]);
     // ODENPETS
     targetEvmNFTs.push(collectionData["ethereum_0x3F457a3FD454B711867670846e7Cc525B249b5B6"])
+    // OCSMD3
+    targetEvmNFTs.push(collectionData["ethereum_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12"])
     // ShikibuWorld
     targetEvmNFTs.push(collectionData["ethereum_0x32edd2f7437665af088347791521f454831aaa29"])
     // CryptoNinja Partners
@@ -23,8 +25,6 @@ export default function CollectionList() {
     targetEvmNFTs.push(collectionData["ethereum_0x11c3e2c4329df91f65a16612de90077498cfa6ca"]);
     // Neo Tokyo Punks
     targetEvmNFTs.push(collectionData["ethereum_0xa65ba71d653f62c64d97099b58d25a955eb374a0"]);
-    // NFT OCS Collection #1 Drifting Home
-    targetEvmNFTs.push(collectionData["ethereum_0x9f6d1234f654c5bd691ba0b056be80fe3fe3a240"]);
     // ASAGI
     targetEvmNFTs.push(collectionData["ethereum_0xdd510ce28dfd085d9cf58f5402ca6d63985e83c0"]);
     // Flower Lolita Collections

@@ -5,16 +5,20 @@ export const collectionData = {
     ethereum_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2 :{
         name: "Love Addicted Girls",
         chain: "ethereum",
-        tag: ["ERC721"],
+        tag: ["ERC721", "DressUP"],
         address: "0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2",
         url: "https://opensea.io/collection/love-addicted-girls",
         point: 9,
         organization: 'SoudanNFT',
-        parts: {
-            chain: 'goerli',
-            address: '0x9f0727ee5288046461c6727ab1b01adfbe4b340b',
-            baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/',
-        },
+        metadataHead: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/token-uri/',
+        metadataTail: '.json',
+        parts: [
+            {
+                chain: 'goerli',
+                address: '0x9f0727ee5288046461c6727ab1b01adfbe4b340b',
+                baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/',
+            },
+        ],
     },
     ethereum_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9 : {
         name: "AstarPrince",
@@ -33,6 +37,9 @@ export const collectionData = {
         url: "https://opensea.io/collection/love-addicted-girls-memories",
         point: 1,
         organization: 'SoudanNFT',
+        metadataHead: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/token-uri/',
+        metadataTail: '.json',
+
     },
     ethereum_0xd1113831c6e44392473721851222251591e445a0 : {
         name: "LAG art at Foundation",
@@ -79,6 +86,8 @@ export const collectionData = {
         tag: ["ERC721"],
         address: "0x845a007d9f283614f403a24e3eb3455f720559ca",
         url: "https://opensea.io/collection/cryptoninjapartners",
+        metadataHead: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/token-uri/',
+        metadataTail: '.json',
     },
     ethereum_0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e : {
         name: "Very long CNP",
@@ -250,6 +259,17 @@ export const collectionData = {
         address: "0xc08081ff27a1ff971a9150901e8fb2926bc04ef8",
         url: "https://opensea.io/collection/nft-ocs-collection-3-baki-hanma",
         organization: 'Otaku-Culture-Studio',
+    },
+    ethereum_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12 : {
+        name: "メイド3.0 / MAID-SAN",
+        chain: "ethereum",
+        tag: ["ERC721", "DressUP"],
+        address: "0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12",
+        url: "https://opensea.io/collection/nft-ocs-genesis-maid-san",
+        organization: 'Otaku-Culture-Studio',
+        metadataHead: 'https://d2rw5dgd2n8nmf.cloudfront.net/token/metadata/OCSMD3/',
+        metadataTail: '',
+        copyright : "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Copyright/copyright.png",
     },
 
 

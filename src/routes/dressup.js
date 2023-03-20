@@ -11,40 +11,57 @@ export default function Dressup() {
 
   console.log("Dressup start");
 
+  const wait = async (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
     const {tokenChain, tokenAddress, tokenId} = useParams();
     console.log('tokenChain : ' + tokenChain);
     console.log('tokenAddress : ' + tokenAddress);
     console.log('tokenId : ' + tokenId);
 
-    let selectedChain = tokenChain.replace(/[^0-9a-z]/g, '');
+    let targetChain = tokenChain.replace(/[^0-9a-z]/g, '');
+    let selectedChain = targetChain;
     if (selectedChain === "ethereum") {
       selectedChain = "Eth";
     } else if (selectedChain === "matic") {
       selectedChain = "Polygon"
+    } else if (selectedChain === "goerli") {
+      selectedChain = "Goerli"
     }
     const selectedNftAddress = tokenAddress.replace(/[^0-9a-z]/g, '');
     const selectedTokenId = tokenId.replace(/[^0-9a-z]/g, '');
-    console.log('selectedChain : ' + selectedChain);
-    console.log('selectedNftAddress : ' + selectedNftAddress);
-    console.log('selectedTokenId : ' + selectedTokenId);
+    // console.log('selectedChain : ' + selectedChain);
+    // console.log('selectedNftAddress : ' + selectedNftAddress);
+    // console.log('selectedTokenId : ' + selectedTokenId);
 
-    const selectedEthNFT = useEthNFT(selectedChain, selectedNftAddress, selectedTokenId);
-    console.log(selectedEthNFT);
+    const selectedEthNFT = useEthNFT(targetChain, selectedNftAddress, selectedTokenId);
+    // console.log(selectedEthNFT);
 
     const collectionInfo = collectionData[tokenChain.replace(/[^0-9a-z]/g, '') + "_" + selectedNftAddress];
-    console.log('collectionInfo', collectionInfo);
+    // console.log('collectionInfo', collectionInfo);
 
-    let partsNFTInfo;
-    let nowPartsChain;
-    let nowPartsAddress;
-    if (collectionInfo !== undefined && collectionInfo.parts !== undefined) {
-      partsNFTInfo = collectionInfo.parts;
-      nowPartsChain = partsNFTInfo.chain;
-      nowPartsAddress = partsNFTInfo.address;
+    let partsNFTInfo0;
+    let nowPartsChain0;
+    let nowPartsAddress0;
+    if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[0] !== undefined) {
+      partsNFTInfo0 = collectionInfo.parts[0];
+      console.log("partsNFTInfo0", partsNFTInfo0);
+      nowPartsChain0 = partsNFTInfo0.chain;
+      nowPartsAddress0 = partsNFTInfo0.address;
     }
-    console.log("nowPartsChain", nowPartsChain);
-    const [partsNFTs, isPartsNFTsLoaded] = useEthNFTs(nowPartsChain, nowPartsAddress, 100);
-    console.log("partsNFTs", partsNFTs);
+    const [partsNFTs0, isPartsNFTsLoaded0] = useEthNFTs(nowPartsChain0, nowPartsAddress0, 100);
+    console.log("partsNFTs0", partsNFTs0);
+
+    let partsNFTInfo1;
+    let nowPartsChain1;
+    let nowPartsAddress1;
+    if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[1] !== undefined) {
+      partsNFTInfo1 = collectionInfo.parts[1];
+      console.log("partsNFTInfo1", partsNFTInfo1);
+      nowPartsChain1 = partsNFTInfo1.chain;
+      nowPartsAddress1 = partsNFTInfo1.address;
+    }
+    const [partsNFTs1, isPartsNFTsLoaded1] = useEthNFTs(nowPartsChain1, nowPartsAddress1, 100);
+    console.log("partsNFTs1", partsNFTs1);
 
 
 
@@ -65,6 +82,12 @@ export default function Dressup() {
     const [dressUpPic10Url, setDressUpPic10Url] = useState(noneUrl);
     const [dressUpPic11Url, setDressUpPic11Url] = useState(noneUrl);
     const [dressUpPic12Url, setDressUpPic12Url] = useState(noneUrl);
+    const [dressUpPic13Url, setDressUpPic13Url] = useState(noneUrl);
+    const [dressUpPic14Url, setDressUpPic14Url] = useState(noneUrl);
+    const [dressUpPic15Url, setDressUpPic15Url] = useState(noneUrl);
+    const [dressUpPic16Url, setDressUpPic16Url] = useState(noneUrl);
+    const [dressUpPicCopyrightUrl, setDressUpPicCopyrightUrl] = useState(noneUrl);
+    const [dressUpPicCopyrightDisp, setDressUpPicCopyrightDisp] = useState(false);
     const [dressUpPicVailStyle, setDressUpPicVailStyle] = useState({backgroundColor: 'lightgray'});
     const [dressUpPicSpin, setDressUpPicSpin] = useState("sk-cube-grid");
 
@@ -85,12 +108,12 @@ export default function Dressup() {
 
         // console.log("selectedEthNFT");
         // console.log(selectedEthNFT);
- 
+
         // console.log("nowSelectedAttributes");
         // console.log(nowSelectedAttributes);
         setSelectedAttributes(nowSelectedAttributes);
         selectedEthNFT.attributes = nowSelectedAttributes;
-        
+
         if (selectedEthNFT.symbol === "LAG") {
           setDressUpPic01Url(getImageFullUrl(getImageUrl(selectedEthNFT, "background", nowSelectedAttributes.background)));
           setDressUpPic02Url(getImageFullUrl(getImageUrl(selectedEthNFT, "effect", nowSelectedAttributes.effect)));
@@ -109,10 +132,34 @@ export default function Dressup() {
           setDressUpPic03Url(getImageFullUrl(getImageUrl(selectedEthNFT, "body", nowSelectedAttributes.Body)));
           setDressUpPic04Url(getImageFullUrl(getImageUrl(selectedEthNFT, "face", nowSelectedAttributes.Face)));
           setDressUpPic05Url(getImageFullUrl(getImageUrl(selectedEthNFT, "fronthair", nowSelectedAttributes.Hair)));
+
+        } else if (selectedEthNFT.symbol === "OCSMD3") {
+          setDressUpPic01Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe space", nowSelectedAttributes["Moe space"])));
+          setDressUpPic02Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe frame", nowSelectedAttributes["Moe frame"])));
+          setDressUpPic03Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe bonus3", nowSelectedAttributes["Moe bonus3"])));
+          setDressUpPic04Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Body", nowSelectedAttributes["Body"])));
+          setDressUpPic05Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Hair", nowSelectedAttributes["Hair"])));
+          setDressUpPic06Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Right hand", nowSelectedAttributes["Right hand"])));
+          setDressUpPic07Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Clothes", nowSelectedAttributes["Clothes"])));
+          setDressUpPic08Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Face", nowSelectedAttributes["Face"])));
+          setDressUpPic09Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Bang", nowSelectedAttributes["Bang"])));
+          setDressUpPic10Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Accessory", nowSelectedAttributes["Accessory"])));
+          setDressUpPic11Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Hair accessory", nowSelectedAttributes["Hair accessory"])));
+          setDressUpPic12Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Left hand", nowSelectedAttributes["Left hand"])));
+          setDressUpPic13Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe prop", nowSelectedAttributes["Moe prop"])));
+          setDressUpPic14Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe bonus2", nowSelectedAttributes["Moe bonus2"])));
+          setDressUpPic15Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe bonus1", nowSelectedAttributes["Moe bonus1"])));
+
         } else {
           // LAGとLAGM以外の場合、元の画像をそのまま入れる
           setDressUpPic02Url(selectedEthNFT.moralisImageUri);
         }
+
+        // DownloadするときだけCopyrightをセットする
+        if (collectionInfo !== undefined && collectionInfo.copyright !== undefined) {
+          setDressUpPicCopyrightUrl(collectionInfo.copyright);
+        }
+
 
         // パーツがパラパラ表示されるのを防ぐために灰色にしておいたヴェールを2秒後に透明にする
         // パーツ画像が全部ロードされたのを検知してやりたかったが、難しかったので固定の秒数で暫定対応
@@ -127,32 +174,51 @@ export default function Dressup() {
 
     const getPartsButton = (position) => {
       // console.log("partsNFT", partsNFTs);
-      let returnValue = [];
-      if (partsNFTs !== undefined && isPartsNFTsLoaded) {
-        for (let i = 0; i < partsNFTs.length; i++) {
-          const nowPartsNFT = partsNFTs[i];
-          const nowPartsAttributes = nowPartsNFT.metadata.attributes;
-          let nowPartsPosition = "";
-          let nowPartsName = "";
-          let nowPartsAbbreviation = "";
-          nowPartsAttributes.forEach(element => {
-            if (element.trait_type === "Position") {
-              nowPartsPosition = element.value;
-            } else if (element.trait_type === "Partsname") {
-              nowPartsName = element.value;
-            } else if (element.trait_type === "Abbreviation") {
-              nowPartsAbbreviation = element.value;
-            }
-          });
-          if (position.toUpperCase() == nowPartsPosition.toUpperCase()) {
-            const buttonValue = "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/" + nowPartsPosition + "/" + nowPartsName+ ".png";
 
-            returnValue.push(<button value={buttonValue}>{nowPartsAbbreviation}</button>);
+      let partsButtons0 = [];
+      if (partsNFTs0 !== undefined && isPartsNFTsLoaded0) {
+        partsButtons0 = createPartsButton(position, partsNFTs0);
+      }
+
+      let partsButtons1 = [];
+      if (partsNFTs1 !== undefined && isPartsNFTsLoaded1) {
+        partsButtons1 = createPartsButton(position, partsNFTs1);
+      }
+
+      const partsButtons = [
+        ...partsButtons0,
+        ...partsButtons1,
+      ]
+
+      // console.log("getPartsButton", partsButtons);
+      return partsButtons;
+    }
+
+    const createPartsButton = (position, partsNFTs) => {
+      let partsButtons = [];
+      for (let i = 0; i < partsNFTs.length; i++) {
+        const nowPartsNFT = partsNFTs[i];
+        const nowPartsAttributes = nowPartsNFT.metadata.attributes;
+        let nowPartsPosition = "";
+        let nowPartsName = "";
+        let nowPartsAbbreviation = "";
+        nowPartsAttributes.forEach(element => {
+          if (element.trait_type === "Position") {
+            nowPartsPosition = element.value;
+          } else if (element.trait_type === "Partsname") {
+            nowPartsName = element.value;
+          } else if (element.trait_type === "Abbreviation") {
+            nowPartsAbbreviation = element.value;
           }
+        });
+        if (position.toUpperCase() == nowPartsPosition.toUpperCase()) {
+          const buttonValue = "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/" + nowPartsPosition + "/" + nowPartsName+ ".png";
+
+          partsButtons.push(<button value={buttonValue}>{nowPartsAbbreviation}</button>);
         }
       }
-      // console.log("getPartsButton", returnValue);
-      return returnValue;
+      console.log("createPartsButton", partsButtons);
+      return partsButtons;
     }
 
     const onClickBackground = (event) => {
@@ -180,7 +246,7 @@ export default function Dressup() {
 
       const nowDressUpPicWordUrl = getImageFullUrl(event.target.value);
       console.log(nowDressUpPicWordUrl);
-      setDressUpPic12Url(nowDressUpPicWordUrl);
+      setDressUpPic16Url(nowDressUpPicWordUrl);
     }
 
     const onClickAccessory = (event) => {
@@ -219,8 +285,40 @@ export default function Dressup() {
       }
       console.log(nowDressUpPicFaceUrl);
       setDressUpPic05Url(nowDressUpPicFaceUrl);
-      
+
     }
+
+    const onClickMaidsanClothes = (event) => {
+      if (event.target.value === null || event.target.value === undefined) {
+        return;
+      }
+
+      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicAccessoryUrl);
+      setDressUpPic07Url(nowDressUpPicAccessoryUrl);
+    }
+
+    const onClickMaidsanHairAccessory = (event) => {
+      if (event.target.value === null || event.target.value === undefined) {
+        return;
+      }
+
+      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicAccessoryUrl);
+      setDressUpPic11Url(nowDressUpPicAccessoryUrl);
+    }
+
+    const onClickMaidsanMoeProp = (event) => {
+      if (event.target.value === null || event.target.value === undefined) {
+        return;
+      }
+
+      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicAccessoryUrl);
+      setDressUpPic13Url(nowDressUpPicAccessoryUrl);
+    }
+
+
 
     const getImageUrl = (selectedEthNFT, type, value) => {
 
@@ -240,7 +338,7 @@ export default function Dressup() {
           }
         }
         // const imageUrl = `Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png`;
-        const imageUrl = `collection/${selectedEthNFT.chain}/${selectedEthNFT.symbol}_${selectedEthNFT.token_address}/parts/${type}/${colorPath}${value}.png`;
+        const imageUrl = `collection/${selectedChain}/${selectedEthNFT.symbol}_${selectedEthNFT.token_address}/parts/${type}/${colorPath}${value}.png`;
         return imageUrl;
       }
     }
@@ -257,31 +355,38 @@ export default function Dressup() {
 
     const saveAsImage = uri => {
       const downloadLink = document.createElement("a");
-    
+
       if (typeof downloadLink.download === "string") {
         downloadLink.href = uri;
-    
+
         // ファイル名
         downloadLink.download = "dressup.png";
-    
+
         // Firefox では body の中にダウンロードリンクがないといけないので一時的に追加
         document.body.appendChild(downloadLink);
-    
+
         // ダウンロードリンクが設定された a タグをクリック
         downloadLink.click();
-    
+
         // Firefox 対策で追加したリンクを削除しておく
         document.body.removeChild(downloadLink);
       } else {
         window.open(uri);
       }
     }
-    
-    const onClickExport = () => {
+
+    const onClickExport = async() => {
+
+      // DownloadするときだけCopyrightをセットする
+      setDressUpPicCopyrightDisp(true);
+
+      await wait(500);
+
       // 画像に変換する component の id を指定
       var target = document.getElementById("dress-up-window");
       target.style.width = "1000px";
       target.style.height = "1000px";
+
       const area = target.getBoundingClientRect();
 
       html2canvas(target, {
@@ -299,8 +404,11 @@ export default function Dressup() {
         saveAsImage(targetImgUri);
       });
 
-      target.style.width = "400px";
-      target.style.height = "400px";
+      // Downloadが終わったらCopyrightを削除する
+      setDressUpPicCopyrightDisp(false);
+
+      target.style.width = "";
+      target.style.height = "";
 
     }
 
@@ -332,7 +440,12 @@ export default function Dressup() {
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic10Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic11Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic12Url} />
-                    <div id="dress-up-pic-vail" width="400" height="400" className='dress-up-pic' style={dressUpPicVailStyle} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic13Url} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic14Url} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic15Url} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic16Url} />
+                    <img id="dress-up-pic-copyright" className={dressUpPicCopyrightDisp? "dress-up-pic": "dress-up-pic-hidden"} crossOrigin='anonymous' src={dressUpPicCopyrightUrl} />
+                    <div id="dress-up-pic-vail" className='dress-up-pic' style={dressUpPicVailStyle} />
                     <div id="dress-up-spin" className={dressUpPicSpin}>
                       <div className="sk-cube sk-cube1"></div>
                       <div className="sk-cube sk-cube2"></div>
@@ -345,7 +458,7 @@ export default function Dressup() {
                       <div className="sk-cube sk-cube9"></div>
                     </div>
                   </div>
-                  
+
                   <p class="card__dress-up--pj">{`${selectedEthNFT.name}`}</p>
                   <p class="card__dress-up--no">{`${selectedEthNFT.itemName}`}</p>
                 </>
@@ -431,65 +544,107 @@ export default function Dressup() {
                   </dd>
                 </dl>
               }
-              <dl>
-                <dt>Background</dt>
-                <dd>
-                  <ButtonGroup aria-label="Background-btn" style={{flexWrap: 'wrap'}} onClick={onClickBackground}>
-                    {selectedEthNFT !== null
-                          && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN") &&
+
+              {/* OCS */}
+              {selectedEthNFT !== null && selectedEthNFT.symbol === "OCSMD3" &&
+                <>
+                  <dl>
+                    <dt>Clothes</dt>
+                    <dd>
+                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanClothes}>
+                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Clothes/"+(selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes)+".png"}>{selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes? selectedAttributes.Clothes.replace("_", " "): ""}</button>
+                        {getPartsButton("Clothes")}
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_black.png">Ami blouse-black</button>
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_blue.png">Ami blouse-blue</button>
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_white.png">Ami blouse-white</button>
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_red.png">Ami blouse-red</button>
+                      </ButtonGroup>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>Hair accessory</dt>
+                    <dd>
+                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanHairAccessory}>
+                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Hair accessory/"+(selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"])+".png"}>{selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"].replace("_", " "): ""}</button>
+                        {getPartsButton("Hair Accessory")}
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Hair%20accessory/Ami-chan%20hairpin.png">Ami-chan hairpin</button>
+                      </ButtonGroup>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>Moe prop</dt>
+                    <dd>
+                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanMoeProp}>
+                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Moe prop/"+(selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"])+".png"}>{selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"].replace("_", " "): ""}</button>
+                        {getPartsButton("Moe Prop")}
+                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Moe%20prop/Ami-chan%20mascot.png">Ami-chan mascot</button>
+                      </ButtonGroup>
+                    </dd>
+                  </dl>
+                </>
+              }
+
+              {selectedEthNFT !== null && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "TAG") &&
+                <dl>
+                  <dt>Background</dt>
+                  <dd>
+                    <ButtonGroup aria-label="Background-btn" style={{flexWrap: 'wrap'}} onClick={onClickBackground}>
+                      {selectedEthNFT !== null
+                            && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN") &&
+                          <>
+                            <button value="none">none</button>
+                          </>
+                      }
+
+                      {selectedEthNFT !== null && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM") &&
                         <>
-                          <button value="none">none</button>
+                          <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/background/"+(selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background)+".png"}>{selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background? selectedAttributes.background.replace("_", " "): ""}</button>
                         </>
-                    }
+                      }
 
-                    {selectedEthNFT !== null && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM") &&
-                      <>
-                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/background/"+(selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background)+".png"}>{selectedAttributes.Background? selectedAttributes.Background: selectedAttributes.background? selectedAttributes.background.replace("_", " "): ""}</button>
-                      </>
-                    }
+                      {getPartsButton("Background")}
 
-                    {getPartsButton("Background")}
-
-                    {selectedEthNFT !== null
-                        && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "TAG") &&
-                      <>
-                        <button value="collection/Eth/TAG_0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6/parts/background/TAG.png">TAG</button>
-                        <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Halloween Orange.png">Halloween Orange</button>
-                        <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Halloween Purple.png">Halloween Purple</button>
-                        <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Sparkling Snow Blue.png">Sparkling Snow Blue</button>
-                        <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Sparkling Snow Pink.png">Sparkling Snow Pink</button>
-                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
-                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
-                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Pink Pinstripe.png">Pink Pinstripe</button>
-                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Violet Pinstripe.png">Violet Pinstripe</button>
-                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats1139.png">AstarCats1139</button>
-                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats2377.png">AstarCats2377</button>
-                        <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats6730.png">AstarCats6730</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_001.png">Standard01</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_002.png">Standard02</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_003.png">Standard03</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_004.png">Standard04</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_005.png">Standard05</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_006.png">Standard06</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_007.png">Standard07</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_008.png">Standard08</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_009.png">Standard09</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_010.png">Standard10</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_001.png">Choppy sea01</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_002.png">Choppy sea02</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_003.png">Choppy sea03</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_004.png">Choppy sea04</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_005.png">Choppy sea05</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_006.png">Choppy sea06</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_007.png">Choppy sea07</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_008.png">Choppy sea08</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_009.png">Choppy sea09</button>
-                        <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_010.png">Choppy sea10</button>
-                      </>
-                    }
-                  </ButtonGroup>
-                </dd>
-              </dl>
+                      {selectedEthNFT !== null
+                          && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "TAG") &&
+                        <>
+                          <button value="collection/Eth/TAG_0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6/parts/background/TAG.png">TAG</button>
+                          <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Halloween Orange.png">Halloween Orange</button>
+                          <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Halloween Purple.png">Halloween Purple</button>
+                          <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Sparkling Snow Blue.png">Sparkling Snow Blue</button>
+                          <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Sparkling Snow Pink.png">Sparkling Snow Pink</button>
+                          <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
+                          <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
+                          <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Pink Pinstripe.png">Pink Pinstripe</button>
+                          <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Violet Pinstripe.png">Violet Pinstripe</button>
+                          <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats1139.png">AstarCats1139</button>
+                          <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats2377.png">AstarCats2377</button>
+                          <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/AstarCats6730.png">AstarCats6730</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_001.png">Standard01</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_002.png">Standard02</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_003.png">Standard03</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_004.png">Standard04</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_005.png">Standard05</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_006.png">Standard06</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_007.png">Standard07</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_008.png">Standard08</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_009.png">Standard09</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_01_010.png">Standard10</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_001.png">Choppy sea01</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_002.png">Choppy sea02</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_003.png">Choppy sea03</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_004.png">Choppy sea04</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_005.png">Choppy sea05</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_006.png">Choppy sea06</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_007.png">Choppy sea07</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_008.png">Choppy sea08</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_009.png">Choppy sea09</button>
+                          <button value="collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/parts/background/back_02_010.png">Choppy sea10</button>
+                        </>
+                      }
+                    </ButtonGroup>
+                  </dd>
+                </dl>
+              }
             </div>
           </div>
         </div>

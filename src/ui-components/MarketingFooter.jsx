@@ -36,11 +36,11 @@ export default function MarketingFooter(props) {
         top="19px"
         left="0px"
         direction="column"
-        height="253px"
         padding="0px 40px 0px 40px"
         {...getOverrideProps(overrides, "Frame 418")}
       >
         <Flex
+          class="footer-bar__inner"
           gap="50px"
           direction="row"
           width="fit-content"
@@ -258,8 +258,8 @@ export default function MarketingFooter(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="© 2022 SoudanNFT"
-            {...getOverrideProps(overrides, "\u00A9 2022 SoudanNFT")}
+            children="© 2023 DressUpNFT"
+            {...getOverrideProps(overrides, "\u00A9 2023 DressUpNFT")}
           ></Text>
         </Flex>
       </Flex>

@@ -36,6 +36,9 @@ function App() {
     "logo-openSea": {
       className: "ext-link",
     },
+    "hamburger-menu": {
+      className: "hamburger-menu",
+    },
   };
 
   useEffect(() => {
@@ -52,7 +55,7 @@ function App() {
   const logIn = async () => {
     if (!isAuthenticated) {
 
-      await authenticate({signingMessage: "Please log in to dress up your NFT." })
+      await authenticate({signingMessage: "Welcome to DressUpNFT! Please log in to dress up your NFT!" })
         .then(function (user) {
           console.log("logged in user:", user);
           console.log(user.get("ethAddress"));
@@ -110,7 +113,7 @@ function App() {
 
     <div className="mv" key={'mv3'} style={{marginTop: '8em'}}>
         <p>Dress Up NFT is currently in beta version.</p>
-        <p>Please contact <a href='https://twitter.com/syunduel'>Shunichiro(@syunduel)</a> to report bugs, request improvements, or discuss adding collections.</p>
+        <p>Please contact <a href='https://twitter.com/IchiroTech'>Ichiro(@IchiroTech)</a> to report bugs, request improvements, or discuss adding collections.</p>
     </div>
 
     <MarketingFooter width={"100vw"}  className="footer-bar" />
