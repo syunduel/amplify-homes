@@ -23,20 +23,8 @@ export default function CollectionList() {
     targetEvmNFTs.push(collectionData["ethereum_0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6"]);
     // Dreamin' Divers Project -Cheers!-
     targetEvmNFTs.push(collectionData["ethereum_0x11c3e2c4329df91f65a16612de90077498cfa6ca"]);
-    // Neo Tokyo Punks
-    targetEvmNFTs.push(collectionData["ethereum_0xa65ba71d653f62c64d97099b58d25a955eb374a0"]);
-    // ASAGI
-    targetEvmNFTs.push(collectionData["ethereum_0xdd510ce28dfd085d9cf58f5402ca6d63985e83c0"]);
-    // Flower Lolita Collections
-    targetEvmNFTs.push(collectionData["ethereum_0x81d8e220a6240d1b6dc42d13ed7e0316aa89f265"]);
-    // Neo Samurai Monkeys
-    targetEvmNFTs.push(collectionData["ethereum_0x7fa162d3d44fe8d30e344cc000493da7cb6c6fbb"]);
-    // MetaIdol
-    targetEvmNFTs.push(collectionData["ethereum_0xc059477e8b3f93c86de0e8e05cbd020020ea9a52"]);
     // Bride Girls Collection
     targetEvmNFTs.push(collectionData["ethereum_0x2e98069b38c4d8e5c5d995f3fb78d0407fb8b154"]);
-    // MediaDAO Friends Nagoya
-    targetEvmNFTs.push(collectionData["ethereum_0xa63116b507ab035f8db0b56c7c1405208dd00df4"]);
 
 
     return (
