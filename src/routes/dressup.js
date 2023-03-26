@@ -587,6 +587,7 @@ export default function Dressup() {
                     <dt>Hair accessory</dt>
                     <dd>
                       <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanHairAccessory}>
+                        <button value="none">none</button>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Hair accessory/"+(selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"])+".png"}>{selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"].replace("_", " "): ""}</button>
                         {getPartsButton("Hair Accessory")}
                         <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Hair%20accessory/Ami-chan%20hairpin.png">Ami-chan hairpin</button>
@@ -597,6 +598,7 @@ export default function Dressup() {
                     <dt>Moe prop</dt>
                     <dd>
                       <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanMoeProp}>
+                        <button value="none">none</button>
                         <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Moe prop/"+(selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"])+".png"}>{selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"].replace("_", " "): ""}</button>
                         {getPartsButton("Moe Prop")}
                         <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Moe%20prop/Ami-chan%20mascot.png">Ami-chan mascot</button>
