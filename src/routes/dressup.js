@@ -177,12 +177,12 @@ export default function Dressup() {
 
       let partsButtons0 = [];
       if (partsNFTs0 !== undefined && isPartsNFTsLoaded0) {
-        partsButtons0 = createPartsButton(position, partsNFTs0);
+        partsButtons0 = createPartsButton(partsNFTInfo0, position, partsNFTs0);
       }
 
       let partsButtons1 = [];
       if (partsNFTs1 !== undefined && isPartsNFTsLoaded1) {
-        partsButtons1 = createPartsButton(position, partsNFTs1);
+        partsButtons1 = createPartsButton(partsNFTInfo1, position, partsNFTs1);
       }
 
       const partsButtons = [
@@ -194,7 +194,7 @@ export default function Dressup() {
       return partsButtons;
     }
 
-    const createPartsButton = (position, partsNFTs) => {
+    const createPartsButton = (partsNFTInfo, position, partsNFTs) => {
       let partsButtons = [];
       for (let i = 0; i < partsNFTs.length; i++) {
         const nowPartsNFT = partsNFTs[i];
@@ -212,7 +212,9 @@ export default function Dressup() {
           }
         });
         if (position.toUpperCase() == nowPartsPosition.toUpperCase()) {
-          const buttonValue = "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/" + nowPartsPosition + "/" + nowPartsName+ ".png";
+
+          // const buttonValue = "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/" + nowPartsPosition + "/" + nowPartsName+ ".png";
+          const buttonValue = partsNFTInfo.baseURL + nowPartsPosition + "/" + nowPartsName+ ".png";
 
           partsButtons.push(<button value={buttonValue}>{nowPartsAbbreviation}</button>);
         }
@@ -316,6 +318,26 @@ export default function Dressup() {
       const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
       console.log(nowDressUpPicAccessoryUrl);
       setDressUpPic13Url(nowDressUpPicAccessoryUrl);
+    }
+
+    const onClickMaidsanMoeFrame = (event) => {
+      if (event.target.value === null || event.target.value === undefined) {
+        return;
+      }
+
+      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicAccessoryUrl);
+      setDressUpPic02Url(nowDressUpPicAccessoryUrl);
+    }
+
+    const onClickMaidsanMoeSpace = (event) => {
+      if (event.target.value === null || event.target.value === undefined) {
+        return;
+      }
+
+      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
+      console.log(nowDressUpPicAccessoryUrl);
+      setDressUpPic01Url(nowDressUpPicAccessoryUrl);
     }
 
 
@@ -545,7 +567,7 @@ export default function Dressup() {
                 </dl>
               }
 
-              {/* OCS */}
+              {/* OCSMD3 */}
               {selectedEthNFT !== null && selectedEthNFT.symbol === "OCSMD3" &&
                 <>
                   <dl>
@@ -581,16 +603,36 @@ export default function Dressup() {
                       </ButtonGroup>
                     </dd>
                   </dl>
+                  <dl>
+                    <dt>Moe frame</dt>
+                    <dd>
+                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanMoeFrame}>
+                        <button value="none">none</button>
+                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Moe frame/"+(selectedAttributes["Moe frame"]? selectedAttributes["Moe frame"]: selectedAttributes["Moe frame"])+".png"}>{selectedAttributes["Moe frame"]? selectedAttributes["Moe frame"]: selectedAttributes["Moe frame"]? selectedAttributes["Moe frame"].replace("_", " "): ""}</button>
+                        {getPartsButton("Moe frame")}
+                      </ButtonGroup>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>Moe space</dt>
+                    <dd>
+                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanMoeSpace}>
+                        <button value="none">none</button>
+                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Moe space/"+(selectedAttributes["Moe space"]? selectedAttributes["Moe space"]: selectedAttributes["Moe space"])+".png"}>{selectedAttributes["Moe space"]? selectedAttributes["Moe space"]: selectedAttributes["Moe space"]? selectedAttributes["Moe space"].replace("_", " "): ""}</button>
+                        {getPartsButton("Moe space")}
+                      </ButtonGroup>
+                    </dd>
+                  </dl>
                 </>
               }
 
-              {selectedEthNFT !== null && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "TAG") &&
+              {selectedEthNFT !== null && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "TAG" || selectedEthNFT.symbol === "OCSMD3") &&
                 <dl>
                   <dt>Background</dt>
                   <dd>
                     <ButtonGroup aria-label="Background-btn" style={{flexWrap: 'wrap'}} onClick={onClickBackground}>
                       {selectedEthNFT !== null
-                            && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN") &&
+                            && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "OCSMD3") &&
                           <>
                             <button value="none">none</button>
                           </>
@@ -605,7 +647,7 @@ export default function Dressup() {
                       {getPartsButton("Background")}
 
                       {selectedEthNFT !== null
-                          && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "TAG") &&
+                          && (selectedEthNFT.symbol === "LAG" || selectedEthNFT.symbol === "LAGM" || selectedEthNFT.symbol === "CNP" || selectedEthNFT.symbol === "VLCNP" || selectedEthNFT.symbol === "MDFN" || selectedEthNFT.symbol === "TAG" || selectedEthNFT.symbol === "OCSMD3") &&
                         <>
                           <button value="collection/Eth/TAG_0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6/parts/background/TAG.png">TAG</button>
                           <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Halloween Orange.png">Halloween Orange</button>

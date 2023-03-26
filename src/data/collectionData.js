@@ -270,6 +270,14 @@ export const collectionData = {
         metadataHead: 'https://d2rw5dgd2n8nmf.cloudfront.net/token/metadata/OCSMD3/',
         metadataTail: '',
         copyright : "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Copyright/copyright.png",
+        parts: [
+            {
+                chain: 'goerli',
+                address: '0x079fc0be695952e9ac81b58c16bc181087f84d11',
+                baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Goerli/MAIDSANParts1_0x079FC0Be695952e9Ac81b58C16bC181087f84d11/extraparts/',
+            },
+        ],
+
     },
 
 
