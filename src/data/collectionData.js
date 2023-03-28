@@ -277,7 +277,16 @@ export const collectionData = {
                 baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Goerli/MAIDSANParts1_0x079FC0Be695952e9Ac81b58C16bC181087f84d11/extraparts/',
             },
         ],
-
+    },
+    goerli_0x079fc0be695952e9ac81b58c16bc181087f84d11 : {
+        name: "メイド3.0 Parts / MAID-SAN Parts",
+        chain: "goerli",
+        tag: ["ERC721", "DressUP"],
+        address: "0x079fc0be695952e9ac81b58c16bc181087f84d11",
+        url: "",
+        organization: 'Otaku-Culture-Studio',
+        metadataHead: 'https://d2rw5dgd2n8nmf.cloudfront.net/token/metadata/OCSMDD/',
+        metadataTail: '',
     },
 
 
