@@ -272,17 +272,17 @@ export const collectionData = {
         copyright : "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Copyright/copyright.png",
         parts: [
             {
-                chain: 'goerli',
-                address: '0x079fc0be695952e9ac81b58c16bc181087f84d11',
+                chain: 'matic',
+                address: '0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981',
                 baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Goerli/MAIDSANParts1_0x079FC0Be695952e9Ac81b58C16bC181087f84d11/extraparts/',
             },
         ],
     },
-    goerli_0x079fc0be695952e9ac81b58c16bc181087f84d11 : {
+    matic_0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981 : {
         name: "メイド3.0 Parts / MAID-SAN Parts",
-        chain: "goerli",
+        chain: "matic",
         tag: ["ERC721", "DressUP"],
-        address: "0x079fc0be695952e9ac81b58c16bc181087f84d11",
+        address: "0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981",
         url: "",
         organization: 'Otaku-Culture-Studio',
         metadataHead: 'https://d2rw5dgd2n8nmf.cloudfront.net/token/metadata/OCSMDD/',
