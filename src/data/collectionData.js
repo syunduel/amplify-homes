@@ -270,6 +270,23 @@ export const collectionData = {
         metadataHead: 'https://d2rw5dgd2n8nmf.cloudfront.net/token/metadata/OCSMD3/',
         metadataTail: '',
         copyright : "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Copyright/copyright.png",
+        parts: [
+            {
+                chain: 'matic',
+                address: '0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981',
+                baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Goerli/MAIDSANParts1_0x079FC0Be695952e9Ac81b58C16bC181087f84d11/extraparts/',
+            },
+        ],
+    },
+    matic_0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981 : {
+        name: "メイド3.0 Parts / MAID-SAN Parts",
+        chain: "matic",
+        tag: ["ERC721", "DressUP"],
+        address: "0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981",
+        url: "",
+        organization: 'Otaku-Culture-Studio',
+        metadataHead: 'https://d2rw5dgd2n8nmf.cloudfront.net/token/metadata/OCSMDD/',
+        metadataTail: '',
     },
 
 

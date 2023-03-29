@@ -45,6 +45,11 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 selectedChain = "Goerli"
             }
 
+            if (selectedChain === undefined || selectedChain === ""
+                || targetAddress === undefined || targetAddress === "") {
+                return
+            }
+
             // MoralisからNFTの一覧を取得する
             let response = null;
 
