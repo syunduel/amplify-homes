@@ -1,8 +1,7 @@
+import React from 'react';
 import { useParams } from "react-router-dom";
-import { useMoralis } from "react-moralis";
-import { useEthNFTs } from '../api/evmnft';
-import {collectionData} from '../data/collectionData';
-import NFTList from './nftList';
+import { collectionData } from '../data/collectionData';
+// import NFTList from './nftList';
 
 
 export default function Collection() {
@@ -13,12 +12,12 @@ export default function Collection() {
 
     let targetEvmNFT = {};
 
-    if (collectionData[tokenChain + "_" + tokenAddress] !== undefined) {
-        targetEvmNFT = collectionData[tokenChain + "_" + tokenAddress];
-    } else {
-        targetEvmNFT.chain = tokenChain.replace(/[^0-9a-z]/g, '');
-        targetEvmNFT.address = tokenAddress.replace(/[^0-9a-z]/g, '');
-    }
+    // if (collectionData[tokenChain + "_" + tokenAddress] !== undefined) {
+    //     targetEvmNFT = collectionData[tokenChain + "_" + tokenAddress];
+    // } else {
+    //     targetEvmNFT.chain = tokenChain.replace(/[^0-9a-z]/g, '');
+    //     targetEvmNFT.address = tokenAddress.replace(/[^0-9a-z]/g, '');
+    // }
 
     return (
         <>
@@ -27,11 +26,11 @@ export default function Collection() {
                 <p>You can change your NFT clothes. First, select the NFT you want to dress up.</p>
             </div>
 
-            {tokenChain !== undefined &&
+            {/* {tokenChain !== undefined &&
                 <div key={targetEvmNFT.address}>
                     {NFTList(targetEvmNFT, 100, false)}
                 </div>
-            }
+            } */}
         </>
     );
   }

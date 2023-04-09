@@ -1,6 +1,7 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import NFTTopList from './nftTopList';
-import {collectionData} from '../data/collectionData';
+import { collectionData } from '../data/collectionData';
 
 export default function CollectionList() {
 

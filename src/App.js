@@ -1,8 +1,7 @@
-import './App.css';
 import React, { useEffect } from 'react';
+import './App.css';
 import { NavBar, MarketingFooter } from './ui-components'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useMoralis } from "react-moralis";
 import CollectionList from './routes/collectionList';
 import Organization from './routes/organization';
 import Collection from './routes/collection';
@@ -11,7 +10,8 @@ import Dressup from "./routes/dressup";
 function App() {
 
 
-  const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
+  // TODO
+  const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = {};
 
   const navBarOverrides = {
     "LoginButton": {
@@ -97,7 +97,7 @@ function App() {
     return dispAddress
   }
 
-
+  
   return (
 
   <div className="App">

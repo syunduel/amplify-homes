@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useMoralis } from "react-moralis";
 import { CardNFT } from '../ui-components'
 import { Link } from "react-router-dom";
 import { useEthNFTs } from '../api/evmnft';
@@ -7,7 +6,9 @@ import { useEthNFTs } from '../api/evmnft';
 
 export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLink = true, setLovePower = () => {}) {
 
-    const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
+    // TODO
+    // const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
+    const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = {};
 
     // const [name, chain, address, url] = params;
 
@@ -65,7 +66,7 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
                 {nfts !== undefined && nfts.map((ethNFT) => (
                     <div class="card-list" key={ethNFT.chain + "_" + ethNFT.token_address + "_" + ethNFT.token_id}>
                         <Link to={`/dressup/${collectionInfo.chain}/${ethNFT.token_address}/${ethNFT.token_id}`} style={{textDecoration: 'none'}}>
-                            <CardNFT
+                            {/* <CardNFT
                                 CardNFT={{
                                     key: "CardNFT" + "_" + ethNFT.chain + "_" + ethNFT.token_address + "_" + ethNFT.token_id,
                                     token_address: ethNFT.token_address,
@@ -76,7 +77,7 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
                                 height="368px"
                                 width="300px"
                                 margin="10px 10px 10px 10px"
-                                overrides={cardNFTOverrides} />
+                                overrides={cardNFTOverrides} /> */}
                         </Link>
                     </div>
                 ))}

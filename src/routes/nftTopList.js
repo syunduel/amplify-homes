@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useMoralis } from "react-moralis";
-import { CardNFT } from '../ui-components'
+// import { CardNFT } from '../ui-components'
 import { Link } from "react-router-dom";
 import { useEthNFTs } from '../api/evmnft';
 import {organizationData} from '../data/organizationData';
@@ -8,7 +7,9 @@ import {organizationData} from '../data/organizationData';
 
 export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollectionLink = true, setLovePower = () => {}) {
 
-    const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
+    // TODO
+    // const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
+    const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = {};
 
     // const [name, chain, address, url] = params;
 
@@ -73,7 +74,7 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
                 {nfts !== undefined && nfts.map((ethNFT) => (
                     <div className="top-nft__list-item" key={ethNFT.chain + "_" + ethNFT.token_address + "_" + ethNFT.token_id}>
                         <Link to={`/dressup/${collectionInfo.chain}/${ethNFT.token_address}/${ethNFT.token_id}`} style={{textDecoration: 'none'}}>
-                            <CardNFT
+                            {/* <CardNFT
                                 CardNFT={{
                                     key: "CardNFT" + "_" + ethNFT.chain + "_" + ethNFT.token_address + "_" + ethNFT.token_id,
                                     token_address: ethNFT.token_address,
@@ -83,7 +84,7 @@ export default function NFTTopList(collectionInfo, dispLimit = 3, dispCollection
                                 }}
                                 height="180px"
                                 width="180px"
-                                overrides={cardNFTOverrides} />
+                                overrides={cardNFTOverrides} /> */}
                         </Link>
                     </div>
                 ))}

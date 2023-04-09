@@ -1,6 +1,5 @@
-import { ConsoleLogger } from '@aws-amplify/core';
 import React, { useState, useEffect } from 'react';
-import { useMoralis, useMoralisWeb3Api } from "react-moralis";
+import { ConsoleLogger } from '@aws-amplify/core';
 import axios from "axios";
 import {serverData} from '../data/serverData';
 import {collectionData} from '../data/collectionData';
@@ -10,14 +9,12 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
     console.log("useEthNFTs start");
 
-    // Moralis
-    // console.log('useMoralis start');
-    const { authenticate, isAuthenticated, isAuthenticating, user, account, logout, isInitialized } = useMoralis();
-    // console.log('useMoralis end');
+    // TODO
+    // const { authenticate, isAuthenticated, isAuthenticating, user, account, logout, isInitialized } = useMoralis();
+    const { authenticate, isAuthenticated, isAuthenticating, user, account, logout, isInitialized } = {};
 
-    // console.log('useMoralisWeb3Api start');
-    const Web3Api = useMoralisWeb3Api();
-    // console.log('useMoralisWeb3Api end');
+    // const Web3Api = useMoralisWeb3Api();
+    const Web3Api = {};
 
     const [ethNFTs, setEthNFTs] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
