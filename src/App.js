@@ -1,60 +1,57 @@
 import React, { useEffect } from 'react';
 import './App.css';
+
+// AWS Amplify
 import { NavBar, MarketingFooter } from './ui-components'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// WalletConnect
+import { useWeb3Modal } from '@web3modal/react'
+import { useAccount, useContract, useSigner, useEnsName, useConnect, useDisconnect } from 'wagmi'
+import { InjectedConnector } from 'wagmi/connectors/injected'
+
 import CollectionList from './routes/collectionList';
 import Organization from './routes/organization';
 import Collection from './routes/collection';
 import Dressup from "./routes/dressup";
-import { AlchemyMultichainClient } from './lib/alchemy-multichain-client';
-import { Network } from 'alchemy-sdk';
+
+
 
 function App() {
-
-  const alchemyTest = async () => {
-
-    // Default config to use for all networks.
-    const defaultConfig = {
-      apiKey: 'upbO14aoCDMzJiLouJJbWfisrDJVunnO', // TODO: Replace with your API key.
-      network: Network.ETH_MAINNET
-    };
-    // Include optional setting overrides for specific networks.
-    const overrides = {
-      // TODO: Replace with your API keys.
-      [Network.MATIC_MAINNET]: { apiKey: 'Izx3-0WVznJi1Rxp4wTcWF6fGIDJs8GI', maxRetries: 10 },
-      [Network.ARB_MAINNET]: { apiKey: 'arb-api-key' }
-    };
-    const alchemy = new AlchemyMultichainClient(defaultConfig, overrides);
-
-    // get NFTs in multiple networks
-    const owner = '0xd8da6bf26964af9d7eed9e03e53415d37aa96045';
-    const mainnetNfts = await alchemy
-      .forNetwork(Network.ETH_MAINNET)
-      .nft.getNftsForOwner(owner, { pageSize: 5 });
-    const maticNfts = await alchemy
-      .forNetwork(Network.MATIC_MAINNET)
-      .nft.getNftsForOwner(owner, { pageSize: 5 });
-
-    console.log('mainnetNfts', mainnetNfts);
-    console.log('maticNfts', maticNfts);
-
-    return <div></div>;
-  }
-
-  alchemyTest();
-
 
   // TODO
   const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = {};
 
+
+  // function Profile() {
+  //   const { address, isConnected } = useAccount()
+  //   const { connect } = useConnect({
+  //     connector: new InjectedConnector(),
+  //   })
+  //   const { disconnect } = useDisconnect()
+  
+  //   if (isConnected) {
+  //     // return (
+  //     //   <div>
+  //     //     Connected to {address}
+  //     //   </div>
+  //     // )
+  //     return <Web3Button />
+
+  //   } else {
+  //     // return <Web3Button />
+  //     return <button onClick={() => connect()}>Connect Wallet</button>
+  //   }
+  // }
+  
   const navBarOverrides = {
     "LoginButton": {
-      onClick: (event) => { logIn() },
+      onClick: (event) => { LoginWithWalletConnect() },
       style: { visibility: "visible" },
       children: "Connect your wallet",
     },
     "LogoutButton": {
-      onClick: (event) => { logOut() },
+      onClick: (event) => { LogoutWithWalletConnect() },
       style: { visibility: "hidden" },
     },
     "logo-dressupnft": {
@@ -105,9 +102,31 @@ function App() {
     console.log("logged out");
   }
 
+  const { address, isConnected } = useAccount()
+  const { data: ensName } = useEnsName({ address })
+  const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  })
+  const { disconnect } = useDisconnect()
+
+  const { isOpen, open, close, setDefaultChain } = useWeb3Modal();
+
+  function LoginWithWalletConnect() {
+    if (isConnected) {
+      return open();
+    } else {
+      return connect();
+    }
+  }
+
+  function LogoutWithWalletConnect() {
+    return disconnect();
+  }
+
+
   const dispNavBar = () => {
 
-    if (isAuthenticated) {
+    if (isConnected) {
       navBarOverrides.LoginButton.children = getDispAddress();
       navBarOverrides.LogoutButton.style.visibility = "visible";
     } else {
@@ -121,13 +140,14 @@ function App() {
       }
     }
 
-    return <NavBar width={"100vw"} overrides={navBarOverrides} className="nav-bar" />;
+    return <NavBar width={"100vw"} overrides={navBarOverrides} className="nav-bar"></NavBar>;
 
   }
 
   const getDispAddress = () => {
-    let ethAddress = user.get("ethAddress");
-    let dispAddress = ethAddress.substr(0, 5) + "....." + ethAddress.slice(-5);
+    // let ethAddress = user.get("ethAddress");
+    let ethAddress = ensName ?? address;
+    let dispAddress = ethAddress.substr(0, 5) + "..." + ethAddress.slice(-5);
     return dispAddress
   }
 
@@ -137,6 +157,12 @@ function App() {
   <div className="App">
     <BrowserRouter>
       {dispNavBar()}
+
+      <div className="page-head" key={'mv1'}>
+          <p className="title--primary">Let's dress up your NFT</p>
+          <p>You can change your NFT clothes. First, select the NFT you want to dress up.</p>
+      </div>
+
       <Routes>
         <Route path="/" element={<CollectionList />} />
         <Route path="/organization/:organizationName" element={<Organization />} />
@@ -151,6 +177,7 @@ function App() {
     </div>
 
     <MarketingFooter width={"100vw"}  className="footer-bar" />
+
   </div>
 
   );
