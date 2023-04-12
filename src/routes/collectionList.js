@@ -31,6 +31,11 @@ export default function CollectionList() {
     return (
         <>
 
+            <div className="page-head" key={'mv1'}>
+                <p className="title--primary">Let's dress up your NFT</p>
+                <p>You can change your NFT clothes. First, select the NFT you want to dress up.</p>
+            </div>
+
             <h2 className="title title--secondary">
                 Organization
             </h2>

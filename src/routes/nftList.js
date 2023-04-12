@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { CardNFT } from '../ui-components'
 import { Link } from "react-router-dom";
+import { useAccount } from 'wagmi'
 import { useEthNFTs } from '../api/evmnft';
 
 
 export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLink = true, setLovePower = () => {}) {
 
-    // TODO
-    // const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
-    const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = {};
-
-    // const [name, chain, address, url] = params;
+    const { address, isConnected } = useAccount()
 
     const [nfts, isLoaded, total] = useEthNFTs(collectionInfo.chain, collectionInfo.address, dispLimit);
 
@@ -63,21 +60,21 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
             </div>
 
             <div className="mv" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '1em'}}>
-                {nfts !== undefined && nfts.map((ethNFT) => (
-                    <div class="card-list" key={ethNFT.chain + "_" + ethNFT.token_address + "_" + ethNFT.token_id}>
-                        <Link to={`/dressup/${collectionInfo.chain}/${ethNFT.token_address}/${ethNFT.token_id}`} style={{textDecoration: 'none'}}>
-                            {/* <CardNFT
+                {isConnected && nfts !== undefined && nfts.map((ethNFT) => (
+                    <div class="card-list" key={ethNFT.chain + "_" + ethNFT.contract.address + "_" + ethNFT.tokenId}>
+                        <Link to={`/dressup/${collectionInfo.chain}/${ethNFT.contract.address}/${ethNFT.tokenId}`} style={{textDecoration: 'none'}}>
+                            <CardNFT
                                 CardNFT={{
                                     key: "CardNFT" + "_" + ethNFT.chain + "_" + ethNFT.token_address + "_" + ethNFT.token_id,
                                     token_address: ethNFT.token_address,
                                     collection_name: ethNFT.name,
                                     name: ethNFT.itemName,
-                                    image: ethNFT.moralisImageUri,
+                                    image: ethNFT.moralisImageUriThumbnail,
                                 }}
                                 height="368px"
                                 width="300px"
                                 margin="10px 10px 10px 10px"
-                                overrides={cardNFTOverrides} /> */}
+                                overrides={cardNFTOverrides} />
                         </Link>
                     </div>
                 ))}
@@ -89,17 +86,17 @@ export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLin
                     </Link>
                 }
             </div>
-            {!isAuthenticated &&
+            {!isConnected &&
                 <div className="mv">
                     <p>First of all, please connect to the wallet.</p>
                 </div>
             }
-            {isAuthenticated && !isLoaded &&
+            {isConnected && !isLoaded &&
                 <div className="mv">
                     <p>Now loading the NFT you have...</p>
                 </div>
             }
-            {isAuthenticated && isLoaded && nfts.length === 0 &&
+            {isConnected && isLoaded && nfts.length === 0 &&
                 <div className="mv">
                     <p>{collectionInfo.name} NFT not found.</p>
                     <p>To enjoy the dress up, please purchase <a href={collectionInfo.url}>{collectionInfo.name}</a> first.</p>

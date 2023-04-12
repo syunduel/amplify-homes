@@ -18,31 +18,6 @@ import Dressup from "./routes/dressup";
 
 
 function App() {
-
-  // TODO
-  const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = {};
-
-
-  // function Profile() {
-  //   const { address, isConnected } = useAccount()
-  //   const { connect } = useConnect({
-  //     connector: new InjectedConnector(),
-  //   })
-  //   const { disconnect } = useDisconnect()
-  
-  //   if (isConnected) {
-  //     // return (
-  //     //   <div>
-  //     //     Connected to {address}
-  //     //   </div>
-  //     // )
-  //     return <Web3Button />
-
-  //   } else {
-  //     // return <Web3Button />
-  //     return <button onClick={() => connect()}>Connect Wallet</button>
-  //   }
-  // }
   
   const navBarOverrides = {
     "LoginButton": {
@@ -72,35 +47,6 @@ function App() {
     },
   };
 
-  useEffect(() => {
-    console.log("isAuthenticated : " + isAuthenticated);
-    if (isAuthenticated) {
-      // add your logic here
-      // dispNFTs();
-
-    } else {
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
-
-  const logIn = async () => {
-    if (!isAuthenticated) {
-
-      await authenticate({signingMessage: "Welcome to DressUpNFT! Please log in to dress up your NFT!" })
-        .then(function (user) {
-          console.log("logged in user:", user);
-          console.log(user.get("ethAddress"));
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
-  }
-
-  const logOut = async () => {
-    await logout();
-    console.log("logged out");
-  }
 
   const { address, isConnected } = useAccount()
   const { data: ensName } = useEnsName({ address })
@@ -157,11 +103,6 @@ function App() {
   <div className="App">
     <BrowserRouter>
       {dispNavBar()}
-
-      <div className="page-head" key={'mv1'}>
-          <p className="title--primary">Let's dress up your NFT</p>
-          <p>You can change your NFT clothes. First, select the NFT you want to dress up.</p>
-      </div>
 
       <Routes>
         <Route path="/" element={<CollectionList />} />
