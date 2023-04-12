@@ -1,23 +1,32 @@
-import { ConsoleLogger } from '@aws-amplify/core';
 import React, { useState, useEffect } from 'react';
-import { useMoralis, useMoralisWeb3Api } from "react-moralis";
+import { ConsoleLogger } from '@aws-amplify/core';
 import axios from "axios";
 import {serverData} from '../data/serverData';
 import {collectionData} from '../data/collectionData';
+import { AlchemyMultichainClient } from './../lib/alchemy-multichain-client';
+import { Network } from 'alchemy-sdk';
+import { useAccount } from 'wagmi'
+
 
 
 export function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
     console.log("useEthNFTs start");
 
-    // Moralis
-    // console.log('useMoralis start');
-    const { authenticate, isAuthenticated, isAuthenticating, user, account, logout, isInitialized } = useMoralis();
-    // console.log('useMoralis end');
+    const { address, isConnected } = useAccount()
 
-    // console.log('useMoralisWeb3Api start');
-    const Web3Api = useMoralisWeb3Api();
-    // console.log('useMoralisWeb3Api end');
+    // Default config to use for all networks.
+    const defaultConfig = {
+        apiKey: 'upbO14aoCDMzJiLouJJbWfisrDJVunnO', // TODO: Replace with your API key.
+        network: Network.ETH_MAINNET
+    };
+    // Include optional setting overrides for specific networks.
+    const overrides = {
+        // TODO: Replace with your API keys.
+        [Network.MATIC_MAINNET]: { apiKey: 'Izx3-0WVznJi1Rxp4wTcWF6fGIDJs8GI', maxRetries: 10 },
+        [Network.ARB_MAINNET]: { apiKey: 'arb-api-key' }
+    };
+    const alchemy = new AlchemyMultichainClient(defaultConfig, overrides);
 
     const [ethNFTs, setEthNFTs] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -28,21 +37,23 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
     useEffect(() => {
         const getNFTs = async () => {
 
-            if (!isInitialized || !isAuthenticated) {
+            if (!isConnected) {
                 return
             }
 
+            console.log("target : " + targetChain, targetAddress);
 
-            console.log("targetChain : " + targetChain);
-            console.log("targetAddress : " + targetAddress);
-
-            let selectedChain = targetChain
+            let selectedChain = targetChain;
+            let selectedChain4Alchemy = "";
             if (targetChain === "ethereum") {
-              selectedChain = "Eth";
+                selectedChain = "Eth";
+                selectedChain4Alchemy = Network.ETH_MAINNET;
             } else if (targetChain === "matic") {
-              selectedChain = "Polygon"
+                selectedChain = "Polygon";
+                selectedChain4Alchemy = Network.MATIC_MAINNET;
             } else if (targetChain === "goerli") {
-                selectedChain = "Goerli"
+                selectedChain = "Goerli";
+                selectedChain4Alchemy = Network.ETH_GOERLI;
             }
 
             if (selectedChain === undefined || selectedChain === ""
@@ -50,27 +61,29 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 return
             }
 
-            // MoralisからNFTの一覧を取得する
+            // NFTの一覧を取得する
             let response = null;
 
             if (targetAddress !== "") {
-                response = await Web3Api.account.getNFTsForContract({
-                    chain: selectedChain,
-                    token_address: targetAddress,
-                    // limit: limit,
-                });
+
+                // get NFTs in multiple networks
+                response = await alchemy
+                .forNetwork(selectedChain4Alchemy)
+                .nft.getNftsForOwner(address, { contractAddresses: [targetAddress], pageSize: 100 });
+
             } else {
-                response = await Web3Api.account.getNFTs({
-                    chain: selectedChain,
-                });
+                // response = await Web3Api.account.getNFTs({
+                //     chain: selectedChain,
+                // });
             }
 
+            // console.log("targetAddress : " + targetAddress);
             console.log("fetchEthNFTs NFTs", response);
     
             // console.log("response.result");
             // console.log(response.result);
     
-            if (response.result === undefined || response.result.length === 0) {
+            if (response.ownedNfts === undefined || response.ownedNfts.length === 0) {
                 setIsLoaded(true);
                 return [ethNFTs, true];
             }
@@ -92,74 +105,70 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
             let nowEthNFTs = [];
     
-            for (let i = 0; i < response.result.length; i++) {
+            for (let i = 0; i < response.ownedNfts.length; i++) {
 
                 if (limit <= i) {
                     break;
                 }
 
-                let nowEthNft = response.result[i];
-                // console.log(nowEthNft.token_address);
+                let nowEthNft = response.ownedNfts[i];
+                console.log("nowEthNft", nowEthNft);
 
                 nowEthNft.chain = targetChain;
     
-                console.log(`nowEthNft.metadata token_id: ${nowEthNft.token_id}`);
-                console.log(nowEthNft.symbol);
+                console.log(`nowEthNft.metadata tokenId: ${nowEthNft.tokenId}`);
+                console.log(nowEthNft.contract.symbol);
+                nowEthNft.symbol = nowEthNft.contract.symbol;
 
                 if (targetAddress === "" & (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "CNP" || nowEthNft.symbol === "VLCNP" || nowEthNft.symbol === "MDFN")) {
                     continue;
                 }
 
-                
                 // metadataを独自サーバーから取得する
                 if (metadataHead !== "") {
 
-                    let metadataURL = `${metadataHead}${nowEthNft.token_id}${metadataTail}`;
+                    let metadataURL = `${metadataHead}${nowEthNft.tokenId}${metadataTail}`;
                     console.log("metadataURL", metadataURL);
 
                     const metadataRes = await axios.get(metadataURL);
 
-                    console.log("axios.get");
-                    console.log(metadataRes.data);
+                    console.log("axios.get", metadataRes.data);
 
                     try {
-                        nowEthNft.metadata = JSON.parse(metadataRes.data);
+                        nowEthNft.duMetadata = JSON.parse(metadataRes.data);
                     } catch (error) {
-                        nowEthNft.metadata = JSON.parse(JSON.stringify(metadataRes.data));
+                        nowEthNft.duMetadata = JSON.parse(JSON.stringify(metadataRes.data));
                     }
 
-                    console.log("nowEthNft.metadata");
-                    console.log(nowEthNft.metadata);
+                    console.log("nowEthNft.duMetadata", nowEthNft.duMetadata);
+
 
                     nowEthNft = setProps(serverCollectionRoot, nowEthNft, selectedChain, targetAddress);
                     // console.log(`nowEthNft.symbol: ${nowEthNft.symbol}`);
 
-                    console.log(nowEthNft.itemName);
-                    console.log(nowEthNft.moralisImageUri);
+                    console.log("push nowEthNft", nowEthNft);
         
                     nowEthNFTs.push(nowEthNft);
     
                 } else {
-                    if (nowEthNft.metadata !== undefined) {
+                    if (nowEthNft.rawMetadata !== undefined) {
         
                         try {
-                            nowEthNft.metadata = JSON.parse(nowEthNft.metadata);
+                            nowEthNft.duMetadata = JSON.parse(nowEthNft.rawMetadata);
                         } catch (error) {
-                            nowEthNft.metadata = JSON.parse(JSON.stringify(nowEthNft.metadata));
+                            nowEthNft.duMetadata = JSON.parse(JSON.stringify(nowEthNft.rawMetadata));
                         }
 
-                        if (nowEthNft.token_address.toLowerCase() === "0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6") {
+                        if (nowEthNft.contract.address.toLowerCase() === "0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6") {
                             nowEthNft.symbol = "TAG";
                             nowEthNft.name = "Tokyo Alternative Girls";
                         }
 
-                        console.log("nowEthNft.metadata");
-                        console.log(nowEthNft.metadata);
+                        console.log("nowEthNft.duMetadata", nowEthNft.duMetadata);
 
                         nowEthNft = setProps(serverCollectionRoot, nowEthNft, selectedChain, targetAddress);
 
-                        console.log(nowEthNft.itemName);
-                        console.log(nowEthNft.moralisImageUri);
+                        console.log("push nowEthNft", nowEthNft);
             
                         nowEthNFTs.push(nowEthNft);
                     }
@@ -168,19 +177,17 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
             }
 
             setEthNFTs(nowEthNFTs);
+            setTotal(response.totalCount);
             setIsLoaded(true);
-            setTotal(response.total);
 
-            console.log("this is return");
-            console.log(ethNFTs);
-            console.log("isLoaded " + isLoaded);
+            console.log("this is return", ethNFTs, isLoaded, total);
 
             return [ethNFTs, isLoaded, total];
         }
 
         getNFTs();
 
-    }, [isInitialized, isAuthenticated, user])
+    }, [address, isConnected])
 
     return [ethNFTs, isLoaded, total];
 
@@ -188,39 +195,53 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
 function setProps(serverCollectionRoot, nowEthNft, targetChain, targetAddress) {
 
-    if (nowEthNft.metadata !== null && nowEthNft.metadata.name !== undefined) {
-        nowEthNft.itemName = nowEthNft.metadata.name;
+    if (nowEthNft.duMetadata !== null && nowEthNft.duMetadata.name !== undefined) {
+        nowEthNft.itemName = nowEthNft.duMetadata.name;
     } else {
-        nowEthNft.itemName = `${nowEthNft.symbol}_${nowEthNft.token_id}`;
+        nowEthNft.itemName = `${nowEthNft.symbol}_${nowEthNft.tokenId}`;
+    }
+
+    if (nowEthNft.itemName !== null && nowEthNft.itemName !== undefined) {
+        nowEthNft.name = nowEthNft.contract.name;
     }
 
     // 画像を自前サーバーから取得する
     if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "CNP" || nowEthNft.symbol === "VLCNP" || nowEthNft.symbol === "MDFN" || nowEthNft.symbol === "TAG") {
         // 何故か読み込めない時があったので、画像はうちのS3に置いてある。
-        let nowImageName = nowEthNft.token_id;
+        let nowImageName = nowEthNft.tokenId;
         // LAGとLAGMの画像ファイル名は4桁固定の0パディング
         if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM") {
             nowImageName = nowImageName.padStart(4, '0');
         }
 
-        nowEthNft.moralisImageUri = `${serverCollectionRoot}${targetChain}/${nowEthNft.symbol}_${nowEthNft.token_address.toLowerCase()}/pics/${nowImageName}.png`
+        nowEthNft.moralisImageUri = `${serverCollectionRoot}${targetChain}/${nowEthNft.symbol}_${nowEthNft.contract.address.toLowerCase()}/pics/${nowImageName}.png`
+        nowEthNft.moralisImageUriThumbnail = nowEthNft.moralisImageUri;
         
     } else {
-        if (nowEthNft.metadata == undefined) {
+        if (nowEthNft.duMetadata == undefined) {
+            nowEthNft.moralisImageUriThumbnail = "/none.png";
             nowEthNft.moralisImageUri = "/none.png";
-        } else if (nowEthNft.metadata.image !== undefined && nowEthNft.metadata.image !== "" && nowEthNft.metadata.image.indexOf("ipfs://") === 0) {
-            nowEthNft.moralisImageUri = getMoraliImageUri(nowEthNft.metadata.image);
         } else {
-            nowEthNft.moralisImageUri = nowEthNft.metadata.image;
+            // nowEthNft.moralisImageUriThumbnail = nowEthNft.media[0].thumbnail;
+
+            if (nowEthNft.media[0].raw !== undefined && nowEthNft.media[0].raw !== "" && nowEthNft.media[0].raw.indexOf("ipfs://") === 0) {
+                nowEthNft.moralisImageUri = getImageUri(nowEthNft.media[0].raw);
+            } else {
+                nowEthNft.moralisImageUri = nowEthNft.media[0].raw;
+            }
+
+            nowEthNft.moralisImageUriThumbnail = nowEthNft.moralisImageUri;
+
         }
     }
 
-    console.log(nowEthNft.moralisImageUri);
+    console.log("nowEthNft.moralisImageUri", nowEthNft.moralisImageUri);
+    console.log("setProps return", nowEthNft);
 
     return nowEthNft;
 }
 
-export function getMoraliImageUri(ipfsUri) {
+export function getImageUri(ipfsUri) {
     // console.log(ipfsUri);
     let returnStr = "https://gateway.moralisipfs.com/ipfs/" + ipfsUri.substring(7);
     // console.log(returnStr);
@@ -233,7 +254,7 @@ export function useEthNFT(targetChain, targetAddress, targetTokenId) {
 
     for (let i = 0; i < ethNFTs.length; i++) {
         let nowEthNft = ethNFTs[i];
-        if (nowEthNft.token_id === targetTokenId) {
+        if (nowEthNft.tokenId === targetTokenId) {
             return nowEthNft;
         }
     }

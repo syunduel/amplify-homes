@@ -8,14 +8,17 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@web3modal/ethereum": "^2.2.2",
+    "@web3modal/react": "^2.2.2",
+    "alchemy-sdk": "^2.7.0",
     "aws-amplify": "^4.3.24",
+    "ethers": "^5.7.2",
     "html2canvas": "^1.4.1",
-    "moralis": "^1.8.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-moralis": "^1.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.0",
+    "wagmi": "^0.12.10",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -28,7 +31,11 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off"
+    }
   },
   "browserslist": {
     "production": [

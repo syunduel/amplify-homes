@@ -1,26 +1,32 @@
-import './App.css';
 import React, { useEffect } from 'react';
+import './App.css';
+
+// AWS Amplify
 import { NavBar, MarketingFooter } from './ui-components'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useMoralis } from "react-moralis";
+
+// WalletConnect
+import { useWeb3Modal } from '@web3modal/react'
+import { useAccount, useContract, useSigner, useEnsName, useConnect, useDisconnect } from 'wagmi'
+import { InjectedConnector } from 'wagmi/connectors/injected'
+
 import CollectionList from './routes/collectionList';
 import Organization from './routes/organization';
 import Collection from './routes/collection';
 import Dressup from "./routes/dressup";
 
+
+
 function App() {
-
-
-  const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
-
+  
   const navBarOverrides = {
     "LoginButton": {
-      onClick: (event) => { logIn() },
+      onClick: (event) => { LoginWithWalletConnect() },
       style: { visibility: "visible" },
       children: "Connect your wallet",
     },
     "LogoutButton": {
-      onClick: (event) => { logOut() },
+      onClick: (event) => { LogoutWithWalletConnect() },
       style: { visibility: "hidden" },
     },
     "logo-dressupnft": {
@@ -41,39 +47,32 @@ function App() {
     },
   };
 
-  useEffect(() => {
-    console.log("isAuthenticated : " + isAuthenticated);
-    if (isAuthenticated) {
-      // add your logic here
-      // dispNFTs();
 
+  const { address, isConnected } = useAccount()
+  const { data: ensName } = useEnsName({ address })
+  const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  })
+  const { disconnect } = useDisconnect()
+
+  const { isOpen, open, close, setDefaultChain } = useWeb3Modal();
+
+  function LoginWithWalletConnect() {
+    if (isConnected) {
+      return open();
     } else {
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
-
-  const logIn = async () => {
-    if (!isAuthenticated) {
-
-      await authenticate({signingMessage: "Welcome to DressUpNFT! Please log in to dress up your NFT!" })
-        .then(function (user) {
-          console.log("logged in user:", user);
-          console.log(user.get("ethAddress"));
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      return connect();
     }
   }
 
-  const logOut = async () => {
-    await logout();
-    console.log("logged out");
+  function LogoutWithWalletConnect() {
+    return disconnect();
   }
+
 
   const dispNavBar = () => {
 
-    if (isAuthenticated) {
+    if (isConnected) {
       navBarOverrides.LoginButton.children = getDispAddress();
       navBarOverrides.LogoutButton.style.visibility = "visible";
     } else {
@@ -87,22 +86,24 @@ function App() {
       }
     }
 
-    return <NavBar width={"100vw"} overrides={navBarOverrides} className="nav-bar" />;
+    return <NavBar width={"100vw"} overrides={navBarOverrides} className="nav-bar"></NavBar>;
 
   }
 
   const getDispAddress = () => {
-    let ethAddress = user.get("ethAddress");
-    let dispAddress = ethAddress.substr(0, 5) + "....." + ethAddress.slice(-5);
+    // let ethAddress = user.get("ethAddress");
+    let ethAddress = ensName ?? address;
+    let dispAddress = ethAddress.substr(0, 5) + "..." + ethAddress.slice(-5);
     return dispAddress
   }
 
-
+  
   return (
 
   <div className="App">
     <BrowserRouter>
       {dispNavBar()}
+
       <Routes>
         <Route path="/" element={<CollectionList />} />
         <Route path="/organization/:organizationName" element={<Organization />} />
@@ -117,6 +118,7 @@ function App() {
     </div>
 
     <MarketingFooter width={"100vw"}  className="footer-bar" />
+
   </div>
 
   );
