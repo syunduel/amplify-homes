@@ -23,7 +23,7 @@ function App() {
     "LoginButton": {
       onClick: (event) => { LoginWithWalletConnect() },
       style: { visibility: "visible" },
-      children: "Connect your wallet",
+      children: "Connect Wallet",
     },
     "LogoutButton": {
       onClick: (event) => { LogoutWithWalletConnect() },
@@ -58,11 +58,7 @@ function App() {
   const { isOpen, open, close, setDefaultChain } = useWeb3Modal();
 
   function LoginWithWalletConnect() {
-    if (isConnected) {
-      return open();
-    } else {
-      return connect();
-    }
+    return open();
   }
 
   function LogoutWithWalletConnect() {
@@ -74,9 +70,9 @@ function App() {
 
     if (isConnected) {
       navBarOverrides.LoginButton.children = getDispAddress();
-      navBarOverrides.LogoutButton.style.visibility = "visible";
+      navBarOverrides.LogoutButton.style.visibility = "hidden";
     } else {
-      navBarOverrides.LoginButton.children = "Connect your wallet";
+      navBarOverrides.LoginButton.children = "Connect Wallet";
       navBarOverrides.LogoutButton.style.visibility = "hidden";
     }
 
