@@ -34,7 +34,7 @@ export default function Dressup() {
     // console.log('selectedTokenId : ' + selectedTokenId);
 
     const selectedEthNFT = useEthNFT(targetChain, selectedNftAddress, selectedTokenId);
-    // console.log(selectedEthNFT);
+    console.log(selectedEthNFT);
 
     const collectionInfo = collectionData[tokenChain.replace(/[^0-9a-z]/g, '') + "_" + selectedNftAddress];
     // console.log('collectionInfo', collectionInfo);
@@ -98,10 +98,10 @@ export default function Dressup() {
 
       if (selectedEthNFT != null) {
 
-        if (selectedEthNFT.metadata !== null && selectedEthNFT.metadata !== undefined
-              && selectedEthNFT.metadata.attributes !== null && selectedEthNFT.metadata.attributes !== undefined) {
-          for (var i = 0; i < selectedEthNFT.metadata.attributes.length; i++) {
-            const attribute = selectedEthNFT.metadata.attributes[i];
+        if (selectedEthNFT.duMetadata !== null && selectedEthNFT.duMetadata !== undefined
+              && selectedEthNFT.duMetadata.attributes !== null && selectedEthNFT.duMetadata.attributes !== undefined) {
+          for (var i = 0; i < selectedEthNFT.duMetadata.attributes.length; i++) {
+            const attribute = selectedEthNFT.duMetadata.attributes[i];
             nowSelectedAttributes[attribute.trait_type] = attribute.value;
           };
         }
@@ -198,7 +198,7 @@ export default function Dressup() {
       let partsButtons = [];
       for (let i = 0; i < partsNFTs.length; i++) {
         const nowPartsNFT = partsNFTs[i];
-        const nowPartsAttributes = nowPartsNFT.metadata.attributes;
+        const nowPartsAttributes = nowPartsNFT.duMetadata.attributes;
         let nowPartsPosition = "";
         let nowPartsName = "";
         let nowPartsAbbreviation = "";
@@ -360,7 +360,7 @@ export default function Dressup() {
           }
         }
         // const imageUrl = `Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png`;
-        const imageUrl = `collection/${selectedChain}/${selectedEthNFT.symbol}_${selectedEthNFT.token_address}/parts/${type}/${colorPath}${value}.png`;
+        const imageUrl = `collection/${selectedChain}/${selectedEthNFT.symbol}_${selectedEthNFT.contract.address}/parts/${type}/${colorPath}${value}.png`;
         return imageUrl;
       }
     }
@@ -656,7 +656,6 @@ export default function Dressup() {
                           <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Halloween Purple.png">Halloween Purple</button>
                           <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Sparkling Snow Blue.png">Sparkling Snow Blue</button>
                           <button value="collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/background/Sparkling Snow Pink.png">Sparkling Snow Pink</button>
-                          <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
                           <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Blue Pinstripe.png">Blue Pinstripe</button>
                           <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Pink Pinstripe.png">Pink Pinstripe</button>
                           <button value="collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/parts/background/Violet Pinstripe.png">Violet Pinstripe</button>

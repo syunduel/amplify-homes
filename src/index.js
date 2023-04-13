@@ -8,17 +8,44 @@ import Amplify from 'aws-amplify';
 import "@aws-amplify/ui-react/styles.css";
 import {AmplifyProvider} from "@aws-amplify/ui-react";
 import awsconfig from './aws-exports';
-import { MoralisProvider } from "react-moralis";
+
+// WalletConnect
+import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
+import { Web3Modal } from '@web3modal/react'
+import { configureChains, createClient, WagmiConfig } from 'wagmi'
+import { mainnet, polygon } from 'wagmi/chains'
+
+// const chains = [arbitrum, mainnet, polygon]
+const chains = [mainnet, polygon]
+const projectId = '01d5c35c949a4b0eaf1b71d10424a03f'  // DressUpNFT
+
+const { provider } = configureChains(chains, [w3mProvider({ projectId })])
+
+const wagmiClient = createClient({
+  autoConnect: true,
+  // connectors: w3mConnectors({ projectId, version: 1, chains }),
+  connectors: w3mConnectors({ projectId, version: 1, chains }),
+  // connectors: [connector],
+  provider
+})
+const ethereumClient = new EthereumClient(wagmiClient, chains)
+
 
 Amplify.configure(awsconfig);
 
 ReactDOM.render(
   <React.StrictMode>
-    <MoralisProvider serverUrl="https://9dtwybgsflwn.usemoralis.com:2053/server" appId="lSWuDXblZuRVzOGqeRUMrEho6UBRfIHtCrnY7TNF">
+    <WagmiConfig client={wagmiClient}>
       <AmplifyProvider>
         <App />
       </AmplifyProvider>
-    </MoralisProvider>
+    </WagmiConfig>
+    <Web3Modal projectId={projectId} ethereumClient={ethereumClient}
+      themeVariables={{
+        // '--w3m-font-family': 'Roboto, sans-serif',
+        '--w3m-accent-color': '#ff6699'
+      }}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );

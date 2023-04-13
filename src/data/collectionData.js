@@ -86,8 +86,6 @@ export const collectionData = {
         tag: ["ERC721"],
         address: "0x845a007d9f283614f403a24e3eb3455f720559ca",
         url: "https://opensea.io/collection/cryptoninjapartners",
-        metadataHead: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/CNP_0x845a007d9f283614f403a24e3eb3455f720559ca/token-uri/',
-        metadataTail: '.json',
     },
     ethereum_0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e : {
         name: "Very long CNP",
