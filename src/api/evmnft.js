@@ -22,9 +22,9 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
     };
     // Include optional setting overrides for specific networks.
     const overrides = {
-        // TODO: Replace with your API keys.
+        [Network.ETH_GOERLI]: { apiKey: 'FHWYhsj50wrHcVUGMY0oEV7RCVDPyPUC' },
         [Network.MATIC_MAINNET]: { apiKey: 'Izx3-0WVznJi1Rxp4wTcWF6fGIDJs8GI', maxRetries: 10 },
-        [Network.ARB_MAINNET]: { apiKey: 'arb-api-key' }
+        [Network.MATIC_MUMBAI]: { apiKey: 'JR0SCgYhL4JAFdwvdkbim6I7sfRjkBx8', maxRetries: 10 }
     };
     const alchemy = new AlchemyMultichainClient(defaultConfig, overrides);
 
