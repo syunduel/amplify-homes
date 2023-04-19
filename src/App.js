@@ -14,6 +14,7 @@ import CollectionList from './routes/collectionList';
 import Organization from './routes/organization';
 import Collection from './routes/collection';
 import Dressup from "./routes/dressup";
+import Stamp from "./routes/stamp";
 
 
 
@@ -105,6 +106,7 @@ function App() {
         <Route path="/organization/:organizationName" element={<Organization />} />
         <Route path="/collection/:tokenChain/:tokenAddress" element={<Collection />} />
         <Route path="/dressup/:tokenChain/:tokenAddress/:tokenId" element={<Dressup />} />
+        <Route path="/stamp/:tokenChain/:tokenAddress" element={<Stamp />} />
       </Routes>
     </BrowserRouter>
 

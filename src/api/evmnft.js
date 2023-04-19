@@ -11,7 +11,7 @@ import { useAccount } from 'wagmi'
 
 export function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
-    console.log("useEthNFTs start");
+    console.log("useEthNFTs start", targetChain, targetAddress, limit);
 
     const { address, isConnected } = useAccount()
 
