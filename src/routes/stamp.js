@@ -372,8 +372,8 @@ export default function Stamp() {
         return;
       }
 
-      // 「_」区切りでLayerとCategoryを取得
-      const nowDressUpPicDataArray = event.target.value.split("¥t");
+      // タブ区切りでLayerとCategoryを取得
+      const nowDressUpPicDataArray = event.target.value.split("\t");
       console.log("nowDressUpPicDataArray", nowDressUpPicDataArray);
       if (nowDressUpPicDataArray.length !== 3) {
         return;
@@ -452,7 +452,7 @@ export default function Stamp() {
         const nowParts = parts[i];
         const nowPartsName = nowParts.name;
         const nowPartsUrl = nowParts.url;
-        const nowPartsValue = layer + "¥t" + categoryName + "¥t" + nowPartsUrl;
+        const nowPartsValue = layer + "\t" + categoryName + "\t" + nowPartsUrl;
 
         partsButtons.push(
           <>
