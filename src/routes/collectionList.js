@@ -17,15 +17,13 @@ export default function CollectionList() {
     // ShikibuWorld
     targetEvmNFTs.push(["ethereum", "0x32edd2f7437665af088347791521f454831aaa29"])
     // CryptoNinja Partners
-    targetEvmNFTs.push(["ethereum", "0x845a007d9f283614f403a24e3eb3455f720559ca"]);
+    targetEvmNFTs.push(["ethereum", "0x138a5c693279b6cd82f48d4bef563251bc15adce"]);
     // Very long CNP
     targetEvmNFTs.push(["ethereum", "0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e"]);
     // Tokyo Alternative Girls
     targetEvmNFTs.push(["ethereum", "0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6"]);
     // Dreamin' Divers Project -Cheers!-
     targetEvmNFTs.push(["ethereum", "0x11c3e2c4329df91f65a16612de90077498cfa6ca"]);
-    // Bride Girls Collection
-    targetEvmNFTs.push(["ethereum", "0x2e98069b38c4d8e5c5d995f3fb78d0407fb8b154"]);
 
 
 

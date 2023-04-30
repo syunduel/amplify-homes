@@ -80,12 +80,12 @@ export const collectionData = {
     //
     // CryptoNinja
     //
-    ethereum_0x845a007d9f283614f403a24e3eb3455f720559ca : {
+    ethereum_0x138a5c693279b6cd82f48d4bef563251bc15adce : {
         name: "CryptoNinja Partners",
         chain: "ethereum",
         tag: ["ERC721"],
-        address: "0x845a007d9f283614f403a24e3eb3455f720559ca",
-        url: "https://opensea.io/collection/cryptoninjapartners",
+        address: "0x138a5c693279b6cd82f48d4bef563251bc15adce",
+        url: "https://opensea.io/collection/cryptoninjapartners-4",
     },
     ethereum_0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e : {
         name: "Very long CNP",
