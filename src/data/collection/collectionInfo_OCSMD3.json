@@ -1,0 +1,129 @@
+{
+    "name": "メイド3.0 / MAID-SAN",
+    "chain": "ethereum",
+    "tag": ["ERC721", "DressUP"],
+    "address": "0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12",
+    "url": "https://opensea.io/collection/nft-ocs-genesis-maid-san",
+    "organization": "Otaku-Culture-Studio",
+    "metadataHead": "https://d2rw5dgd2n8nmf.cloudfront.net/token/metadata/OCSMD3/",
+    "metadataTail": "",
+    "copyright": "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Copyright/copyright.png",
+    "partsdataHead": "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/parts/",
+    "partsdataTail": ".png",
+    "layer" : {
+        "metadata" : [
+            {
+                "name": "Clothes",
+                "off": false,
+                "layer": 7,
+                "preset": [
+                    {
+                        "name": "Ami blouse-black",
+                        "imageUrl": "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_black.png"
+                    },
+                    {
+                        "name": "Ami blouse-blue",
+                        "imageUrl": "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_blue.png"
+                    },
+                    {
+                        "name": "Ami blouse-white",
+                        "imageUrl": "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_white.png"
+                    },
+                    {
+                        "name": "Ami blouse-red",
+                        "imageUrl": "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_red.png"
+                    }
+                ]
+            },
+            {
+                "name": "Hair accessory",
+                "off": true,
+                "layer": 11,
+                "preset": [
+                    {
+                        "name": "Ami-chan hairpin",
+                        "imageUrl": "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Hair%20accessory/Ami-chan%20hairpin.png"
+                    }
+                ]
+            },
+            {
+                "name": "Moe prop",
+                "off": true,
+                "layer": 13,
+                "preset": [
+                    {
+                        "name": "Ami-chan mascot",
+                        "imageUrl": "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Moe%20prop/Ami-chan%20mascot.png"
+                    }
+                ]
+            },
+            {
+                "name": "Moe frame",
+                "off": true,
+                "layer": 2
+            },
+            {
+                "name": "Moe space",
+                "off": true,
+                "layer": 1
+            },
+            {
+                "name": "Moe bonus3",
+                "off": true,
+                "layer": 3
+            },
+            {
+                "name": "Body",
+                "off": false,
+                "layer": 4
+            },
+            {
+                "name": "Hair",
+                "off": false,
+                "layer": 5
+            },
+            {
+                "name": "Right hand",
+                "off": false,
+                "layer": 6
+            },
+            {
+                "name": "Face",
+                "off": false,
+                "layer": 8
+            },
+            {
+                "name": "Bang",
+                "off": false,
+                "layer": 9
+            },
+            {
+                "name": "Accessory",
+                "off": true,
+                "layer": 10
+            },
+            {
+                "name": "Left hand",
+                "off": false,
+                "layer": 12
+            },
+            {
+                "name": "Moe bonus2",
+                "off": true,
+                "layer": 14
+            },
+            {
+                "name": "Moe bonus1",
+                "off": true,
+                "layer": 15
+            }
+        ]
+    },
+    "parts": [
+        {
+            "chain": "matic",
+            "address": "0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981",
+            "baseURL": "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Goerli/MAIDSANParts1_0x079FC0Be695952e9Ac81b58C16bC181087f84d11/extraparts/"
+        }
+    ]
+}

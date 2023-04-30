@@ -45,6 +45,7 @@ export function useCollectionInfo(targetChain, targetAddress) {
             try {
                 nowCollectionInfo = JSON.parse(res.data);
             } catch (error) {
+                console.error("collectionInfoURL JSON.parse error", error, res);
                 nowCollectionInfo = JSON.parse(JSON.stringify(res.data));
             }
 

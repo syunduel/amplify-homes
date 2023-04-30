@@ -37,6 +37,8 @@ export default function Dressup() {
 
     const collectionInfo = useCollectionInfo(tokenChain, selectedNftAddress);
     console.log('Dressup collectionInfo', collectionInfo);
+    console.log("collectionInfo.name", collectionInfo.name);
+    console.log("collectionInfo.parts", collectionInfo.parts);
 
     const [partsNFTInfo0, setPartsNFTInfo0] = useState({});
     const [partsNFTChain0, setPartsNFTChain0] = useState("");
