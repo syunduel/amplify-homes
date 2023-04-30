@@ -4,8 +4,7 @@ import { useEthNFT, useEthNFTs } from '../api/evmnft';
 import { ButtonGroup } from '@aws-amplify/ui-react';
 import html2canvas from "html2canvas";
 import {serverData} from '../data/serverData';
-import {collectionData} from '../data/collectionData';
-
+import { useCollectionInfo } from '../api/collectionInfo';
 
 export default function Dressup() {
 
@@ -36,33 +35,43 @@ export default function Dressup() {
     const selectedEthNFT = useEthNFT(targetChain, selectedNftAddress, selectedTokenId);
     console.log(selectedEthNFT);
 
-    const collectionInfo = collectionData[tokenChain.replace(/[^0-9a-z]/g, '') + "_" + selectedNftAddress];
-    // console.log('collectionInfo', collectionInfo);
+    const collectionInfo = useCollectionInfo(tokenChain, selectedNftAddress);
+    console.log('Dressup collectionInfo', collectionInfo);
+    console.log("collectionInfo.name", collectionInfo.name);
+    console.log("collectionInfo.parts", collectionInfo.parts);
 
-    let partsNFTInfo0;
-    let nowPartsChain0;
-    let nowPartsAddress0;
-    if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[0] !== undefined) {
-      partsNFTInfo0 = collectionInfo.parts[0];
-      console.log("partsNFTInfo0", partsNFTInfo0);
-      nowPartsChain0 = partsNFTInfo0.chain;
-      nowPartsAddress0 = partsNFTInfo0.address;
-    }
-    const [partsNFTs0, isPartsNFTsLoaded0] = useEthNFTs(nowPartsChain0, nowPartsAddress0, 100);
-    console.log("partsNFTs0", partsNFTs0);
+    const [partsNFTInfo0, setPartsNFTInfo0] = useState({});
+    const [partsNFTChain0, setPartsNFTChain0] = useState("");
+    const [partsNFTAddress0, setPartsNFTAddress0] = useState("");
 
-    let partsNFTInfo1;
-    let nowPartsChain1;
-    let nowPartsAddress1;
-    if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[1] !== undefined) {
-      partsNFTInfo1 = collectionInfo.parts[1];
-      console.log("partsNFTInfo1", partsNFTInfo1);
-      nowPartsChain1 = partsNFTInfo1.chain;
-      nowPartsAddress1 = partsNFTInfo1.address;
-    }
-    const [partsNFTs1, isPartsNFTsLoaded1] = useEthNFTs(nowPartsChain1, nowPartsAddress1, 100);
-    console.log("partsNFTs1", partsNFTs1);
+    useEffect(() => {
+      if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[0] !== undefined) {
+        setPartsNFTInfo0(collectionInfo.parts[0]);
+        console.log("partsNFTInfo0", partsNFTInfo0);
+        setPartsNFTChain0(collectionInfo.parts[0].chain);
+        setPartsNFTAddress0(collectionInfo.parts[0].address);
+      }
+    }, [collectionInfo]);
 
+    const [partsNFTs0, isPartsNFTsLoaded0] = useEthNFTs(partsNFTChain0, partsNFTAddress0, 100);
+    console.log("partsNFTs0", partsNFTChain0, partsNFTAddress0, partsNFTs0, isPartsNFTsLoaded0);
+
+
+    const [partsNFTInfo1, setPartsNFTInfo1] = useState({});
+    const [partsNFTChain1, setPartsNFTChain1] = useState("");
+    const [partsNFTAddress1, setPartsNFTAddress1] = useState("");
+
+    useEffect(() => {
+      if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[1] !== undefined) {
+        setPartsNFTInfo1(collectionInfo.parts[1]);
+        console.log("partsNFTInfo1", partsNFTInfo1);
+        setPartsNFTChain1(collectionInfo.parts[1].chain);
+        setPartsNFTAddress1(collectionInfo.parts[1].address);
+      }
+    }, [collectionInfo]);
+
+    const [partsNFTs1, isPartsNFTsLoaded1] = useEthNFTs(partsNFTChain1, partsNFTAddress1, 100);
+    console.log("partsNFTs1", partsNFTChain1, partsNFTAddress1, partsNFTs1, isPartsNFTsLoaded1);
 
 
     const [selectedAttributes, setSelectedAttributes] = useState([]);
@@ -133,56 +142,184 @@ export default function Dressup() {
           setDressUpPic04Url(getImageFullUrl(getImageUrl(selectedEthNFT, "face", nowSelectedAttributes.Face)));
           setDressUpPic05Url(getImageFullUrl(getImageUrl(selectedEthNFT, "fronthair", nowSelectedAttributes.Hair)));
 
-        } else if (selectedEthNFT.symbol === "OCSMD3") {
-          setDressUpPic01Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe space", nowSelectedAttributes["Moe space"])));
-          setDressUpPic02Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe frame", nowSelectedAttributes["Moe frame"])));
-          setDressUpPic03Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe bonus3", nowSelectedAttributes["Moe bonus3"])));
-          setDressUpPic04Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Body", nowSelectedAttributes["Body"])));
-          setDressUpPic05Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Hair", nowSelectedAttributes["Hair"])));
-          setDressUpPic06Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Right hand", nowSelectedAttributes["Right hand"])));
-          setDressUpPic07Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Clothes", nowSelectedAttributes["Clothes"])));
-          setDressUpPic08Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Face", nowSelectedAttributes["Face"])));
-          setDressUpPic09Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Bang", nowSelectedAttributes["Bang"])));
-          setDressUpPic10Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Accessory", nowSelectedAttributes["Accessory"])));
-          setDressUpPic11Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Hair accessory", nowSelectedAttributes["Hair accessory"])));
-          setDressUpPic12Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Left hand", nowSelectedAttributes["Left hand"])));
-          setDressUpPic13Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe prop", nowSelectedAttributes["Moe prop"])));
-          setDressUpPic14Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe bonus2", nowSelectedAttributes["Moe bonus2"])));
-          setDressUpPic15Url(getImageFullUrl(getImageUrl(selectedEthNFT, "Moe bonus1", nowSelectedAttributes["Moe bonus1"])));
+        } else if (collectionInfo !== undefined && collectionInfo.layer !== undefined) {
+
+          console.log("layer" , collectionInfo.layer);
+
+          const layerMetadata = collectionInfo.layer.metadata;
+
+          if (layerMetadata !== null && layerMetadata !== undefined) {
+
+            for (let index = 0; index < layerMetadata.length; index++) {
+              const nowLayerMetadata = layerMetadata[index];
+              const layer = nowLayerMetadata.layer;
+              const name = nowLayerMetadata.name;
+              switch (layer) {
+                case 1:
+                  setDressUpPic01Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 2:
+                  setDressUpPic02Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 3:
+                  setDressUpPic03Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 4:
+                  setDressUpPic04Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 5:
+                  setDressUpPic05Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 6:
+                  setDressUpPic06Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 7:
+                  setDressUpPic07Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 8:
+                  setDressUpPic08Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 9:
+                  setDressUpPic09Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 10:
+                  setDressUpPic10Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 11:
+                  setDressUpPic11Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 12:
+                  setDressUpPic12Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 13:
+                  setDressUpPic13Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 14:
+                  setDressUpPic14Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+                case 15:
+                  setDressUpPic15Url(getImageFullUrl(getImageUrl(selectedEthNFT, name, nowSelectedAttributes[name], collectionInfo)));
+                  break;
+              }
+            }
+          }
 
         } else {
-          // LAGとLAGM以外の場合、元の画像をそのまま入れる
+          // 着せ替え対応NFTじゃない場合、元の画像をそのまま入れる
           setDressUpPic02Url(selectedEthNFT.moralisImageUri);
         }
 
-        // DownloadするときだけCopyrightをセットする
+        // copyrightの設定がある場合はCopyrightをセットする。copyrightはDownloadのときだけ表示する。
         if (collectionInfo !== undefined && collectionInfo.copyright !== undefined) {
           setDressUpPicCopyrightUrl(collectionInfo.copyright);
         }
 
-
-        // パーツがパラパラ表示されるのを防ぐために灰色にしておいたヴェールを2秒後に透明にする
+        // パーツがパラパラ表示されるのを防ぐために灰色にしておいたヴェールを指定秒後に透明にする
         // パーツ画像が全部ロードされたのを検知してやりたかったが、難しかったので固定の秒数で暫定対応
         const timer = setTimeout(() => {
           //some action
           setDressUpPicVailStyle({backgroundColor: 'transparent'});
           setDressUpPicSpin("");
-        }, 1.3 * 1000);
+        }, 1.4 * 1000);
       }
 
-    }, [selectedEthNFT]);
+    }, [selectedEthNFT, collectionInfo, isPartsNFTsLoaded0, isPartsNFTsLoaded1]);
 
-    const getPartsButton = (position) => {
+    const getAllPartsButtonGroups = () => {
+
+      const nowSelectedAttributes = {};
+
+      if (selectedEthNFT != null) {
+
+        if (selectedEthNFT.duMetadata !== null && selectedEthNFT.duMetadata !== undefined
+              && selectedEthNFT.duMetadata.attributes !== null && selectedEthNFT.duMetadata.attributes !== undefined) {
+          for (var i = 0; i < selectedEthNFT.duMetadata.attributes.length; i++) {
+            const attribute = selectedEthNFT.duMetadata.attributes[i];
+            nowSelectedAttributes[attribute.trait_type] = attribute.value;
+          };
+        }
+      }
+
+      const layerMetadata = collectionInfo.layer.metadata;
+
+      let partsButtonGroups = [];
+
+      for (let index = 0; index < layerMetadata.length; index++) {
+        const nowLayerMetadata = layerMetadata[index];
+        const layer = nowLayerMetadata.layer;
+        const name = nowLayerMetadata.name;
+        partsButtonGroups.push(createPartsButtonGroup(selectedEthNFT, nowLayerMetadata, nowSelectedAttributes[name], collectionInfo));
+
+      }
+
+      return partsButtonGroups;
+
+    }
+
+    const createPartsButtonGroup = (selectedEthNFT, nowLayerMetadata, nowSelectedAttribute, collectionInfo) => {
+
+      let partsButton = getPartsButton(nowLayerMetadata.name, nowLayerMetadata.layer);
+
+      // NFTに値が無くてNFTパーツもプリセット無い場合は何も表示しない
+      if ((nowSelectedAttribute === undefined || nowSelectedAttribute === null || nowSelectedAttribute === "" || nowSelectedAttribute === "none" || nowSelectedAttribute === "None")
+          && partsButton.length === 0 && nowLayerMetadata.preset === undefined) {
+        return "";
+      }
+
+      // NFTに値があっても、パーツがオフに出来なくてNFTパーツもプリセットも無い場合は表示しない
+      if ((nowSelectedAttribute !== undefined && nowSelectedAttribute !== null && nowSelectedAttribute !== "" && nowSelectedAttribute !== "none" && nowSelectedAttribute !== "None")
+          && nowLayerMetadata.off === false && partsButton.length === 0 && nowLayerMetadata.preset === undefined) {
+        return "";
+      }
+
+      // NFTに値があってパーツがオフに出来るか、NFTパーツかプリセットがある場合は表示する
+      let nowAttributeButton = "";
+      let noneButon = "";
+
+      if (nowSelectedAttribute !== undefined && nowSelectedAttribute !== null && nowSelectedAttribute !== ""|| nowSelectedAttribute === "none" || nowSelectedAttribute === "None") {
+        const nowAttributeImageUrl = getImageFullUrl(getImageUrl(selectedEthNFT, nowLayerMetadata.name, nowSelectedAttribute, collectionInfo))
+        nowAttributeButton = <button data-attribute={nowSelectedAttribute} data-layer={nowLayerMetadata.layer} value={nowAttributeImageUrl}>{nowSelectedAttribute}</button>
+      }
+
+      if (nowLayerMetadata.off === true) {
+        noneButon = <button data-attribute={nowSelectedAttribute} data-layer={nowLayerMetadata.layer} value={noneUrl}>none</button>
+      }
+
+      let presetButton = [];
+      if (nowLayerMetadata.preset !== undefined) {
+        for (let i = 0; i < nowLayerMetadata.preset.length; i++) {
+          const nowPreset = nowLayerMetadata.preset[i];
+          const nowPresetButton = <button data-attribute={nowSelectedAttribute} data-layer={nowLayerMetadata.layer} value={nowPreset.imageUrl}>{nowPreset.name}</button>
+          presetButton.push(nowPresetButton);
+        }
+      }
+
+      return (
+        <dl>
+          <dt>{nowLayerMetadata.name}</dt>
+          <dd>
+            <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickPartsButton}>
+              {nowAttributeButton}
+              {noneButon}
+              {partsButton}
+              {presetButton}
+            </ButtonGroup>
+          </dd>
+        </dl>
+      )
+    }
+
+    const getPartsButton = (position, layer) => {
       // console.log("partsNFT", partsNFTs);
 
       let partsButtons0 = [];
       if (partsNFTs0 !== undefined && isPartsNFTsLoaded0) {
-        partsButtons0 = createPartsButton(partsNFTInfo0, position, partsNFTs0);
+        partsButtons0 = createPartsButton(partsNFTInfo0, position, partsNFTs0, layer);
       }
 
       let partsButtons1 = [];
       if (partsNFTs1 !== undefined && isPartsNFTsLoaded1) {
-        partsButtons1 = createPartsButton(partsNFTInfo1, position, partsNFTs1);
+        partsButtons1 = createPartsButton(partsNFTInfo1, position, partsNFTs1, layer);
       }
 
       const partsButtons = [
@@ -194,7 +331,7 @@ export default function Dressup() {
       return partsButtons;
     }
 
-    const createPartsButton = (partsNFTInfo, position, partsNFTs) => {
+    const createPartsButton = (partsNFTInfo, position, partsNFTs, layer = 0) => {
       let partsButtons = [];
       for (let i = 0; i < partsNFTs.length; i++) {
         const nowPartsNFT = partsNFTs[i];
@@ -216,11 +353,65 @@ export default function Dressup() {
           // const buttonValue = "collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/extraparts/" + nowPartsPosition + "/" + nowPartsName+ ".png";
           const buttonValue = partsNFTInfo.baseURL + nowPartsPosition + "/" + nowPartsName+ ".png";
 
-          partsButtons.push(<button value={buttonValue}>{nowPartsAbbreviation}</button>);
+          partsButtons.push(<button data-attribute={nowPartsPosition} data-layer={layer} value={buttonValue}>{nowPartsAbbreviation}</button>);
         }
       }
       console.log("createPartsButton", partsButtons);
       return partsButtons;
+    }
+
+    const onClickPartsButton = (event) => {
+      console.log("onClickPartsButton", event.target.dataset.attribute, event.target.dataset.layer, event.target.value);
+
+      switch (event.target.dataset.layer) {
+        case "1":
+          setDressUpPic01Url(event.target.value);
+          break;
+        case "2":
+          setDressUpPic02Url(event.target.value);
+          break;
+        case "3":
+          setDressUpPic03Url(event.target.value);
+          break;
+        case "4":
+          setDressUpPic04Url(event.target.value);
+          break;
+        case "5":
+          setDressUpPic05Url(event.target.value);
+          break;
+        case "6":
+          setDressUpPic06Url(event.target.value);
+          break;
+        case "7":
+          setDressUpPic07Url(event.target.value);
+          break;
+        case "8":
+          setDressUpPic08Url(event.target.value);
+          break;
+        case "9":
+          setDressUpPic09Url(event.target.value);
+          break;
+        case "10":
+          setDressUpPic10Url(event.target.value);
+          break;
+        case "11":
+          setDressUpPic11Url(event.target.value);
+          break;
+        case "12":
+          setDressUpPic12Url(event.target.value);
+          break;
+        case "13":
+          setDressUpPic13Url(event.target.value);
+          break;
+        case "14":
+          setDressUpPic14Url(event.target.value);
+          break;
+        case "15":
+          setDressUpPic15Url(event.target.value);
+          break;
+        default:
+          break;
+      }
     }
 
     const onClickBackground = (event) => {
@@ -290,65 +481,20 @@ export default function Dressup() {
 
     }
 
-    const onClickMaidsanClothes = (event) => {
-      if (event.target.value === null || event.target.value === undefined) {
-        return;
-      }
-
-      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
-      console.log(nowDressUpPicAccessoryUrl);
-      setDressUpPic07Url(nowDressUpPicAccessoryUrl);
-    }
-
-    const onClickMaidsanHairAccessory = (event) => {
-      if (event.target.value === null || event.target.value === undefined) {
-        return;
-      }
-
-      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
-      console.log(nowDressUpPicAccessoryUrl);
-      setDressUpPic11Url(nowDressUpPicAccessoryUrl);
-    }
-
-    const onClickMaidsanMoeProp = (event) => {
-      if (event.target.value === null || event.target.value === undefined) {
-        return;
-      }
-
-      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
-      console.log(nowDressUpPicAccessoryUrl);
-      setDressUpPic13Url(nowDressUpPicAccessoryUrl);
-    }
-
-    const onClickMaidsanMoeFrame = (event) => {
-      if (event.target.value === null || event.target.value === undefined) {
-        return;
-      }
-
-      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
-      console.log(nowDressUpPicAccessoryUrl);
-      setDressUpPic02Url(nowDressUpPicAccessoryUrl);
-    }
-
-    const onClickMaidsanMoeSpace = (event) => {
-      if (event.target.value === null || event.target.value === undefined) {
-        return;
-      }
-
-      const nowDressUpPicAccessoryUrl = getImageFullUrl(event.target.value);
-      console.log(nowDressUpPicAccessoryUrl);
-      setDressUpPic01Url(nowDressUpPicAccessoryUrl);
-    }
-
-
-
-    const getImageUrl = (selectedEthNFT, type, value) => {
+    const getImageUrl = (selectedEthNFT, type, value, collectionInfo = null) => {
 
       console.log("getImageUrl");
       console.log(selectedEthNFT);
 
       if (value === null || value === "" || value === "none" || value === "None") {
         return "none";
+
+      } else if (collectionInfo !== null && collectionInfo !== undefined
+        && collectionInfo.partsdataHead !== null && collectionInfo.partsdataHead !== undefined) {
+          
+          const imageUrl = `${collectionInfo.partsdataHead}${type}/${value}${collectionInfo.partsdataTail}`;
+          return imageUrl;
+
       } else {
 
         let colorPath = "";
@@ -567,64 +713,10 @@ export default function Dressup() {
                 </dl>
               }
 
-              {/* OCSMD3 */}
-              {selectedEthNFT !== null && selectedEthNFT.symbol === "OCSMD3" &&
+              {/* have dress up Metadata */}
+              {selectedEthNFT !== null && collectionInfo !== undefined && collectionInfo.layer !== undefined &&
                 <>
-                  <dl>
-                    <dt>Clothes</dt>
-                    <dd>
-                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanClothes}>
-                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Clothes/"+(selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes)+".png"}>{selectedAttributes.Clothes? selectedAttributes.Clothes: selectedAttributes.Clothes? selectedAttributes.Clothes.replace("_", " "): ""}</button>
-                        {getPartsButton("Clothes")}
-                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_black.png">Ami blouse-black</button>
-                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_blue.png">Ami blouse-blue</button>
-                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_white.png">Ami blouse-white</button>
-                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Clothes/Ami-chan%20blouse_red.png">Ami blouse-red</button>
-                      </ButtonGroup>
-                    </dd>
-                  </dl>
-                  <dl>
-                    <dt>Hair accessory</dt>
-                    <dd>
-                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanHairAccessory}>
-                        <button value="none">none</button>
-                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Hair accessory/"+(selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"])+".png"}>{selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"]: selectedAttributes["Hair accessory"]? selectedAttributes["Hair accessory"].replace("_", " "): ""}</button>
-                        {getPartsButton("Hair Accessory")}
-                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Hair%20accessory/Ami-chan%20hairpin.png">Ami-chan hairpin</button>
-                      </ButtonGroup>
-                    </dd>
-                  </dl>
-                  <dl>
-                    <dt>Moe prop</dt>
-                    <dd>
-                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanMoeProp}>
-                        <button value="none">none</button>
-                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Moe prop/"+(selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"])+".png"}>{selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"]: selectedAttributes["Moe prop"]? selectedAttributes["Moe prop"].replace("_", " "): ""}</button>
-                        {getPartsButton("Moe Prop")}
-                        <button value="collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Moe%20prop/Ami-chan%20mascot.png">Ami-chan mascot</button>
-                      </ButtonGroup>
-                    </dd>
-                  </dl>
-                  <dl>
-                    <dt>Moe frame</dt>
-                    <dd>
-                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanMoeFrame}>
-                        <button value="none">none</button>
-                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Moe frame/"+(selectedAttributes["Moe frame"]? selectedAttributes["Moe frame"]: selectedAttributes["Moe frame"])+".png"}>{selectedAttributes["Moe frame"]? selectedAttributes["Moe frame"]: selectedAttributes["Moe frame"]? selectedAttributes["Moe frame"].replace("_", " "): ""}</button>
-                        {getPartsButton("Moe frame")}
-                      </ButtonGroup>
-                    </dd>
-                  </dl>
-                  <dl>
-                    <dt>Moe space</dt>
-                    <dd>
-                      <ButtonGroup aria-label="Word-btn" style={{flexWrap: 'wrap'}} onClick={onClickMaidsanMoeSpace}>
-                        <button value="none">none</button>
-                        <button value={"collection/"+selectedChain+"/"+selectedEthNFT.symbol+"_"+selectedNftAddress+"/parts/Moe space/"+(selectedAttributes["Moe space"]? selectedAttributes["Moe space"]: selectedAttributes["Moe space"])+".png"}>{selectedAttributes["Moe space"]? selectedAttributes["Moe space"]: selectedAttributes["Moe space"]? selectedAttributes["Moe space"].replace("_", " "): ""}</button>
-                        {getPartsButton("Moe space")}
-                      </ButtonGroup>
-                    </dd>
-                  </dl>
+                  {getAllPartsButtonGroups()}
                 </>
               }
 

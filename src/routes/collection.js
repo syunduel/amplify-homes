@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import { collectionData } from '../data/collectionData';
+import { useCollectionInfo } from '../api/collectionInfo';
 import NFTList from './nftList';
 
 
@@ -10,11 +10,11 @@ export default function Collection() {
     console.log('tokenChain : ' + tokenChain);
     console.log('tokenAddress : ' + tokenAddress);
 
-    let targetEvmNFT = {};
+    // let targetEvmNFT = {};
+    let targetEvmNFT = useCollectionInfo(tokenChain, tokenAddress);
 
-    if (collectionData[tokenChain + "_" + tokenAddress] !== undefined) {
-        targetEvmNFT = collectionData[tokenChain + "_" + tokenAddress];
-    } else {
+    if (targetEvmNFT === undefined || targetEvmNFT === null || targetEvmNFT === []) {
+        targetEvmNFT = {};
         targetEvmNFT.chain = tokenChain.replace(/[^0-9a-z]/g, '');
         targetEvmNFT.address = tokenAddress.replace(/[^0-9a-z]/g, '');
     }
@@ -27,8 +27,8 @@ export default function Collection() {
             </div>
 
             {tokenChain !== undefined &&
-                <div key={targetEvmNFT.address}>
-                    {NFTList(targetEvmNFT, 100, false)}
+                <div key={tokenAddress}>
+                    {NFTList(tokenChain, tokenAddress, 100, false)}
                 </div>
             }
         </>

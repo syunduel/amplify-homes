@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ConsoleLogger } from '@aws-amplify/core';
 import axios from "axios";
 import {serverData} from '../data/serverData';
-import {collectionData} from '../data/collectionData';
+import { useCollectionInfo } from '../api/collectionInfo';
 import { AlchemyMultichainClient } from './../lib/alchemy-multichain-client';
 import { Network } from 'alchemy-sdk';
 import { useAccount } from 'wagmi'
@@ -11,7 +11,7 @@ import { useAccount } from 'wagmi'
 
 export function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
-    console.log("useEthNFTs start");
+    console.log("useEthNFTs start", targetChain, targetAddress, limit);
 
     const { address, isConnected } = useAccount()
 
@@ -28,6 +28,9 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
     };
     const alchemy = new AlchemyMultichainClient(defaultConfig, overrides);
 
+    const collectionInfo = useCollectionInfo(targetChain, targetAddress);
+    console.log("useEthNFTs collectionInfo", collectionInfo);
+
     const [ethNFTs, setEthNFTs] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     const [total, setTotal] = useState(0);
@@ -41,7 +44,7 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 return
             }
 
-            console.log("target : " + targetChain, targetAddress);
+            console.log("useEthNFTs getNFTs target", targetChain, targetAddress);
 
             let selectedChain = targetChain;
             let selectedChain4Alchemy = "";
@@ -87,9 +90,6 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 setIsLoaded(true);
                 return [ethNFTs, true];
             }
-
-            const collectionInfo = collectionData[targetChain + "_" + targetAddress];
-            console.log("collectionInfo", targetChain + "_" + targetAddress, collectionInfo);
 
             let metadataHead = "";
             let metadataTail = "";
@@ -187,7 +187,7 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
         getNFTs();
 
-    }, [address, isConnected])
+    }, [address, isConnected, collectionInfo])
 
     return [ethNFTs, isLoaded, total];
 
@@ -206,7 +206,7 @@ function setProps(serverCollectionRoot, nowEthNft, targetChain, targetAddress) {
     }
 
     // 画像を自前サーバーから取得する
-    if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "CNP" || nowEthNft.symbol === "VLCNP" || nowEthNft.symbol === "MDFN" || nowEthNft.symbol === "TAG") {
+    if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "MDFN" || nowEthNft.symbol === "TAG") {
         // 何故か読み込めない時があったので、画像はうちのS3に置いてある。
         let nowImageName = nowEthNft.tokenId;
         // LAGとLAGMの画像ファイル名は4桁固定の0パディング

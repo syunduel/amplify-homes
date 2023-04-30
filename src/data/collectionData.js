@@ -80,12 +80,12 @@ export const collectionData = {
     //
     // CryptoNinja
     //
-    ethereum_0x845a007d9f283614f403a24e3eb3455f720559ca : {
+    ethereum_0x138a5c693279b6cd82f48d4bef563251bc15adce : {
         name: "CryptoNinja Partners",
         chain: "ethereum",
         tag: ["ERC721"],
-        address: "0x845a007d9f283614f403a24e3eb3455f720559ca",
-        url: "https://opensea.io/collection/cryptoninjapartners",
+        address: "0x138a5c693279b6cd82f48d4bef563251bc15adce",
+        url: "https://opensea.io/collection/cryptoninjapartners-4",
     },
     ethereum_0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e : {
         name: "Very long CNP",
@@ -259,22 +259,7 @@ export const collectionData = {
         organization: 'Otaku-Culture-Studio',
     },
     ethereum_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12 : {
-        name: "メイド3.0 / MAID-SAN",
-        chain: "ethereum",
-        tag: ["ERC721", "DressUP"],
-        address: "0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12",
-        url: "https://opensea.io/collection/nft-ocs-genesis-maid-san",
-        organization: 'Otaku-Culture-Studio',
-        metadataHead: 'https://d2rw5dgd2n8nmf.cloudfront.net/token/metadata/OCSMD3/',
-        metadataTail: '',
-        copyright : "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/extraparts/Copyright/copyright.png",
-        parts: [
-            {
-                chain: 'matic',
-                address: '0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981',
-                baseURL: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Goerli/MAIDSANParts1_0x079FC0Be695952e9Ac81b58C16bC181087f84d11/extraparts/',
-            },
-        ],
+        collectionInfoUrl: "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/collectionInfo_OCSMD3.json",
     },
     matic_0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981 : {
         name: "メイド3.0 Parts / MAID-SAN Parts",
