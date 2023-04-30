@@ -469,6 +469,7 @@ button:hover {
 }
 .card__dress-up--option button {
   width: 160px;
+  border: 1px solid #fff;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -497,11 +498,30 @@ button:hover {
     width: auto;
     font-size: 14px;
   }
+  .card__dress-up--change {
+    gap: 6px;
+  }
   .card__dress-up--title {
     font-size: 28px;
   }
   .card__dress-up--image {
     min-width: auto;
+  }
+  .card__dress-up--pj {
+    font-size: 12px;
+  }
+  .card__dress-up--no {
+    font-size: 16px;
+  }
+  .card__dress-up--option dt {
+    font-size: 16px;
+  }
+  .card__dress-up--option button {
+    padding: 5px;
+    font-size: 14px;
+  }
+  .card__dress-up--option .amplify-flex {
+    gap: 10px;
   }
 }
 
