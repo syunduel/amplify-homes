@@ -39,7 +39,7 @@ export default function Organization() {
             <div className="top-nft">
             {targetEvmNFTs.map((nowTargetEvmNFT) => (
                 <div key={nowTargetEvmNFT.chain + "_" + nowTargetEvmNFT.address}>
-                    {NFTTopList(nowTargetEvmNFT, 3, true, calcLovePower)}
+                    {NFTTopList(nowTargetEvmNFT.chain, nowTargetEvmNFT.address, 3, true, calcLovePower)}
                 </div>
             ))}
             </div>

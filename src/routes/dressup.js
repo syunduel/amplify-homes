@@ -4,8 +4,7 @@ import { useEthNFT, useEthNFTs } from '../api/evmnft';
 import { ButtonGroup } from '@aws-amplify/ui-react';
 import html2canvas from "html2canvas";
 import {serverData} from '../data/serverData';
-import {collectionData} from '../data/collectionData';
-
+import { useCollectionInfo } from '../api/collectionInfo';
 
 export default function Dressup() {
 
@@ -36,33 +35,41 @@ export default function Dressup() {
     const selectedEthNFT = useEthNFT(targetChain, selectedNftAddress, selectedTokenId);
     console.log(selectedEthNFT);
 
-    const collectionInfo = collectionData[tokenChain.replace(/[^0-9a-z]/g, '') + "_" + selectedNftAddress];
-    console.log('collectionInfo', collectionInfo);
+    const collectionInfo = useCollectionInfo(tokenChain, selectedNftAddress);
+    console.log('Dressup collectionInfo', collectionInfo);
 
-    let partsNFTInfo0;
-    let nowPartsChain0;
-    let nowPartsAddress0;
-    if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[0] !== undefined) {
-      partsNFTInfo0 = collectionInfo.parts[0];
-      console.log("partsNFTInfo0", partsNFTInfo0);
-      nowPartsChain0 = partsNFTInfo0.chain;
-      nowPartsAddress0 = partsNFTInfo0.address;
-    }
-    const [partsNFTs0, isPartsNFTsLoaded0] = useEthNFTs(nowPartsChain0, nowPartsAddress0, 100);
-    console.log("partsNFTs0", partsNFTs0);
+    const [partsNFTInfo0, setPartsNFTInfo0] = useState({});
+    const [partsNFTChain0, setPartsNFTChain0] = useState("");
+    const [partsNFTAddress0, setPartsNFTAddress0] = useState("");
 
-    let partsNFTInfo1;
-    let nowPartsChain1;
-    let nowPartsAddress1;
-    if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[1] !== undefined) {
-      partsNFTInfo1 = collectionInfo.parts[1];
-      console.log("partsNFTInfo1", partsNFTInfo1);
-      nowPartsChain1 = partsNFTInfo1.chain;
-      nowPartsAddress1 = partsNFTInfo1.address;
-    }
-    const [partsNFTs1, isPartsNFTsLoaded1] = useEthNFTs(nowPartsChain1, nowPartsAddress1, 100);
-    console.log("partsNFTs1", partsNFTs1);
+    useEffect(() => {
+      if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[0] !== undefined) {
+        setPartsNFTInfo0(collectionInfo.parts[0]);
+        console.log("partsNFTInfo0", partsNFTInfo0);
+        setPartsNFTChain0(collectionInfo.parts[0].chain);
+        setPartsNFTAddress0(collectionInfo.parts[0].address);
+      }
+    }, [collectionInfo]);
 
+    const [partsNFTs0, isPartsNFTsLoaded0] = useEthNFTs(partsNFTChain0, partsNFTAddress0, 100);
+    console.log("partsNFTs0", partsNFTChain0, partsNFTAddress0, partsNFTs0, isPartsNFTsLoaded0);
+
+
+    const [partsNFTInfo1, setPartsNFTInfo1] = useState({});
+    const [partsNFTChain1, setPartsNFTChain1] = useState("");
+    const [partsNFTAddress1, setPartsNFTAddress1] = useState("");
+
+    useEffect(() => {
+      if (collectionInfo !== undefined && collectionInfo.parts !== undefined && collectionInfo.parts[1] !== undefined) {
+        setPartsNFTInfo1(collectionInfo.parts[1]);
+        console.log("partsNFTInfo1", partsNFTInfo1);
+        setPartsNFTChain1(collectionInfo.parts[1].chain);
+        setPartsNFTAddress1(collectionInfo.parts[1].address);
+      }
+    }, [collectionInfo]);
+
+    const [partsNFTs1, isPartsNFTsLoaded1] = useEthNFTs(partsNFTChain1, partsNFTAddress1, 100);
+    console.log("partsNFTs1", partsNFTChain1, partsNFTAddress1, partsNFTs1, isPartsNFTsLoaded1);
 
 
     const [selectedAttributes, setSelectedAttributes] = useState([]);
@@ -137,7 +144,6 @@ export default function Dressup() {
 
           console.log("layer" , collectionInfo.layer);
 
-          const layerCount = collectionInfo.layer.count;
           const layerMetadata = collectionInfo.layer.metadata;
 
           if (layerMetadata !== null && layerMetadata !== undefined) {
@@ -215,7 +221,7 @@ export default function Dressup() {
         }, 1.4 * 1000);
       }
 
-    }, [selectedEthNFT]);
+    }, [selectedEthNFT, collectionInfo, isPartsNFTsLoaded0, isPartsNFTsLoaded1]);
 
     const getAllPartsButtonGroups = () => {
 

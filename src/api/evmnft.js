@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ConsoleLogger } from '@aws-amplify/core';
 import axios from "axios";
 import {serverData} from '../data/serverData';
-import {collectionData} from '../data/collectionData';
+import { useCollectionInfo } from '../api/collectionInfo';
 import { AlchemyMultichainClient } from './../lib/alchemy-multichain-client';
 import { Network } from 'alchemy-sdk';
 import { useAccount } from 'wagmi'
@@ -28,6 +28,9 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
     };
     const alchemy = new AlchemyMultichainClient(defaultConfig, overrides);
 
+    const collectionInfo = useCollectionInfo(targetChain, targetAddress);
+    console.log("useEthNFTs collectionInfo", collectionInfo);
+
     const [ethNFTs, setEthNFTs] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
     const [total, setTotal] = useState(0);
@@ -41,7 +44,7 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 return
             }
 
-            console.log("target : " + targetChain, targetAddress);
+            console.log("useEthNFTs getNFTs target", targetChain, targetAddress);
 
             let selectedChain = targetChain;
             let selectedChain4Alchemy = "";
@@ -87,9 +90,6 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                 setIsLoaded(true);
                 return [ethNFTs, true];
             }
-
-            const collectionInfo = collectionData[targetChain + "_" + targetAddress];
-            console.log("collectionInfo", targetChain + "_" + targetAddress, collectionInfo);
 
             let metadataHead = "";
             let metadataTail = "";
@@ -187,7 +187,7 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
 
         getNFTs();
 
-    }, [address, isConnected])
+    }, [address, isConnected, collectionInfo])
 
     return [ethNFTs, isLoaded, total];
 

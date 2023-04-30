@@ -3,13 +3,20 @@ import { CardNFT } from '../ui-components'
 import { Link } from "react-router-dom";
 import { useAccount } from 'wagmi'
 import { useEthNFTs } from '../api/evmnft';
+import { useCollectionInfo } from '../api/collectionInfo';
 
 
-export default function NFTList(collectionInfo, dispLimit = 5, dispCollectionLink = true, setLovePower = () => {}) {
+export default function NFTList(targetCain, targetAddress, dispLimit = 5, dispCollectionLink = true, setLovePower = () => {}) {
 
     const { address, isConnected } = useAccount()
 
-    const [nfts, isLoaded, total] = useEthNFTs(collectionInfo.chain, collectionInfo.address, dispLimit);
+    const collectionInfo = useCollectionInfo(targetCain, targetAddress);
+
+    console.log('NFTList collectionInfo', collectionInfo);
+
+    const [nfts, isLoaded, total] = useEthNFTs(targetCain, targetAddress, dispLimit);
+
+    console.log('NFTTopList nfts', targetCain, targetAddress, nfts);
 
     let collectionName = "";
     if (collectionInfo.name !== undefined) {
