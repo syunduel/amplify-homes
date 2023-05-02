@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import {organizationData} from '../data/organizationData';
 import {collectionData} from '../data/collectionData';
 import NFTTopList from './nftTopList';
@@ -25,8 +25,26 @@ export default function Organization() {
         setLovePower(lovePower + _lovePower);
     }
 
+    const createNaviLinks = () => {
+
+        return (
+          <>
+            <Link to={`/`} class="back-link">TOP </Link>
+            {organizationName !== null &&
+              <>
+                > <Link to={`/organization/${organizationName}/`} class="back-link">{organizationName} </Link>
+              </>
+            }
+            
+          </>
+        );
+    }
+
     return (
         <>
+            <div style={{textAlign: 'left', padding: '1.5em'}}>
+                {createNaviLinks()}
+            </div>
             <div className="page-head" key={'mv1'}>
                 <p className="title--primary">{targetOrganization.name}</p>
                 {lovePower > 0 &&
