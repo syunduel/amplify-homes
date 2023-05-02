@@ -580,12 +580,56 @@ export default function Dressup() {
 
     }
 
+    const createNaviLinks = () => {
+
+      let organizationName = null;
+      if (collectionInfo !== null && collectionInfo !== undefined && collectionInfo.organization !== null && collectionInfo.organization !== undefined && collectionInfo.organization !== "") {
+        organizationName = collectionInfo.organization;
+      }
+
+      let collectionName = null;
+      if (selectedEthNFT !== null && selectedEthNFT !== undefined && selectedEthNFT.name !== null && selectedEthNFT.name !== undefined && selectedEthNFT.name !== "") {
+        collectionName = selectedEthNFT.name;
+      }
+
+      let tokenId = null;
+      let itemName = null;
+      if (selectedEthNFT !== null && selectedEthNFT !== undefined && selectedEthNFT.itemName !== null && selectedEthNFT.itemName !== undefined && selectedEthNFT.itemName !== "") {
+        tokenId = selectedTokenId;
+        itemName = selectedEthNFT.itemName;
+      }
+
+      return (
+        <>
+          <Link to={`/`} class="back-link">TOP </Link>
+          {organizationName !== null &&
+            <>
+              > <Link to={`/organization/${organizationName}/`} class="back-link">{organizationName} </Link>
+            </>
+          }
+          {collectionName !== null &&
+            <>
+              > <Link to={`/collection/${tokenChain}/${tokenAddress}/`} class="back-link">{collectionName} </Link>
+            </>
+          }
+          {itemName !== null &&
+            <>
+              > <Link to={`/dressup/${tokenChain}/${tokenAddress}/${tokenId}`} class="back-link">{itemName} </Link>
+            </>
+          }
+          
+        </>
+      );
+    }
+
   return (
       <>
+        <div style={{textAlign: 'left', padding: '1.5em'}}>
+            {createNaviLinks()}
+        </div>
         <div class="card card__dress-up">
           <div class="card__dress-up--header">
             <div>
-              <Link to={`/`} class="back-link">←Change NFT</Link>
               <h1 class="card__dress-up--title">Outfit Room</h1>
             </div>
             <button onClick={onClickExport}>↓ Download (PC only)</button>
