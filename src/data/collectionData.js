@@ -259,6 +259,10 @@ export const collectionData = {
         organization: 'Otaku-Culture-Studio',
     },
     ethereum_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12 : {
+        name: "メイド3.0 / MAID-SAN",
+        chain: "ethereum",
+        tag: ["ERC721", "DressUP"],
+        address: "0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12",
         collectionInfoUrl: "https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/OCSMD3_0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12/collectionInfo_OCSMD3.json",
     },
     matic_0xecbc0559101fd1c1e0ddcfbda02d24771a5dc981 : {
