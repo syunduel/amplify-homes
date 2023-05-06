@@ -54,7 +54,7 @@ export default function Stamp() {
     const [selectedAttributes, setSelectedAttributes] = useState([]);
 
     const serverRoot = serverData.serverRoot;
-    const noneUrl = "/none.png"
+    const noneUrl = "/noneStamp.png"
 
     const [dressUpPic01Url, setDressUpPic01Url] = useState(noneUrl);
     const [dressUpPic02Url, setDressUpPic02Url] = useState(noneUrl);
@@ -75,7 +75,7 @@ export default function Stamp() {
     const [dressUpPicCopyrightUrl, setDressUpPicCopyrightUrl] = useState(noneUrl);
     const [dressUpPicCopyrightDisp, setDressUpPicCopyrightDisp] = useState(false);
     const [dressUpPicVailStyle, setDressUpPicVailStyle] = useState({backgroundColor: 'lightgray'});
-    const [dressUpPicSpin, setDressUpPicSpin] = useState("sk-cube-grid");
+    const [dressUpPicSpin, setDressUpPicSpin] = useState("sk-cube-grid-stamp");
 
     const dressUpPartsSetSKB = {
       1 : {
@@ -748,8 +748,8 @@ export default function Stamp() {
 
       // 画像に変換する component の id を指定
       var target = document.getElementById("dress-up-window");
-      target.style.width = "1000px";
-      target.style.height = "1000px";
+      target.style.width = "370px";
+      target.style.height = "320px";
 
       const area = target.getBoundingClientRect();
 
@@ -790,8 +790,8 @@ export default function Stamp() {
             <div class="card__dress-up--image">
               {selectedEthNFT != null &&
                 <>
-                  <div id="dress-up-window" width="400" height="400">
-                    <img className="dress-up-pic-base" src="/none.png"/>
+                  <div id="dress-up-window" width="370" height="320">
+                    <img className="dress-up-pic-base" src="/noneStamp.png"/>
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic01Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic02Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic03Url} />
@@ -828,8 +828,8 @@ export default function Stamp() {
               }
               {selectedEthNFT == null &&
                 <>
-                  <div id="dress-up-window" width="400" height="400">
-                    <img className="dress-up-pic-background" src="/none.png"/>
+                  <div id="dress-up-window" width="370" height="320">
+                    <img className="dress-up-pic-background" src="/noneStamp.png"/>
                   </div>
                   <p class="card__dress-up--pj"></p>
                   <p class="card__dress-up--no"></p>
