@@ -701,6 +701,7 @@ export default function Dressup() {
                     <button value="original/parts/dialogue/dialogue_gm.png">GM</button>
                     <button value="original/parts/dialogue/dialogue_gn.png">GN</button>
                     <button value="original/parts/dialogue/dialogue_congrats.png">Congrats</button>
+                    <button value="original/parts/dialogue/dialogue_happy-birthday.png">Happy Birthday</button>
                     <button value="original/parts/dialogue/dialogue_why.png">why?</button>
                     <button value="original/parts/dialogue/dialogue_biglove.png">BIG LOVE</button>
                     <button value="original/parts/dialogue/dialogue_arigatou.png">ありがとう</button>
@@ -708,6 +709,7 @@ export default function Dressup() {
                     <button value="original/parts/dialogue/dialogue_hello.png">Hello</button>
                     <button value="original/parts/dialogue/dialogue_lgtm.png">LGTM</button>
                     <button value="original/parts/dialogue/dialogue_otsukaresama.png">お疲れさま</button>
+                    <button value="original/parts/dialogue/dialogue_yoroshiku.png">よろしく</button>
                     <button value="original/parts/dialogue/dialogue_yoroshikuonegaishimasu.png">よろしくお願いします</button>
                   </ButtonGroup>
                 </dd>
