@@ -48,7 +48,7 @@ export default function Stamp() {
     // console.log('collectionInfo', collectionInfo);
 
 
-    const stampImageBase = serverData.serverStampRoot + selectedChain + "/" + symbol + "_" + selectedNftAddress + "/parts_v3/";
+    const stampImageBase = serverData.serverStampRoot + selectedChain + "/" + symbol + "_" + selectedNftAddress + "/parts_v4/";
 
 
     const [selectedAttributes, setSelectedAttributes] = useState([]);
@@ -83,12 +83,12 @@ export default function Stamp() {
         "categoryName": "体",
         "parts": [
           {
-            "name": "brown",
-            "url": stampImageBase + "Body/57F37D56-BBDD-4716-9735D32A2A00F378.png"
-          },
-          {
             "name": "standard",
             "url": stampImageBase + "Body/A12EA0FECAF0-46D5-8DDC-0510B3E5BCDA.png"
+          },
+          {
+            "name": "brown",
+            "url": stampImageBase + "Body/57F37D56-BBDD-4716-9735D32A2A00F378.png"
           },
           {
             "name": "red",
@@ -200,6 +200,34 @@ export default function Stamp() {
             "name": "なし",
             "url": noneUrl
           },
+          {
+            "name": "グー",
+            "url": stampImageBase + "Left hand under/Guu.png"
+          },
+          {
+            "name": "広げる",
+            "url": stampImageBase + "Left hand under/Hirogeru.png"
+          },
+          {
+            "name": "腰",
+            "url": stampImageBase + "Left hand under/Koshiate.png"
+          },
+          {
+            "name": "パー",
+            "url": stampImageBase + "Left hand under/Pa-.png"
+          },
+          {
+            "name": "ピース",
+            "url": stampImageBase + "Left hand under/Pi-su.png"
+          },
+          {
+            "name": "スタンダード",
+            "url": stampImageBase + "Left hand under/Standard.png"
+          },
+          {
+            "name": "テヘ",
+            "url": stampImageBase + "Left hand under/Tehe.png"
+          },
         ]
       },
       5 : {
@@ -210,6 +238,34 @@ export default function Stamp() {
             "name": "なし",
             "url": noneUrl
           },
+          {
+            "name": "グー",
+            "url": stampImageBase + "Right hand under/Guu.png"
+          },
+          {
+            "name": "広げる",
+            "url": stampImageBase + "Right hand under/Hirogeru.png"
+          },
+          {
+            "name": "腰",
+            "url": stampImageBase + "Right hand under/Koshiate.png"
+          },
+          {
+            "name": "パー",
+            "url": stampImageBase + "Right hand under/Pa-.png"
+          },
+          {
+            "name": "ピース",
+            "url": stampImageBase + "Right hand under/Pi-su.png"
+          },
+          {
+            "name": "スタンダード",
+            "url": stampImageBase + "Right hand under/Standard.png"
+          },
+          {
+            "name": "テヘ",
+            "url": stampImageBase + "Right hand under/Tehe.png"
+          },
         ]
       },
       6 : {
@@ -217,12 +273,124 @@ export default function Stamp() {
         "categoryName": "服",
         "parts": [
           {
-            "name": "服",
-            "url": stampImageBase + "Clothes/服.png"
+            "name": "CBAs 1",
+            "url": stampImageBase + "Clothes/CBAs 1.png"
           },
           {
-            "name": "手上向き用服",
-            "url": stampImageBase + "Clothes/手上向き用服.png"
+            "name": "CBAs T2",
+            "url": stampImageBase + "Clothes/CBAs T2.png"
+          },
+          {
+            "name": "CBAs T3",
+            "url": stampImageBase + "Clothes/CBAs T3.png"
+          },
+          {
+            "name": "CBAs T4",
+            "url": stampImageBase + "Clothes/CBAs T4.png"
+          },
+          {
+            "name": "HartT1",
+            "url": stampImageBase + "Clothes/HartT1.png"
+          },
+          {
+            "name": "HartT2",
+            "url": stampImageBase + "Clothes/HartT2.png"
+          },
+          {
+            "name": "HartT3",
+            "url": stampImageBase + "Clothes/HartT3.png"
+          },
+          {
+            "name": "HartT4",
+            "url": stampImageBase + "Clothes/HartT4.png"
+          },
+          {
+            "name": "Mizutama1",
+            "url": stampImageBase + "Clothes/Mizutama1.png"
+          },
+          {
+            "name": "Mizutama2",
+            "url": stampImageBase + "Clothes/Mizutama2.png"
+          },
+          {
+            "name": "Mizutama3",
+            "url": stampImageBase + "Clothes/Mizutama3.png"
+          },
+          {
+            "name": "Mizutama4",
+            "url": stampImageBase + "Clothes/Mizutama4.png"
+          },
+          {
+            "name": "Producer1",
+            "url": stampImageBase + "Clothes/Producer1.png"
+          },
+          {
+            "name": "Producer2",
+            "url": stampImageBase + "Clothes/Producer2.png"
+          },
+          {
+            "name": "Producer3",
+            "url": stampImageBase + "Clothes/Producer3.png"
+          },
+          {
+            "name": "Producer4",
+            "url": stampImageBase + "Clothes/Producer4.png"
+          },
+          {
+            "name": "Ribonn1",
+            "url": stampImageBase + "Clothes/Ribonn1.png"
+          },
+          {
+            "name": "Ribonn2",
+            "url": stampImageBase + "Clothes/Ribonn2.png"
+          },
+          {
+            "name": "Ribonn3",
+            "url": stampImageBase + "Clothes/Ribonn3.png"
+          },
+          {
+            "name": "Ribonn4",
+            "url": stampImageBase + "Clothes/Ribonn4.png"
+          },
+          {
+            "name": "Sailorsuit1",
+            "url": stampImageBase + "Clothes/Sailorsuit1.png"
+          },
+          {
+            "name": "Sailorsuit2",
+            "url": stampImageBase + "Clothes/Sailorsuit2.png"
+          },
+          {
+            "name": "Sailorsuit3",
+            "url": stampImageBase + "Clothes/Sailorsuit3.png"
+          },
+          {
+            "name": "Sailorsuit4",
+            "url": stampImageBase + "Clothes/Sailorsuit4.png"
+          },
+          {
+            "name": "ShikibuT1",
+            "url": stampImageBase + "Clothes/ShikibuT1.png"
+          },
+          {
+            "name": "ShikibuT2",
+            "url": stampImageBase + "Clothes/ShikibuT2.png"
+          },
+          {
+            "name": "ShikibuT3",
+            "url": stampImageBase + "Clothes/ShikibuT3.png"
+          },
+          {
+            "name": "ShikibuT4",
+            "url": stampImageBase + "Clothes/ShikibuT4.png"
+          },
+          {
+            "name": "Tanktop",
+            "url": stampImageBase + "Clothes/Tanktop.png"
+          },
+          {
+            "name": "Uniform",
+            "url": stampImageBase + "Clothes/Uniform.png"
           },
         ]
       },
@@ -230,256 +398,514 @@ export default function Stamp() {
         "layer": "07",
         "categoryName": "顔",
         "parts": [
-          {
-            "name": "red",
-            "url": stampImageBase + "Face01/DABBFBA8-88EB-4C87-BAFA-7B5D501203A3.png"
-          },
-          {
-            "name": "brown",
-            "url": stampImageBase + "Face01/4FF23A41-958A-49B1-AF6A-473D8276F917.png"
-          },
-          {
-            "name": "standard",
-            "url": stampImageBase + "Face01/D3F38817-EE7B-4619-B1AB-CCAF7B1318DE.png"
-          },
-          {
-            "name": "white",
-            "url": stampImageBase + "Face01/2833760A-0314-4C84-9160-80716264AFC0.png"
-          },
+          {"name": "standard", "url": stampImageBase + "Parts01/Face/Standard1.png"},
+          {"name": "red", "url": stampImageBase + "Parts01/Face/Red1.png"},
+          {"name": "brown", "url": stampImageBase + "Parts01/Face/Brown1.png"},
+          {"name": "white", "url": stampImageBase + "Parts01/Face/White1.png"},
+          {"name": "standard", "url": stampImageBase + "Parts02/Face/Standard2.png"},
+          {"name": "red", "url": stampImageBase + "Parts02/Face/Red2.png"},
+          {"name": "brown", "url": stampImageBase + "Parts02/Face/Brown2.png"},
+          {"name": "white", "url": stampImageBase + "Parts02/Face/White2.png"},
+          {"name": "standard", "url": stampImageBase + "Parts03/Face/Standard3.png"},
+          {"name": "red", "url": stampImageBase + "Parts03/Face/Red3.png"},
+          {"name": "brown", "url": stampImageBase + "Parts03/Face/Brown3.png"},
+          {"name": "white", "url": stampImageBase + "Parts03/Face/White3.png"},
+          {"name": "standard", "url": stampImageBase + "Parts04/Face/Standard4.png"},
+          {"name": "red", "url": stampImageBase + "Parts04/Face/Red4.png"},
+          {"name": "brown", "url": stampImageBase + "Parts04/Face/Brown4.png"},
+          {"name": "white", "url": stampImageBase + "Parts04/Face/White4.png"},
+          {"name": "standard", "url": stampImageBase + "Parts05/Face/Standard5.png"},
+          {"name": "red", "url": stampImageBase + "Parts05/Face/Red5.png"},
+          {"name": "brown", "url": stampImageBase + "Parts05/Face/Brown5.png"},
+          {"name": "white", "url": stampImageBase + "Parts05/Face/White5.png"},
+          {"name": "standard", "url": stampImageBase + "Parts06/Face/Standard6.png"},
+          {"name": "red", "url": stampImageBase + "Parts06/Face/Red6.png"},
+          {"name": "brown", "url": stampImageBase + "Parts06/Face/Brown6.png"},
+          {"name": "white", "url": stampImageBase + "Parts06/Face/White6.png"},
+          {"name": "standard", "url": stampImageBase + "Parts07/Face/Standard7.png"},
+          {"name": "red", "url": stampImageBase + "Parts07/Face/Red7.png"},
+          {"name": "brown", "url": stampImageBase + "Parts07/Face/Brown7.png"},
+          {"name": "white", "url": stampImageBase + "Parts07/Face/White7.png"},
+          {"name": "standard", "url": stampImageBase + "Parts08/Face/Standard8.png"},
+          {"name": "red", "url": stampImageBase + "Parts08/Face/Red8.png"},
+          {"name": "brown", "url": stampImageBase + "Parts08/Face/Brown8.png"},
+          {"name": "white", "url": stampImageBase + "Parts08/Face/White8.png"},
+          {"name": "standard", "url": stampImageBase + "Parts09/Face/Standard9.png"},
+          {"name": "red", "url": stampImageBase + "Parts09/Face/Red9.png"},
+          {"name": "brown", "url": stampImageBase + "Parts09/Face/Brown9.png"},
+          {"name": "white", "url": stampImageBase + "Parts09/Face/White9.png"},
+          {"name": "standard", "url": stampImageBase + "Parts10/Face/Standard10.png"},
+          {"name": "red", "url": stampImageBase + "Parts10/Face/Red10.png"},
+          {"name": "brown", "url": stampImageBase + "Parts10/Face/Brown10.png"},
+          {"name": "white", "url": stampImageBase + "Parts10/Face/White10.png"},
         ]
       },
       8 : {
         "layer": "08",
         "categoryName": "目",
         "parts": [
-          {
-            "name": "ウィンク",
-            "url": stampImageBase + "Eyes01/%E3%82%A6%E3%82%A3%E3%83%B3%E3%82%AF.png"
-          },
-          {
-            "name": "ギュッ",
-            "url": stampImageBase + "Eyes01/%E3%82%AE%E3%83%A5%E3%83%83.png"
-          },
-          {
-            "name": "スタンダード",
-            "url": stampImageBase + "Eyes01/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%89.png"
-          },
-          {
-            "name": "つぶる",
-            "url": stampImageBase + "Eyes01/%E3%81%A4%E3%81%B6%E3%82%8B.png"
-          },
-          {
-            "name": "パッチリ",
-            "url": stampImageBase + "Eyes01/%E3%83%91%E3%83%83%E3%83%81%E3%83%AA.png"
-          },
-          {
-            "name": "ボケー",
-            "url": stampImageBase + "Eyes01/%E3%83%9C%E3%82%B1%E3%83%BC.png"
-          },
-          {
-            "name": "下まつ毛のみ",
-            "url": stampImageBase + "Eyes01/%E4%B8%8B%E3%81%BE%E3%81%A4%E6%AF%9B%E3%81%AE%E3%81%BF.png"
-          },
-          {
-            "name": "上向き",
-            "url": stampImageBase + "Eyes01/%E4%B8%8A%E5%90%91%E3%81%8D.png"
-          },
-          {
-            "name": "眠そう",
-            "url": stampImageBase + "Eyes01/%E7%9C%A0%E3%81%9D%E3%81%86.png"
-          },
+          {"name": "スタンダード", "url": stampImageBase + "Parts01/Eyes/Standard1.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts01/Eyes/Boke1.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts01/Eyes/Gyu1.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts01/Eyes/Nemusou1.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts01/Eyes/Pacchiri1.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts01/Eyes/Shitamatuge1.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts01/Eyes/Tuburu1.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts01/Eyes/Uemuki1.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts01/Eyes/Uink1.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts02/Eyes/Standard2.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts02/Eyes/Boke2.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts02/Eyes/Gyu2.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts02/Eyes/Nemusou2.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts02/Eyes/Pacchiri2.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts02/Eyes/Shitamatuge2.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts02/Eyes/Tuburu2.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts02/Eyes/Uemuki2.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts02/Eyes/Uink2.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts03/Eyes/Standard3.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts03/Eyes/Boke3.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts03/Eyes/Gyu3.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts03/Eyes/Nemusou3.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts03/Eyes/Pacchiri3.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts03/Eyes/Shitamatuge3.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts03/Eyes/Tuburu3.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts03/Eyes/Uemuki3.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts03/Eyes/Uink3.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts04/Eyes/Standard4.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts04/Eyes/Boke4.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts04/Eyes/Gyu4.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts04/Eyes/Nemusou4.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts04/Eyes/Pacchiri4.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts04/Eyes/Shitamatuge4.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts04/Eyes/Tuburu4.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts04/Eyes/Uemuki4.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts04/Eyes/Uink4.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts05/Eyes/Standard5.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts05/Eyes/Boke5.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts05/Eyes/Gyu5.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts05/Eyes/Nemusou5.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts05/Eyes/Pacchiri5.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts05/Eyes/Shitamatuge5.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts05/Eyes/Tuburu5.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts05/Eyes/Uemuki5.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts05/Eyes/Uink5.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts06/Eyes/Standard6.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts06/Eyes/Boke6.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts06/Eyes/Gyu6.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts06/Eyes/Nemusou6.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts06/Eyes/Pacchiri6.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts06/Eyes/Shitamatuge6.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts06/Eyes/Tuburu6.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts06/Eyes/Uemuki6.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts06/Eyes/Uink6.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts07/Eyes/Standard7.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts07/Eyes/Boke7.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts07/Eyes/Gyu7.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts07/Eyes/Nemusou7.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts07/Eyes/Pacchiri7.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts07/Eyes/Shitamatuge7.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts07/Eyes/Tuburu7.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts07/Eyes/Uemuki7.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts07/Eyes/Uink7.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts08/Eyes/Standard8.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts08/Eyes/Boke8.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts08/Eyes/Gyu8.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts08/Eyes/Nemusou8.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts08/Eyes/Pacchiri8.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts08/Eyes/Shitamatuge8.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts08/Eyes/Tuburu8.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts08/Eyes/Uemuki8.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts08/Eyes/Uink8.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts09/Eyes/Standard9.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts09/Eyes/Boke9.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts09/Eyes/Gyu9.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts09/Eyes/Nemusou9.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts09/Eyes/Pacchiri9.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts09/Eyes/Shitamatuge9.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts09/Eyes/Tuburu9.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts09/Eyes/Uemuki9.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts09/Eyes/Uink9.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts10/Eyes/Standard10.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts10/Eyes/Boke10.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts10/Eyes/Gyu10.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts10/Eyes/Nemusou10.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts10/Eyes/Pacchiri10.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts10/Eyes/Shitamatuge10.png"},
+          {"name": "つぶる", "url": stampImageBase + "Parts10/Eyes/Tuburu10.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts10/Eyes/Uemuki10.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts10/Eyes/Uink10.png"},
         ]
       },
       9 : {
         "layer": "09",
         "categoryName": "鼻",
         "parts": [
-          {
-            "name": "スタンダード",
-            "url": stampImageBase + "Nose01/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%89.png"
-          },
-          {
-            "name": "なし",
-            "url": noneUrl
-          },
-          {
-            "name": "ピエロ",
-            "url": stampImageBase + "Nose01/%E3%83%94%E3%82%A8%E3%83%AD.png"
-          },
-          {
-            "name": "ピノキオ",
-            "url": stampImageBase + "Nose01/%E3%83%94%E3%83%8E%E3%82%AD%E3%82%AA.png"
-          },
-          {
-            "name": "動物鼻",
-            "url": stampImageBase + "Nose01/%E5%8B%95%E7%89%A9%E9%BC%BB.png"
-          },
-          {
-            "name": "鼻ピアス",
-            "url": stampImageBase + "Nose01/%E9%BC%BB%E3%83%94%E3%82%A2%E3%82%B9.png"
-          },
-          {
-            "name": "絆創膏",
-            "url": stampImageBase + "Nose01/%E7%B5%86%E5%89%B5%E8%86%8F.png"
-          },
+          {"name": "スタンダード", "url": stampImageBase + "Parts01/Nose/Standard1.png"},
+          {"name": "なし", "url": noneUrl},
+          {"name": "絆創膏", "url": stampImageBase + "Parts01/Nose/Bannsoukou1.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts01/Nose/Doubutuhana1.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts01/Nose/Hanapiasu1.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts01/Nose/Piero1.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts02/Nose/Standard2.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts02/Nose/Bannsoukou2.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts02/Nose/Doubutuhana2.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts02/Nose/Hanapiasu2.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts02/Nose/Piero2.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts03/Nose/Standard3.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts03/Nose/Bannsoukou3.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts03/Nose/Doubutuhana3.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts03/Nose/Hanapiasu3.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts03/Nose/Piero3.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts04/Nose/Standard4.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts04/Nose/Bannsoukou4.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts04/Nose/Doubutuhana4.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts04/Nose/Hanapiasu4.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts04/Nose/Piero4.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts05/Nose/Standard5.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts05/Nose/Bannsoukou5.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts05/Nose/Doubutuhana5.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts05/Nose/Hanapiasu5.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts05/Nose/Piero5.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts06/Nose/Standard6.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts06/Nose/Bannsoukou6.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts06/Nose/Doubutuhana6.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts06/Nose/Hanapiasu6.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts06/Nose/Piero6.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts07/Nose/Standard7.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts07/Nose/Bannsoukou7.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts07/Nose/Doubutuhana7.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts07/Nose/Hanapiasu7.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts07/Nose/Piero7.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts08/Nose/Standard8.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts08/Nose/Bannsoukou8.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts08/Nose/Doubutuhana8.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts08/Nose/Hanapiasu8.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts08/Nose/Piero8.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts09/Nose/Standard9.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts09/Nose/Bannsoukou9.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts09/Nose/Doubutuhana9.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts09/Nose/Hanapiasu9.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts09/Nose/Piero9.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts10/Nose/Standard10.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts10/Nose/Bannsoukou10.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts10/Nose/Doubutuhana10.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts10/Nose/Hanapiasu10.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts10/Nose/Piero10.png"},
         ]
       },
       10 : {
         "layer": "10",
         "categoryName": "口",
         "parts": [
-          {
-            "name": "おちょぼ口",
-            "url": stampImageBase + "Mouth01/%E3%81%8A%E3%81%A1%E3%82%87%E3%81%BC%E5%8F%A3.png"
-          },
-          {
-            "name": "なし",
-            "url": noneUrl
-          },
-          {
-            "name": "スンダード",
-            "url": stampImageBase + "Mouth01/%E3%82%B9%E3%83%B3%E3%83%80%E3%83%BC%E3%83%89.png"
-          },
-          {
-            "name": "テヘペロ",
-            "url": stampImageBase + "Mouth01/%E3%83%86%E3%83%98%E3%83%9A%E3%83%AD.png"
-          },
-          {
-            "name": "にぃー",
-            "url": stampImageBase + "Mouth01/%E3%81%AB%E3%81%83%E3%83%BC.png"
-          },
-          {
-            "name": "ニッコリ",
-            "url": stampImageBase + "Mouth01/%E3%83%8B%E3%83%83%E3%82%B3%E3%83%AA.png"
-          },
-          {
-            "name": "ニヒッ",
-            "url": stampImageBase + "Mouth01/%E3%83%8B%E3%83%92%E3%83%83.png"
-          },
-          {
-            "name": "口唇",
-            "url": stampImageBase + "Mouth01/%E5%8F%A3%E5%94%87.png"
-          },
-          {
-            "name": "前歯",
-            "url": stampImageBase + "Mouth01/%E5%89%8D%E6%AD%AF.png"
-          },
+          {"name": "スタンダード", "url": stampImageBase + "Parts01/Mouth/Standard1.png"},
+          {"name": "なし", "url": noneUrl},
+          {"name": "口唇", "url": stampImageBase + "Parts01/Mouth/Kuchibiru1.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts01/Mouth/Maeba1.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts01/Mouth/Nihi1.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts01/Mouth/Nii1.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts01/Mouth/Nikkori1.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts01/Mouth/Ochoboguchi1.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts01/Mouth/Pukkuri1.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts01/Mouth/Tehepero1.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts02/Mouth/Standard2.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts02/Mouth/Kuchibiru2.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts02/Mouth/Maeba2.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts02/Mouth/Nihi2.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts02/Mouth/Nii2.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts02/Mouth/Nikkori2.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts02/Mouth/Ochoboguchi2.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts02/Mouth/Pukkuri2.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts02/Mouth/Tehepero2.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts03/Mouth/Standard3.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts03/Mouth/Kuchibiru3.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts03/Mouth/Maeba3.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts03/Mouth/Nihi3.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts03/Mouth/Nii3.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts03/Mouth/Nikkori3.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts03/Mouth/Ochoboguchi3.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts03/Mouth/Pukkuri3.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts03/Mouth/Tehepero3.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts04/Mouth/Standard4.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts04/Mouth/Kuchibiru4.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts04/Mouth/Maeba4.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts04/Mouth/Nihi4.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts04/Mouth/Nii4.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts04/Mouth/Nikkori4.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts04/Mouth/Ochoboguchi4.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts04/Mouth/Pukkuri4.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts04/Mouth/Tehepero4.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts05/Mouth/Standard5.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts05/Mouth/Kuchibiru5.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts05/Mouth/Maeba5.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts05/Mouth/Nihi5.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts05/Mouth/Nii5.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts05/Mouth/Nikkori5.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts05/Mouth/Ochoboguchi5.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts05/Mouth/Pukkuri5.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts05/Mouth/Tehepero5.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts06/Mouth/Standard6.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts06/Mouth/Kuchibiru6.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts06/Mouth/Maeba6.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts06/Mouth/Nihi6.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts06/Mouth/Nii6.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts06/Mouth/Nikkori6.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts06/Mouth/Ochoboguchi6.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts06/Mouth/Pukkuri6.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts06/Mouth/Tehepero6.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts07/Mouth/Standard7.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts07/Mouth/Kuchibiru7.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts07/Mouth/Maeba7.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts07/Mouth/Nihi7.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts07/Mouth/Nii7.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts07/Mouth/Nikkori7.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts07/Mouth/Ochoboguchi7.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts07/Mouth/Pukkuri7.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts07/Mouth/Tehepero7.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts08/Mouth/Standard8.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts08/Mouth/Kuchibiru8.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts08/Mouth/Maeba8.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts08/Mouth/Nihi8.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts08/Mouth/Nii8.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts08/Mouth/Nikkori8.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts08/Mouth/Ochoboguchi8.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts08/Mouth/Pukkuri8.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts08/Mouth/Tehepero8.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts09/Mouth/Standard9.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts09/Mouth/Kuchibiru9.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts09/Mouth/Maeba9.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts09/Mouth/Nihi9.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts09/Mouth/Nii9.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts09/Mouth/Nikkori9.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts09/Mouth/Ochoboguchi9.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts09/Mouth/Pukkuri9.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts09/Mouth/Tehepero9.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts10/Mouth/Standard10.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts10/Mouth/Kuchibiru10.png"},
+          {"name": "前歯", "url": stampImageBase + "Parts10/Mouth/Maeba10.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts10/Mouth/Nihi10.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts10/Mouth/Nii10.png"},
+          {"name": "ニッコリ", "url": stampImageBase + "Parts10/Mouth/Nikkori10.png"},
+          {"name": "おちょぼ口", "url": stampImageBase + "Parts10/Mouth/Ochoboguchi10.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts10/Mouth/Pukkuri10.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts10/Mouth/Tehepero10.png"},
         ]
       },
       11 : {
         "layer": "11",
         "categoryName": "眉毛",
         "parts": [
-          {
-            "name": "スタンダード",
-            "url": stampImageBase + "Eyebrows01/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%89.png"
-          },
-          {
-            "name": "なし",
-            "url": noneUrl
-          },
-          {
-            "name": "つながり眉",
-            "url": stampImageBase + "Eyebrows01/%E3%81%A4%E3%81%AA%E3%81%8C%E3%82%8A%E7%9C%89.png"
-          },
-          {
-            "name": "困り眉毛",
-            "url": stampImageBase + "Eyebrows01/%E5%9B%B0%E3%82%8A%E7%9C%89%E6%AF%9B.png"
-          },
-          {
-            "name": "怒り眉毛",
-            "url": stampImageBase + "Eyebrows01/%E6%80%92%E3%82%8A%E7%9C%89%E6%AF%9B.png"
-          },
+          {"name": "スタンダード", "url": stampImageBase + "Parts01/Eyebrows/Standard1.png"},
+          {"name": "なし", "url": noneUrl},
+          {"name": "困り眉", "url": stampImageBase + "Parts01/Eyebrows/Komarimayu1.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts01/Eyebrows/Okorimayu1.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts01/Eyebrows/Tunagarimayu1.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts02/Eyebrows/Standard2.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts02/Eyebrows/Komarimayu2.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts02/Eyebrows/Okorimayu2.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts02/Eyebrows/Tunagarimayu2.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts03/Eyebrows/Standard3.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts03/Eyebrows/Komarimayu3.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts03/Eyebrows/Okorimayu3.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts03/Eyebrows/Tunagarimayu3.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts04/Eyebrows/Standard4.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts04/Eyebrows/Komarimayu4.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts04/Eyebrows/Okorimayu4.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts04/Eyebrows/Tunagarimayu4.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts05/Eyebrows/Standard5.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts05/Eyebrows/Komarimayu5.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts05/Eyebrows/Okorimayu5.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts05/Eyebrows/Tunagarimayu5.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts06/Eyebrows/Standard6.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts06/Eyebrows/Komarimayu6.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts06/Eyebrows/Okorimayu6.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts06/Eyebrows/Tunagarimayu6.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts07/Eyebrows/Standard7.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts07/Eyebrows/Komarimayu7.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts07/Eyebrows/Okorimayu7.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts07/Eyebrows/Tunagarimayu7.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts08/Eyebrows/Standard8.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts08/Eyebrows/Komarimayu8.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts08/Eyebrows/Okorimayu8.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts08/Eyebrows/Tunagarimayu8.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts09/Eyebrows/Standard9.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts09/Eyebrows/Komarimayu9.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts09/Eyebrows/Okorimayu9.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts09/Eyebrows/Tunagarimayu9.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts10/Eyebrows/Standard10.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts10/Eyebrows/Komarimayu10.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts10/Eyebrows/Okorimayu10.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts10/Eyebrows/Tunagarimayu10.png"},
         ]
       },
       12 : {
         "layer": "12",
         "categoryName": "ほっぺ",
         "parts": [
-          {
-            "name": "なし",
-            "url": noneUrl
-          },
-          {
-            "name": "ほっぺ",
-            "url": stampImageBase + "Curse01/%E3%81%BB%E3%81%A3%E3%81%BA.png"
-          },
+          {"name": "なし", "url": noneUrl},
         ]
       },
       13 : {
         "layer": "13",
         "categoryName": "髪",
         "parts": [
-          {
-            "name": "0FBD0922-055D-4AF0-BE1A-85637CAA6DB6",
-            "url": stampImageBase + "Hair01/0FBD0922-055D-4AF0-BE1A-85637CAA6DB6.png"
-          },
-          {
-            "name": "5D79641E-4E1F-4061-B138-2F7E39521633",
-            "url": stampImageBase + "Hair01/5D79641E-4E1F-4061-B138-2F7E39521633.png"
-          },
-          {
-            "name": "5DD07541-BA0A-4BFF-96D1-1B2552922158",
-            "url": stampImageBase + "Hair01/5DD07541-BA0A-4BFF-96D1-1B2552922158.png"
-          },
-          {
-            "name": "6AD42123-4B18-4814-9495-EFFCB9235839",
-            "url": stampImageBase + "Hair01/6AD42123-4B18-4814-9495-EFFCB9235839.png"
-          },
-          {
-            "name": "6D32CBB3-C7B5-4E41-A008-5F3AE581FBF6",
-            "url": stampImageBase + "Hair01/6D32CBB3-C7B5-4E41-A008-5F3AE581FBF6.png"
-          },
-          {
-            "name": "8A3385C0-7D22-4654-AC59-4D1CC755BA11",
-            "url": stampImageBase + "Hair01/8A3385C0-7D22-4654-AC59-4D1CC755BA11.png"
-          },
-          {
-            "name": "27F773CF-A59B-462B-95A9-BE6106183E66",
-            "url": stampImageBase + "Hair01/27F773CF-A59B-462B-95A9-BE6106183E66.png"
-          },
-          {
-            "name": "60801BC8-E8E0-4B49-82CD-A773880C3206",
-            "url": stampImageBase + "Hair01/60801BC8-E8E0-4B49-82CD-A773880C3206.png"
-          },
-          {
-            "name": "01678568-D057-46A0-88A5-0C82895EDBC3",
-            "url": stampImageBase + "Hair01/01678568-D057-46A0-88A5-0C82895EDBC3.png"
-          },
-          {
-            "name": "D84DB33E-BC6A-48C1-9CB7-7891260B17C0",
-            "url": stampImageBase + "Hair01/D84DB33E-BC6A-48C1-9CB7-7891260B17C0.png"
-          },
-          {
-            "name": "DB18F1BD-DCD5-4231-8C8D-683166475B27",
-            "url": stampImageBase + "Hair01/DB18F1BD-DCD5-4231-8C8D-683166475B27.png"
-          },
+          {"name": "アフロ", "url": stampImageBase + "Parts01/Hair/Afuro1.png"},
+          {"name": "なし", "url": noneUrl},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts01/Hair/Chonmage1.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts01/Hair/Furannkuhiar1.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts01/Hair/Iketerufuu1.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts01/Hair/Kajuaru1.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts01/Hair/Kyu-pi-fuu1.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts01/Hair/Odangohair1.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts01/Hair/Okappa1.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts01/Hair/Pattunnbobu1.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts01/Hair/Pishittohair1.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts01/Hair/Ri-zennto1.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts02/Hair/Afuro2.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts02/Hair/Chonmage2.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts02/Hair/Furannkuhiar2.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts02/Hair/Iketerufuu2.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts02/Hair/Kajuaru2.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts02/Hair/Kyu-pi-fuu2.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts02/Hair/Odangohair2.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts02/Hair/Okappa2.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts02/Hair/Pattunnbobu2.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts02/Hair/Pishittohair2.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts02/Hair/Ri-zennto2.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts03/Hair/Afuro3.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts03/Hair/Chonmage3.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts03/Hair/Furannkuhiar3.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts03/Hair/Iketerufuu3.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts03/Hair/Kajuaru3.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts03/Hair/Kyu-pi-fuu3.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts03/Hair/Odangohair3.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts03/Hair/Okappa3.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts03/Hair/Pattunnbobu3.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts03/Hair/Pishittohair3.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts03/Hair/Ri-zennto3.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts04/Hair/Afuro4.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts04/Hair/Chonmage4.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts04/Hair/Furannkuhiar4.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts04/Hair/Iketerufuu4.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts04/Hair/Kajuaru4.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts04/Hair/Kyu-pi-fuu4.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts04/Hair/Odangohair4.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts04/Hair/Okappa4.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts04/Hair/Pattunnbobu4.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts04/Hair/Pishittohair4.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts04/Hair/Ri-zennto4.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts05/Hair/Afuro5.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts05/Hair/Chonmage5.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts05/Hair/Furannkuhiar5.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts05/Hair/Iketerufuu5.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts05/Hair/Kajuaru5.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts05/Hair/Kyu-pi-fuu5.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts05/Hair/Odangohair5.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts05/Hair/Okappa5.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts05/Hair/Pattunnbobu5.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts05/Hair/Pishittohair5.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts05/Hair/Ri-zennto5.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts06/Hair/Afuro6.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts06/Hair/Chonmage6.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts06/Hair/Furannkuhiar6.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts06/Hair/Iketerufuu6.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts06/Hair/Kajuaru6.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts06/Hair/Kyu-pi-fuu6.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts06/Hair/Odangohair6.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts06/Hair/Okappa6.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts06/Hair/Pattunnbobu6.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts06/Hair/Pishittohair6.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts06/Hair/Ri-zennto6.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts07/Hair/Afuro7.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts07/Hair/Chonmage7.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts07/Hair/Furannkuhiar7.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts07/Hair/Iketerufuu7.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts07/Hair/Kajuaru7.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts07/Hair/Kyu-pi-fuu7.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts07/Hair/Odangohair7.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts07/Hair/Okappa7.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts07/Hair/Pattunnbobu7.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts07/Hair/Pishittohair7.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts07/Hair/Ri-zennto7.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts08/Hair/Afuro8.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts08/Hair/Chonmage8.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts08/Hair/Furannkuhiar8.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts08/Hair/Iketerufuu8.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts08/Hair/Kajuaru8.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts08/Hair/Kyu-pi-fuu8.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts08/Hair/Odangohair8.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts08/Hair/Okappa8.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts08/Hair/Pattunnbobu8.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts08/Hair/Pishittohair8.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts08/Hair/Ri-zennto8.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts09/Hair/Afuro9.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts09/Hair/Chonmage9.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts09/Hair/Furannkuhiar9.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts09/Hair/Iketerufuu9.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts09/Hair/Kajuaru9.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts09/Hair/Kyu-pi-fuu9.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts09/Hair/Odangohair9.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts09/Hair/Okappa9.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts09/Hair/Pattunnbobu9.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts09/Hair/Pishittohair9.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts09/Hair/Ri-zennto9.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts10/Hair/Afuro10.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts10/Hair/Chonmage10.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts10/Hair/Furannkuhiar10.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts10/Hair/Iketerufuu10.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts10/Hair/Kajuaru10.png"},
+          {"name": "キューピー", "url": stampImageBase + "Parts10/Hair/Kyu-pi-fuu10.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts10/Hair/Odangohair10.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts10/Hair/Okappa10.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts10/Hair/Pattunnbobu10.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts10/Hair/Pishittohair10.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts10/Hair/Ri-zennto10.png"},
         ]
       },
       14 : {
         "layer": "14",
         "categoryName": "メガネ",
         "parts": [
-          {
-            "name": "なし",
-            "url": noneUrl
-          },
-          {
-            "name": "メガネ",
-            "url": stampImageBase + "Glasses01/%E3%83%A1%E3%82%AC%E3%83%8D.png"
-          },
-          {
-            "name": "メガネ-2",
-            "url": stampImageBase + "Glasses01/%E3%83%A1%E3%82%AC%E3%83%8D-2.png"
-          },
-          {
-            "name": "メガネ-3",
-            "url": stampImageBase + "Glasses01/%E3%83%A1%E3%82%AC%E3%83%8D-3.png"
-          },
-          {
-            "name": "メガネ-4",
-            "url": stampImageBase + "Glasses01/%E3%83%A1%E3%82%AC%E3%83%8D-4.png"
-          },
+          {"name": "なし", "url": noneUrl},
+          {"name": "仮面", "url": stampImageBase + "Parts01/Glasses/Kamen1.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts01/Glasses/Marumegane1.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts01/Glasses/Megane1.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts01/Glasses/Sanngurasu1.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts02/Glasses/Kamen2.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts02/Glasses/Marumegane2.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts02/Glasses/Megane2.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts02/Glasses/Sanngurasu2.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts03/Glasses/Kamen3.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts03/Glasses/Marumegane3.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts03/Glasses/Megane3.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts03/Glasses/Sanngurasu3.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts04/Glasses/Kamen4.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts04/Glasses/Marumegane4.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts04/Glasses/Megane4.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts04/Glasses/Sanngurasu4.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts05/Glasses/Kamen5.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts05/Glasses/Marumegane5.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts05/Glasses/Megane5.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts05/Glasses/Sanngurasu5.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts06/Glasses/Kamen6.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts06/Glasses/Marumegane6.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts06/Glasses/Megane6.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts06/Glasses/Sanngurasu6.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts07/Glasses/Kamen7.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts07/Glasses/Marumegane7.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts07/Glasses/Megane7.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts07/Glasses/Sanngurasu7.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts08/Glasses/Kamen8.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts08/Glasses/Marumegane8.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts08/Glasses/Megane8.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts08/Glasses/Sanngurasu8.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts09/Glasses/Kamen9.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts09/Glasses/Marumegane9.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts09/Glasses/Megane9.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts09/Glasses/Sanngurasu9.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts10/Glasses/Kamen10.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts10/Glasses/Marumegane10.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts10/Glasses/Megane10.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts10/Glasses/Sanngurasu10.png"},
         ]
       },
       15 : {
