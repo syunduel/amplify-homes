@@ -11,7 +11,7 @@ export default function Stamp() {
 
   console.log("Stamp start");
 
-  const LAYER_MAX = 16;
+  const LAYER_MAX = 17;
 
   const wait = async (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -72,6 +72,11 @@ export default function Stamp() {
     const [dressUpPic14Url, setDressUpPic14Url] = useState(noneUrl);
     const [dressUpPic15Url, setDressUpPic15Url] = useState(noneUrl);
     const [dressUpPic16Url, setDressUpPic16Url] = useState(noneUrl);
+    const [dressUpPic17Url, setDressUpPic17Url] = useState(noneUrl);
+    const [dressUpPic18Url, setDressUpPic18Url] = useState(noneUrl);
+    const [dressUpPic19Url, setDressUpPic19Url] = useState(noneUrl);
+    const [dressUpPic20Url, setDressUpPic20Url] = useState(noneUrl);
+    const [dressUpPic21Url, setDressUpPic21Url] = useState(noneUrl);
     const [dressUpPicCopyrightUrl, setDressUpPicCopyrightUrl] = useState(noneUrl);
     const [dressUpPicCopyrightDisp, setDressUpPicCopyrightDisp] = useState(false);
     const [dressUpPicVailStyle, setDressUpPicVailStyle] = useState({backgroundColor: 'lightgray'});
@@ -742,6 +747,26 @@ export default function Stamp() {
         "categoryName": "ほっぺ",
         "parts": [
           {"name": "なし", "url": noneUrl},
+          {"name": "カワイイ", "url": stampImageBase + "Parts01/Curse/Kawaii1.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts01/Curse/Nakibokuro1.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts02/Curse/Kawaii2.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts02/Curse/Nakibokuro2.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts03/Curse/Kawaii3.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts03/Curse/Nakibokuro3.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts04/Curse/Kawaii4.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts04/Curse/Nakibokuro4.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts05/Curse/Kawaii5.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts05/Curse/Nakibokuro5.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts06/Curse/Kawaii6.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts06/Curse/Nakibokuro6.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts07/Curse/Kawaii7.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts07/Curse/Nakibokuro7.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts08/Curse/Kawaii8.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts08/Curse/Nakibokuro8.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts09/Curse/Kawaii9.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts09/Curse/Nakibokuro9.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts10/Curse/Kawaii10.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts10/Curse/Nakibokuro10.png"},
         ]
       },
       13 : {
@@ -951,7 +976,25 @@ export default function Stamp() {
             "url": stampImageBase + "Right hand over/%E9%A1%94%E3%81%AB%E6%89%8B%E3%81%82%E3%81%A6%E3%82%8B.png"
           },
         ]
-      },    };
+      },
+      17 : {
+        "layer": "17",
+        "categoryName": "ピノキオの鼻",
+        "parts": [
+          {"name": "なし", "url": noneUrl},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts01/Nose/Pinokio1.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts02/Nose/Pinokio2.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts03/Nose/Pinokio3.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts04/Nose/Pinokio4.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts05/Nose/Pinokio5.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts06/Nose/Pinokio6.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts07/Nose/Pinokio7.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts08/Nose/Pinokio8.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts09/Nose/Pinokio9.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts10/Nose/Pinokio10.png"},
+        ]
+      },
+    };
 
     useEffect(() => {
       window.scrollTo(0, 0)
@@ -1085,6 +1128,16 @@ export default function Stamp() {
         setDressUpPic15Url(nowDressUpPicAccessoryUrl);
       } else if(nowDressUpPicAccessoryLayer === "16") {
         setDressUpPic16Url(nowDressUpPicAccessoryUrl);
+      } else if(nowDressUpPicAccessoryLayer === "17") {
+        setDressUpPic17Url(nowDressUpPicAccessoryUrl);
+      } else if(nowDressUpPicAccessoryLayer === "18") {
+        setDressUpPic18Url(nowDressUpPicAccessoryUrl);
+      } else if(nowDressUpPicAccessoryLayer === "19") {
+        setDressUpPic19Url(nowDressUpPicAccessoryUrl);
+      } else if(nowDressUpPicAccessoryLayer === "20") {
+        setDressUpPic20Url(nowDressUpPicAccessoryUrl);
+      } else if(nowDressUpPicAccessoryLayer === "21") {
+        setDressUpPic21Url(nowDressUpPicAccessoryUrl);
       }
     }
 
@@ -1234,6 +1287,11 @@ export default function Stamp() {
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic14Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic15Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic16Url} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic17Url} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic18Url} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic19Url} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic20Url} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic21Url} />
                     <img id="dress-up-pic-copyright" className={dressUpPicCopyrightDisp? "dress-up-pic": "dress-up-pic-hidden"} crossOrigin='anonymous' src={dressUpPicCopyrightUrl} />
                     <div id="dress-up-pic-vail" className='dress-up-pic' style={dressUpPicVailStyle} />
                     <div id="dress-up-spin" className={dressUpPicSpin}>
