@@ -115,11 +115,11 @@ export const collectionData = {
     //
     // Tokyo Alternative Girls
     //
-    ethereum_0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6 : {
+    ethereum_0x9178A6a8b057210E28B3a7931dD825b04f69703b : {
         name: "Tokyo Alternative Girls",
         chain: "ethereum",
         tag: ["ERC721"],
-        address: "0xc067d3e859cbc2c4a8cf9be96bebfa24b0cba5a6",
+        address: "0x9178A6a8b057210E28B3a7931dD825b04f69703b",
         url: "https://opensea.io/collection/tokyo-alternative-girls",
         point: 10,
         organization: 'Tokyo-Alternative-Girls',
