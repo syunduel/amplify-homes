@@ -21,7 +21,7 @@ export default function CollectionList() {
     // Very long CNP
     targetEvmNFTs.push(["ethereum", "0xcfe50e49ec3e5eb24cc5bbce524166424563dd4e"]);
     // Tokyo Alternative Girls
-    targetEvmNFTs.push(["ethereum", "0x9178A6a8b057210E28B3a7931dD825b04f69703b"]);
+    targetEvmNFTs.push(["ethereum", "0x9178a6a8b057210e28b3a7931dd825b04f69703b"]);
     // Dreamin' Divers Project -Cheers!-
     targetEvmNFTs.push(["ethereum", "0x11c3e2c4329df91f65a16612de90077498cfa6ca"]);
 
