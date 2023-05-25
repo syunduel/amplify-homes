@@ -159,7 +159,7 @@ export function useEthNFTs(targetChain, targetAddress, limit = 1) {
                             nowEthNft.duMetadata = JSON.parse(JSON.stringify(nowEthNft.rawMetadata));
                         }
 
-                        if (nowEthNft.contract.address.toLowerCase() === "0x9178A6a8b057210E28B3a7931dD825b04f69703b") {
+                        if (nowEthNft.contract.address.toLowerCase() === "0x9178a6a8b057210e28b3a7931dd825b04f69703b") {
                             nowEthNft.symbol = "TAG";
                             nowEthNft.name = "Tokyo Alternative Girls";
                             nowEthNft.chain = "ethereum";

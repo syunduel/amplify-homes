@@ -21,7 +21,7 @@ export const organizationData = {
     "Tokyo-Alternative-Girls" : {
         name : "Tokyo Alternative Girls",
         collections : [
-            "ethereum_0x9178A6a8b057210E28B3a7931dD825b04f69703b",
+            "ethereum_0x9178a6a8b057210e28b3a7931dd825b04f69703b",
             "matic_0x99482f3b22793a53f289ba10cfd7c7984cb66a50",
             "ethereum_0x7cdaa56ab5d5ceb31c8611f9fb656a8b66cf028e",
         ],

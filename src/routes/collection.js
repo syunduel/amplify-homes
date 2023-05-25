@@ -19,6 +19,8 @@ export default function Collection() {
         collectionInfo.address = tokenAddress.replace(/[^0-9a-z]/g, '');
     }
 
+    console.log('collectionInfo : ', collectionInfo);
+
     const createNaviLinks = () => {
 
         let organizationName = null;
