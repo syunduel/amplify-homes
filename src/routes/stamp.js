@@ -11,7 +11,7 @@ export default function Stamp() {
 
   console.log("Stamp start");
 
-  const LAYER_MAX = 17;
+  const LAYER_MAX = 18;
 
   const wait = async (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -941,6 +941,7 @@ export default function Stamp() {
             "name": "Good",
             "url": stampImageBase + "Left hand over/Good.png"
           },
+          {"name": "なし", "url": noneUrl},
           {
             "name": "Ok",
             "url": stampImageBase + "Left hand over/Ok.png"
@@ -963,6 +964,7 @@ export default function Stamp() {
             "name": "Good",
             "url": stampImageBase + "Right hand over/Good.png"
           },
+          {"name": "なし", "url": noneUrl},
           {
             "name": "Ok",
             "url": stampImageBase + "Right hand over/Ok.png"
@@ -994,7 +996,94 @@ export default function Stamp() {
           {"name": "ピノキオ", "url": stampImageBase + "Parts10/Nose/Pinokio10.png"},
         ]
       },
+      18 : {
+        "layer": "18",
+        "categoryName": "セリフ",
+        "parts": [
+          {"name": "なし", "url": noneUrl},
+          {"name": "ありえんて…", "url": stampImageBase + "Dialogue/Ariente.png"},
+          {"name": "ありがたや〜", "url": stampImageBase + "Dialogue/Arigataya.png"},
+          {"name": "あざーす！", "url": stampImageBase + "Dialogue/Aza-su.png"},
+          {"name": "大丈夫？", "url": stampImageBase + "Dialogue/Daijobu.png"},
+          {"name": "だいじょうぶ", "url": stampImageBase + "Dialogue/Daijobu2.png"},
+          {"name": "ダル…", "url": stampImageBase + "Dialogue/Daru.png"},
+          {"name": "ですね。", "url": stampImageBase + "Dialogue/Desune.png"},
+          {"name": "どしたの？", "url": stampImageBase + "Dialogue/Dositano.png"},
+          {"name": "どういう事〜？", "url": stampImageBase + "Dialogue/Douiukoto.png"},
+          {"name": "どぅも〜(左)", "url": stampImageBase + "Dialogue/Doumo_left.png"},
+          {"name": "どぅも〜(右)", "url": stampImageBase + "Dialogue/Doumo_right.png"},
+          {"name": "どうして？", "url": stampImageBase + "Dialogue/Doushite.png"},
+          {"name": "エイエイオ〜", "url": stampImageBase + "Dialogue/Eieio.png"},
+          {"name": "えらいこっちゃ", "url": stampImageBase + "Dialogue/Eraikoccha.png"},
+          {"name": "ファイト!!(左)", "url": stampImageBase + "Dialogue/Fight_left.png"},
+          {"name": "ファイト!!(右)", "url": stampImageBase + "Dialogue/Fight_right.png"},
+          {"name": "がんばって!!", "url": stampImageBase + "Dialogue/Ganbatte.png"},
+          {"name": "ごめん", "url": stampImageBase + "Dialogue/Gomen2.png"},
+          {"name": "ごめん!!", "url": stampImageBase + "Dialogue/Gomen.png"},
+          {"name": "ございます", "url": stampImageBase + "Dialogue/Gozaimasu.png"},
+          {"name": "は〜い(左)", "url": stampImageBase + "Dialogue/Ha-i_left.png"},
+          {"name": "は〜い(右)", "url": stampImageBase + "Dialogue/Ha-i_right.png"},
+          {"name": "恥ずかしい!!", "url": stampImageBase + "Dialogue/Hazukashii.png"},
+          {"name": "いまどこ？", "url": stampImageBase + "Dialogue/Imadoko.png"},
+          {"name": "いってきます", "url": stampImageBase + "Dialogue/Ittekimasu.png"},
+          {"name": "いってらっしゃい", "url": stampImageBase + "Dialogue/Itterasshai.png"},
+          {"name": "感激!!", "url": stampImageBase + "Dialogue/Kangeki.png"},
+          {"name": "気合だ!!", "url": stampImageBase + "Dialogue/Kiaida.png"},
+          {"name": "こんばんは", "url": stampImageBase + "Dialogue/Konbanha.png"},
+          {"name": "こんにちは", "url": stampImageBase + "Dialogue/Konnichiha.png"},
+          {"name": "今日無理", "url": stampImageBase + "Dialogue/Kyoumuri.png"},
+          {"name": "まぢで？", "url": stampImageBase + "Dialogue/Madide.png"},
+          {"name": "マジかよ", "url": stampImageBase + "Dialogue/Majikayo.png"},
+          {"name": "待ってるよ", "url": stampImageBase + "Dialogue/Matteruyo.png"},
+          {"name": "問題なし", "url": stampImageBase + "Dialogue/Mondainashi.png"},
+          {"name": "申し訳ございません", "url": stampImageBase + "Dialogue/Mousiwakegozaimasen.png"},
+          {"name": "なんで？", "url": stampImageBase + "Dialogue/Nande.png"},
+          {"name": "何してるの？", "url": stampImageBase + "Dialogue/Nanishiteruno.png"},
+          {"name": "なんか", "url": stampImageBase + "Dialogue/Nanka2.png"},
+          {"name": "なんか…", "url": stampImageBase + "Dialogue/Nanka.png"},
+          {"name": "なんてこった", "url": stampImageBase + "Dialogue/Nantekotta.png"},
+          {"name": "眠たい…", "url": stampImageBase + "Dialogue/Nemutai.png"},
+          {"name": "おはよう", "url": stampImageBase + "Dialogue/Ohayo.png"},
+          {"name": "おぃおぃ", "url": stampImageBase + "Dialogue/Oioi.png"},
+          {"name": "おめでとう", "url": stampImageBase + "Dialogue/Omedeto.png"},
+          {"name": "お願い〜", "url": stampImageBase + "Dialogue/Onegai.png"},
+          {"name": "お願いします", "url": stampImageBase + "Dialogue/Onegaishimasu.png"},
+          {"name": "おそろしい人やで", "url": stampImageBase + "Dialogue/Osoroshi-hitoyade.png"},
+          {"name": "お疲れ様です", "url": stampImageBase + "Dialogue/Otsukaresamadesu.png"},
+          {"name": "応援してる!!", "url": stampImageBase + "Dialogue/Ouen-shiteru.png"},
+          {"name": "おやすみなさい", "url": stampImageBase + "Dialogue/Oyasuminasai.png"},
+          {"name": "ポジティブ〜", "url": stampImageBase + "Dialogue/Positive.png"},
+          {"name": "理解した。", "url": stampImageBase + "Dialogue/Rikaishita.png"},
+          {"name": "そこまで言う？", "url": stampImageBase + "Dialogue/Sokomadeiu.png"},
+          {"name": "すごくイイ", "url": stampImageBase + "Dialogue/Sugokuii.png"},
+          {"name": "すみません", "url": stampImageBase + "Dialogue/Sumimasen.png"},
+          {"name": "助かります", "url": stampImageBase + "Dialogue/Tasukarimasu.png"},
+          {"name": "陳謝。", "url": stampImageBase + "Dialogue/Tinsha.png"},
+          {"name": "うんうん。", "url": stampImageBase + "Dialogue/Unun.png"},
+          {"name": "うれピ〜", "url": stampImageBase + "Dialogue/Urepi.png"},
+          {"name": "ウソでしょ!?", "url": stampImageBase + "Dialogue/Usodesho.png"},
+          {"name": "わかりません", "url": stampImageBase + "Dialogue/Wakarimasen.png"},
+          {"name": "わっかる〜", "url": stampImageBase + "Dialogue/Wakkaru.png"},
+          {"name": "やったぁ", "url": stampImageBase + "Dialogue/Yatta.png"},
+          {"name": "よろしく", "url": stampImageBase + "Dialogue/Yoroshiku.png"},
+          {"name": "ありがとうございます", "url": stampImageBase + "Dialogue/arigato-gozaimasu.png"},
+          {"name": "ありがとう", "url": stampImageBase + "Dialogue/arigato.png"},
+          {"name": "ババァーン!!", "url": stampImageBase + "Dialogue/baba-n.png"},
+          {"name": "だいすき", "url": stampImageBase + "Dialogue/daisuki.png"},
+          {"name": "ドォーン!!", "url": stampImageBase + "Dialogue/do-n.png"},
+          {"name": "え!?", "url": stampImageBase + "Dialogue/e.png"},
+          {"name": "はっ!!", "url": stampImageBase + "Dialogue/ha.png"},
+          {"name": "了解です", "url": stampImageBase + "Dialogue/ryokai-desu.png"},
+          {"name": "すき(左)", "url": stampImageBase + "Dialogue/suki_left.png"},
+          {"name": "すき(右)", "url": stampImageBase + "Dialogue/suki_right.png"},
+          {"name": "ただいま〜", "url": stampImageBase + "Dialogue/tadaima.png"},
+          {"name": "テヘッ", "url": stampImageBase + "Dialogue/tehe.png"},
+        ]
+      },
     };
+
+
+
 
     useEffect(() => {
       window.scrollTo(0, 0)
