@@ -121,6 +121,22 @@ export default function Stamp() {
             "name": "white11",
             "url": stampImageBase + "Parts11/Body/Whitebody11.png"
           },
+          {
+            "name": "standard12",
+            "url": stampImageBase + "Parts12/Body/Standardbody12.png"
+          },
+          {
+            "name": "brown12",
+            "url": stampImageBase + "Parts12/Body/Brownbody12.png"
+          },
+          {
+            "name": "red12",
+            "url": stampImageBase + "Parts12/Body/Redbody12.png"
+          },
+          {
+            "name": "white12",
+            "url": stampImageBase + "Parts12/Body/Whitebody12.png"
+          },
         ]
       },
       2 : {
@@ -265,6 +281,12 @@ export default function Stamp() {
           {"name": "Pa-lefthand11", "url": stampImageBase + "Parts11/Left hand under/Pa-lefthand11.png"},
           {"name": "Pi-us-lefthand11", "url": stampImageBase + "Parts11/Left hand under/Pi-us-lefthand11.png"},
           {"name": "Tehe-lefthand11", "url": stampImageBase + "Parts11/Left hand under/Tehe-lefthand11.png"},
+          {"name": "Gu-lefthand12", "url": stampImageBase + "Parts12/Left hand under/Gu-lefthand12.png"},
+          {"name": "Hirogeru-lefthand12", "url": stampImageBase + "Parts12/Left hand under/Hirogeru-lefthand12.png"},
+          {"name": "Leftarm12", "url": stampImageBase + "Parts12/Left hand under/Leftarm12.png"},
+          {"name": "Pa-lefthand12", "url": stampImageBase + "Parts12/Left hand under/Pa-lefthand12.png"},
+          {"name": "Pi-us-lefthand12", "url": stampImageBase + "Parts12/Left hand under/Pi-us-lefthand12.png"},
+          {"name": "Tehe-lefthand12", "url": stampImageBase + "Parts12/Left hand under/Tehe-lefthand12.png"},
         ]
       },
       5 : {
@@ -309,7 +331,12 @@ export default function Stamp() {
           {"name": "Pi-us-righthand11", "url": stampImageBase + "Parts11/Right hand under/Pi-us-righthand11.png"},
           {"name": "Rightarm11", "url": stampImageBase + "Parts11/Right hand under/Rightarm11.png"},
           {"name": "Tehe-nigiude11", "url": stampImageBase + "Parts11/Right hand under/Tehe-nigiude11.png"},
-
+          {"name": "Gu-righthand12", "url": stampImageBase + "Parts12/Right hand under/Gu-righthand12.png"},
+          {"name": "Hirogeru-righthand12", "url": stampImageBase + "Parts12/Right hand under/Hirogeru-righthand12.png"},
+          {"name": "Pa-migiude12", "url": stampImageBase + "Parts12/Right hand under/Pa-migiude12.png"},
+          {"name": "Pi-us-righthand12", "url": stampImageBase + "Parts12/Right hand under/Pi-us-righthand12.png"},
+          {"name": "Rightarm12", "url": stampImageBase + "Parts12/Right hand under/Rightarm12.png"},
+          {"name": "Tehe-nigiude12", "url": stampImageBase + "Parts12/Right hand under/Tehe-nigiude12.png"},
         ]
       },
       6 : {
@@ -323,6 +350,12 @@ export default function Stamp() {
           {"name": "Pa-leftsleeve11", "url": stampImageBase + "Parts11/Left hand sleeve under/Pa-leftsleeve11.png"},
           {"name": "Pi-su-leftsleeve11", "url": stampImageBase + "Parts11/Left hand sleeve under/Pi-su-leftsleeve11.png"},
           {"name": "Tehe-leftsleeve11", "url": stampImageBase + "Parts11/Left hand sleeve under/Tehe-leftsleeve11.png"},
+          {"name": "Gu-leftsleeve12", "url": stampImageBase + "Parts12/Left hand sleeve under/Gu-leftsleeve12.png"},
+          {"name": "Hirogeru-leftsleeve12", "url": stampImageBase + "Parts12/Left hand sleeve under/Hirogeru-leftsleeve12.png"},
+          {"name": "Leftsleeve12", "url": stampImageBase + "Parts12/Left hand sleeve under/Leftsleeve12.png"},
+          {"name": "Pa-leftsleeve12", "url": stampImageBase + "Parts12/Left hand sleeve under/Pa-leftsleeve12.png"},
+          {"name": "Pi-su-leftsleeve12", "url": stampImageBase + "Parts12/Left hand sleeve under/Pi-su-leftsleeve12.png"},
+          {"name": "Tehe-leftsleeve12", "url": stampImageBase + "Parts12/Left hand sleeve under/Tehe-leftsleeve12.png"},
         ]
       },
       7 : {
@@ -336,6 +369,12 @@ export default function Stamp() {
           {"name": "Pa-rightsleeve11", "url": stampImageBase + "Parts11/Right hand sleeve under/Pa-rightsleeve11.png"},
           {"name": "Pi-us-righesleeve11", "url": stampImageBase + "Parts11/Right hand sleeve under/Pi-us-righesleeve11.png"},
           {"name": "Tehe-rightsleeve11", "url": stampImageBase + "Parts11/Right hand sleeve under/Tehe-rightsleeve11.png"},
+          {"name": "Gu-rightsleeve12", "url": stampImageBase + "Parts12/Right hand sleeve under/Gu-rightsleeve12.png"},
+          {"name": "Hirogeru-rightsleeve12", "url": stampImageBase + "Parts12/Right hand sleeve under/Hirogeru-rightsleeve12.png"},
+          {"name": "Rightsieeve12", "url": stampImageBase + "Parts12/Right hand sleeve under/Rightsieeve12.png"},
+          {"name": "Pa-rightsleeve12", "url": stampImageBase + "Parts12/Right hand sleeve under/Pa-rightsleeve12.png"},
+          {"name": "Pi-us-righesleeve12", "url": stampImageBase + "Parts12/Right hand sleeve under/Pi-us-righesleeve12.png"},
+          {"name": "Tehe-rightsleeve12", "url": stampImageBase + "Parts12/Right hand sleeve under/Tehe-rightsleeve12.png"},
         ]
       },
       8 : {
@@ -502,6 +541,46 @@ export default function Stamp() {
             "name": "Yankii-fuku11",
             "url": stampImageBase + "Parts11/Clothes/Yankii-fuku11.png"
           },
+          {
+            "name": "CBAsT12",
+            "url": stampImageBase + "Parts12/Clothes/CBAsT12.png"
+          },
+          {
+            "name": "Chokki12",
+            "url": stampImageBase + "Parts12/Clothes/Chokki12.png"
+          },
+          {
+            "name": "Gakuran12",
+            "url": stampImageBase + "Parts12/Clothes/Gakuran12.png"
+          },
+          {
+            "name": "Kawajann12",
+            "url": stampImageBase + "Parts12/Clothes/Kawajann12.png"
+          },
+          {
+            "name": "Pa-ka-12",
+            "url": stampImageBase + "Parts12/Clothes/Pa-ka-12.png"
+          },
+          {
+            "name": "ShikibuT12",
+            "url": stampImageBase + "Parts12/Clothes/ShikibuT12.png"
+          },
+          {
+            "name": "Su-tu1-12",
+            "url": stampImageBase + "Parts12/Clothes/Su-tu1-12.png"
+          },
+          {
+            "name": "Su-tu2-12",
+            "url": stampImageBase + "Parts12/Clothes/Su-tu2-12.png"
+          },
+          {
+            "name": "Unifomu12",
+            "url": stampImageBase + "Parts12/Clothes/Unifomu12.png"
+          },
+          {
+            "name": "Yanki-fuku12",
+            "url": stampImageBase + "Parts12/Clothes/Yanki-fuku12.png"
+          },
         ]
       },
       9 : {
@@ -552,6 +631,10 @@ export default function Stamp() {
           {"name": "red", "url": stampImageBase + "Parts11/Face/Red11.png"},
           {"name": "brown", "url": stampImageBase + "Parts11/Face/Brown11.png"},
           {"name": "white", "url": stampImageBase + "Parts11/Face/White11.png"},
+          {"name": "standard", "url": stampImageBase + "Parts12/Face/Standard12.png"},
+          {"name": "red", "url": stampImageBase + "Parts12/Face/Red12.png"},
+          {"name": "brown", "url": stampImageBase + "Parts12/Face/Brown12.png"},
+          {"name": "white", "url": stampImageBase + "Parts12/Face/White12.png"},
         ]
       },
       10 : {
@@ -654,10 +737,19 @@ export default function Stamp() {
           {"name": "眠そう", "url": stampImageBase + "Parts11/Eyes/Nemusou11.png"},
           {"name": "ぱっちり", "url": stampImageBase + "Parts11/Eyes/Pacchiri11.png"},
           {"name": "下まつげ", "url": stampImageBase + "Parts11/Eyes/Shitamatuge11.png"},
-          // {"name": "つぶる", "url": stampImageBase + "Parts11/Eyes/Tuburu11.png"},
           {"name": "上向き", "url": stampImageBase + "Parts11/Eyes/Uemuki11.png"},
           {"name": "ウィンク", "url": stampImageBase + "Parts11/Eyes/Uink11.png"},
           {"name": "ギロッ", "url": stampImageBase + "Parts11/Eyes/Giro11.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts12/Eyes/Standard12.png"},
+          {"name": "ボケ", "url": stampImageBase + "Parts12/Eyes/Boke12.png"},
+          {"name": "ギュッ", "url": stampImageBase + "Parts12/Eyes/Gyu12.png"},
+          {"name": "眠そう", "url": stampImageBase + "Parts12/Eyes/Nemusou12.png"},
+          {"name": "ぱっちり", "url": stampImageBase + "Parts12/Eyes/Pacchiri12.png"},
+          {"name": "下まつげ", "url": stampImageBase + "Parts12/Eyes/Shitamatuge12.png"},
+          // {"name": "つぶる", "url": stampImageBase + "Parts12/Eyes/Tuburu12.png"},
+          {"name": "上向き", "url": stampImageBase + "Parts12/Eyes/Uemuki12.png"},
+          {"name": "ウィンク", "url": stampImageBase + "Parts12/Eyes/Uink12.png"},
+          {"name": "ギロッ", "url": stampImageBase + "Parts12/Eyes/Giro12.png"},
         ]
       },
       11 : {
@@ -720,6 +812,11 @@ export default function Stamp() {
           {"name": "動物鼻", "url": stampImageBase + "Parts11/Nose/Doubutuhana11.png"},
           {"name": "鼻ピアス", "url": stampImageBase + "Parts11/Nose/Hanapiasu11.png"},
           {"name": "ピエロ", "url": stampImageBase + "Parts11/Nose/Piero11.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts12/Nose/Standard12.png"},
+          {"name": "絆創膏", "url": stampImageBase + "Parts12/Nose/Bannsoukou12.png"},
+          {"name": "動物鼻", "url": stampImageBase + "Parts12/Nose/Doubutuhana12.png"},
+          {"name": "鼻ピアス", "url": stampImageBase + "Parts12/Nose/Hanapiasu12.png"},
+          {"name": "ピエロ", "url": stampImageBase + "Parts12/Nose/Piero12.png"},
         ]
       },
       12 : {
@@ -826,6 +923,15 @@ export default function Stamp() {
           // {"name": "おちょぼ口", "url": stampImageBase + "Parts11/Mouth/Ochoboguchi11.png"},
           {"name": "ぷっくり", "url": stampImageBase + "Parts11/Mouth/Pukkuri11.png"},
           {"name": "テヘペロ", "url": stampImageBase + "Parts11/Mouth/Tehepero11.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts12/Mouth/Standard12.png"},
+          {"name": "口唇", "url": stampImageBase + "Parts12/Mouth/Kuchibiru12.png"},
+          // {"name": "前歯", "url": stampImageBase + "Parts12/Mouth/Maeba12.png"},
+          {"name": "ニヒッ", "url": stampImageBase + "Parts12/Mouth/Nihi12.png"},
+          {"name": "ニィー", "url": stampImageBase + "Parts12/Mouth/Nii12.png"},
+          // {"name": "ニッコリ", "url": stampImageBase + "Parts12/Mouth/Nikkori12.png"},
+          // {"name": "おちょぼ口", "url": stampImageBase + "Parts12/Mouth/Ochoboguchi12.png"},
+          {"name": "ぷっくり", "url": stampImageBase + "Parts12/Mouth/Pukkuri12.png"},
+          {"name": "テヘペロ", "url": stampImageBase + "Parts12/Mouth/Tehepero12.png"},
         ]
       },
       13 : {
@@ -877,6 +983,10 @@ export default function Stamp() {
           {"name": "困り眉", "url": stampImageBase + "Parts11/Eyebrows/Komarimayu11.png"},
           {"name": "怒り眉", "url": stampImageBase + "Parts11/Eyebrows/Okorimayu11.png"},
           {"name": "繋がり眉", "url": stampImageBase + "Parts11/Eyebrows/Tunagarimayu11.png"},
+          {"name": "スタンダード", "url": stampImageBase + "Parts12/Eyebrows/Standard12.png"},
+          {"name": "困り眉", "url": stampImageBase + "Parts12/Eyebrows/Komarimayu12.png"},
+          {"name": "怒り眉", "url": stampImageBase + "Parts12/Eyebrows/Okorimayu12.png"},
+          {"name": "繋がり眉", "url": stampImageBase + "Parts12/Eyebrows/Tunagarimayu12.png"},
         ]
       },
       14 : {
@@ -906,6 +1016,8 @@ export default function Stamp() {
           {"name": "泣きぼくろ", "url": stampImageBase + "Parts10/Curse/Nakibokuro10.png"},
           {"name": "カワイイ", "url": stampImageBase + "Parts11/Curse/Kawaii11.png"},
           {"name": "泣きぼくろ", "url": stampImageBase + "Parts11/Curse/Nakibokuro11.png"},
+          {"name": "カワイイ", "url": stampImageBase + "Parts12/Curse/Kawaii12.png"},
+          {"name": "泣きぼくろ", "url": stampImageBase + "Parts12/Curse/Nakibokuro12.png"},
         ]
       },
       15 : {
@@ -1038,6 +1150,21 @@ export default function Stamp() {
           {"name": "Shikibuヘアー", "url": stampImageBase + "Parts11/Hair/Shikibuhair11.png"},
           {"name": "ウェーブ", "url": stampImageBase + "Parts11/Hair/Ue-bu11.png"},
           {"name": "おまけ", "url": stampImageBase + "Parts11/Hair/Okame11.png"},
+          {"name": "アフロ", "url": stampImageBase + "Parts12/Hair/Afuro12.png"},
+          {"name": "ちょんまげ", "url": stampImageBase + "Parts12/Hair/Chonmage12.png"},
+          {"name": "フランク", "url": stampImageBase + "Parts12/Hair/Furannkuhiar12.png"},
+          {"name": "イケてる風", "url": stampImageBase + "Parts12/Hair/Iketerufuu12.png"},
+          {"name": "カジュアル", "url": stampImageBase + "Parts12/Hair/Kajuaru12.png"},
+          // {"name": "キューピー", "url": stampImageBase + "Parts12/Hair/Kyu-pi-fuu12.png"},
+          {"name": "お団子", "url": stampImageBase + "Parts12/Hair/Odangohair12.png"},
+          {"name": "おかっぱ", "url": stampImageBase + "Parts12/Hair/Okappa12.png"},
+          {"name": "ぱっつんボブ", "url": stampImageBase + "Parts12/Hair/Pattunnbobu12.png"},
+          {"name": "ぴしっと", "url": stampImageBase + "Parts12/Hair/Pishittohair12.png"},
+          {"name": "リーゼント", "url": stampImageBase + "Parts12/Hair/Ri-zennto12.png"},
+          {"name": "ポニーテール", "url": stampImageBase + "Parts12/Hair/Poni-te-ru12.png"},
+          {"name": "Shikibuヘアー", "url": stampImageBase + "Parts12/Hair/Shikibuhair12.png"},
+          {"name": "ウェーブ", "url": stampImageBase + "Parts12/Hair/Ue-bu12.png"},
+          {"name": "おまけ", "url": stampImageBase + "Parts12/Hair/Okame12.png"},
         ]
       },
       16 : {
@@ -1089,6 +1216,10 @@ export default function Stamp() {
           {"name": "丸メガネ", "url": stampImageBase + "Parts11/Glasses/Marumegane11.png"},
           {"name": "メガネ", "url": stampImageBase + "Parts11/Glasses/Megane11.png"},
           {"name": "サングラス", "url": stampImageBase + "Parts11/Glasses/Sanngurasu11.png"},
+          {"name": "仮面", "url": stampImageBase + "Parts12/Glasses/Kamen12.png"},
+          {"name": "丸メガネ", "url": stampImageBase + "Parts12/Glasses/Marumegane12.png"},
+          {"name": "メガネ", "url": stampImageBase + "Parts12/Glasses/Megane12.png"},
+          {"name": "サングラス", "url": stampImageBase + "Parts12/Glasses/Sanngurasu12.png"},
         ]
       },
       17 : {
@@ -1128,6 +1259,22 @@ export default function Stamp() {
             "name": "顔に手あてる",
             "url": stampImageBase + "Parts11/Left hand over/Kaoniteateru11.png"
           },
+          {
+            "name": "Good",
+            "url": stampImageBase + "Parts12/Left hand over/Good12.png"
+          },
+          {
+            "name": "Ok",
+            "url": stampImageBase + "Parts12/Left hand over/Ok12.png"
+          },
+          {
+            "name": "パー",
+            "url": stampImageBase + "Parts12/Left hand over/Lefthand12.png"
+          },
+          {
+            "name": "顔に手あてる",
+            "url": stampImageBase + "Parts12/Left hand over/Kaoniteateru12.png"
+          },
         ]
       },
       18 : {
@@ -1155,6 +1302,10 @@ export default function Stamp() {
           {"name": "Kaoniteateru-righthand11", "url": stampImageBase + "Parts11/Right hand over/Kaoniteateru-righthand11.png"},
           {"name": "Ok-righthand11", "url": stampImageBase + "Parts11/Right hand over/Ok-righthand11.png"},
           {"name": "Refthand11", "url": stampImageBase + "Parts11/Right hand over/Refthand11.png"},
+          {"name": "Good-righthand12", "url": stampImageBase + "Parts12/Right hand over/Good-righthand12.png"},
+          {"name": "Kaoniteateru-righthand12", "url": stampImageBase + "Parts12/Right hand over/Kaoniteateru-righthand12.png"},
+          {"name": "Ok-righthand12", "url": stampImageBase + "Parts12/Right hand over/Ok-righthand12.png"},
+          {"name": "Refthand12", "url": stampImageBase + "Parts12/Right hand over/Refthand12.png"},
         ]
       },
       19 : {
@@ -1165,6 +1316,9 @@ export default function Stamp() {
           {"name": "Good-leftskeeve11", "url": stampImageBase + "Parts11/Left hand sleeve over/Good-leftskeeve11.png"},
           {"name": "Kaoniteateru-leftsleeve11", "url": stampImageBase + "Parts11/Left hand sleeve over/Kaoniteateru-leftsleeve11.png"},
           {"name": "Ok-leftsleeve11", "url": stampImageBase + "Parts11/Left hand sleeve over/Ok-leftsleeve11.png"},
+          {"name": "Good-leftskeeve12", "url": stampImageBase + "Parts12/Left hand sleeve over/Good-leftskeeve12.png"},
+          {"name": "Kaoniteateru-leftsleeve12", "url": stampImageBase + "Parts12/Left hand sleeve over/Kaoniteateru-leftsleeve12.png"},
+          {"name": "Ok-leftsleeve12", "url": stampImageBase + "Parts12/Left hand sleeve over/Ok-leftsleeve12.png"},
         ]
       },
       20 : {
@@ -1175,6 +1329,9 @@ export default function Stamp() {
           {"name": "Good-rightsleeve11", "url": stampImageBase + "Parts11/Right hand sleeve over/Good-rightsleeve11.png"},
           {"name": "Kaoniteateru-rightsleeve11", "url": stampImageBase + "Parts11/Right hand sleeve over/Kaoniteateru-rightsleeve11.png"},
           {"name": "Ok-rightsleeve11", "url": stampImageBase + "Parts11/Right hand sleeve over/Ok-rightsleeve11.png"},
+          {"name": "Good-rightsleeve12", "url": stampImageBase + "Parts12/Right hand sleeve over/Good-rightsleeve12.png"},
+          {"name": "Kaoniteateru-rightsleeve12", "url": stampImageBase + "Parts12/Right hand sleeve over/Kaoniteateru-rightsleeve12.png"},
+          {"name": "Ok-rightsleeve12", "url": stampImageBase + "Parts12/Right hand sleeve over/Ok-rightsleeve12.png"},
         ]
       },
       21 : {
@@ -1193,6 +1350,7 @@ export default function Stamp() {
           {"name": "ピノキオ", "url": stampImageBase + "Parts09/Nose/Pinokio9.png"},
           {"name": "ピノキオ", "url": stampImageBase + "Parts10/Nose/Pinokio10.png"},
           {"name": "ピノキオ", "url": stampImageBase + "Parts11/Nose/Pinokio11.png"},
+          {"name": "ピノキオ", "url": stampImageBase + "Parts12/Nose/Pinokio12.png"},
         ]
       },
       22 : {
