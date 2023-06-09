@@ -10,8 +10,8 @@ export const collectionData = {
         url: "https://opensea.io/collection/love-addicted-girls",
         point: 9,
         organization: 'SoudanNFT',
-        metadataHead: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/token-uri/',
-        metadataTail: '.json',
+        // metadataHead: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Eth/LAG_0x9c99d7f09d4a7e23ea4e36aec4cb590c5bbdb0e2/token-uri/',
+        // metadataTail: '.json',
         parts: [
             {
                 chain: 'goerli',
@@ -37,8 +37,8 @@ export const collectionData = {
         url: "https://opensea.io/collection/love-addicted-girls-memories",
         point: 1,
         organization: 'SoudanNFT',
-        metadataHead: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/token-uri/',
-        metadataTail: '.json',
+        // metadataHead: 'https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/collection/Polygon/LAGM_0x1a4041cce1aea5fff82e13780d1b1f522a047ef9/token-uri/',
+        // metadataTail: '.json',
 
     },
     ethereum_0xd1113831c6e44392473721851222251591e445a0 : {
