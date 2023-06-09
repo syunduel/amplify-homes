@@ -207,7 +207,8 @@ function setProps(serverCollectionRoot, nowEthNft, targetChain, targetAddress) {
     }
 
     // 画像を自前サーバーから取得する
-    if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "MDFN" || nowEthNft.symbol === "TAG") {
+    // if (nowEthNft.symbol === "LAG" || nowEthNft.symbol === "LAGM" || nowEthNft.symbol === "MDFN" || nowEthNft.symbol === "TAG") {
+    if (nowEthNft.symbol === "TAG") {
         // 何故か読み込めない時があったので、画像はうちのS3に置いてある。
         let nowImageName = nowEthNft.tokenId;
         // LAGとLAGMの画像ファイル名は4桁固定の0パディング
@@ -226,7 +227,11 @@ function setProps(serverCollectionRoot, nowEthNft, targetChain, targetAddress) {
             // nowEthNft.moralisImageUriThumbnail = nowEthNft.media[0].thumbnail;
 
             if (nowEthNft.media[0].raw !== undefined && nowEthNft.media[0].raw !== "" && nowEthNft.media[0].raw.indexOf("ipfs://") === 0) {
-                nowEthNft.moralisImageUri = getImageUri(nowEthNft.media[0].raw);
+                nowEthNft.moralisImageUri = nowEthNft.media[0].raw.replace("ipfs://", "https://w3s.link/ipfs/");
+                // nowEthNft.moralisImageUri = nowEthNft.media[0].thumbnail;
+                // nowEthNft.moralisImageUri = nowEthNft.media[0].gateway;
+            } else if (nowEthNft.media[0].raw !== undefined && nowEthNft.media[0].raw !== "" && nowEthNft.media[0].raw.indexOf("ar://") === 0) {
+                nowEthNft.moralisImageUri = nowEthNft.media[0].raw.replace("ar://", "https://arweave.net/");
             } else {
                 nowEthNft.moralisImageUri = nowEthNft.media[0].raw;
             }
@@ -240,13 +245,6 @@ function setProps(serverCollectionRoot, nowEthNft, targetChain, targetAddress) {
     console.log("setProps return", nowEthNft);
 
     return nowEthNft;
-}
-
-export function getImageUri(ipfsUri) {
-    // console.log(ipfsUri);
-    let returnStr = "https://gateway.moralisipfs.com/ipfs/" + ipfsUri.substring(7);
-    // console.log(returnStr);
-    return returnStr;
 }
 
 export function useEthNFT(targetChain, targetAddress, targetTokenId) {
