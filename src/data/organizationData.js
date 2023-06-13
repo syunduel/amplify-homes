@@ -30,6 +30,7 @@ export const organizationData = {
         name : "Character DAO",
         collections : [
             "ethereum_0x32edd2f7437665af088347791521f454831aaa29",  // ShikibuWorld
+            "ethereum_0x327879ed99ea43cf0a7a31034edf7c8f17d63fbd",  // BLUECHIP-GENESIS-
             "ethereum_0x5aa876e4df67c24ff4108ad0c7b8efae4a95a9c2",  // Blue Chibi Members | BCM
             "matic_0x336f94101c183fb8f928d8eb843d8054f9e18d67",     // NewYear2023
             "matic_0xa8052745d8b87e1fe9ec0cbb8989ba3a3505fe1c",     // BlueChip NewYear2023 Soulbound NFT

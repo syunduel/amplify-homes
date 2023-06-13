@@ -48,6 +48,65 @@ export default function NFTList(targetCain, targetAddress, dispLimit = 5, dispCo
         return returnValue;
     }
 
+    const getTraitsCount = () => {
+
+        if (collectionInfo.chain === "ethereum" && collectionInfo.address === "0x327879ed99ea43cf0a7a31034edf7c8f17d63fbd" && nfts !== undefined && nfts.length > 0) {
+
+            var traits = new Map([
+                ["aoi", 0],
+                ["coo", 0],
+                ["oak", 0],
+                ["len", 0],
+                ["tien", 0],
+                ["rize", 0],
+                ["alvar", 0],
+                ["mamoru", 0],
+                ["oruta", 0],
+                ["mone", 0],
+                ["lycian", 0],
+            ]);
+
+            nfts.forEach(nowNft => {
+                var nowTrait = nowNft.duMetadata.attributes.find((v) => v.trait_type === "CHARACTER");
+                var nowTraitValue = nowTrait["value"];
+                console.log("nowTrait", nowTraitValue);
+
+                if (traits.hasOwnProperty(nowTraitValue)) {
+                    traits[nowTraitValue] = traits[nowTraitValue] + 1;
+                } else {
+                    traits[nowTraitValue] = 1;
+                }
+
+            });
+
+            return (
+                <>
+                    <div className="page-head" key={'mv1'}>
+                        <p className="love-power">
+                            アオイ: {traits["aoi"]},
+                            クー: {traits["coo"]},
+                            オーク: {traits["oak"]},
+                            レン: {traits["len"]},
+                            ティエン: {traits["tien"]},
+                            リゼ: {traits["rize"]},
+                            アルバ: {traits["alvar"]},
+                            マモル: {traits["mamoru"]},
+                            オルタ: {traits["oruta"]},
+                            モネ: {traits["mone"]},
+                            ライシャン: {traits["lycian"]}
+                        </p>
+                    </div>
+                </>
+            );
+    
+        }
+        
+        return (
+            <></>
+        );
+
+    }
+
     const cardNFTOverrides = {
         "image": {
           crossOrigin: "anonymous",
@@ -65,6 +124,7 @@ export default function NFTList(targetCain, targetAddress, dispLimit = 5, dispCo
                     {getTag()}
                 </ul>
             </div>
+            {getTraitsCount()}
 
             <div className="mv" style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', padding: '1em'}}>
                 {isConnected && nfts !== undefined && nfts.map((ethNFT) => (
