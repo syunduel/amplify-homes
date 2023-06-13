@@ -211,6 +211,14 @@ export const collectionData = {
         url: "https://opensea.io/collection/charadaostoresbt1st",
         organization: 'Character-DAO',
     },
+    ethereum_0x327879ed99ea43cf0a7a31034edf7c8f17d63fbd : {
+        name: "BLUECHIP-GENESIS-",
+        chain: "ethereum",
+        tag: ["ERC721"],
+        address: "0x327879ed99ea43cf0a7a31034edf7c8f17d63fbd",
+        url: "https://opensea.io/collection/bluechip-genesis-",
+        organization: 'Character-DAO',
+    },
     //
     // Neo Tokyo Punks
     //
