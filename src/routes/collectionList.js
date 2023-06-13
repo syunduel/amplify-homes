@@ -16,6 +16,8 @@ export default function CollectionList() {
     targetEvmNFTs.push(["ethereum", "0xc4c93bc64a0d2f837fa9fed0682eafc3960bec12"])
     // ShikibuWorld
     targetEvmNFTs.push(["ethereum", "0x32edd2f7437665af088347791521f454831aaa29"])
+    // BLUECHIP-GENESIS-
+    targetEvmNFTs.push(["ethereum", "0x327879ed99ea43cf0a7a31034edf7c8f17d63fbd"])
     // CryptoNinja Partners
     targetEvmNFTs.push(["ethereum", "0x138a5c693279b6cd82f48d4bef563251bc15adce"]);
     // Very long CNP
