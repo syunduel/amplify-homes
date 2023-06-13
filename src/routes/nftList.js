@@ -52,19 +52,18 @@ export default function NFTList(targetCain, targetAddress, dispLimit = 5, dispCo
 
         if (collectionInfo.chain === "ethereum" && collectionInfo.address === "0x327879ed99ea43cf0a7a31034edf7c8f17d63fbd" && nfts !== undefined && nfts.length > 0) {
 
-            var traits = new Map([
-                ["aoi", 0],
-                ["coo", 0],
-                ["oak", 0],
-                ["len", 0],
-                ["tien", 0],
-                ["rize", 0],
-                ["alvar", 0],
-                ["mamoru", 0],
-                ["oruta", 0],
-                ["mone", 0],
-                ["lycian", 0],
-            ]);
+            var traits = new Map();
+            traits["aoi"] = 0;
+            traits["coo"] = 0;
+            traits["oak"] = 0;
+            traits["len"] = 0;
+            traits["tien"] = 0;
+            traits["rize"] = 0;
+            traits["alvar"] = 0;
+            traits["mamoru"] = 0;
+            traits["oruta"] = 0;
+            traits["mone"] = 0;
+            traits["lycian"] = 0;
 
             nfts.forEach(nowNft => {
                 var nowTrait = nowNft.duMetadata.attributes.find((v) => v.trait_type === "CHARACTER");
@@ -78,6 +77,8 @@ export default function NFTList(targetCain, targetAddress, dispLimit = 5, dispCo
                 }
 
             });
+
+            console.log("traits", traits);
 
             return (
                 <>
