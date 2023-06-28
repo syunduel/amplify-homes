@@ -1627,17 +1627,142 @@ export default function Stamp() {
         return;
       }
 
-      setSelectedDressUpGroup(event.target.value);
+      const nowDressUpPicAccessoryCategory = event.target.value;
+      setSelectedDressUpGroup(nowDressUpPicAccessoryCategory);
 
-      if (event.target.value.includes("Full-body")) {
-        setDressUpPic06Url(noneUrl);
-        setDressUpPic07Url(noneUrl);
+      setDressUpPic04Url(noneUrl);
+      setDressUpPic05Url(noneUrl);
+      setDressUpPic06Url(noneUrl);
+      setDressUpPic07Url(noneUrl);
+      setDressUpPic14Url(noneUrl);
+      setDressUpPic16Url(noneUrl);
+      setDressUpPic19Url(noneUrl);
+      setDressUpPic20Url(noneUrl);
+      setDressUpPic21Url(noneUrl);
+      setDressUpPic22Url(noneUrl);
+
+      if (nowDressUpPicAccessoryCategory.includes("Full-body")) {
+        setDressUpPic01Url(dressUpPartsSetSKB[1].parts[0].url);
+        setDressUpPic02Url(dressUpPartsSetSKB[2].parts[0].url);
+        setDressUpPic03Url(dressUpPartsSetSKB[3].parts[0].url);
+        setDressUpPic08Url(dressUpPartsSetSKB[8].parts[0].url);
+        setDressUpPic17Url(dressUpPartsSetSKB[17].parts[0].url);
+        setDressUpPic18Url(dressUpPartsSetSKB[18].parts[0].url);
         setDressUpPic19Url(noneUrl);
         setDressUpPic20Url(noneUrl);
-      } else if (event.target.value.includes("Close-up")) {
+      } else if (nowDressUpPicAccessoryCategory.includes("Close-up")) {
         setDressUpPic02Url(noneUrl);
         setDressUpPic03Url(noneUrl);
       }
+
+      if (nowDressUpPicAccessoryCategory.includes("Parts01")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[0].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[0].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[0].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[0].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[0].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[0].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts02")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[4].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[9].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[6].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[10].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[5].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[12].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts03")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[8].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[18].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[11].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[19].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[9].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[23].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts04")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[12].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[27].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[16].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[28].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[13].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[34].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts05")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[16].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[36].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[21].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[37].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[17].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[45].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts06")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[20].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[45].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[26].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[46].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[21].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[56].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts07")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[24].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[54].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[31].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[55].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[25].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[67].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts08")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[28].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[63].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[36].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[64].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[29].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[78].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts09")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[32].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[72].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[41].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[73].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[33].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[89].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts10")) {
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[36].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[81].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[46].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[82].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[37].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[100].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts11")) {
+        setDressUpPic01Url(dressUpPartsSetSKB[1].parts[4].url);
+        setDressUpPic08Url(dressUpPartsSetSKB[8].parts[30].url);
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[40].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[90].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[51].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[91].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[41].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[111].url);
+        setDressUpPic17Url(dressUpPartsSetSKB[17].parts[5].url);
+        setDressUpPic18Url(dressUpPartsSetSKB[18].parts[5].url);
+
+      } else if (nowDressUpPicAccessoryCategory.includes("Parts12")) {
+        setDressUpPic01Url(dressUpPartsSetSKB[1].parts[8].url);
+        setDressUpPic08Url(dressUpPartsSetSKB[8].parts[40].url);
+        setDressUpPic09Url(dressUpPartsSetSKB[9].parts[44].url);
+        setDressUpPic10Url(dressUpPartsSetSKB[10].parts[99].url);
+        setDressUpPic11Url(dressUpPartsSetSKB[11].parts[56].url);
+        setDressUpPic12Url(dressUpPartsSetSKB[12].parts[97].url);
+        setDressUpPic13Url(dressUpPartsSetSKB[13].parts[45].url);
+        setDressUpPic15Url(dressUpPartsSetSKB[15].parts[125].url);
+        setDressUpPic17Url(dressUpPartsSetSKB[17].parts[9].url);
+        setDressUpPic18Url(dressUpPartsSetSKB[18].parts[9].url);
+
+      }
+
+
+
     }
 
     const createPartsArea = () => {
