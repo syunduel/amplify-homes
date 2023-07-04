@@ -63,6 +63,16 @@
   height: 100%;
 }
 
+.dress-up-pic-cbas {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  /* padding-bottom: 10px;
+  padding-left: 10px; */
+  width: 40%;
+  height: 40%;
+}
+
 .dress-up-pic-hidden {
   position: absolute;
   bottom: 0px;
