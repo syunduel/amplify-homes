@@ -11,7 +11,7 @@ export default function Stamp() {
 
   console.log("Stamp start");
 
-  const LAYER_MAX = 22;
+  const LAYER_MAX = 23;
 
   const wait = async (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -722,15 +722,25 @@ export default function Stamp() {
         "layer": "10",
         "categoryName": "目",
         "parts": [
-          {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Eyes/Standard1.png"},
-          {"group": "Parts01", "name": "ボケ", "url": stampImageBase + "Parts01/Eyes/Boke1.png"},
-          {"group": "Parts01", "name": "ギュッ", "url": stampImageBase + "Parts01/Eyes/Gyu1.png"},
-          {"group": "Parts01", "name": "眠そう", "url": stampImageBase + "Parts01/Eyes/Nemusou1.png"},
-          {"group": "Parts01", "name": "ぱっちり", "url": stampImageBase + "Parts01/Eyes/Pacchiri1.png"},
-          {"group": "Parts01", "name": "下まつげ", "url": stampImageBase + "Parts01/Eyes/Shitamatuge1.png"},
-          {"group": "Parts01", "name": "つぶる", "url": stampImageBase + "Parts01/Eyes/Tuburu1.png"},
-          {"group": "Parts01", "name": "上向き", "url": stampImageBase + "Parts01/Eyes/Uemuki1.png"},
-          {"group": "Parts01", "name": "ウィンク", "url": stampImageBase + "Parts01/Eyes/Uink1.png"},
+          {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts13/Eyes/Standard-eye.png"},
+          {"group": "Parts01", "name": "ガーン", "url": stampImageBase + "Parts13/Eyes/Ga-n.png"},
+          {"group": "Parts01", "name": "ギュ", "url": stampImageBase + "Parts13/Eyes/Gyu.png"},
+          {"group": "Parts01", "name": "ハート", "url": stampImageBase + "Parts13/Eyes/Ha-to.png"},
+          {"group": "Parts01", "name": "泣く", "url": stampImageBase + "Parts13/Eyes/Naku.png"},
+          {"group": "Parts01", "name": "ニッコリ", "url": stampImageBase + "Parts13/Eyes/Nikkori.png"},
+          {"group": "Parts01", "name": "白目", "url": stampImageBase + "Parts13/Eyes/Shirome.png"},
+          {"group": "Parts01", "name": "瞑る", "url": stampImageBase + "Parts13/Eyes/Tuburu.png"},
+          {"group": "Parts01", "name": "上向き", "url": stampImageBase + "Parts13/Eyes/Uemuki.png"},
+          {"group": "Parts01", "name": "ウィンク", "url": stampImageBase + "Parts13/Eyes/Uink.png"},
+          // {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Eyes/Standard1.png"},
+          // {"group": "Parts01", "name": "ボケ", "url": stampImageBase + "Parts01/Eyes/Boke1.png"},
+          // {"group": "Parts01", "name": "ギュッ", "url": stampImageBase + "Parts01/Eyes/Gyu1.png"},
+          // {"group": "Parts01", "name": "眠そう", "url": stampImageBase + "Parts01/Eyes/Nemusou1.png"},
+          // {"group": "Parts01", "name": "ぱっちり", "url": stampImageBase + "Parts01/Eyes/Pacchiri1.png"},
+          // {"group": "Parts01", "name": "下まつげ", "url": stampImageBase + "Parts01/Eyes/Shitamatuge1.png"},
+          // {"group": "Parts01", "name": "つぶる", "url": stampImageBase + "Parts01/Eyes/Tuburu1.png"},
+          // {"group": "Parts01", "name": "上向き", "url": stampImageBase + "Parts01/Eyes/Uemuki1.png"},
+          // {"group": "Parts01", "name": "ウィンク", "url": stampImageBase + "Parts01/Eyes/Uink1.png"},
           {"group": "Parts02", "name": "スタンダード", "url": stampImageBase + "Parts02/Eyes/Standard2.png"},
           {"group": "Parts02", "name": "ボケ", "url": stampImageBase + "Parts02/Eyes/Boke2.png"},
           {"group": "Parts02", "name": "ギュッ", "url": stampImageBase + "Parts02/Eyes/Gyu2.png"},
@@ -837,12 +847,13 @@ export default function Stamp() {
         "layer": "11",
         "categoryName": "鼻",
         "parts": [
-          {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Nose/Standard1.png"},
+          {"group": "Parts01", "name": "鼻", "url": stampImageBase + "Parts13/Nose/Nose.png"},
+          // {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Nose/Standard1.png"},
           {"name": "なし", "url": noneUrl},
-          {"group": "Parts01", "name": "絆創膏", "url": stampImageBase + "Parts01/Nose/Bannsoukou1.png"},
-          {"group": "Parts01", "name": "動物鼻", "url": stampImageBase + "Parts01/Nose/Doubutuhana1.png"},
-          {"group": "Parts01", "name": "鼻ピアス", "url": stampImageBase + "Parts01/Nose/Hanapiasu1.png"},
-          {"group": "Parts01", "name": "ピエロ", "url": stampImageBase + "Parts01/Nose/Piero1.png"},
+          // {"group": "Parts01", "name": "絆創膏", "url": stampImageBase + "Parts01/Nose/Bannsoukou1.png"},
+          // {"group": "Parts01", "name": "動物鼻", "url": stampImageBase + "Parts01/Nose/Doubutuhana1.png"},
+          // {"group": "Parts01", "name": "鼻ピアス", "url": stampImageBase + "Parts01/Nose/Hanapiasu1.png"},
+          // {"group": "Parts01", "name": "ピエロ", "url": stampImageBase + "Parts01/Nose/Piero1.png"},
           {"group": "Parts02", "name": "スタンダード", "url": stampImageBase + "Parts02/Nose/Standard2.png"},
           {"group": "Parts02", "name": "絆創膏", "url": stampImageBase + "Parts02/Nose/Bannsoukou2.png"},
           {"group": "Parts02", "name": "動物鼻", "url": stampImageBase + "Parts02/Nose/Doubutuhana2.png"},
@@ -904,16 +915,26 @@ export default function Stamp() {
         "layer": "12",
         "categoryName": "口",
         "parts": [
-          {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Mouth/Standard1.png"},
+          {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts13/Mouth/Standard.png"},
           {"name": "なし", "url": noneUrl},
-          {"group": "Parts01", "name": "口唇", "url": stampImageBase + "Parts01/Mouth/Kuchibiru1.png"},
-          {"group": "Parts01", "name": "前歯", "url": stampImageBase + "Parts01/Mouth/Maeba1.png"},
-          {"group": "Parts01", "name": "ニヒッ", "url": stampImageBase + "Parts01/Mouth/Nihi1.png"},
-          {"group": "Parts01", "name": "ニィー", "url": stampImageBase + "Parts01/Mouth/Nii1.png"},
-          {"group": "Parts01", "name": "ニッコリ", "url": stampImageBase + "Parts01/Mouth/Nikkori1.png"},
-          {"group": "Parts01", "name": "おちょぼ口", "url": stampImageBase + "Parts01/Mouth/Ochoboguchi1.png"},
-          {"group": "Parts01", "name": "ぷっくり", "url": stampImageBase + "Parts01/Mouth/Pukkuri1.png"},
-          {"group": "Parts01", "name": "テヘペロ", "url": stampImageBase + "Parts01/Mouth/Tehepero1.png"},
+          {"group": "Parts01", "name": "チュ", "url": stampImageBase + "Parts13/Mouth/Chu.png"},
+          {"group": "Parts01", "name": "ホェ〜", "url": stampImageBase + "Parts13/Mouth/Hoe.png"},
+          {"group": "Parts01", "name": "ホ〜", "url": stampImageBase + "Parts13/Mouth/Hoo.png"},
+          {"group": "Parts01", "name": "口唇", "url": stampImageBase + "Parts13/Mouth/Kutibiru.png"},
+          {"group": "Parts01", "name": "ニヒッ", "url": stampImageBase + "Parts13/Mouth/Nihi.png"},
+          {"group": "Parts01", "name": "ニコリ", "url": stampImageBase + "Parts13/Mouth/Nikori.png"},
+          {"group": "Parts01", "name": "ンー", "url": stampImageBase + "Parts13/Mouth/Nn.png"},
+          {"group": "Parts01", "name": "オット", "url": stampImageBase + "Parts13/Mouth/Otto.png"},
+          {"group": "Parts01", "name": "テヘッ", "url": stampImageBase + "Parts13/Mouth/Tehe.png"},
+          // {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Mouth/Standard1.png"},
+          // {"group": "Parts01", "name": "口唇", "url": stampImageBase + "Parts01/Mouth/Kuchibiru1.png"},
+          // {"group": "Parts01", "name": "前歯", "url": stampImageBase + "Parts01/Mouth/Maeba1.png"},
+          // {"group": "Parts01", "name": "ニヒッ", "url": stampImageBase + "Parts01/Mouth/Nihi1.png"},
+          // {"group": "Parts01", "name": "ニィー", "url": stampImageBase + "Parts01/Mouth/Nii1.png"},
+          // {"group": "Parts01", "name": "ニッコリ", "url": stampImageBase + "Parts01/Mouth/Nikkori1.png"},
+          // {"group": "Parts01", "name": "おちょぼ口", "url": stampImageBase + "Parts01/Mouth/Ochoboguchi1.png"},
+          // {"group": "Parts01", "name": "ぷっくり", "url": stampImageBase + "Parts01/Mouth/Pukkuri1.png"},
+          // {"group": "Parts01", "name": "テヘペロ", "url": stampImageBase + "Parts01/Mouth/Tehepero1.png"},
           {"group": "Parts02", "name": "スタンダード", "url": stampImageBase + "Parts02/Mouth/Standard2.png"},
           {"group": "Parts02", "name": "口唇", "url": stampImageBase + "Parts02/Mouth/Kuchibiru2.png"},
           {"group": "Parts02", "name": "前歯", "url": stampImageBase + "Parts02/Mouth/Maeba2.png"},
@@ -1019,11 +1040,12 @@ export default function Stamp() {
         "layer": "13",
         "categoryName": "眉毛",
         "parts": [
-          {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Eyebrows/Standard1.png"},
+          {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts13/Eyebrows/Mayuge.png"},
           {"name": "なし", "url": noneUrl},
-          {"group": "Parts01", "name": "困り眉", "url": stampImageBase + "Parts01/Eyebrows/Komarimayu1.png"},
-          {"group": "Parts01", "name": "怒り眉", "url": stampImageBase + "Parts01/Eyebrows/Okorimayu1.png"},
-          {"group": "Parts01", "name": "繋がり眉", "url": stampImageBase + "Parts01/Eyebrows/Tunagarimayu1.png"},
+          // {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Eyebrows/Standard1.png"},
+          // {"group": "Parts01", "name": "困り眉", "url": stampImageBase + "Parts01/Eyebrows/Komarimayu1.png"},
+          // {"group": "Parts01", "name": "怒り眉", "url": stampImageBase + "Parts01/Eyebrows/Okorimayu1.png"},
+          // {"group": "Parts01", "name": "繋がり眉", "url": stampImageBase + "Parts01/Eyebrows/Tunagarimayu1.png"},
           {"group": "Parts02", "name": "スタンダード", "url": stampImageBase + "Parts02/Eyebrows/Standard2.png"},
           {"group": "Parts02", "name": "困り眉", "url": stampImageBase + "Parts02/Eyebrows/Komarimayu2.png"},
           {"group": "Parts02", "name": "怒り眉", "url": stampImageBase + "Parts02/Eyebrows/Okorimayu2.png"},
@@ -1454,6 +1476,26 @@ export default function Stamp() {
       },
       22 : {
         "layer": "22",
+        "categoryName": "CBAs",
+        "parts": [
+          {"name": "なし", "url": noneUrl},
+          {"name": "Alpaca1", "url": stampImageBase + "CBAs/Alpaca/1.png"},
+          {"name": "Alpaca2", "url": stampImageBase + "CBAs/Alpaca/2.png"},
+          {"name": "Alpaca3", "url": stampImageBase + "CBAs/Alpaca/3.png"},
+          {"name": "Armadillo1", "url": stampImageBase + "CBAs/Armadillo/1.png"},
+          {"name": "Armadillo2", "url": stampImageBase + "CBAs/Armadillo/2.png"},
+          {"name": "Armadillo3", "url": stampImageBase + "CBAs/Armadillo/3.png"},
+          {"name": "Baby chick1", "url": stampImageBase + "CBAs/Baby chick/1.png"},
+          {"name": "Baby chick2", "url": stampImageBase + "CBAs/Baby chick/2.png"},
+          {"name": "Baby chick3", "url": stampImageBase + "CBAs/Baby chick/3.png"},
+          {"name": "Cat1", "url": stampImageBase + "CBAs/Cat/1.png"},
+          {"name": "Cat2", "url": stampImageBase + "CBAs/Cat/2.png"},
+          {"name": "Cat3", "url": stampImageBase + "CBAs/Cat/3.png"},
+
+        ]
+      },
+      23 : {
+        "layer": "23",
         "categoryName": "セリフ",
         "parts": [
           {"name": "なし", "url": noneUrl},
@@ -1586,6 +1628,7 @@ export default function Stamp() {
           setDressUpPic19Url(dressUpPartsSetSKB[19].parts[0].url);
           setDressUpPic20Url(dressUpPartsSetSKB[20].parts[0].url);
           setDressUpPic21Url(dressUpPartsSetSKB[21].parts[0].url);
+          setDressUpPic22Url(dressUpPartsSetSKB[22].parts[0].url);
           
         } else {
           // スタンプ対象外のNFTの場合、元の画像をそのまま入れる
@@ -1761,8 +1804,6 @@ export default function Stamp() {
 
       }
 
-
-
     }
 
     const createPartsArea = () => {
@@ -1933,7 +1974,7 @@ export default function Stamp() {
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic19Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic20Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic21Url} />
-                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic22Url} />
+                    <img className="dress-up-pic-cbas" crossOrigin='anonymous' src={dressUpPic22Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic23Url} />
                     <img id="dress-up-pic-copyright" className={dressUpPicCopyrightDisp? "dress-up-pic": "dress-up-pic-hidden"} crossOrigin='anonymous' src={dressUpPicCopyrightUrl} />
                     <div id="dress-up-pic-vail" className='dress-up-pic' style={dressUpPicVailStyle} />
