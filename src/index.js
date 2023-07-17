@@ -12,30 +12,28 @@ import awsconfig from './aws-exports';
 // WalletConnect
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
-import { configureChains, createClient, WagmiConfig } from 'wagmi'
+import { configureChains, createConfig, WagmiConfig } from 'wagmi'
 import { mainnet, polygon } from 'wagmi/chains'
 
 // const chains = [arbitrum, mainnet, polygon]
 const chains = [mainnet, polygon]
 const projectId = '01d5c35c949a4b0eaf1b71d10424a03f'  // DressUpNFT
 
-const { provider } = configureChains(chains, [w3mProvider({ projectId })])
+const { publicClient } = configureChains(chains, [w3mProvider({ projectId })])
 
-const wagmiClient = createClient({
+const wagmiConfig = createConfig({
   autoConnect: true,
-  // connectors: w3mConnectors({ projectId, version: 1, chains }),
-  connectors: w3mConnectors({ projectId, version: 1, chains }),
-  // connectors: [connector],
-  provider
+  connectors: w3mConnectors({ projectId, chains }),
+  publicClient
 })
-const ethereumClient = new EthereumClient(wagmiClient, chains)
+const ethereumClient = new EthereumClient(wagmiConfig, chains)
 
 
 Amplify.configure(awsconfig);
 
 ReactDOM.render(
   <React.StrictMode>
-    <WagmiConfig client={wagmiClient}>
+    <WagmiConfig config={wagmiConfig}>
       <AmplifyProvider>
         <App />
       </AmplifyProvider>
