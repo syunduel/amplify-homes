@@ -2021,7 +2021,7 @@ export default function Stamp() {
               <Link to={`/`} class="back-link">←Change NFT</Link>
               <h1 class="card__dress-up--title">Stamp Maker</h1>
             </div>
-            <button onClick={onClickExport}>↓ Download (PC only)</button>
+            <button onClick={onClickExport}>↓ Download</button>
           </div>
           <div class="card__dress-up--change">
             <div class="card__dress-up--image">
