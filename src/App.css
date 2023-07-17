@@ -63,12 +63,18 @@
   height: 100%;
 }
 
-.dress-up-pic-cbas {
+.dress-up-pic-cbas-left {
   position: absolute;
   bottom: 0px;
   left: 0px;
-  /* padding-bottom: 10px;
-  padding-left: 10px; */
+  width: 40%;
+  height: 40%;
+}
+
+.dress-up-pic-cbas-right {
+  position: absolute;
+  bottom: 0px;
+  left: 240px;
   width: 40%;
   height: 40%;
 }
