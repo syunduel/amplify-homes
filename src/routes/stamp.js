@@ -48,7 +48,7 @@ export default function Stamp() {
     // console.log('collectionInfo', collectionInfo);
 
 
-    const stampImageBase = serverData.serverStampRoot + selectedChain + "/" + symbol + "_" + selectedNftAddress + "/parts_v5/";
+    const stampImageBase = serverData.serverStampRoot + selectedChain + "/" + symbol + "_" + selectedNftAddress + "/parts_v6/";
 
 
     const [selectedAttributes, setSelectedAttributes] = useState([]);
@@ -733,6 +733,13 @@ export default function Stamp() {
           {"group": "Parts01", "name": "瞑る", "url": stampImageBase + "Parts13/Eyes/Tuburu.png"},
           {"group": "Parts01", "name": "上向き", "url": stampImageBase + "Parts13/Eyes/Uemuki.png"},
           {"group": "Parts01", "name": "ウィンク", "url": stampImageBase + "Parts13/Eyes/Uink.png"},
+          {"group": "Parts01", "name": "キリッ", "url": stampImageBase + "Parts13/Eyes/Kiri.png"},
+          {"group": "Parts01", "name": "キョトーン", "url": stampImageBase + "Parts13/Eyes/Kyoto-nn.png"},
+          {"group": "Parts01", "name": "燃えるっ", "url": stampImageBase + "Parts13/Eyes/Moeru.png"},
+          {"group": "Parts01", "name": "睨む", "url": stampImageBase + "Parts13/Eyes/Niramu.png"},
+          {"group": "Parts01", "name": "怒る", "url": stampImageBase + "Parts13/Eyes/Okoru.png"},
+          {"group": "Parts01", "name": "白目で怒る", "url": stampImageBase + "Parts13/Eyes/Shiromedeokoru.png"},
+          {"group": "Parts01", "name": "静かに泣く", "url": stampImageBase + "Parts13/Eyes/Shizukaninaku.png"},
           // {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Eyes/Standard1.png"},
           // {"group": "Parts01", "name": "ボケ", "url": stampImageBase + "Parts01/Eyes/Boke1.png"},
           // {"group": "Parts01", "name": "ギュッ", "url": stampImageBase + "Parts01/Eyes/Gyu1.png"},
@@ -927,6 +934,7 @@ export default function Stamp() {
           {"group": "Parts01", "name": "ンー", "url": stampImageBase + "Parts13/Mouth/Nn.png"},
           {"group": "Parts01", "name": "オット", "url": stampImageBase + "Parts13/Mouth/Otto.png"},
           {"group": "Parts01", "name": "テヘッ", "url": stampImageBase + "Parts13/Mouth/Tehe.png"},
+          {"group": "Parts01", "name": "アハハ", "url": stampImageBase + "Parts13/Mouth/Ahaha.png"},
           // {"group": "Parts01", "name": "スタンダード", "url": stampImageBase + "Parts01/Mouth/Standard1.png"},
           // {"group": "Parts01", "name": "口唇", "url": stampImageBase + "Parts01/Mouth/Kuchibiru1.png"},
           // {"group": "Parts01", "name": "前歯", "url": stampImageBase + "Parts01/Mouth/Maeba1.png"},
