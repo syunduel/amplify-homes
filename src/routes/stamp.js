@@ -11,7 +11,7 @@ export default function Stamp() {
 
   console.log("Stamp start");
 
-  const LAYER_MAX = 23;
+  const LAYER_MAX = 24;
 
   const wait = async (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -80,6 +80,7 @@ export default function Stamp() {
     const [dressUpPic21Url, setDressUpPic21Url] = useState(noneUrl);
     const [dressUpPic22Url, setDressUpPic22Url] = useState(noneUrl);
     const [dressUpPic23Url, setDressUpPic23Url] = useState(noneUrl);
+    const [dressUpPic24Url, setDressUpPic24Url] = useState(noneUrl);
     const [dressUpPicCopyrightUrl, setDressUpPicCopyrightUrl] = useState(noneUrl);
     const [dressUpPicCopyrightDisp, setDressUpPicCopyrightDisp] = useState(false);
     const [dressUpPicVailStyle, setDressUpPicVailStyle] = useState({backgroundColor: 'lightgray'});
@@ -1476,26 +1477,88 @@ export default function Stamp() {
       },
       22 : {
         "layer": "22",
-        "categoryName": "CBAs",
+        "categoryName": "CBAs(左)",
         "parts": [
           {"name": "なし", "url": noneUrl},
-          {"name": "Alpaca1", "url": stampImageBase + "CBAs/Alpaca/1.png"},
-          {"name": "Alpaca2", "url": stampImageBase + "CBAs/Alpaca/2.png"},
-          {"name": "Alpaca3", "url": stampImageBase + "CBAs/Alpaca/3.png"},
-          {"name": "Armadillo1", "url": stampImageBase + "CBAs/Armadillo/1.png"},
-          {"name": "Armadillo2", "url": stampImageBase + "CBAs/Armadillo/2.png"},
-          {"name": "Armadillo3", "url": stampImageBase + "CBAs/Armadillo/3.png"},
-          {"name": "Baby chick1", "url": stampImageBase + "CBAs/Baby chick/1.png"},
-          {"name": "Baby chick2", "url": stampImageBase + "CBAs/Baby chick/2.png"},
-          {"name": "Baby chick3", "url": stampImageBase + "CBAs/Baby chick/3.png"},
-          {"name": "Cat1", "url": stampImageBase + "CBAs/Cat/1.png"},
-          {"name": "Cat2", "url": stampImageBase + "CBAs/Cat/2.png"},
-          {"name": "Cat3", "url": stampImageBase + "CBAs/Cat/3.png"},
-
+          {"name": "Alligator", "url": stampImageBase + "CBAs/Alligator/${30}.png"},
+          {"name": "Alpaca", "url": stampImageBase + "CBAs/Alpaca/${30}.png"},
+          {"name": "Armadillo", "url": stampImageBase + "CBAs/Armadillo/${30}.png"},
+          {"name": "Baby chick", "url": stampImageBase + "CBAs/Baby chick/${30}.png"},
+          {"name": "Cat", "url": stampImageBase + "CBAs/Cat/${31}.png"},
+          {"name": "Cheetah", "url": stampImageBase + "CBAs/Cheetah/${30}.png"},
+          {"name": "Dog", "url": stampImageBase + "CBAs/Dog/${32}.png"},
+          {"name": "Elephant", "url": stampImageBase + "CBAs/Elephant/${30}.png"},
+          {"name": "Fox", "url": stampImageBase + "CBAs/Fox/${30}.png"},
+          {"name": "Frog", "url": stampImageBase + "CBAs/Frog/${30}.png"},
+          {"name": "Giraffe", "url": stampImageBase + "CBAs/Giraffe/${30}.png"},
+          {"name": "Gorilla", "url": stampImageBase + "CBAs/Gorilla/${30}.png"},
+          {"name": "Hamster", "url": stampImageBase + "CBAs/Hamster/${30}.png"},
+          {"name": "Hedgehog", "url": stampImageBase + "CBAs/Hedgehog/${30}.png"},
+          {"name": "Hippopotamus", "url": stampImageBase + "CBAs/Hippopotamus/${30}.png"},
+          {"name": "Horse", "url": stampImageBase + "CBAs/Horse/${30}.png"},
+          {"name": "Hyena", "url": stampImageBase + "CBAs/Hyena/${30}.png"},
+          {"name": "Koala", "url": stampImageBase + "CBAs/Koala/${30}.png"},
+          {"name": "Lion", "url": stampImageBase + "CBAs/Lion/${32}.png"},
+          {"name": "Meerkat", "url": stampImageBase + "CBAs/Meerkat/${30}.png"},
+          {"name": "Monkey", "url": stampImageBase + "CBAs/Monkey/${30}.png"},
+          {"name": "Mouse", "url": stampImageBase + "CBAs/Mouse/${30}.png"},
+          {"name": "Panda", "url": stampImageBase + "CBAs/Panda/${30}.png"},
+          {"name": "Penguin", "url": stampImageBase + "CBAs/Penguin/${30}.png"},
+          {"name": "Pig", "url": stampImageBase + "CBAs/Pig/${30}.png"},
+          {"name": "Rabbit", "url": stampImageBase + "CBAs/Rabbit/${30}.png"},
+          {"name": "Raccoon dog", "url": stampImageBase + "CBAs/Raccoon dog/${30}.png"},
+          {"name": "Reindeer", "url": stampImageBase + "CBAs/Reindeer/${30}.png"},
+          {"name": "Rhino", "url": stampImageBase + "CBAs/Rhino/${30}.png"},
+          {"name": "Seal", "url": stampImageBase + "CBAs/Seal/${30}.png"},
+          {"name": "Sheep", "url": stampImageBase + "CBAs/Sheep/${30}.png"},
+          {"name": "Sloth", "url": stampImageBase + "CBAs/Sloth/${30}.png"},
+          {"name": "Tiger", "url": stampImageBase + "CBAs/Tiger/${30}.png"},
+          {"name": "Unicorn", "url": stampImageBase + "CBAs/Unicorn/${9}.png"},
         ]
       },
       23 : {
         "layer": "23",
+        "categoryName": "CBAs(右)",
+        "parts": [
+          {"name": "なし", "url": noneUrl},
+          {"name": "Alligator", "url": stampImageBase + "CBAs/Alligator/${30}.png"},
+          {"name": "Alpaca", "url": stampImageBase + "CBAs/Alpaca/${30}.png"},
+          {"name": "Armadillo", "url": stampImageBase + "CBAs/Armadillo/${30}.png"},
+          {"name": "Baby chick", "url": stampImageBase + "CBAs/Baby chick/${30}.png"},
+          {"name": "Cat", "url": stampImageBase + "CBAs/Cat/${31}.png"},
+          {"name": "Cheetah", "url": stampImageBase + "CBAs/Cheetah/${30}.png"},
+          {"name": "Dog", "url": stampImageBase + "CBAs/Dog/${32}.png"},
+          {"name": "Elephant", "url": stampImageBase + "CBAs/Elephant/${30}.png"},
+          {"name": "Fox", "url": stampImageBase + "CBAs/Fox/${30}.png"},
+          {"name": "Frog", "url": stampImageBase + "CBAs/Frog/${30}.png"},
+          {"name": "Giraffe", "url": stampImageBase + "CBAs/Giraffe/${30}.png"},
+          {"name": "Gorilla", "url": stampImageBase + "CBAs/Gorilla/${30}.png"},
+          {"name": "Hamster", "url": stampImageBase + "CBAs/Hamster/${30}.png"},
+          {"name": "Hedgehog", "url": stampImageBase + "CBAs/Hedgehog/${30}.png"},
+          {"name": "Hippopotamus", "url": stampImageBase + "CBAs/Hippopotamus/${30}.png"},
+          {"name": "Horse", "url": stampImageBase + "CBAs/Horse/${30}.png"},
+          {"name": "Hyena", "url": stampImageBase + "CBAs/Hyena/${30}.png"},
+          {"name": "Koala", "url": stampImageBase + "CBAs/Koala/${30}.png"},
+          {"name": "Lion", "url": stampImageBase + "CBAs/Lion/${32}.png"},
+          {"name": "Meerkat", "url": stampImageBase + "CBAs/Meerkat/${30}.png"},
+          {"name": "Monkey", "url": stampImageBase + "CBAs/Monkey/${30}.png"},
+          {"name": "Mouse", "url": stampImageBase + "CBAs/Mouse/${30}.png"},
+          {"name": "Panda", "url": stampImageBase + "CBAs/Panda/${30}.png"},
+          {"name": "Penguin", "url": stampImageBase + "CBAs/Penguin/${30}.png"},
+          {"name": "Pig", "url": stampImageBase + "CBAs/Pig/${30}.png"},
+          {"name": "Rabbit", "url": stampImageBase + "CBAs/Rabbit/${30}.png"},
+          {"name": "Raccoon dog", "url": stampImageBase + "CBAs/Raccoon dog/${30}.png"},
+          {"name": "Reindeer", "url": stampImageBase + "CBAs/Reindeer/${30}.png"},
+          {"name": "Rhino", "url": stampImageBase + "CBAs/Rhino/${30}.png"},
+          {"name": "Seal", "url": stampImageBase + "CBAs/Seal/${30}.png"},
+          {"name": "Sheep", "url": stampImageBase + "CBAs/Sheep/${30}.png"},
+          {"name": "Sloth", "url": stampImageBase + "CBAs/Sloth/${30}.png"},
+          {"name": "Tiger", "url": stampImageBase + "CBAs/Tiger/${30}.png"},
+          {"name": "Unicorn", "url": stampImageBase + "CBAs/Unicorn/${9}.png"},
+        ]
+      },
+      24 : {
+        "layer": "24",
         "categoryName": "セリフ",
         "parts": [
           {"name": "なし", "url": noneUrl},
@@ -1629,6 +1692,7 @@ export default function Stamp() {
           setDressUpPic20Url(dressUpPartsSetSKB[20].parts[0].url);
           setDressUpPic21Url(dressUpPartsSetSKB[21].parts[0].url);
           setDressUpPic22Url(dressUpPartsSetSKB[22].parts[0].url);
+          setDressUpPic22Url(dressUpPartsSetSKB[23].parts[0].url);
           
         } else {
           // スタンプ対象外のNFTの場合、元の画像をそのまま入れる
@@ -1660,7 +1724,18 @@ export default function Stamp() {
       }
       const nowDressUpPicAccessoryLayer = nowDressUpPicDataArray[0];
       const nowDressUpPicAccessoryCategory = nowDressUpPicDataArray[1];
-      const nowDressUpPicAccessoryUrl = nowDressUpPicDataArray[2];
+      var nowDressUpPicAccessoryUrl = nowDressUpPicDataArray[2];
+
+      // CBAsの場合は「${10}」に範囲内（例の場合は1から10）のランダムな数字を置き換えて表示する
+      if (nowDressUpPicAccessoryUrl.indexOf("${") !== -1) {
+        const startIndex = nowDressUpPicAccessoryUrl.indexOf("${")
+        const closeIndex = nowDressUpPicAccessoryUrl.indexOf("}");
+        const numStr = nowDressUpPicAccessoryUrl.substring(startIndex + 2, closeIndex);
+        const num = parseInt(numStr);
+        const randomNum = Math.floor(Math.random() * num) + 1;
+        const replacedUrl = nowDressUpPicAccessoryUrl.replace("${" + numStr + "}", randomNum);
+        nowDressUpPicAccessoryUrl = replacedUrl;
+      }
 
       setDressUpPic(nowDressUpPicAccessoryLayer, nowDressUpPicAccessoryUrl);
     }
@@ -1682,7 +1757,8 @@ export default function Stamp() {
       setDressUpPic19Url(noneUrl);
       setDressUpPic20Url(noneUrl);
       setDressUpPic21Url(noneUrl);
-      setDressUpPic22Url(noneUrl);
+      // setDressUpPic22Url(noneUrl);
+      // setDressUpPic23Url(noneUrl);
 
       if (nowDressUpPicAccessoryCategory.includes("Full-body")) {
         setDressUpPic01Url(dressUpPartsSetSKB[1].parts[0].url);
@@ -1974,8 +2050,9 @@ export default function Stamp() {
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic19Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic20Url} />
                     <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic21Url} />
-                    <img className="dress-up-pic-cbas" crossOrigin='anonymous' src={dressUpPic22Url} />
-                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic23Url} />
+                    <img className="dress-up-pic-cbas-left" crossOrigin='anonymous' src={dressUpPic22Url} />
+                    <img className="dress-up-pic-cbas-right" crossOrigin='anonymous' src={dressUpPic23Url} />
+                    <img className="dress-up-pic" crossOrigin='anonymous' src={dressUpPic24Url} />
                     <img id="dress-up-pic-copyright" className={dressUpPicCopyrightDisp? "dress-up-pic": "dress-up-pic-hidden"} crossOrigin='anonymous' src={dressUpPicCopyrightUrl} />
                     <div id="dress-up-pic-vail" className='dress-up-pic' style={dressUpPicVailStyle} />
                     <div id="dress-up-spin" className={dressUpPicSpin}>
@@ -2089,6 +2166,8 @@ export default function Stamp() {
       setDressUpPic22Url(nowDressUpPicAccessoryUrl);
     } else if (nowDressUpPicAccessoryLayer === "23") {
       setDressUpPic23Url(nowDressUpPicAccessoryUrl);
+    } else if (nowDressUpPicAccessoryLayer === "24") {
+      setDressUpPic24Url(nowDressUpPicAccessoryUrl);
     }
   }
   }
