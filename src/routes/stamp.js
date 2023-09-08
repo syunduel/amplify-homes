@@ -1270,10 +1270,11 @@ export default function Stamp() {
       },
       15 : {
         "layer": "15",
-        "categoryName": "布団",
-        "group": "Parts18",
+        "categoryName": "布団・風呂",
+        "group": "Parts18,Parts19",
         "parts": [
           {"group": "Parts18", "name": "スタンダード", "url": stampImageBase + "Parts18/Futon/Standard.png"},
+          {"group": "Parts19", "name": "風呂", "url": stampImageBase + "Parts19/SmallItem/Bath.png"},
         ]
       },
       16 : {
@@ -1482,10 +1483,9 @@ export default function Stamp() {
       17 : {
         "layer": "17",
         "categoryName": "小物",
-        "group": "Parts17,Parts19",
+        "group": "Parts17",
         "parts": [
           {"group": "Parts17", "name": "壁", "url": stampImageBase + "Parts17/SmallItem/Wall.png"},
-          {"group": "Parts19", "name": "風呂", "url": stampImageBase + "Parts19/SmallItem/Bath.png"},
         ]
       },
       18 : {
