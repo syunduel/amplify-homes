@@ -730,6 +730,9 @@ export default function Stamp() {
           {"group": "Parts16", "name": "Standard", "url": stampImageBase + "Parts16/Face/Standard.png"},
           {"group": "Parts17", "name": "Standard", "url": stampImageBase + "Parts17/Face/Standard.png"},
           {"group": "Parts18", "name": "Standard", "url": stampImageBase + "Parts18/Face/Standard.png"},
+          {"group": "Parts19", "name": "Standard", "url": stampImageBase + "Parts19/Face/Standard.png"},
+          {"group": "Parts20", "name": "Standard", "url": stampImageBase + "Parts20/Face/Standard.png"},
+          {"group": "Parts21", "name": "Standard", "url": stampImageBase + "Parts21/Face/Standard.png"},
         ]
       },
       10 : {
@@ -892,6 +895,24 @@ export default function Stamp() {
           {"group": "Parts18", "name": "ニコリ", "url": stampImageBase + "Parts18/Eyes/nikori.png"},
           {"group": "Parts18", "name": "のほほん", "url": stampImageBase + "Parts18/Eyes/nohohon.png"},
           {"group": "Parts18", "name": "泣く", "url": stampImageBase + "Parts18/Eyes/naku.png"},
+          {"group": "Parts19", "name": "ウインク", "url": stampImageBase + "Parts19/Eyes/wink.png"},
+          {"group": "Parts19", "name": "ぎゅ", "url": stampImageBase + "Parts19/Eyes/gyu.png"},
+          {"group": "Parts19", "name": "ギロっ", "url": stampImageBase + "Parts19/Eyes/giro.png"},
+          {"group": "Parts19", "name": "ニコリ", "url": stampImageBase + "Parts19/Eyes/nikori.png"},
+          {"group": "Parts19", "name": "のほほん", "url": stampImageBase + "Parts19/Eyes/nohohon.png"},
+          {"group": "Parts19", "name": "泣く", "url": stampImageBase + "Parts19/Eyes/naku.png"},
+          {"group": "Parts20", "name": "ウインク", "url": stampImageBase + "Parts20/Eyes/wink.png"},
+          {"group": "Parts20", "name": "ぎゅ", "url": stampImageBase + "Parts20/Eyes/gyu.png"},
+          {"group": "Parts20", "name": "ギロっ", "url": stampImageBase + "Parts20/Eyes/giro.png"},
+          {"group": "Parts20", "name": "ニコリ", "url": stampImageBase + "Parts20/Eyes/nikori.png"},
+          {"group": "Parts20", "name": "のほほん", "url": stampImageBase + "Parts20/Eyes/nohohon.png"},
+          {"group": "Parts20", "name": "泣く", "url": stampImageBase + "Parts20/Eyes/naku.png"},
+          {"group": "Parts21", "name": "ウインク", "url": stampImageBase + "Parts21/Eyes/wink.png"},
+          {"group": "Parts21", "name": "ぎゅ", "url": stampImageBase + "Parts21/Eyes/gyu.png"},
+          {"group": "Parts21", "name": "ギロっ", "url": stampImageBase + "Parts21/Eyes/giro.png"},
+          {"group": "Parts21", "name": "ニコリ", "url": stampImageBase + "Parts21/Eyes/nikori.png"},
+          {"group": "Parts21", "name": "のほほん", "url": stampImageBase + "Parts21/Eyes/nohohon.png"},
+          {"group": "Parts21", "name": "泣く", "url": stampImageBase + "Parts21/Eyes/naku.png"},
         ]
       },
       11 : {
@@ -964,6 +985,9 @@ export default function Stamp() {
           {"group": "Parts16", "name": "スタンダード", "url": stampImageBase + "Parts16/Nose/Standard.png"},
           {"group": "Parts17", "name": "スタンダード", "url": stampImageBase + "Parts17/Nose/Standard.png"},
           {"group": "Parts18", "name": "スタンダード", "url": stampImageBase + "Parts18/Nose/Standard.png"},
+          {"group": "Parts19", "name": "スタンダード", "url": stampImageBase + "Parts19/Nose/Standard.png"},
+          {"group": "Parts20", "name": "スタンダード", "url": stampImageBase + "Parts20/Nose/Standard.png"},
+          {"group": "Parts21", "name": "スタンダード", "url": stampImageBase + "Parts21/Nose/Standard.png"},
           {"name": "なし", "url": noneUrl},
         ]
       },
@@ -1120,6 +1144,24 @@ export default function Stamp() {
           {"group": "Parts18", "name": "ほぉ", "url": stampImageBase + "Parts18/Mouth/Hoo.png"},
           {"group": "Parts18", "name": "ポカーン", "url": stampImageBase + "Parts18/Mouth/Pokaan.png"},
           {"group": "Parts18", "name": "むむ", "url": stampImageBase + "Parts18/Mouth/Mumu.png"},
+          {"group": "Parts19", "name": "チュ", "url": stampImageBase + "Parts19/Mouth/Chu.png"},
+          {"group": "Parts19", "name": "ニコッ", "url": stampImageBase + "Parts19/Mouth/Nikori.png"},
+          {"group": "Parts19", "name": "ニヤリ", "url": stampImageBase + "Parts19/Mouth/Niyari.png"},
+          {"group": "Parts19", "name": "ほぉ", "url": stampImageBase + "Parts19/Mouth/Hoo.png"},
+          {"group": "Parts19", "name": "ポカーン", "url": stampImageBase + "Parts19/Mouth/Pokaan.png"},
+          {"group": "Parts19", "name": "むむ", "url": stampImageBase + "Parts19/Mouth/Mumu.png"},
+          {"group": "Parts20", "name": "チュ", "url": stampImageBase + "Parts20/Mouth/Chu.png"},
+          {"group": "Parts20", "name": "ニコッ", "url": stampImageBase + "Parts20/Mouth/Nikori.png"},
+          {"group": "Parts20", "name": "ニヤリ", "url": stampImageBase + "Parts20/Mouth/Niyari.png"},
+          {"group": "Parts20", "name": "ほぉ", "url": stampImageBase + "Parts20/Mouth/Hoo.png"},
+          {"group": "Parts20", "name": "ポカーン", "url": stampImageBase + "Parts20/Mouth/Pokaan.png"},
+          {"group": "Parts20", "name": "むむ", "url": stampImageBase + "Parts20/Mouth/Mumu.png"},
+          {"group": "Parts21", "name": "チュ", "url": stampImageBase + "Parts21/Mouth/Chu.png"},
+          {"group": "Parts21", "name": "ニコッ", "url": stampImageBase + "Parts21/Mouth/Nikori.png"},
+          {"group": "Parts21", "name": "ニヤリ", "url": stampImageBase + "Parts21/Mouth/Niyari.png"},
+          {"group": "Parts21", "name": "ほぉ", "url": stampImageBase + "Parts21/Mouth/Hoo.png"},
+          {"group": "Parts21", "name": "ポカーン", "url": stampImageBase + "Parts21/Mouth/Pokaan.png"},
+          {"group": "Parts21", "name": "むむ", "url": stampImageBase + "Parts21/Mouth/Mumu.png"},
           {"name": "なし", "url": noneUrl},
         ]
       },
@@ -1181,6 +1223,9 @@ export default function Stamp() {
           {"group": "Parts16", "name": "スタンダード", "url": stampImageBase + "Parts16/Eyebrows/Standard.png"},
           {"group": "Parts17", "name": "スタンダード", "url": stampImageBase + "Parts17/Eyebrows/Standard.png"},
           {"group": "Parts18", "name": "スタンダード", "url": stampImageBase + "Parts18/Eyebrows/Standard.png"},
+          {"group": "Parts19", "name": "スタンダード", "url": stampImageBase + "Parts19/Eyebrows/Standard.png"},
+          {"group": "Parts20", "name": "スタンダード", "url": stampImageBase + "Parts20/Eyebrows/Standard.png"},
+          {"group": "Parts21", "name": "スタンダード", "url": stampImageBase + "Parts21/Eyebrows/Standard.png"},
           {"name": "なし", "url": noneUrl},
         ]
       },
@@ -1218,6 +1263,9 @@ export default function Stamp() {
           {"group": "Parts16", "name": "カワイイ", "url": stampImageBase + "Parts16/Curse/Kawaii.png"},
           {"group": "Parts17", "name": "カワイイ", "url": stampImageBase + "Parts17/Curse/Kawaii.png"},
           {"group": "Parts18", "name": "カワイイ", "url": stampImageBase + "Parts18/Curse/Kawaii.png"},
+          {"group": "Parts19", "name": "カワイイ", "url": stampImageBase + "Parts19/Curse/Kawaii.png"},
+          {"group": "Parts20", "name": "カワイイ", "url": stampImageBase + "Parts20/Curse/Kawaii.png"},
+          {"group": "Parts21", "name": "カワイイ", "url": stampImageBase + "Parts21/Curse/Kawaii.png"},
         ]
       },
       15 : {
@@ -1407,15 +1455,37 @@ export default function Stamp() {
           {"group": "Parts18", "name": "ツインテール", "url": stampImageBase + "Parts18/Hair/TwinTail.png"},
           {"group": "Parts18", "name": "ボブ", "url": stampImageBase + "Parts18/Hair/Bob.png"},
           {"group": "Parts18", "name": "ロング", "url": stampImageBase + "Parts18/Hair/Long.png"},
+          {"group": "Parts19", "name": "オールバック", "url": stampImageBase + "Parts19/Hair/AllBack.png"},
+          {"group": "Parts19", "name": "おかっぱ", "url": stampImageBase + "Parts19/Hair/Okappa.png"},
+          {"group": "Parts19", "name": "センター分け", "url": stampImageBase + "Parts19/Hair/CenterParted.png"},
+          {"group": "Parts19", "name": "ちょんまげ", "url": stampImageBase + "Parts19/Hair/Chonmage.png"},
+          {"group": "Parts19", "name": "ツインテール", "url": stampImageBase + "Parts19/Hair/TwinTail.png"},
+          {"group": "Parts19", "name": "ボブ", "url": stampImageBase + "Parts19/Hair/Bob.png"},
+          {"group": "Parts19", "name": "ロング", "url": stampImageBase + "Parts19/Hair/Long.png"},
+          {"group": "Parts20", "name": "オールバック", "url": stampImageBase + "Parts20/Hair/AllBack.png"},
+          {"group": "Parts20", "name": "おかっぱ", "url": stampImageBase + "Parts20/Hair/Okappa.png"},
+          {"group": "Parts20", "name": "センター分け", "url": stampImageBase + "Parts20/Hair/CenterParted.png"},
+          {"group": "Parts20", "name": "ちょんまげ", "url": stampImageBase + "Parts20/Hair/Chonmage.png"},
+          {"group": "Parts20", "name": "ツインテール", "url": stampImageBase + "Parts20/Hair/TwinTail.png"},
+          {"group": "Parts20", "name": "ボブ", "url": stampImageBase + "Parts20/Hair/Bob.png"},
+          {"group": "Parts20", "name": "ロング", "url": stampImageBase + "Parts20/Hair/Long.png"},
+          {"group": "Parts21", "name": "オールバック", "url": stampImageBase + "Parts21/Hair/AllBack.png"},
+          {"group": "Parts21", "name": "おかっぱ", "url": stampImageBase + "Parts21/Hair/Okappa.png"},
+          {"group": "Parts21", "name": "センター分け", "url": stampImageBase + "Parts21/Hair/CenterParted.png"},
+          {"group": "Parts21", "name": "ちょんまげ", "url": stampImageBase + "Parts21/Hair/Chonmage.png"},
+          {"group": "Parts21", "name": "ツインテール", "url": stampImageBase + "Parts21/Hair/TwinTail.png"},
+          {"group": "Parts21", "name": "ボブ", "url": stampImageBase + "Parts21/Hair/Bob.png"},
+          {"group": "Parts21", "name": "ロング", "url": stampImageBase + "Parts21/Hair/Long.png"},
           {"name": "なし", "url": noneUrl},
         ]
       },
       17 : {
         "layer": "17",
         "categoryName": "小物",
-        "group": "Parts17",
+        "group": "Parts17,Parts19",
         "parts": [
           {"group": "Parts17", "name": "壁", "url": stampImageBase + "Parts17/SmallItem/Wall.png"},
+          {"group": "Parts19", "name": "風呂", "url": stampImageBase + "Parts19/SmallItem/Bath.png"},
         ]
       },
       18 : {
@@ -1629,18 +1699,20 @@ export default function Stamp() {
       24 : {
         "layer": "24",
         "categoryName": "体",
-        "group": "Parts14,Parts15,Parts16,Parts17",
+        "group": "Parts14,Parts15,Parts16,Parts17,Parts20,Parts21",
         "parts": [
           {"group": "Parts14", "name": "Standard", "url": stampImageBase + "Parts14/Body/Standard.png"},
           {"group": "Parts15", "name": "Standard", "url": stampImageBase + "Parts15/Body/Standard.png"},
           {"group": "Parts16", "name": "Standard", "url": stampImageBase + "Parts16/Body/Standard.png"},
           {"group": "Parts17", "name": "Standard", "url": stampImageBase + "Parts17/Body/Standard.png"},
+          {"group": "Parts20", "name": "Standard", "url": stampImageBase + "Parts20/Body/Standard.png"},
+          {"group": "Parts21", "name": "Standard", "url": stampImageBase + "Parts21/Body/Standard.png"},
         ]
       },
       25 : {
         "layer": "25",
         "categoryName": "服",
-        "group": "Parts14,Parts15,Parts16,Parts17",
+        "group": "Parts14,Parts15,Parts16,Parts17,Parts20,Parts21",
         "parts": [
           {"group": "Parts14", "name": "CBAsTシャツ", "url": stampImageBase + "Parts14/Clothes/CBAsT.png"},
           {"group": "Parts14", "name": "仕事服", "url": stampImageBase + "Parts14/Clothes/Work.png"},
@@ -1682,6 +1754,26 @@ export default function Stamp() {
           {"group": "Parts17", "name": "タンクトップ", "url": stampImageBase + "Parts17/Clothes/TankTop.png"},
           {"group": "Parts17", "name": "学生服（女子）", "url": stampImageBase + "Parts17/Clothes/SchoolUniformWoman.png"},
           {"group": "Parts17", "name": "学生服（男子）", "url": stampImageBase + "Parts17/Clothes/SchoolUniformMan.png"},
+          {"group": "Parts20", "name": "CBAsTシャツ", "url": stampImageBase + "Parts20/Clothes/CBAsT.png"},
+          {"group": "Parts20", "name": "仕事服", "url": stampImageBase + "Parts20/Clothes/Work.png"},
+          {"group": "Parts20", "name": "普段着", "url": stampImageBase + "Parts20/Clothes/Normal.png"},
+          {"group": "Parts20", "name": "しきぶTシャツ", "url": stampImageBase + "Parts20/Clothes/ShikibuT.png"},
+          {"group": "Parts20", "name": "パーカー", "url": stampImageBase + "Parts20/Clothes/Hoodie.png"},
+          {"group": "Parts20", "name": "革ジャン", "url": stampImageBase + "Parts20/Clothes/LeatherJacket.png"},
+          {"group": "Parts20", "name": "ジャージ", "url": stampImageBase + "Parts20/Clothes/Jersey.png"},
+          {"group": "Parts20", "name": "タンクトップ", "url": stampImageBase + "Parts20/Clothes/TankTop.png"},
+          {"group": "Parts20", "name": "学生服（女子）", "url": stampImageBase + "Parts20/Clothes/SchoolUniformWoman.png"},
+          {"group": "Parts20", "name": "学生服（男子）", "url": stampImageBase + "Parts20/Clothes/SchoolUniformMan.png"},
+          {"group": "Parts21", "name": "CBAsTシャツ", "url": stampImageBase + "Parts21/Clothes/CBAsT.png"},
+          {"group": "Parts21", "name": "仕事服", "url": stampImageBase + "Parts21/Clothes/Work.png"},
+          {"group": "Parts21", "name": "普段着", "url": stampImageBase + "Parts21/Clothes/Normal.png"},
+          {"group": "Parts21", "name": "しきぶTシャツ", "url": stampImageBase + "Parts21/Clothes/ShikibuT.png"},
+          {"group": "Parts21", "name": "パーカー", "url": stampImageBase + "Parts21/Clothes/Hoodie.png"},
+          {"group": "Parts21", "name": "革ジャン", "url": stampImageBase + "Parts21/Clothes/LeatherJacket.png"},
+          {"group": "Parts21", "name": "ジャージ", "url": stampImageBase + "Parts21/Clothes/Jersey.png"},
+          {"group": "Parts21", "name": "タンクトップ", "url": stampImageBase + "Parts21/Clothes/TankTop.png"},
+          {"group": "Parts21", "name": "学生服（女子）", "url": stampImageBase + "Parts21/Clothes/SchoolUniformWoman.png"},
+          {"group": "Parts21", "name": "学生服（男子）", "url": stampImageBase + "Parts21/Clothes/SchoolUniformMan.png"},
         ]
       },
       26 : {
@@ -2294,6 +2386,9 @@ export default function Stamp() {
                         <button value="Cute,Parts16">キュート（前のめり）</button>
                         <button value="Cute,Parts17">キュート（壁）</button>
                         <button value="Cute,Parts18">キュート（布団）</button>
+                        <button value="Cute,Parts19">キュート（お風呂）</button>
+                        <button value="Cute,Parts20">キュート（上に手）</button>
+                        <button value="Cute,Parts21">キュート（怒）</button>
                       </ButtonGroup>
                     </dd>
                   </dl>
