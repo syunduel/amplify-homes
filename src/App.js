@@ -106,7 +106,7 @@ function App() {
         <Route path="/organization/:organizationName" element={<Organization />} />
         <Route path="/collection/:tokenChain/:tokenAddress" element={<Collection />} />
         <Route path="/dressup/:tokenChain/:tokenAddress/:tokenId" element={<Dressup />} />
-        <Route path="/stamp/:tokenChain/:tokenAddress" element={<Stamp />} />
+        <Route path="/stamp/:tokenChain/:tokenAddress/:tokenId" element={<Stamp />} />
       </Routes>
     </BrowserRouter>
 

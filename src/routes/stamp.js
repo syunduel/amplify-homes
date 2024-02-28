@@ -15,9 +15,10 @@ export default function Stamp() {
 
   const wait = async (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-    const {tokenChain, tokenAddress} = useParams();
+    const {tokenChain, tokenAddress, tokenId} = useParams();
     console.log('tokenChain : ' + tokenChain);
     console.log('tokenAddress : ' + tokenAddress);
+    console.log('tokenId : ' + tokenId);
 
     let targetChain = tokenChain.replace(/[^0-9a-z]/g, '');
     let selectedChain = targetChain;
@@ -31,24 +32,17 @@ export default function Stamp() {
     const selectedNftAddress = tokenAddress.replace(/[^0-9a-z]/g, '');
 
     console.log('useEthNFTs',  selectedChain, selectedNftAddress);
-    const [nfts, isLoaded, total] = useEthNFTs(selectedChain, selectedNftAddress, 3);
+    const selectedEthNFT = useEthNFT(targetChain, selectedNftAddress, tokenId);
 
-    let selectedEthNFT = null;
-    let symbol = null;
-
-    if (isLoaded && nfts !== null && nfts !== undefined && nfts.length > 0) {
-      selectedEthNFT = nfts[0];
-      symbol = selectedEthNFT.symbol;
-    }
-
-    console.log("nfts", nfts);
-    console.log("selectedEthNFT", selectedEthNFT);
+    // console.log("nfts", nfts);
+    // console.log("selectedEthNFT", selectedEthNFT);
 
     const collectionInfo = collectionData[tokenChain.replace(/[^0-9a-z]/g, '') + "_" + selectedNftAddress];
     // console.log('collectionInfo', collectionInfo);
 
-
-    const stampImageBase = serverData.serverStampRoot + selectedChain + "/" + symbol + "_" + selectedNftAddress + "/parts_v6/";
+    // https://dress-up-nft-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/v1/stamp/Eth/SKB_0x32edd2f7437665af088347791521f454831aaa29/parts_v6/Body/A12EA0FECAF0-46D5-8DDC-0510B3E5BCDA.png
+    // const stampImageBase = serverData.serverStampRoot + selectedChain + "/" + symbol + "_" + selectedNftAddress + "/parts_v6/";
+    const stampImageBase = serverData.serverStampRoot + "Eth/SKB_0x32edd2f7437665af088347791521f454831aaa29" + "/parts_v6/";
 
 
     const [selectedAttributes, setSelectedAttributes] = useState([]);
@@ -2089,7 +2083,9 @@ export default function Stamp() {
         setSelectedAttributes(nowSelectedAttributes);
         selectedEthNFT.attributes = nowSelectedAttributes;
 
-        if (selectedEthNFT.symbol === "SKB") {
+        if (selectedChain === "Polygon"
+            && selectedNftAddress === "0xd33bc18f8b38ae10189f4aaf34457439c70f6e1b"
+            && tokenId === "59") {
           setDressUpPic01Url(dressUpPartsSetSKB[1].parts[0].url);
           setDressUpPic02Url(dressUpPartsSetSKB[2].parts[0].url);
           setDressUpPic03Url(dressUpPartsSetSKB[3].parts[0].url);
@@ -2478,8 +2474,11 @@ export default function Stamp() {
             </div>
             <div class="card__dress-up--option">
 
-              {/* SKB */}
-              {selectedEthNFT !== null && symbol === "SKB" &&
+              {/* Character DAO DX */}
+              {selectedEthNFT !== null
+                && selectedChain === "Polygon"
+                && selectedNftAddress === "0xd33bc18f8b38ae10189f4aaf34457439c70f6e1b"
+                && tokenId === "59" &&
                 <>
                   <dl>
                     <dt>レイアウト</dt>
